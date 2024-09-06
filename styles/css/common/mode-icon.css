@@ -1,0 +1,29 @@
+@font-face {
+    font-family: "osu-mode";
+    src: url("../font/extra.ttf") format("truetype")
+}
+
+.mode-std {
+    font-family: "osu-mode";
+    font-style: normal;
+}
+
+.mode-std::before {
+    content: "\e800";
+    position: relative;
+}
+
+.mode-taiko::before {
+    content: "\e803";
+    position: relative;
+}
+
+.mode-ctb::before {
+    content: "\e801";
+    position: relative;
+}
+
+.mode-mania::before {
+    content: "\e802";
+    position: relative;
+}
