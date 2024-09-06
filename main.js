@@ -15,7 +15,7 @@ function connectMysql() {
 connectMysql();
 
 modules.app.get("/", (req, res) => {
-    res.render("home.ejs");
+    res.redirect("/home");
 });
 
 modules.app.listen(5000, () => {
