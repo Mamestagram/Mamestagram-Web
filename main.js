@@ -45,6 +45,7 @@ modules.app.use((req, res, next) => {
         res.locals.country = req.session.country;
         res.locals.timeZone = req.session.timeZone;
         res.locals.badge = req.session.badge;
+        res.locals.language = req.session.language;
     }
     else {
         res.locals.isLoggedIn = false;
@@ -53,6 +54,7 @@ modules.app.use((req, res, next) => {
         res.locals.country = null;
         res.locals.timeZone = null;
         res.locals.badge = 0;
+        res.locals.language = "en";
     }
     next();
 });

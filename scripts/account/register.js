@@ -1,7 +1,6 @@
 const recapthaSecretKey = process.env.RECAPTCHA_SECRET_KEY, geoApiKey = process.env.GEO_API_KEY;
 const modules = require("../modules");
 const mysql = require("../modules/mysql");
-const sql = require("sql-template-strings");
 
 const register = () => {
     const pageName = "Register", subDomain = "register";
@@ -76,7 +75,8 @@ const register = () => {
                         const process = async () => {
                             try {
                                 const getBanWords = await mysql.query(
-                                    connecrion, sql`
+                                    connecrion, 
+                                    `
                                     SELECT word
                                     FROM banword;
                                     `
@@ -109,7 +109,8 @@ const register = () => {
                         const process = async () => {
                             try {
                                 const getNames = await mysql.query(
-                                    connection, sql`
+                                    connection,
+                                    `
                                     SELECT id
                                     FROM user
                                     WHERE name = ?;
@@ -117,7 +118,8 @@ const register = () => {
                                     [name]
                                 );
                                 const getEmails = await mysql.query(
-                                    connection, sql`
+                                    connection,
+                                    `
                                     SELECT id
                                     FROM user
                                     WHERE email = ?;
@@ -142,6 +144,14 @@ const register = () => {
             }
             connectMysql();
             next();
+        },
+        (req, res, next) => {
+            if (password === pass_confirm) {
+                next();
+            }
+            else {
+                errLi.push("wrongconf");
+            }
         },
         (req, res, next) => {
             if (errLi.length <= 0) {

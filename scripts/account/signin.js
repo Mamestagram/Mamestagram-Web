@@ -1,14 +1,13 @@
 const geoApiKey = process.env.GEO_API_KEY;
 const modules = require("../modules");
 const mysql = require("../modules/mysql");
-const sql = require("sql-template-strings");
 
 const signin = () => {
     const pageName = "Sign in", subDomain = "signin"
-    let name = null, password = null, pass_hash = null, errLi = null;
+    let name = null, password = null, pass_hash = null, errLi = null, user;
 
     modules.app.get("/signin", (req, res) => {
-        res,render("signin.ejs", {
+        res,render(`${res.locals.language}/signin.ejs`, {
             errLi,
             name,
             password
@@ -41,9 +40,10 @@ const signin = () => {
                         }
                         else {
                             const process = async () => {
-                                const getUser = await mysql.query(
-                                    connection, sql`
-                                    SELECT u.id, country, set_badge, pw_bcrypt
+                                user = await mysql.query(
+                                    connection,
+                                    `
+                                    SELECT u.id, country, language, set_badge, pw_bcrypt
                                     FROM users u
                                     JOIN gacha_stats g_s
                                     ON g_s.id = u.id
@@ -78,11 +78,12 @@ const signin = () => {
                 .then((response) => {
                     const data = response.data;
                     if (errLi !== null) {
-                        req.session.userid = getUser[0].id;
+                        req.session.userid = user[0].id;
                         req.session.username = name;
-                        req.session.country = getUser[0].country;
+                        req.session.country = user[0].country;
                         req.session.timeZone = data.time_zone.name;
-                        req.session.badge = getUser[0].set_badge;
+                        req.session.badge = user[0].set_badge;
+                        req.session.language = user[0].language;
                         modules.writeLog(req, res, "POST (Succeeded)", subDomain);
                         res.send(`
                             <script>
@@ -92,7 +93,7 @@ const signin = () => {
                         `);
                     }
                     else {
-                        res.render("signin.ejs", {
+                        res.render(`${res.locals.language}/signin.ejs`, {
                             errLi,
                             name,
                             password

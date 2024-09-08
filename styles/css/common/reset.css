@@ -36,6 +36,7 @@ html {
 body {
     background-color: black;
     font-family: "Noto_Sans";
+    color: #fdfdfd;
     min-height: 100vh;
     height: 100%;
     width: 100%;

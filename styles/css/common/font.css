@@ -1,6 +1,16 @@
 @font-face {
-    font-family: "Gloria Hallelujah";
-    src: url("../font/GloriaHallelujah-Regular.ttf") format("truetype");
+    font-family: "Mochiy Pop One";
+    src: url("../font/MochiyPopOne-Regular.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: "Potta One";
+    src: url("../font/PottaOne-Regular.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: "Reggae One";
+    src: url("../font/ReggaeOne-Regular.ttf") format("truetype");
 }
 
 @font-face {
