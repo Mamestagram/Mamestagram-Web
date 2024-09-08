@@ -1,0 +1,66 @@
+main {
+    background-color: #1c1c1c;
+}
+
+main h1 {
+    background-image: url("../images/logo.webp");
+    background-repeat: no-repeat;
+    background-position: center 20%;
+    -webkit-background-clip: text;
+    font-family: "Potta One";
+    font-size: 70px;
+    color: transparent;
+    text-align: center;
+}
+
+main .pp-record-user .flex-box {
+    display: flex;
+    height: 500px;
+    justify-content: center;
+    align-items: flex-end;
+}
+
+main .pp-record-user .user {
+    display: flex;
+    cursor: pointer;
+    height: 200px;
+    width: 200px;
+    margin: 50px;
+    justify-content: center;
+    align-items: center;
+    opacity: 0.5;
+    -webkit-box-reflect: below 1px linear-gradient(to bottom, transparent, #0005);
+    transition: height 500ms, width 500ms, box-shadow 500ms, opacity 500ms;
+}
+main .pp-record-user .user:hover {
+    opacity: 1;
+}
+
+main .pp-record-user .user img {
+    height: 200px;
+    width: 200px;
+    object-fit: cover;
+    filter: grayscale(100%);
+    transition: height 500ms, width 500ms, filter 500ms;
+}
+main .pp-record-user .user:hover img {
+    filter: grayscale(0%);
+}
+
+main .pp-record-user .user.focused {
+    height: 400px;
+    width: 400px;
+    z-index: 1;
+    opacity: 1;
+    box-shadow: 0px 0px 100px 0px rgba(255, 255, 255, 1);
+    transition: height 500ms, width 500ms, box-shadow 500ms, transform 500ms;
+}
+main .pp-record-user .user.focused:hover {
+    transform: scale(1.1);
+}
+
+main .pp-record-user .user.focused img {
+    height: 400px;
+    width: 400px;
+    object-fit: cover;
+}

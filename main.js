@@ -1,4 +1,5 @@
 require("dotenv").config();
+const apiDomain = process.env.API_DOMAIN;
 const modules = require("./scripts/modules");
 const mysql = require("./scripts/modules/mysql");
 const home = require("./scripts/home");
@@ -33,6 +34,7 @@ modules.app.use((req, res, next) => {
         minute: "2-digit",
         second: "2-digit"
     }).replaceAll("/", "").replaceAll(" ", "").replaceAll(":", "");
+    res.locals.apiDomain = apiDomain;
     next();
 });
 

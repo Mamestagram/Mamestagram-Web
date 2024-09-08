@@ -4,11 +4,21 @@
         <Title>Dashboard | Mamestagram</Title>
         <%- include("references/head", { currentTime }) %>
         <link rel="stylesheet" href="/css/home.css?<%= currentTime %>" />
+        <script src="/js/home.js?<%= currentTime %>" defer></script>
     </head>
     <body>
         <%- include("references/header", { currentTime }) %>
         <main>
             <h1>Mamestagram</h1>
+            <div class="pp-record-user">
+                <div class="flex-box vanilla">
+                    <% for (let i = 2; i <= 6; i++) { %>
+                        <div class="user mode-<%= i % 4 %><%= i % 4 === 0 ? " focused" : "" %>">
+                            <img src="https://a.mamesosu.net/<%= ppRecords[`mode${i % 4}`].id %>?<%= currentTime %>" alt="" />
+                        </div>
+                    <% } %>
+                </div>
+            </div>
         </main>
         <%- include("references/footer") %>
     </body>

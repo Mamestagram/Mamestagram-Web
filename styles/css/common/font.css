@@ -1,29 +1,19 @@
 @font-face {
-    font-family: "Mochiy Pop One";
-    src: url("../font/MochiyPopOne-Regular.ttf") format("truetype");
-}
-
-@font-face {
     font-family: "Potta One";
-    src: url("../font/PottaOne-Regular.ttf") format("truetype");
-}
-
-@font-face {
-    font-family: "Reggae One";
-    src: url("../font/ReggaeOne-Regular.ttf") format("truetype");
+    src: url("../../fonts/PottaOne-Regular.ttf") format("truetype");
 }
 
 @font-face {
     font-family: "JetBrainsMono";
-    src: url("../font/JetBrainsMono-Regular.ttf") format("truetype");
+    src: url("../../fonts/JetBrainsMono-Regular.ttf") format("truetype");
 }
 
 @font-face {
     font-family: "Noto_Sans";
-    src: url("../font/Noto_Sans/NotoSans-Regular.ttf") format("truetype"), /* english */
-    url("../font/Noto_Sans/NotoSansTC-Regular.ttf") format("truetype"), /* chinese */
-    url("../font/Noto_Sans/NotoSansArabic-Regular.ttf") format("truetype"), /* arabic */
-    url("../font/Noto_Sans/NotoSansJP-Regular.ttf") format("truetype"), /* japanese */
-    url("../font/Noto_Sans/NotoSansKR-Regular.ttf") format("truetype"), /* korean */
-    url("../font/Noto_Sans/NotoSansThaiLooped-Regular.ttf") format("truetype"); /* thai */
+    src: url("../../fonts/Noto_Sans/NotoSans-Regular.ttf") format("truetype"), /* english */
+    url("../../fonts/Noto_Sans/NotoSansTC-Regular.ttf") format("truetype"), /* chinese */
+    url("../../fonts/Noto_Sans/NotoSansArabic-Regular.ttf") format("truetype"), /* arabic */
+    url("../../fonts/Noto_Sans/NotoSansJP-Regular.ttf") format("truetype"), /* japanese */
+    url("../../fonts/Noto_Sans/NotoSansKR-Regular.ttf") format("truetype"), /* korean */
+    url("../../fonts/Noto_Sans/NotoSansThaiLooped-Regular.ttf") format("truetype"); /* thai */
 }
