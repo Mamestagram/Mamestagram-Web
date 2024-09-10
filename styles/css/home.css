@@ -67,6 +67,7 @@ main .pp-record-user .flex-box .focused img {
     object-fit: cover;
 }
 main .pp-record-user .flex-box .focused img:hover {
+    box-shadow: 0px 0px 100px 0px rgba(255, 255, 255, 1);
     filter: grayscale(0%);
 }
 
@@ -98,6 +99,7 @@ main .pp-record-user .flex-box .focused .mode-title, main .pp-record-user .flex-
 }
 
 main .pp-record-user .flex-box .user h3 {
+    cursor: text;
     display: flex;
     margin-top: 5px;
     font-size: 20px;
@@ -137,6 +139,7 @@ main .pp-record-user .flex-box .user .pp {
 }
 
 main .pp-record-user .flex-box .focused .pp {
+    cursor: text;
     transform: translateY(0%);
     opacity: 1;
 }
