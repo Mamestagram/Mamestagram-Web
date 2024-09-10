@@ -1,6 +1,7 @@
 const apiDomain = process.env.API_DOMAIN;
 const modules = require("./modules");
 const mysql = require("./modules/mysql");
+const functions = require("./modules/functions");
 
 const home = () => {
     modules.app.get("/home", (req, res) => {
@@ -27,7 +28,7 @@ const home = () => {
                                             const ppRecord = await mysql.query(
                                                 connection, 
                                                 `
-                                                SELECT u.id AS id, name, pp
+                                                SELECT u.id AS id, country, name, pp
                                                 FROM scores s FORCE INDEX(idx_scores_mode_status_pp)
                                                 JOIN users u
                                                 ON u.id = userid
@@ -46,6 +47,7 @@ const home = () => {
                                         }
                                     }
                                     res.render(`${res.locals.language}/home.ejs`, {
+                                        functions,
                                         online,
                                         total,
                                         ppRecords

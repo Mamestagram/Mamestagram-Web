@@ -12,9 +12,21 @@
             <h1>Mamestagram</h1>
             <div class="pp-record-user">
                 <div class="flex-box vanilla">
-                    <% for (let i = 2; i <= 6; i++) { %>
-                        <div class="user mode-<%= i % 4 %><%= i % 4 === 0 ? " focused" : "" %>">
-                            <img src="https://a.mamesosu.net/<%= ppRecords[`mode${i % 4}`].id %>?<%= currentTime %>" alt="" />
+                    <% let user; %>
+                    <% for (let i = 2, n = 0; i <= 6; i++, n++) { %>
+                        <% user = ppRecords[`mode${i % 4}`]; %>
+                        <div class="user<%= n === 2 ? " focused" : n === 0 || n === 4 ? " edge" : "" %>">
+                            <img src="https://a.mamesosu.net/<%= user.id %>?<%= currentTime %>" alt="" />
+                            <p class="mode-title"><i class="mode-icon mode-<%= functions.modeName(i % 4) %>"></i>vn!<%= functions.modeName(i % 4) %></p>
+                            <h3>
+                                <i class="mode-icon mode-<%= functions.modeName(i % 4) %>"></i>vn!<%= functions.modeName(i % 4) %>
+                                <span class="country-flag">
+                                    <i class="flag-icon flag-icon-<%= user.country %>"></i>
+                                    <p class="tooltip"><%= user.country.toUpperCase() %></p>
+                                </span>
+                                <span class="username"><%= user.name %></span>
+                            </h3>
+                            <p class="pp"><%= Math.round(user.pp) %>pp</p>
                         </div>
                     <% } %>
                 </div>

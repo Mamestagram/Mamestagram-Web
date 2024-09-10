@@ -4,6 +4,16 @@
 }
 
 @font-face {
+    font-family: "Reggae One";
+    src: url("../../fonts/ReggaeOne-Regular.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: "Mochiy Pop One";
+    src: url("../../fonts/MochiyPopOne-Regular.ttf") format("truetype");
+}
+
+@font-face {
     font-family: "JetBrainsMono";
     src: url("../../fonts/JetBrainsMono-Regular.ttf") format("truetype");
 }
