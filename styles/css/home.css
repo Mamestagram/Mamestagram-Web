@@ -13,26 +13,44 @@ main h1 {
     text-align: center;
 }
 
+main .pp-record-user {
+    
+}
+
 main .pp-record-user .flex-box {
     display: flex;
+    position: absolute;
+    left: 50%;
     font-family: "Mochiy Pop One";
     height: 500px;
-    justify-content: center;
+    margin: 0 auto;
     align-items: flex-end;
+    transform: translate(-50%) scale(0);
+    transition: transform 500ms;
+}
+
+main .pp-record-user .selected {
+    transform: translateX(-50%) scale(1);
+}
+
+main .pp-record-user .flex-box .wrap {
+    display: flex;
+    height: 400px;
+    align-items: flex-end;
+    -webkit-box-reflect: below 1px linear-gradient(to bottom, transparent, #0005);
 }
 
 main .pp-record-user .flex-box .user {
     display: flex;
     position: relative;
     cursor: pointer;
-    height: 200px;
+    height: 400px;
     width: 200px;
     margin: 0 80px;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     opacity: 0.5;
-    -webkit-box-reflect: below -102px linear-gradient(to bottom, transparent, #0005);
     transition: height 500ms, width 500ms, margin 500ms, transform 500ms, opacity 500ms;
 }
 main .pp-record-user .flex-box .user:hover {
@@ -72,7 +90,7 @@ main .pp-record-user .flex-box .focused img:hover {
 }
 
 main .pp-record-user .flex-box .edge {
-    height: 0px;
+    height: 400px;
     width: 0px;
     margin: 0;
 }
@@ -84,7 +102,7 @@ main .pp-record-user .flex-box .edge img {
 main .pp-record-user .flex-box .user .mode-title {
     position: absolute;
     left: 50%;
-    bottom: 27%;
+    bottom: 14%;
     text-shadow: 2px 2px 2px #000;
     transform: translateX(-50%);
     transition: transform 500ms, opacity 500ms;
@@ -106,7 +124,6 @@ main .pp-record-user .flex-box .user h3 {
     text-shadow: 2px 2px 2px #000;
     align-items: center;
     white-space: nowrap;
-    text-overflow: ellipsis;
     transform: translateY(-100%);
     opacity: 0;
     transition: transform 800ms, opacity 800ms;
@@ -122,7 +139,12 @@ main .pp-record-user .flex-box .user h3 .country-flag {
 }
 
 main .pp-record-user .flex-box .user h3 .username {
+    transition: font-size 500ms
+}
+
+main .pp-record-user .flex-box .focused h3 .username {
     font-size: 2em;
+    transition: font-size 500ms
 }
 
 main .pp-record-user .flex-box .focused h3 {
@@ -131,15 +153,32 @@ main .pp-record-user .flex-box .focused h3 {
 }
 
 main .pp-record-user .flex-box .user .pp {
-    font-size: 2.8em;
     text-shadow: 2px 2px 2px #000;
     transform: translateY(-200%);
     opacity: 0;
-    transition: transform 800ms, opacity 800ms;
+    transition: font-size 500ms, transform 800ms, opacity 800ms;
 }
 
 main .pp-record-user .flex-box .focused .pp {
     cursor: text;
+    font-size: 2.8em;
     transform: translateY(0%);
     opacity: 1;
+}
+
+main .pp-record-user .special-switch {
+    display: flex;
+    position: absolute;
+    top: 75%;
+    left: 50%;
+    font-size: 18px;
+    border: 2px solid #fdfdfd;
+    border-radius: 50%;
+    transform: translateX(-50%);
+    backdrop-filter: blur(10px);
+}
+
+main .pp-record-user .special-switch li {
+    cursor: pointer;
+    padding: 5px 15px;
 }

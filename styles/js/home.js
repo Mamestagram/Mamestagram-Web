@@ -1,18 +1,51 @@
 $(function() {
-    $("main").on("click", ".pp-record-user .flex-box .user", function() {
-        $("main .pp-record-user .flex-box .user").each(function() {
+    $("main").on("click", ".pp-record-user .flex-box.vanilla .user", function() {
+        $("main .pp-record-user .flex-box.vanilla .user").each(function() {
             $(this).removeClass("focused").removeClass("edge");
         });
         if ($(this).index() > 2) {
-            $("main .pp-record-user .flex-box .user:first-child").remove();
-            $("main .pp-record-user .flex-box").append($("main .pp-record-user .flex-box .user:first-child").clone());
+            $("main .pp-record-user .flex-box.vanilla .user:first-child").remove();
+            $("main .pp-record-user .flex-box.vanilla").append($("main .pp-record-user .flex-box.vanilla .user:first-child").clone());
         }
         else if ($(this).index() < 2) {
-            $("main .pp-record-user .flex-box .user:last-child").remove();
-            $("main .pp-record-user .flex-box").prepend($("main .pp-record-user .flex-box .user:last-child").clone());
+            $("main .pp-record-user .flex-box.vanilla .user:last-child").remove();
+            $("main .pp-record-user .flex-box.vanilla").prepend($("main .pp-record-user .flex-box.vanilla .user:last-child").clone());
         }
-        $("main .pp-record-user .flex-box .user:nth-child(3)").addClass("focused");
-        $("main .pp-record-user .flex-box .user:first-child").addClass("edge");
-        $("main .pp-record-user .flex-box .user:last-child").addClass("edge");
+        $("main .pp-record-user .flex-box.vanilla .user:nth-child(3)").addClass("focused");
+        $("main .pp-record-user .flex-box.vanilla .user:first-child").addClass("edge");
+        $("main .pp-record-user .flex-box.vanilla .user:last-child").addClass("edge");
+    });
+    $("main").on("click", ".pp-record-user .flex-box.relax .user", function() {
+        $("main .pp-record-user .flex-box.relax .user").each(function() {
+            $(this).removeClass("focused").removeClass("edge");
+        });
+        if ($(this).index() > 2) {
+            $("main .pp-record-user .flex-box.relax .user:first-child").remove();
+            $("main .pp-record-user .flex-box.relax").append($("main .pp-record-user .flex-box.relax .user:nth-child(2)").clone());
+        }
+        else if ($(this).index() < 2) {
+            $("main .pp-record-user .flex-box.relax .user:last-child").remove();
+            $("main .pp-record-user .flex-box.relax").prepend($("main .pp-record-user .flex-box.relax .user:nth-child(3)").clone());
+        }
+        $("main .pp-record-user .flex-box.relax .user:nth-child(3)").addClass("focused");
+        $("main .pp-record-user .flex-box.relax .user:first-child").addClass("edge");
+        $("main .pp-record-user .flex-box.relax .user:last-child").addClass("edge");
+    });
+
+    $("main .pp-record-user .special-switch li").click(function() {
+        $("main .pp-record-user .flex-box").each(function() {
+            $(this).removeClass("selected");
+        });
+        switch($(this).index()) {
+            case 0:
+                $("main .pp-record-user .flex-box.vanilla").addClass("selected");
+                break;
+            case 1:
+                $("main .pp-record-user .flex-box.relax").addClass("selected");
+                break;
+            case 2:
+                $("main .pp-record-user .flex-box.auto-pilot").addClass("selected");
+                break;
+        }
     });
 });
