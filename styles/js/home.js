@@ -36,15 +36,21 @@ $(function() {
         $("main .pp-record-user .flex-box").each(function() {
             $(this).removeClass("selected");
         });
+        $("main .pp-record-user .special-switch li").each(function() {
+            $(this).removeClass("selected");
+        });
         switch($(this).index()) {
             case 0:
                 $("main .pp-record-user .flex-box.vanilla").addClass("selected");
+                $("main .pp-record-user .special-switch .vanilla").addClass("selected");
                 break;
             case 1:
                 $("main .pp-record-user .flex-box.relax").addClass("selected");
+                $("main .pp-record-user .special-switch .relax").addClass("selected");
                 break;
             case 2:
                 $("main .pp-record-user .flex-box.auto-pilot").addClass("selected");
+                $("main .pp-record-user .special-switch .auto-pilot").addClass("selected");
                 break;
         }
     });
