@@ -74,7 +74,7 @@ main .pp-record-user .flex-box .user .wrap {
 main .pp-record-user .flex-box .user img {
     height: 200px;
     width: 200px;
-    border-radius: 10%;
+    border-radius: 8%;
     object-fit: cover;
     filter: grayscale(100%);
     transition: height 500ms, width 500ms, box-shadow 500ms, filter 500ms, opacity 500ms;
