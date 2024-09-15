@@ -25,52 +25,77 @@ main .pp-record-user .flex-box {
     height: 500px;
     margin: 0 auto;
     align-items: flex-end;
-    transform: translate(-50%) scale(0);
-    transition: transform 500ms;
+    perspective: 1000px;
+    perspective-origin: bottom center;
+    transform: translateX(-50%);
+    z-index: 0;
 }
 
-main .pp-record-user .selected {
-    transform: translateX(-50%) scale(1);
-}
-
-main .pp-record-user .flex-box .wrap {
-    display: flex;
-    height: 400px;
-    align-items: flex-end;
-    -webkit-box-reflect: below 1px linear-gradient(to bottom, transparent, #0005);
+main .pp-record-user .flex-box.selected {
+    z-index: 1;
 }
 
 main .pp-record-user .flex-box .user {
     display: flex;
     position: relative;
-    cursor: pointer;
     height: 400px;
     width: 200px;
     margin: 0 80px;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    opacity: 0.5;
+    opacity: 0;
+    transform: rotateX(90deg);
+    transform-origin: bottom;
+    transform-style: preserve-3d;
     transition: height 500ms, width 500ms, margin 500ms, transform 500ms, opacity 500ms;
 }
-main .pp-record-user .flex-box .user:hover {
+
+main .pp-record-user .flex-box.selected .user {
+    transform: rotateX(0deg);
+    z-index: 1;
     opacity: 1;
 }
 
+main .pp-record-user .flex-box .user .wrap {
+    display: flex;
+    height: 400px;
+    align-items: flex-end;
+    -webkit-box-reflect: below 1px linear-gradient(to bottom, transparent, #0005);
+}
+
 main .pp-record-user .flex-box .user img {
+    cursor: pointer;
     height: 200px;
     width: 200px;
     border-radius: 10px;
     object-fit: cover;
     filter: grayscale(100%);
-    transition: height 500ms, width 500ms, box-shadow 500ms, filter 500ms;
+    opacity: 0.5;
+    transition: height 500ms, width 500ms, box-shadow 500ms, filter 500ms, opacity 500ms;
+}
+main .pp-record-user .flex-box .user img:hover {
+    opacity: 1;
 }
 
-main .pp-record-user .flex-box .focused {
+main .pp-record-user .flex-box .user .mode-title {
+    position: absolute;
+    left: 50%;
+    bottom: 13%;
+    text-shadow: 2px 2px 2px #000;
+    transform: translateX(-50%);
+    opacity: 0.5;
+    transition: transform 500ms, opacity 500ms;
+}
+main .pp-record-user .flex-box .user .mode-title {
+    transform: translate(-50%, -50%);
+    opacity: 1;
+}
+
+main .pp-record-user .flex-box.selected .focused {
     height: 400px;
     width: 400px;
     z-index: 1;
-    opacity: 1;
     transition: height 500ms, width 500ms, transform 500ms;
 }
 main .pp-record-user .flex-box .focused:hover {
@@ -83,6 +108,7 @@ main .pp-record-user .flex-box .focused img {
     box-shadow: 0px 0px 100px 0px rgba(255, 255, 255, 0.5);
     filter: grayscale(70%);
     object-fit: cover;
+    opacity: 1;
 }
 main .pp-record-user .flex-box .focused img:hover {
     box-shadow: 0px 0px 100px 0px rgba(255, 255, 255, 1);
@@ -97,19 +123,6 @@ main .pp-record-user .flex-box .edge {
 main .pp-record-user .flex-box .edge img {
     height: 0px;
     width: 0px;
-}
-
-main .pp-record-user .flex-box .user .mode-title {
-    position: absolute;
-    left: 50%;
-    bottom: 14%;
-    text-shadow: 2px 2px 2px #000;
-    transform: translateX(-50%);
-    transition: transform 500ms, opacity 500ms;
-}
-
-main .pp-record-user .flex-box .user:hover .mode-title {
-    transform: translate(-50%, -50%);
 }
 
 main .pp-record-user .flex-box .focused .mode-title, main .pp-record-user .flex-box .edge .mode-title {
@@ -171,14 +184,28 @@ main .pp-record-user .special-switch {
     position: absolute;
     top: 75%;
     left: 50%;
+    background-color: rgba(253, 253, 253, 0.1);
     font-size: 18px;
     border: 2px solid #fdfdfd;
-    border-radius: 50%;
+    border-radius: 35px;
     transform: translateX(-50%);
     backdrop-filter: blur(10px);
 }
 
 main .pp-record-user .special-switch li {
     cursor: pointer;
+    mix-blend-mode: difference;
+    background-color: #fdfdfd;
     padding: 5px 15px;
+    text-shadow: 2px 2px 2px #000;
+}
+
+main .pp-record-user .special-switch li:first-child {
+    border-right: 1.5px solid #000;
+    border-radius: 35px 0 0 35px;
+}
+
+main .pp-record-user .special-switch li:last-child {
+    border-left: 1.5px solid #000;
+    border-radius: 0 35px 35px 0;
 }
