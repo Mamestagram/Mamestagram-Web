@@ -1,0 +1,29 @@
+.tooltip-element {
+    cursor: pointer;
+    position: relative;
+}
+
+.tooltip-element:hover .tooltip {
+    bottom: 100%;
+    opacity: 1;
+}
+
+.tooltip-element .tooltip {
+    line-height: 10px;
+    width: auto;
+    position: absolute;
+    left: 50%;
+    bottom: 50%;
+    transform: translateX(-50%);
+    margin-bottom: 8px;
+    padding: 8px;
+    border-radius: 10px;
+    background-color: #17171c;
+    font-size: 0.7em;
+    color: #fdfdfd;
+    text-align: center;
+    white-space: nowrap;
+    opacity: 0;
+    z-index: 1;
+    transition: bottom 300ms, opacity 300ms;
+}

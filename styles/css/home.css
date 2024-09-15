@@ -94,13 +94,11 @@ main .pp-record-user .flex-box .focused:hover {
 main .pp-record-user .flex-box .focused img {
     height: 400px;
     width: 400px;
-    box-shadow: 0px 0px 100px 0px rgba(255, 255, 255, 0.5);
-    filter: grayscale(70%);
+    filter: grayscale(70%) drop-shadow(0px 0px 100px rgba(255, 255, 255, 0.5));
     object-fit: cover;
 }
-main .pp-record-user .flex-box .focused img:hover {
-    box-shadow: 0px 0px 100px 0px #fff;
-    filter: grayscale(0%);
+main .pp-record-user .flex-box .focused:hover img {
+    filter: grayscale(0%) drop-shadow(0px 0px 50px #fff);
 }
 
 main .pp-record-user .flex-box .edge {

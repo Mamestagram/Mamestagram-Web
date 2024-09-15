@@ -1,0 +1,90 @@
+footer {
+    background-color: #000;
+}
+
+footer .flex-box {
+    display: flex;
+    height: 60px;
+    justify-content: center;
+    align-items: center;
+}
+
+footer .tooltip-element {
+    display: inline-flex;
+    font-size: 18px;
+    padding: 5px;
+    justify-content: center;
+    align-items: center;
+    aspect-ratio: 1 / 1;
+}
+
+footer .tooltip-element a {
+    filter: invert(30%);
+    opacity: 0.95;
+    transition: color 300ms, filter 300ms, opacity 300ms;
+}
+
+footer .tooltip-element:hover a {
+    filter: invert(0%);
+    opacity: 1;
+}
+
+footer .tooltip-element.youtube a i::after {
+    content: "";
+    background-color: #fff;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    height: 50%;
+    width: 50%;
+    transform: translate(-50%, -50%);
+    z-index: -1;
+    opacity: 0;
+    transition: opacity 300ms;
+}
+
+footer .tooltip-element.discord a i::after {
+    content: "";
+    background-color: #5865f2;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    height: 100%;
+    width: 100%;
+    border-radius: 50%;
+    padding: 1rem;
+    aspect-ratio: 1 / 1;
+    transform: translate(-50%, -50%);
+    z-index: -1;
+    opacity: 0;
+    transition: opacity 300ms;
+}
+
+footer .tooltip-element.youtube:hover a {
+    color: #f00;
+    filter: invert(0%);
+    opacity: 1;
+}
+
+footer .tooltip-element.youtube:hover a i::after {
+    opacity: 1;
+}
+
+footer .tooltip-element.x-twitter:hover a {
+    color: #e7e9ea;
+    filter: invert(0%);
+    opacity: 1;
+}
+
+footer .tooltip-element.discord:hover a i::after {
+    opacity: 1;
+}
+
+footer .user {
+    margin-left: 5px;
+}
+
+footer .user a::before {
+    content: "";
+    width: 100%;
+}
