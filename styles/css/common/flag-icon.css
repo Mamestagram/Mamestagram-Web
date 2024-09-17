@@ -1,5 +1,5 @@
 .country-flag {
-    cursor: pointer;
+    cursor: default;
     position: relative;
     font-family: "Noto_Sans";
 }
@@ -13,7 +13,7 @@
 }
 
 .country-flag:hover .tooltip {
-    bottom: 70%;
+    bottom: 80%;
     opacity: 1;
 }
 
@@ -22,7 +22,7 @@
     width: auto;
     position: absolute;
     left: 50%;
-    bottom: 50%;
+    bottom: 60%;
     transform: translateX(-50%);
     margin-bottom: 8px;
     padding: 8px;

@@ -81,6 +81,12 @@
                 </ul>
             </div>
         </main>
-        <%- include("references/footer") %>
+        <%- include("references/footer", { 
+            currentTime,
+            developer,
+            contributor,
+            moderator,
+            nominator
+        }) %>
     </body>
 </html>
