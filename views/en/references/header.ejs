@@ -1,3 +1,29 @@
 <header>
-    
+    <img class="logo" src="/images/logo.webp?<%= currentTime %>" />
+    <ul class="link-menu">
+        <li class="leaderboard">
+            <a href="/">Leaderboard</a>
+        </li>
+        <li class="documents">
+            <a href="/">Documents</a>
+        </li>
+        <li class="discord">
+            <a href="/">Discord</a>
+        </li>
+        <li class="donation">
+            <a href="/"><i class="fa-solid fa-heart"></i></a>
+        </li>
+        <% if (isLoggedIn) { %>
+            <li class="right user-avatar">
+                <img src="https://a.mamesosu.net/<%= user.id %>?<%= currentTime %>" />
+            </li>
+        <% } else { %>
+            <li class="right register">
+                <a href="/">Register</a>
+            </li>
+            <li class="login">
+                <a href="/">Login</a>
+            </li>
+        <% } %>
+    </ul>
 </header>
