@@ -1,28 +1,19 @@
-.country-flag {
-    cursor: default;
+.tooltip-element {
+    cursor: pointer;
     position: relative;
-    font-family: "Noto_Sans";
 }
 
-.country-flag i {
-    border-radius: 15%;
-    transition: transform 300ms;
-}
-.country-flag:hover i {
-    transform: scale(1.1);
-}
-
-.country-flag:hover .tooltip {
-    bottom: 80%;
+.tooltip-element:hover .tooltip {
+    bottom: 100%;
     opacity: 1;
 }
 
-.country-flag .tooltip {
+.tooltip-element .tooltip {
     line-height: 10px;
     width: auto;
     position: absolute;
     left: 50%;
-    bottom: 60%;
+    bottom: 50%;
     transform: translateX(-50%);
     margin-bottom: 8px;
     padding: 8px;
@@ -31,6 +22,7 @@
     font-size: 0.7em;
     color: #fdfdfd;
     text-align: center;
+    white-space: nowrap;
     opacity: 0;
     z-index: 1;
     transition: bottom 300ms, opacity 300ms;

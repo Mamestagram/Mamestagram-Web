@@ -1,0 +1,227 @@
+footer {
+    background-color: #000;
+}
+
+footer .flex-box.main {
+    display: flex;
+    padding: 15px 0;
+    justify-content: center;
+    align-items: center;
+}
+
+footer .tooltip-element {
+    display: inline-flex;
+    font-size: 18px;
+    padding: 0;
+    justify-content: center;
+    align-items: center;
+    aspect-ratio: 1 / 1;
+}
+
+footer .tooltip-element a {
+    filter: invert(30%);
+    opacity: 0.95;
+    transition: color 300ms, filter 300ms, opacity 300ms;
+}
+
+footer .tooltip-element:hover a {
+    filter: invert(0%);
+    opacity: 1;
+}
+
+footer .tooltip-element.youtube a, footer .tooltip-element.github {
+    margin: 5px;
+}
+
+footer .tooltip-element.x-twitter a, footer .tooltip-element.discord {
+    margin: 2px;
+}
+
+footer .tooltip-element.youtube a i::after {
+    content: "";
+    background-color: #fff;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    height: 50%;
+    width: 50%;
+    transform: translate(-50%, -50%);
+    z-index: -1;
+    opacity: 0;
+    transition: opacity 300ms;
+}
+
+footer .tooltip-element.discord a i::after {
+    content: "";
+    background-color: #5865f2;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    height: 100%;
+    aspect-ratio: 1 / 1;
+    border-radius: 50%;
+    padding: 1rem;
+    transform: translate(-50%, -50%);
+    z-index: -1;
+    opacity: 0;
+    transition: opacity 300ms;
+}
+
+footer .tooltip-element.youtube:hover a {
+    color: #f00;
+    filter: invert(0%);
+    opacity: 1;
+}
+
+footer .tooltip-element.youtube:hover a i::after {
+    opacity: 1;
+}
+
+footer .tooltip-element.x-twitter:hover a {
+    color: #e7e9ea;
+    filter: invert(0%);
+    opacity: 1;
+}
+
+footer .tooltip-element.discord:hover a i::after {
+    opacity: 1;
+}
+
+footer .designer {
+    display: flex;
+    height: inherit;
+    align-items: center;
+}
+
+footer .designer .user {
+    position: relative;
+    margin-left: 5px;
+    filter: invert(30%);
+    opacity: 0.95;
+    transition: filter 500ms, opacity 500ms;
+}
+footer .designer .user:hover {
+    filter: invert(0%);
+    opacity: 1;
+}
+
+footer .designer .user .username::before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    background-color: #fdfdfd;
+    height: 1px;
+    width: 100%;
+    border-radius: 1px;
+    transform: scaleX(0);
+    transition: transform 500ms;
+}
+
+footer .designer .user:hover .username::before {
+    transform: scaleX(1);
+}
+
+footer .team-member {
+    height: 0;
+    transform: scaleY(0);
+    transform-origin: top;
+    transition: transform 500ms;
+}
+
+.hovered .team-member {
+    height: auto;
+    transform: scaleY(1);
+}
+
+footer .team-member h1 {
+    font-family: "Potta One";
+    font-size: 1.5rem;
+}
+
+footer .team-member h1 i {
+    margin-left: 5px;
+}
+
+footer .team-member .team {
+    display: flex;
+    width: 80%;
+    margin: 0 auto;
+    flex-direction: column;
+}
+
+footer .team-member .team section .flex-box.wrap {
+    display: flex;
+    width: 100%;
+    margin: 15px 0;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+footer .team-member .team section .user {
+    display: flex;
+    position: relative;
+    height: 60px;
+    width: 48%;
+    align-items: center;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    margin-right: 2%;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+    transition: height 500ms, box-shadow 500ms;
+}
+footer .team-member .team section .user:hover {
+    height: 80px;
+    box-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+}
+
+footer .team-member .team section .user .banner {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    height: inherit;
+    width: 100%;
+    border-radius: 10px;
+    object-fit: cover;
+    transform: translate(-50%, -50%);
+    filter: blur(2px);
+    opacity: 0.2;
+    z-index: 0;
+    transition: opacity 500ms;
+}
+
+footer .team-member .team section .user:hover .banner {
+    opacity: 0.3;
+}
+
+footer .team-member .team section .user a {
+    display: flex;
+    position: inherit;
+    height: inhelit;
+    width: 100%;
+    align-items: center;
+    z-index: 1;
+}
+
+footer .team-member .team section .user a .avatar {
+    height: 50px;
+    width: 50px;
+    border-radius: 8%;
+    margin-left: 5px;
+    object-fit: cover;
+    transition: height 500ms, width 500ms;
+}
+
+footer .team-member .team section .user:hover a .avatar {
+    height: 70px;
+    width: 70px;
+}
+
+footer .team-member .team section .user a .country-flag {
+    font-size: 1.2em;
+    margin: 0 5px;
+}
+
+footer .team-member .team section .user a .username {
+    font-size: 1.7em;
+}

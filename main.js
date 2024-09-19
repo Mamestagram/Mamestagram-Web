@@ -8,7 +8,7 @@ const register = require("./scripts/account/register");
 const signin = require("./scripts/account/signin");
 const signout = require("./scripts/account/signout");
 
-function connectMysql() {
+const connectMysql = () => {
     mysql.pool.getConnection((err, connection) => {
         if (err) {
             console.error(err);
@@ -35,6 +35,65 @@ modules.app.use((req, res, next) => {
         second: "2-digit"
     }).replaceAll("/", "").replaceAll(" ", "").replaceAll(":", "");
     res.locals.apiDomain = apiDomain;
+    const connectMysql = () => {
+        mysql.pool.getConnection((err, connection) => {
+            if (err) {
+                console.error(err);
+                setTimeout(connectMysql, 100);
+            }
+            else {
+                const process = async () => {
+                    try {
+                        const developer = await mysql.query(
+                            connection,
+                            `
+                            SELECT *
+                            FROM users
+                            WHERE priv & 1 << 14;
+                            `
+                        );
+                        const contributor = await mysql.query(
+                            connection,
+                            `
+                            SELECT *
+                            FROM users
+                            WHERE NOT priv & 1 << 14
+                            AND priv & 1 << 5;
+                            `
+                        );
+                        const moderator = await mysql.query(
+                            connection,
+                            `
+                            SELECT *
+                            FROM users
+                            WHERE NOT priv & 1 << 14
+                            AND priv & 1 << 12;
+                            `
+                        );
+                        const nominator = await mysql.query(
+                            connection,
+                            `
+                            SELECT *
+                            FROM users
+                            WHERE NOT priv & 1 << 14
+                            AND priv & 1 << 11;
+                            `
+                        )
+                        res.locals.developer = developer;
+                        res.locals.contributor = contributor;
+                        res.locals.moderator = moderator;
+                        res.locals.nominator = nominator;
+                    }
+                    catch (error) {
+                        modules.utils.writeError(req, res, modules.utils.getErrorContent("Main program", error));
+                    }
+                }
+                process();
+                connection.release();
+            }
+        });
+    }
+    connectMysql();
     next();
 });
 
