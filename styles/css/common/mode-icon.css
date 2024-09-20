@@ -42,8 +42,8 @@
 
 /* test */
 .mode-std::before {
-    content: "\f111";
-    font-weight: 400;
+    content: "\e800";
+    font-family: "osu-mode";
 }
 .mode-std::after {
     content: "\f304";
@@ -52,7 +52,7 @@
     font-weight: 900;
     top: 25%;
     left: 75%;
-    transform: translate(-40%, -45%);
+    transform: translate(-50%, -50%);
 }
 
 .mode-taiko::before {
