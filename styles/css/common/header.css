@@ -3,11 +3,31 @@ header {
     position: sticky;
     top: 0;
     width: 100%;
+    padding: 0 5%;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 5px 5px #000;
+    z-index: 1000;
 }
 
-header .logo {
-    height: 55px;
+header .home {
     margin: 5px;
+}
+
+header .home a {
+    transition: 300ms;
+}
+header .home:hover a {
+    transform: scale(0.9);
+    filter: drop-shadow(0 0 10px #fff);
+}
+
+header .home a {
+    display: block;
+    height: 55px;
+}
+
+header .home a .logo {
+    height: 55px;
 }
 
 header .link-menu {
@@ -17,9 +37,52 @@ header .link-menu {
 }
 
 header .link-menu li {
-    padding: 10px;
+    display: block;
+    position: relative;
+    margin: 0 20px;
+    text-shadow: 2px 2px 2px #000;
+    transition: filter 300ms;
+}
+header .link-menu li:not(.donation):hover {
+    filter: drop-shadow(0 0 10px #fff);
 }
 
-header .link-menu .right {
+header .link-menu li:not(.donation, .search)::before {
+    content: "";
+    display: block;
+    position: absolute;
+    bottom: 15%;
+    left: 50%;
+    background-color: #fdfdfd;
+    height: 2px;
+    width: 85%;
+    border-radius: 2px;
+    transform: translateX(-50%) scaleX(0);
+    transition: transform 300ms;
+}
+
+header .link-menu li:not(.donation, .search):hover::before {
+    transform: translateX(-50%) scaleX(1);
+}
+
+header .link-menu .donation {
+    font-size: 18px;
+}
+
+header .link-menu .donation a {
+    transition: color 300ms, transform 300ms;
+}
+header .link-menu .donation a:hover {
+    color: #ea609e;
+    transform: scale(1.25);
+    filter: drop-shadow(0 0 10px #fff);
+}
+
+header .link-menu .search {
     margin-left: auto;
+}
+
+header .link-menu li a {
+    display: block;
+    padding: 15px 10px;
 }
