@@ -18,7 +18,9 @@ main .pp-record-user {
 }
 
 main .pp-record-user .boxes {
+    display: flex;
     height: 600px;
+    align-items: center;
 }
 
 main .pp-record-user .flex-box {
@@ -43,7 +45,7 @@ main .pp-record-user .flex-box .user {
     cursor: pointer;
     display: flex;
     position: relative;
-    height: 200px;
+    height: 300px;
     width: 200px;
     margin: 0 80px;
     flex-direction: column;
@@ -67,21 +69,20 @@ main .pp-record-user .flex-box.selected .user:hover {
 
 main .pp-record-user .flex-box .user .wrap {
     display: flex;
-    align-items: flex-end;
-    -webkit-box-reflect: below 1px linear-gradient(to bottom, transparent, #0005);
-}
-
-main .pp-record-user .flex-box .user img {
-    height: 200px;
-    width: 200px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 100%;
+    aspect-ratio: 1 / 1;
     border-radius: 8%;
-    object-fit: cover;
+    align-items: flex-end;
     filter: grayscale(100%);
+    -webkit-box-reflect: below 1px linear-gradient(to bottom, transparent, #0005);
     transition: height 500ms, width 500ms, box-shadow 500ms, filter 500ms, opacity 500ms;
 }
 
 main .pp-record-user .flex-box.selected .focused {
-    height: 400px;
+    height: 500px;
     width: 400px;
     z-index: 1;
     opacity: 1;
@@ -91,13 +92,11 @@ main .pp-record-user .flex-box .focused:hover {
     transform: scale(1.1);
 }
 
-main .pp-record-user .flex-box .focused img {
-    height: 400px;
-    width: 400px;
+main .pp-record-user .flex-box .focused .wrap {
     filter: grayscale(70%) drop-shadow(0px 0px 100px rgba(255, 255, 255, 0.5));
-    object-fit: cover;
+    opacity: 1;
 }
-main .pp-record-user .flex-box .focused:hover img {
+main .pp-record-user .flex-box .focused:hover .wrap {
     filter: grayscale(0%) drop-shadow(0px 0px 50px #fff);
 }
 
@@ -106,20 +105,15 @@ main .pp-record-user .flex-box .edge {
     width: 0px;
     margin: 0;
 }
-main .pp-record-user .flex-box .edge img {
-    height: 0px;
-    width: 0px;
-}
 
 main .pp-record-user .flex-box .user .mode-title {
     position: absolute;
+    bottom: 3%;
     left: 50%;
-    bottom: 27%;
     text-shadow: 2px 2px 2px #000;
     transform: translateX(-50%);
     transition: transform 500ms, opacity 500ms;
 }
-
 main .pp-record-user .flex-box .user:hover .mode-title {
     transform: translate(-50%, -50%);
 }
