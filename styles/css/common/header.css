@@ -1,12 +1,25 @@
 header {
-    display: flex;
     position: sticky;
     top: 0;
-    width: 100%;
-    padding: 0 5%;
-    backdrop-filter: blur(10px);
+    background-image: url("/images/server-bg/1.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
     box-shadow: 0 5px 5px #000;
     z-index: 1000;
+}
+
+header .element {
+    display: flex;
+    background-color: rgb(0, 0, 0, 0.1);
+    padding: 0 5%;
+    width: 100%;
+    backdrop-filter: blur(10px);
+    transition: background 300ms, backdrop-filter 300ms;
+}
+
+header.scroll .element {
+    background-color: rgb(0, 0, 0, 0.3);
+    backdrop-filter: blur(3px);
 }
 
 header .home {
@@ -14,20 +27,25 @@ header .home {
 }
 
 header .home a {
+    display: block;
     transition: 300ms;
 }
 header .home:hover a {
-    transform: scale(0.9);
+    transform: scale(1.1);
     filter: drop-shadow(0 0 10px #fff);
 }
 
-header .home a {
-    display: block;
-    height: 55px;
+header .home a .logo {
+    height: 60px;
+    transition: height 300ms;
 }
 
-header .home a .logo {
-    height: 55px;
+header.scroll .home a .logo {
+    height: 45px;
+}
+
+header.scroll .home:hover .tooltip {
+    bottom: -65%;
 }
 
 header .link-menu {
@@ -41,21 +59,25 @@ header .link-menu li {
     position: relative;
     margin: 0 20px;
     text-shadow: 2px 2px 2px #000;
-    transition: filter 300ms;
+    transition: margin 300ms, filter 300ms;
 }
 header .link-menu li:not(.donation):hover {
     filter: drop-shadow(0 0 10px #fff);
+}
+
+header.scroll .link-menu li {
+    margin: 0 30px;
 }
 
 header .link-menu li:not(.donation, .search)::before {
     content: "";
     display: block;
     position: absolute;
-    bottom: 15%;
+    bottom: 0;
     left: 50%;
     background-color: #fdfdfd;
     height: 2px;
-    width: 85%;
+    width: 100%;
     border-radius: 2px;
     transform: translateX(-50%) scaleX(0);
     transition: transform 300ms;
@@ -79,10 +101,16 @@ header .link-menu .donation a:hover {
 }
 
 header .link-menu .search {
+    font-size: 18px;
     margin-left: auto;
+}
+
+header.scroll .link-menu .search {
+    margin-left: auto;
+    margin-right: 30px;
 }
 
 header .link-menu li a {
     display: block;
-    padding: 15px 10px;
+    padding: 10px;
 }

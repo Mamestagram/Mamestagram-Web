@@ -35,9 +35,6 @@ html {
 
 body {
     background-color: #000;
-    background-image: url("/images/server-bg/1.jpg");
-    background-repeat: no-repeat;
-    background-size: cover;
     font-family: "Noto_Sans";
     color: #fdfdfd;
     margin: 0;

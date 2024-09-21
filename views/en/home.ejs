@@ -38,8 +38,7 @@
                             <% if (i % 4 + 4 !== 7) { %>
                                 <% user = ppRecords[`mode${i % 4 + 4}`]; %>
                                 <div class="user<%= n === 2 ? " focused" : n === 0 || n === 4 ? " edge" : "" %>">
-                                    <div class="wrap">
-                                        <img src="https://a.mamesosu.net/<%= user.id %>?<%= currentTime %>" loading="lazy" alt="" />
+                                    <div class="wrap" style="background-image: url('https://a.mamesosu.net/<%= user.id %>?<%= currentTime %>')">
                                         <p class="mode-title"><i class="mode-icon mode-<%= functions.modeName(i % 4) %>"></i>rx!<%= functions.modeName(i % 4) %></p>
                                     </div>
                                     <h3>
