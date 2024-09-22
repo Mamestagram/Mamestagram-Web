@@ -14,6 +14,11 @@
 }
 
 @font-face {
+    font-family: "New Amsterdam";
+    src: url("../../fonts/NewAmsterdam-Regular.ttf") format("truetype");
+}
+
+@font-face {
     font-family: "JetBrainsMono";
     src: url("../../fonts/JetBrainsMono-Regular.ttf") format("truetype");
 }
