@@ -1,0 +1,138 @@
+<footer>
+    <% const year = new Date().getFullYear(); %>
+    <div class="flex-box main">
+        &copy; 2023 - <%= year %> Mamestagram
+        <span class="tooltip-element up youtube">
+            <a href="https://www.youtube.com/@Mamestagram" target="_blank" rel="noopener noreferrer">
+                <i class="fa-brands fa-youtube"></i>
+            </a>
+            <p class="tooltip">YouTube</p>
+        </span>
+        <span class="tooltip-element up github">
+            <a href="https://github.com/Mamestagram" target="_blank" rel="noopener noreferrer">
+                <i class="fa-brands fa-github"></i>
+            </a>
+            <p class="tooltip">GitHub</p>
+        </span>
+        <div class="designer">
+            , designed by
+            <!-- basshhii0610 -->
+            <div class="user">
+                <a class="username" href="/">
+                    basshhii0610
+                </a>
+            </div>
+            <span class="tooltip-element up x-twitter">
+                <a href="https://x.com/basshhii_0610" target="_blank" rel="noopener noreferrer">
+                    <i class="fa-brands fa-x-twitter"></i>
+                </a>
+                <p class="tooltip">X (Twitter)</p>
+            </span>
+            <span class="tooltip-element up discord">
+                <a href="https://discord.com/channels/@me/945313821646536734" target="_blank" rel="noopener noreferrer">
+                    <i class="fa-brands fa-discord"></i>
+                </a>
+                <p class="tooltip">Discord</p>
+            </span>
+            ,
+            <!-- Garushisu -->
+            <div class="user">
+                <a class="username" href="/">
+                    Garushisu
+                </a>
+            </div>
+            <span class="tooltip-element up x-twitter">
+                <a href="https://x.com/garushisu" target="_blank" rel="noopener noreferrer">
+                    <i class="fa-brands fa-x-twitter"></i>
+                </a>
+                <p class="tooltip">X (Twitter)</p>
+            </span>
+            <span class="tooltip-element up discord">
+                <a href="https://discord.com/channels/@me/490097758288609291" target="_blank" rel="noopener noreferrer">
+                    <i class="fa-brands fa-discord"></i>
+                </a>
+                <p class="tooltip">Discord</p>
+            </span>
+        </div>
+    </div>
+    <div class="team-member">
+        <article class="team">
+            <!-- Development Team -->
+            <section class="development-team">
+                <h1>Development Team<i class="fa-solid fa-code" style="color: #3e70dd;"></i></h1>
+                <div class="flex-box wrap">
+                    <% developer.forEach((user) => { %>
+                        <div class="user">
+                            <img class="banner" src="https://banner.mamesosu.net/<%= user.id %>?<%= currentTime %>" alt="" />
+                            <a href="/">
+                                <img class="avatar" src="https://a.mamesosu.net/<%= user.id %>?<%= currentTime %>" alt="" />
+                                <span class="country-flag">
+                                    <i class="flag-icon flag-icon-<%= user.country %>"></i>
+                                    <p class="tooltip"><%= user.country.toUpperCase() %></p>
+                                </span>
+                                <p class="username"><%= user.name %></p>
+                            </a>
+                        </div>
+                    <% }); %>
+                </div>
+            </section>
+            <!-- Contributor -->
+            <section class="contributor">
+                <h1>Contributor<i class="fa-solid fa-brackets-curly" style="color: #2ea967"></i></h1>
+                <div class="flex-box wrap">
+                    <% contributor.forEach((user) => { %>
+                        <div class="user">
+                            <img class="banner" src="https://banner.mamesosu.net/<%= user.id %>?<%= currentTime %>" alt="" />
+                            <a href="/">
+                                <img class="avatar" src="https://a.mamesosu.net/<%= user.id %>?<%= currentTime %>" alt="" />
+                                <span class="country-flag">
+                                    <i class="flag-icon flag-icon-<%= user.country %>"></i>
+                                    <p class="tooltip"><%= user.country.toUpperCase() %></p>
+                                </span>
+                                <p class="username"><%= user.name %></p>
+                            </a>
+                        </div>
+                    <% }); %>
+                </div>
+            </section>
+            <!-- Global Moderation Team -->
+            <section class="global-moderation-team">
+                <h1>Global Moderation Team<i class="fa-solid fa-shield-halved" style="color: #bf3a3a;"></i></h1>
+                <div class="flex-box wrap">
+                    <% moderator.forEach((user) => { %>
+                        <div class="user">
+                            <img class="banner" src="https://banner.mamesosu.net/<%= user.id %>?<%= currentTime %>" alt="" />
+                            <a href="/">
+                                <img class="avatar" src="https://a.mamesosu.net/<%= user.id %>?<%= currentTime %>" alt="" />
+                                <span class="country-flag">
+                                    <i class="flag-icon flag-icon-<%= user.country %>"></i>
+                                    <p class="tooltip"><%= user.country.toUpperCase() %></p>
+                                </span>
+                                <p class="username"><%= user.name %></p>
+                            </a>
+                        </div>
+                    <% }); %>
+                </div>
+            </section>
+            <!-- Beatmap Approval Team -->
+            <section class="beatmap-approval-team">
+                <h1>Beatmap Approval Team<i class="fa-solid fa-screwdriver-wrench" style="color: #9000fc;"></i></h1>
+                <div class="flex-box wrap">
+                    <% nominator.forEach((user) => { %>
+                        <div class="user">
+                            <img class="banner" src="https://banner.mamesosu.net/<%= user.id %>?<%= currentTime %>" alt="" />
+                            <a href="/">
+                                <img class="avatar" src="https://a.mamesosu.net/<%= user.id %>?<%= currentTime %>" alt="" />
+                                <span class="country-flag">
+                                    <i class="flag-icon flag-icon-<%= user.country %>"></i>
+                                    <p class="tooltip"><%= user.country.toUpperCase() %></p>
+                                </span>
+                                <p class="username"><%= user.name %></p>
+                            </a>
+                        </div>
+                    <% }); %>
+                </div>
+            </section>
+        </article>
+    </div>
+</footer>

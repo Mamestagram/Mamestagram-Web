@@ -16,6 +16,6 @@ const modeName = (modeNum) => {
     return name;
 }
 
-module.exports = { 
+module.exports = {
     modeName
 }
