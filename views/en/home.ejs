@@ -4,6 +4,7 @@
         <Title>Dashboard | Mamestagram</Title>
         <%- include("references/head", { currentTime }) %>
         <link rel="stylesheet" href="/css/home.css?<%= currentTime %>" />
+        <link rel="stylesheet" href="/css/common/odometer-theme-minimal.css?<%= currentTime %>" />
         <script src="/js/home.js?<%= currentTime %>" defer></script>
     </head>
     <body>
@@ -17,8 +18,7 @@
                         <% for (let i = 2, n = 0; i <= 6; i++, n++) { %>
                             <% user = ppRecords[`mode${i % 4}`]; %>
                             <div class="user<%= n === 2 ? " focused" : n === 0 || n === 4 ? " edge" : "" %>">
-                                <div class="wrap">
-                                    <img src="https://a.mamesosu.net/<%= user.id %>?<%= currentTime %>" alt="" />
+                                <div class="wrap" style="background-image: url('https://a.mamesosu.net/<%= user.id %>?<%= currentTime %>')">
                                     <p class="mode-title"><i class="mode-icon mode-<%= functions.modeName(i % 4) %>"></i>vn!<%= functions.modeName(i % 4) %></p>
                                 </div>
                                 <h3>
@@ -58,8 +58,7 @@
                     </div>
                     <div class="flex-box auto-pilot">
                         <div class="user focused">
-                            <div class="wrap">
-                                <img src="https://a.mamesosu.net/<%= user.id %>?<%= currentTime %>" alt="" />
+                            <div class="wrap" style="background-image: url('https://a.mamesosu.net/<%= user.id %>?<%= currentTime %>')">
                             </div>
                             <h3>
                                 <i class="mode-icon mode-std"></i>ap!std
@@ -78,6 +77,20 @@
                     <li class="relax"><span>Relax</span></li>
                     <li class="auto-pilot"><span>Auto Pilot</span></li>
                 </ul>
+            </div>
+            <div class="list">
+                <h2>Server Status</h2>
+                <div class="server-st">
+                    <div class="player-wrap current">
+                        <i class="fa-solid fa-user" style="color: #4580f7;"></i>: 
+                        <div id="players-online" class="odometer"><%= online %></div>
+                    </div>
+                    <div class="player-wrap total">
+                        <i class="fa-duotone fa-solid fa-users"></i>: 
+                        <div id="players-total" class="odometer"><%= total %></div>
+                    </div>
+                </div>
+                <script src="/js/common/odometer.min.js?<%= currentTime %>" defer></script>
             </div>
         </main>
         <%- include("references/footer", { 

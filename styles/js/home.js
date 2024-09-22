@@ -54,4 +54,18 @@ $(function() {
                 break;
         }
     });
+
+    const updatePlayers = (type) => {
+        const ajax = new XMLHttpRequest();
+        ajax.open("GET", `/players?type=${type}`, true);
+        ajax.setRequestHeader("Content-Type", "text/plain");
+        ajax.onload = () => {
+            $(`main .list .player-wrap #players-${type}`).html(ajax.responseText);
+        }
+        ajax.send(null);
+    }
+    setInterval(() => {
+        updatePlayers("online");
+        updatePlayers("total");
+    }, 3000);
 });
