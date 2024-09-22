@@ -1,29 +1,45 @@
 <header>
-    <img class="logo" src="/images/logo.webp?<%= currentTime %>" />
-    <ul class="link-menu">
-        <li class="leaderboard">
-            <a href="/">Leaderboard</a>
-        </li>
-        <li class="documents">
-            <a href="/">Documents</a>
-        </li>
-        <li class="discord">
-            <a href="/">Discord</a>
-        </li>
-        <li class="donation">
-            <a href="/"><i class="fa-solid fa-heart"></i></a>
-        </li>
-        <% if (isLoggedIn) { %>
-            <li class="right user-avatar">
-                <img src="https://a.mamesosu.net/<%= user.id %>?<%= currentTime %>" />
+    <div class="element">
+        <span class="tooltip-element down home">
+            <a href="/">
+                <img class="logo" src="/images/logo.webp?<%= currentTime %>" />
+            </a>
+            <p class="tooltip">Home Page</p>
+        </span>
+        <ul class="link-menu">
+            <li class="beatmaps">
+                <a href="/">Beatmaps</a>
             </li>
-        <% } else { %>
-            <li class="right register">
-                <a href="/">Register</a>
+            <li class="leaderboard">
+                <a href="/">Leaderboard</a>
             </li>
-            <li class="login">
-                <a href="/">Login</a>
+            <li class="documents">
+                <a href="/">Documents</a>
             </li>
-        <% } %>
-    </ul>
+            <li class="discord">
+                <a href="/">Discord</a>
+            </li>
+            <li class="donation">
+                <span class="tooltip-element down">
+                    <a href="/"><i class="fa-solid fa-heart"></i></a>
+                    <p class="tooltip">Support us!</p>
+                </span>
+            </li>
+            <li class="search">
+                <i class="fa-solid fa-magnifying-glass"></i>
+            </li>
+            <% if (isLoggedIn) { %>
+                <li class="user-avatar">
+                    <img src="https://a.mamesosu.net/<%= user.id %>?<%= currentTime %>" loading="lazy" alt="" />
+                </li>
+            <% } else { %>
+                <li class="register">
+                    <a href="/">Register</a>
+                </li>
+                <li class="login">
+                    <a href="/">Login</a>
+                </li>
+            <% } %>
+        </ul>
+    </div>
 </header>
