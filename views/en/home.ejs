@@ -90,11 +90,29 @@
 
             <div class="list">
                 <h2>Server Status</h2>
-                <div class="server-st">
-                    <div class="cr-player"><i class="fa-solid fa-user" style="color: #4580f7;"></i>: <%= online %></div>
-                    <div class="tot-player"><i class="fa-duotone fa-solid fa-users"></i>: <%= total %></div>    
+                <div class="server-st" id="status">
+                    <div class="cr-player" id="online"><i class="fa-solid fa-user" style="color: #4580f7;"></i>: <%= online %></div>
+                    <div class="tot-player" id="total"><i class="fa-duotone fa-solid fa-users"></i>: <%= total %></div>    
                 </div>
             </div>
+            <script>
+                const fetchStatus = async () => {
+                    try {
+                        const response = await fetch('/getstatus');
+                        const newStatus = await response.json();
+
+                        document.getElementById('online').innerHTML = `<i class="fa-solid fa-user" style="color: #4580f7;"></i>: ${newStatus.online}`;
+                        document.getElementById('total').innerHTML = `<i class="fa-duotone fa-solid fa-users"></i>: ${newStatus.total}`;
+                    } catch {
+                        console.error(error);
+                    }
+                }
+
+                window.onload = () => {
+                    fetchStatus();
+                    setInterval(fetchStatus, 5000);
+                }
+            </script>
             
         </main>
         <%- include("references/footer", { 
