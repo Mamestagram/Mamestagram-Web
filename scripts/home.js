@@ -46,6 +46,7 @@ const home = () => {
                                             ppRecords[`mode${i}`] = ppRecord[0];
                                         }
                                     }
+
                                     res.render(`${res.locals.language}/home.ejs`, {
                                         functions,
                                         online,
@@ -77,5 +78,19 @@ const home = () => {
                 modules.utils.writeError(req, res, modules.utils.getErrorContent(pageName, error), subDomain);
             });
     });
+    modules.app.get('/getstatus', (req, res) => {
+        modules.axios.get(`https://${apiDomain}/get_player_count`)
+        .then((response) => {
+            const data = response.data;
+            online = data.counts.online;
+            total = data.counts.total;
+
+            const newStatus = { online, total };
+            res.json(newStatus);
+        })
+        .catch((error) => {
+            modules.utils.writeError(req, res, modules.utils.getErrorContent(pageName, error), subDomain);
+        });
+    })
 }
 module.exports = home;
