@@ -289,7 +289,6 @@ main .list .player-wrap i {
 
 main .list .player-wrap .odometer {
     margin-left: 10px;
-=======
     margin-top: 30px;
 }
 
@@ -331,3 +330,4 @@ main .list a {
     border-radius: 10px;
     text-align: center;
     position: relative;
+}
