@@ -94,7 +94,7 @@ header .link-menu .donation {
 header .link-menu .donation a {
     transition: color 300ms, transform 300ms;
 }
-header .link-menu .donation a:hover {
+header .link-menu .donation:hover a {
     color: #ea609e;
     transform: scale(1.25);
     filter: drop-shadow(0 0 10px #fff);

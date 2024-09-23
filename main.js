@@ -2,7 +2,9 @@ require("dotenv").config();
 const apiDomain = process.env.API_DOMAIN;
 const modules = require("./scripts/modules");
 const mysql = require("./scripts/modules/mysql");
+
 const home = require("./scripts/home");
+const players = require("./scripts/players");
 
 const register = require("./scripts/account/register");
 const signin = require("./scripts/account/signin");
@@ -126,7 +128,7 @@ modules.app.get("/", (req, res) => {
 
 // ホームページ
 home();
-
+players();
 
 // アカウント関連
 register(); // 登録
