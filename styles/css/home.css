@@ -270,12 +270,12 @@ main .list .player-wrap {
     font-size: 4em;
     padding: 20px 30px;
     margin: 10px 30px;
-    box-shadow: 0 0 25px white;
 }
 
 main .list .current {
     background-color: rgb(117, 172, 248);
     border: solid 1px rgb(42, 128, 250);
+    box-shadow: 0 0 25px white;
 }
 
 main .list .total {

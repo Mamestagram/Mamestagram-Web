@@ -29,7 +29,7 @@
                                     </span>
                                     <span class="username"><%= user.name %></span>
                                 </h3>
-                                <p class="pp"><%= Math.round(user.pp) %>pp</p>
+                                <p class="pp"><%= Math.round(user.pp).toLocaleString() %>pp</p>
                             </div>
                         <% } %>
                     </div>
@@ -49,7 +49,7 @@
                                         </span>
                                         <span class="username"><%= user.name %></span>
                                     </h3>
-                                    <p class="pp"><%= Math.round(user.pp) %>pp</p>
+                                    <p class="pp"><%= Math.round(user.pp).toLocaleString() %>pp</p>
                                 </div>
                             <% } else {
                                 n--;
@@ -68,7 +68,7 @@
                                 </span>
                                 <span class="username"><%= user.name %></span>
                             </h3>
-                            <p class="pp"><%= Math.round(user.pp) %>pp</p>
+                            <p class="pp"><%= Math.round(user.pp).toLocaleString() %>pp</p>
                         </div>
                     </div>
                 </div>

@@ -32,7 +32,7 @@ $(function() {
         $("main .pp-record-user .flex-box.relax .user:last-child").addClass("edge");
     });
 
-    $("main .pp-record-user .special-switch li").click(function() {
+    $("main").on("click", ".pp-record-user .special-switch li", function() {
         $("main .pp-record-user .flex-box").each(function() {
             $(this).removeClass("selected");
         });
@@ -60,12 +60,16 @@ $(function() {
         ajax.open("GET", `/players?type=${type}`, true);
         ajax.setRequestHeader("Content-Type", "text/plain");
         ajax.onload = () => {
-            $(`main .list .player-wrap #players-${type}`).html(ajax.responseText);
+            let value = ajax.responseText;
+            value = (Number(value) + 1).toString();
+            $(`main .list .player-wrap #players-${type}`).html(value);
         }
         ajax.send(null);
     }
     setInterval(() => {
         updatePlayers("online");
+    }, 5000);
+    setInterval(() => {
         updatePlayers("total");
-    }, 3000);
+    }, 10000)
 });
