@@ -4,7 +4,14 @@
         <Title>Dashboard | Mamestagram</Title>
         <%- include("references/head", { currentTime }) %>
         <link rel="stylesheet" href="/css/home.css?<%= currentTime %>" />
+
         <link rel="stylesheet" href="/css/common/odometer-theme-minimal.css?<%= currentTime %>" />
+
+
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=New+Amsterdam&display=swap" rel="stylesheet">
+
         <script src="/js/home.js?<%= currentTime %>" defer></script>
     </head>
     <body>
@@ -78,6 +85,7 @@
                     <li class="auto-pilot"><span>Auto Pilot</span></li>
                 </ul>
             </div>
+
             <div class="list">
                 <h2>Server Status</h2>
                 <div class="server-st">
@@ -92,6 +100,35 @@
                 </div>
                 <script src="/js/common/odometer.min.js?<%= currentTime %>" defer></script>
             </div>
+
+
+    <!--------------------------------------------------------------------------------->
+
+            <div class="list">
+                <h2>Server Status</h2>
+                <div class="server-st" id="status">
+                    <div class="cr-player" id="online"><i class="fa-solid fa-user" style="color: #4580f7;"></i>: <%= online %></div>
+                    <div class="tot-player" id="total"><i class="fa-duotone fa-solid fa-users"></i>: <%= total %></div>    
+                </div>
+            </div>
+            <script>
+                const fetchStatus = async () => {
+                    try {
+                        const response = await fetch('/getstatus');
+                        const newStatus = await response.json();
+
+                        document.getElementById('online').innerHTML = `<i class="fa-solid fa-user" style="color: #4580f7;"></i>: ${newStatus.online}`;
+                        document.getElementById('total').innerHTML = `<i class="fa-duotone fa-solid fa-users"></i>: ${newStatus.total}`;
+                    } catch {
+                        console.error(error);
+                    }
+                }
+
+                window.onload = () => {
+                    fetchStatus();
+                    setInterval(fetchStatus, 5000);
+                }
+            </script>
         </main>
         <%- include("references/footer", { 
             currentTime,

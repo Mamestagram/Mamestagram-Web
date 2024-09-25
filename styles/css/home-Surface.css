@@ -1,7 +1,5 @@
 main {
     background-color: #1c1c1c;
-    user-select: none;
-    height: auto;
 }
 
 main h1 {
@@ -20,9 +18,7 @@ main .pp-record-user {
 }
 
 main .pp-record-user .boxes {
-    display: flex;
     height: 600px;
-    align-items: center;
 }
 
 main .pp-record-user .flex-box {
@@ -47,7 +43,7 @@ main .pp-record-user .flex-box .user {
     cursor: pointer;
     display: flex;
     position: relative;
-    height: 300px;
+    height: 200px;
     width: 200px;
     margin: 0 80px;
     flex-direction: column;
@@ -71,20 +67,21 @@ main .pp-record-user .flex-box.selected .user:hover {
 
 main .pp-record-user .flex-box .user .wrap {
     display: flex;
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-    height: 100%;
-    aspect-ratio: 1 / 1;
-    border-radius: 8%;
     align-items: flex-end;
-    filter: grayscale(100%);
     -webkit-box-reflect: below 1px linear-gradient(to bottom, transparent, #0005);
+}
+
+main .pp-record-user .flex-box .user img {
+    height: 200px;
+    width: 200px;
+    border-radius: 8%;
+    object-fit: cover;
+    filter: grayscale(100%);
     transition: height 500ms, width 500ms, box-shadow 500ms, filter 500ms, opacity 500ms;
 }
 
 main .pp-record-user .flex-box.selected .focused {
-    height: 500px;
+    height: 400px;
     width: 400px;
     z-index: 1;
     opacity: 1;
@@ -94,11 +91,13 @@ main .pp-record-user .flex-box .focused:hover {
     transform: scale(1.1);
 }
 
-main .pp-record-user .flex-box .focused .wrap {
+main .pp-record-user .flex-box .focused img {
+    height: 400px;
+    width: 400px;
     filter: grayscale(70%) drop-shadow(0px 0px 100px rgba(255, 255, 255, 0.5));
-    opacity: 1;
+    object-fit: cover;
 }
-main .pp-record-user .flex-box .focused:hover .wrap {
+main .pp-record-user .flex-box .focused:hover img {
     filter: grayscale(0%) drop-shadow(0px 0px 50px #fff);
 }
 
@@ -107,15 +106,20 @@ main .pp-record-user .flex-box .edge {
     width: 0px;
     margin: 0;
 }
+main .pp-record-user .flex-box .edge img {
+    height: 0px;
+    width: 0px;
+}
 
 main .pp-record-user .flex-box .user .mode-title {
     position: absolute;
-    bottom: 3%;
     left: 50%;
+    bottom: 27%;
     text-shadow: 2px 2px 2px #000;
     transform: translateX(-50%);
     transition: transform 500ms, opacity 500ms;
 }
+
 main .pp-record-user .flex-box .user:hover .mode-title {
     transform: translate(-50%, -50%);
 }
@@ -243,91 +247,3 @@ main .pp-record-user .special-switch li.selected:last-child::before {
 main .pp-record-user .special-switch li span {
     mix-blend-mode: difference;
 }
-
-main .list {
-    border-top: solid 1px;
-    border-image: linear-gradient(to right, rgba(248, 189, 19, 0.1), rgb(248, 189, 19), rgba(248, 189, 19, 0.1)) 1;
-    height: 300px;
-    margin-top: 30px;
-}
-
-main .list h2 {
-    font-size: 2.6em;
-    display: flex;
-    justify-content: center;
-    margin: 30px 0;
-}
-
-main .list .server-st {
-    display: flex;
-    font-family: "New Amsterdam";
-    justify-content: center;
-}
-
-main .list .player-wrap {
-    display: flex;
-    border-radius: 20px;
-    font-size: 4em;
-    padding: 20px 30px;
-    margin: 10px 30px;
-}
-
-main .list .current {
-    background-color: rgb(117, 172, 248);
-    border: solid 1px rgb(42, 128, 250);
-    box-shadow: 0 0 25px white;
-}
-
-main .list .total {
-    background-color: rgb(54, 54, 54);
-    border: solid 1px rgb(118, 118, 118);
-}
-
-main .list .player-wrap i {
-    margin-right: 10px;
-}
-
-main .list .player-wrap .odometer {
-    margin-left: 10px;
-=======
-    margin-top: 30px;
-}
-
-main .list .server-st {
-    margin-top: 20px;
-    font-family: "New Amsterdam", sans-serif;
-    font-weight: 400;
-    font-style: normal;
-    font-size: 2em;
-}
-
-main .list div {
-    display: flex;
-    justify-content: center;
-    font-size: 2em;
-}
-
-main .list .cr-player {
-    border: solid 1px rgb(42, 128, 250);
-    border-radius: 20px;
-    background-color: rgb(117, 172, 248);
-    box-shadow: 0 0 25px white;
-    padding: 20px 30px;
-    margin: 10px 30px;
-}
-
-main .list .tot-player {
-    border: solid 1px rgb(118, 118, 118);
-    border-radius: 20px;
-    background-color: rgb(54, 54, 54);
-    padding: 20px 30px;
-    margin: 10px 30px;
-}
-
-main .list a {
-    padding: 10px 20px;
-    margin: auto;
-    border: solid 1px rgb(133, 103, 244);
-    border-radius: 10px;
-    text-align: center;
-    position: relative;
