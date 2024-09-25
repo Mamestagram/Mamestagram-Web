@@ -60,7 +60,7 @@ $(function() {
         ajax.open("GET", `/players?type=${type}`, true);
         ajax.setRequestHeader("Content-Type", "text/plain");
         ajax.onload = () => {
-            $(`main .list .player-wrap #players-${type}`).html(value);
+            $(`main .list .player-wrap #players-${type}`).html(ajax.responseText);
         }
         ajax.send(null);
     }

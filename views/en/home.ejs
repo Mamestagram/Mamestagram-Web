@@ -4,15 +4,7 @@
         <Title>Dashboard | Mamestagram</Title>
         <%- include("references/head", { currentTime }) %>
         <link rel="stylesheet" href="/css/home.css?<%= currentTime %>" />
-
         <link rel="stylesheet" href="/css/common/odometer-theme-minimal.css?<%= currentTime %>" />
-
-
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=New+Amsterdam&display=swap" rel="stylesheet">
-
-        <script src="/js/home.js?<%= currentTime %>" defer></script>
     </head>
     <body>
         <%- include("references/header", { currentTime }) %>
@@ -97,7 +89,6 @@
                         <div id="players-total" class="odometer"><%= total %></div>
                     </div>
                 </div>
-                <script src="/js/common/odometer.min.js?<%= currentTime %>" defer></script>
             </div>
         </main>
         <%- include("references/footer", { 
@@ -107,5 +98,8 @@
             moderator,
             nominator
         }) %>
+        <%- include("references/script", { currentTime }) %>
+        <script src="/js/home.js?<%= currentTime %>" defer></script>
+        <script src="/js/common/odometer.min.js?<%= currentTime %>" defer></script>
     </body>
 </html>
