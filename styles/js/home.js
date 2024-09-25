@@ -60,8 +60,6 @@ $(function() {
         ajax.open("GET", `/players?type=${type}`, true);
         ajax.setRequestHeader("Content-Type", "text/plain");
         ajax.onload = () => {
-            let value = ajax.responseText;
-            value = (Number(value) + 1).toString();
             $(`main .list .player-wrap #players-${type}`).html(value);
         }
         ajax.send(null);
