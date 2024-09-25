@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html lang="ja">
     <head>
-        <Title>Dashboard | Mamestagram</Title>
+        <title>Dashboard | Mamestagram</title>
         <%- include("references/head", { currentTime }) %>
         <link rel="stylesheet" href="/css/home.css?<%= currentTime %>" />
         <link rel="stylesheet" href="/css/common/odometer-theme-minimal.css?<%= currentTime %>" />
     </head>
     <body>
+        <%- include("references/loading") %>
         <%- include("references/header", { currentTime }) %>
         <main>
             <h1>Mamestagram</h1>
