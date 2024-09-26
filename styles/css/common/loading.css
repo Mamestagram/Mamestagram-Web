@@ -98,11 +98,13 @@
 @keyframes spin {
     0% {
         transform: rotate(0deg);
+        filter: drop-shadow(0 0 20px #fff);
     }
     50% {
         transform: rotate(180deg) scale(0.8);
+        filter: drop-shadow(0 0 10px #fff);
     }
     100% {
         transform: rotate(360deg);
-    }
+        filter: drop-shadow(0 0 20px #fff);    }
 }
