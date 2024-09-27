@@ -1,0 +1,110 @@
+.loading-bar {
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: linear-gradient(to right, #fffbe6, #fccd2a, #ffb22c);
+    height: 2px;
+    width: 0;
+    border-radius: 2px;
+    opacity: 1;
+    z-index: 2001;
+}
+
+.loading-bar.extend {
+    width: 15%;
+    transition: width 500ms ease-out;
+}
+
+.loading-bar.extend.moving {
+    width: 95%;
+    transition: width 20s ease-in-out;
+}
+
+.loading-bar.end {
+    width: 100%;
+    opacity: 0;
+    transition: width 100ms, opacity 300ms ease-out;
+}
+
+.loading {
+    visibility: hidden;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: rgb(0, 0, 0, 0.5);
+    height: 100%;
+    width: 100%;
+    opacity: 0;
+    z-index: 2000;
+    transition: opacity 500ms;
+}
+
+.loading.spin {
+    visibility: visible;
+    opacity: 1;
+}
+
+.loading .background-spinner {
+    position: relative;
+    top: 50%;
+    left: 50%;
+    height: 80px;
+    aspect-ratio: 1 / 1;
+    transform: translate(-50%, -50%);
+}
+
+.loading .background-spinner::before {
+    content: "";
+    display: block;
+    position: absolute;
+    background-color: #fff;
+    height: 80px;
+    aspect-ratio: 1 / 1;
+    border-radius: 50%;
+}
+
+.loading.spin .background-spinner::before {
+    animation: pop 1500ms ease-out infinite;
+}
+
+@keyframes pop {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.3);
+        opacity: 0;
+    }
+    100% {
+        transform: scale(1.3);
+        opacity: 0;
+    }
+}
+
+.loading .logo-spinner {
+    background-image: url("/images/logo.webp");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: inherit;
+    aspect-ratio: 1 / 1;
+}
+
+.loading.spin .logo-spinner {
+    animation: spin 1500ms ease infinite;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+        filter: drop-shadow(0 0 20px #fff);
+    }
+    50% {
+        transform: rotate(180deg) scale(0.8);
+        filter: drop-shadow(0 0 10px #fff);
+    }
+    100% {
+        transform: rotate(360deg);
+        filter: drop-shadow(0 0 20px #fff);    }
+}
