@@ -303,4 +303,45 @@ main .list .player-wrap i {
 
 main .list .player-wrap .odometer {
     margin-left: 10px;
+    margin-top: 30px;
+}
+
+main .list .server-st {
+    margin-top: 20px;
+    font-family: "New Amsterdam", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 2em;
+}
+
+main .list div {
+    display: flex;
+    justify-content: center;
+    font-size: 2em;
+}
+
+main .list .cr-player {
+    border: solid 1px rgb(42, 128, 250);
+    border-radius: 20px;
+    background-color: rgb(117, 172, 248);
+    box-shadow: 0 0 25px white;
+    padding: 20px 30px;
+    margin: 10px 30px;
+}
+
+main .list .tot-player {
+    border: solid 1px rgb(118, 118, 118);
+    border-radius: 20px;
+    background-color: rgb(54, 54, 54);
+    padding: 20px 30px;
+    margin: 10px 30px;
+}
+
+main .list a {
+    padding: 10px 20px;
+    margin: auto;
+    border: solid 1px rgb(133, 103, 244);
+    border-radius: 10px;
+    text-align: center;
+    position: relative;
 }
