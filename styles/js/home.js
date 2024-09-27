@@ -75,10 +75,27 @@ $(function() {
         }
         ajax.send(null);
     }
-    setInterval(() => {
+
+    // まじわかんねえ
+    let intervalId1;
+    let intervalId2;
+    document.addEventListener("visibilitychange", function() {
+        if (document.visibilityState === "visible") {
+            intervalId1 = setInterval(() => {
+                updatePlayers("online");
+            }, 5000);
+            intervalId2 = setInterval(() => {
+                updatePlayers("total");
+            }, 10000)
+        } else {
+            clearInterval(intervalId1);
+            clearInterval(intervalId2);
+        }
+
+    })
+
+    window.onload = () => {
         updatePlayers("online");
-    }, 5000);
-    setInterval(() => {
         updatePlayers("total");
-    }, 10000)
+    }
 });
