@@ -1,45 +1,70 @@
 $(function() {
     $("main").on("click", ".pp-record-user .flex-box.vanilla .user", function() {
-        $("main .pp-record-user .flex-box.vanilla .user").each(function() {
-            $(this).removeClass("focused").removeClass("edge");
-        });
-        if ($(this).index() > 2) {
-            $("main .pp-record-user .flex-box.vanilla .user:first-child").remove();
-            $("main .pp-record-user .flex-box.vanilla").append($("main .pp-record-user .flex-box.vanilla .user:first-child").clone());
+        if (!$("main .pp-record-user .flex-box.vanilla .user:nth-child(3)").hasClass("space")) {
+            $("main .pp-record-user .flex-box.vanilla .user").each(function() {
+                $(this).removeClass("focused").removeClass("edge");
+            });
+            if ($(this).index() > 2) {
+                $("main .pp-record-user .flex-box.vanilla .user:first-child").remove();
+                $("main .pp-record-user .flex-box.vanilla").append($("main .pp-record-user .flex-box.vanilla .user:first-child").clone());
+            }
+            else if ($(this).index() < 2) {
+                $("main .pp-record-user .flex-box.vanilla .user:last-child").remove();
+                $("main .pp-record-user .flex-box.vanilla").prepend($("main .pp-record-user .flex-box.vanilla .user:last-child").clone());
+            }
+            $("main .pp-record-user .flex-box.vanilla .user:nth-child(3)").addClass("focused");
+            $("main .pp-record-user .flex-box.vanilla .user:first-child").addClass("edge");
+            $("main .pp-record-user .flex-box.vanilla .user:last-child").addClass("edge");
         }
-        else if ($(this).index() < 2) {
-            $("main .pp-record-user .flex-box.vanilla .user:last-child").remove();
-            $("main .pp-record-user .flex-box.vanilla").prepend($("main .pp-record-user .flex-box.vanilla .user:last-child").clone());
-        }
-        $("main .pp-record-user .flex-box.vanilla .user:nth-child(3)").addClass("focused");
-        $("main .pp-record-user .flex-box.vanilla .user:first-child").addClass("edge");
-        $("main .pp-record-user .flex-box.vanilla .user:last-child").addClass("edge");
     });
     $("main").on("click", ".pp-record-user .flex-box.relax .user", function() {
-        $("main .pp-record-user .flex-box.relax .user").each(function() {
-            $(this).removeClass("focused").removeClass("edge");
-        });
-        if ($(this).index() > 2) {
-            $("main .pp-record-user .flex-box.relax .user:first-child").remove();
-            $("main .pp-record-user .flex-box.relax").append($("main .pp-record-user .flex-box.relax .user:nth-child(2)").clone());
+        if (!$("main .pp-record-user .flex-box.relax .user:nth-child(3)").hasClass("space")) {
+            $("main .pp-record-user .flex-box.relax .user").each(function() {
+                $(this).removeClass("focused").removeClass("edge");
+            });
+            if ($(this).index() > 2) {
+                $("main .pp-record-user .flex-box.relax .user:first-child").remove();
+                $("main .pp-record-user .flex-box.relax").append($("main .pp-record-user .flex-box.relax .user:nth-child(2)").clone());
+            }
+            else if ($(this).index() < 2) {
+                $("main .pp-record-user .flex-box.relax .user:last-child").remove();
+                $("main .pp-record-user .flex-box.relax").prepend($("main .pp-record-user .flex-box.relax .user:nth-child(3)").clone());
+            }
+            $("main .pp-record-user .flex-box.relax .user:nth-child(3)").addClass("focused");
+            $("main .pp-record-user .flex-box.relax .user:first-child").addClass("edge");
+            $("main .pp-record-user .flex-box.relax .user:last-child").addClass("edge");
         }
-        else if ($(this).index() < 2) {
-            $("main .pp-record-user .flex-box.relax .user:last-child").remove();
-            $("main .pp-record-user .flex-box.relax").prepend($("main .pp-record-user .flex-box.relax .user:nth-child(3)").clone());
+    });
+
+    $("main").on("click", ".pp-record-user .flex-box.selected .focused", function() {
+        if (!$(this).hasClass("details")) {
+            $(this).removeClass("anim-end").addClass("details");
+            $(this).parent().addClass("details");
+            $("main").addClass("details");
         }
-        $("main .pp-record-user .flex-box.relax .user:nth-child(3)").addClass("focused");
-        $("main .pp-record-user .flex-box.relax .user:first-child").addClass("edge");
-        $("main .pp-record-user .flex-box.relax .user:last-child").addClass("edge");
+        if (!$("main .pp-record-user .flex-box.selected .user:nth-child(3)").hasClass("space")) {
+            $("main .pp-record-user .flex-box.selected .user:nth-child(2)").after($(this).clone());
+            $("main .pp-record-user .flex-box.selected .user:nth-child(3)").removeClass("details").addClass("space");
+        }
+    });
+
+    $("main").on("animationend", ".pp-record-user .flex-box.selected .details", function() {
+        $(this).addClass("anim-end");
     });
 
     $("body").click(function(e) {
-        if (!$(e.target).closest("main .pp-record-user .flex-box.selected .focused .wrap").length) {
+        if (!$(e.target).closest("main .pp-record-user .flex-box.selected .focused").length) {
+            $("main .pp-record-user .flex-box.selected .details").removeClass("anim-end");
+            $("main .pp-record-user .flex-box.selected .focused").removeClass("details");
             $("main .pp-record-user .flex-box.selected").removeClass("details");
-            $("main .pp-record-user .flex-box.selected .focused .wrap").removeClass("details");
+            $("main").removeClass("details");
         }
-        else {
-            $("main .pp-record-user .flex-box.selected").addClass("details");
-            $("main .pp-record-user .flex-box.selected .focused .wrap").addClass("details");
+    });
+
+    $("main").on("animationend", ".pp-record-user .flex-box.selected .focused", function() {
+        $(this).addClass("anim-end");
+        if (!$("main .pp-record-user .flex-box.selected .user:nth-child(4)").hasClass("details")) {
+            $("main .pp-record-user .flex-box.selected .user:nth-child(3)").remove();
         }
     });
 
@@ -54,14 +79,17 @@ $(function() {
             case 0:
                 $("main .pp-record-user .flex-box.vanilla").addClass("selected");
                 $("main .pp-record-user .special-switch .vanilla").addClass("selected");
+                $("main .pp-record-user .focused-user").html($("main .pp-record-user .flex-box.vanilla .focused").clone());
                 break;
             case 1:
                 $("main .pp-record-user .flex-box.relax").addClass("selected");
                 $("main .pp-record-user .special-switch .relax").addClass("selected");
+                $("main .pp-record-user .focused-user").html($("main .pp-record-user .flex-box.relax .focused").clone());
                 break;
             case 2:
                 $("main .pp-record-user .flex-box.auto-pilot").addClass("selected");
                 $("main .pp-record-user .special-switch .auto-pilot").addClass("selected");
+                $("main .pp-record-user .focused-user").html($("main .pp-record-user .flex-box.auto-pilot .focused").clone());
                 break;
         }
     });

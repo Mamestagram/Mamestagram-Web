@@ -4,6 +4,21 @@ main {
     height: auto;
 }
 
+main::after {
+    content: "";
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    opacity: 0.5;
+    z-index: 1;
+}
+
 main h1 {
     background-image: url("../images/logo.webp");
     background-repeat: no-repeat;
@@ -28,14 +43,14 @@ main .pp-record-user .boxes {
 main .pp-record-user .flex-box {
     display: flex;
     position: absolute;
-    left: 50%;
     font-family: "Mochiy Pop One";
     height: 500px;
+    width: 100%;
     margin: 0 auto;
+    justify-content: center;
     align-items: flex-end;
     perspective: 1000px;
     perspective-origin: bottom center;
-    transform: translateX(-50%);
     z-index: 0;
 }
 
@@ -43,8 +58,8 @@ main .pp-record-user .flex-box.selected {
     z-index: 1;
 }
 
-main .pp-record-user .flex-box.selected.details {
-    perspective-origin: center center;
+main .pp-record-user .flex-box.details {
+    perspective-origin: left center;
 }
 
 main .pp-record-user .flex-box .user {
@@ -87,18 +102,82 @@ main .pp-record-user .flex-box .user .wrap {
     transition: height 500ms, width 500ms, box-shadow 500ms, filter 500ms, opacity 500ms;
 }
 
-main .pp-record-user .flex-box.selected .focused {
+main .pp-record-user .flex-box.selected .focused:not(.details, .space) {
+    position: fixed;
+    top: 0;
+    left: 0;
     height: 500px;
     width: 400px;
     z-index: 1;
     opacity: 1;
     transition: height 500ms, width 500ms, transform 500ms;
+    animation: spin 500ms ease forwards;
 }
-main .pp-record-user .flex-box .focused:hover {
+
+main .pp-record-user .flex-box.selected .focused.anim-end {
+    position: unset;
+    transform: rotateY(0deg);
+    transition: height 500ms, width 500ms, transform 500ms;
+    animation: none;
+}
+main .pp-record-user .flex-box.selected .focused.anim-end:not(.details):hover {
     transform: scale(1.05);
 }
-main .pp-record-user .flex-box.details .focused:hover {
-    transform: none;
+
+@keyframes spin {
+    0% {
+        margin-top: 50px;
+        margin-left: 10%;
+        transform: translateX(0) rotateX(3deg) rotateY(370deg) rotateZ(-3deg) scale(1.1);   
+    }
+    100% {
+        margin-left: 50%;
+        transform: translateX(-50%) rotateY(0deg);
+    }
+}
+
+main .pp-record-user .flex-box.selected .space {
+    visibility: hidden;
+    height: 500px;
+    width: 400px;
+    z-index: 1;
+    opacity: 1;
+}
+
+main .pp-record-user .flex-box.selected .details {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 500px;
+    width: 400px;
+    z-index: 10;
+    opacity: 1;
+    animation: move 500ms ease forwards;
+}
+
+@keyframes move {
+    0% {
+        margin-left: 50%;
+        transform: translateX(-50%) rotateY(0deg);
+    }
+    100% {
+        margin-top: 50px;
+        margin-left: 10%;
+        transform: translateX(0) rotateX(3deg) rotateY(370deg) rotateZ(-3deg) scale(1.1);
+    }
+}
+
+main .pp-record-user .flex-box.selected .details.anim-end {
+    position: fixed;
+    top: 0;
+    left: 0;
+    margin-top: 50px;
+    margin-left: 10%;
+    transform: translateX(0) rotateX(3deg) rotateY(370deg) rotateZ(-3deg) scale(1.1);
+    animation: none;
+}
+main .pp-record-user .flex-box.selected .details.anim-end:hover {
+    transform: rotateX(0deg) rotateY(360deg) rotateZ(0deg) scale(1.1);
 }
 
 main .pp-record-user .flex-box .focused .wrap {
@@ -110,10 +189,12 @@ main .pp-record-user .flex-box .focused:hover .wrap {
     filter: grayscale(30%) drop-shadow(0px 0px 50px #fff);
 }
 
-main .pp-record-user .flex-box .focused .details {
-    filter: grayscale(0%) drop-shadow(0px 0px 50px #fff);
+main .pp-record-user .flex-box .details .wrap {
+    filter: grayscale(0%) drop-shadow(0px 0px 100px rgba(255, 255, 255, 0.5));
     -webkit-box-reflect: unset;
-    transform: rotateX(10deg) rotateY(390deg) rotateZ(-5deg) scale(1.1);
+}
+main .pp-record-user .flex-box .details:hover .wrap {
+    filter: grayscale(0%) drop-shadow(0px 0px 50px #fff);
 }
 
 main .pp-record-user .flex-box .edge {
