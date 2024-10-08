@@ -21,6 +21,9 @@ const modeName = (modeNum) => {
     }
     return name;
 }
+const elapsedTime = (time) => {
+    
+}
 
 // 経過時間取得（timeは{year, month, week, day, hour, minute, second}の5つのプロパティがあるもの）
 const elapsedTime = (time) => {
