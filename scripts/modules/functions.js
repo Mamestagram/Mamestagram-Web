@@ -15,6 +15,9 @@ const modeName = (modeNum) => {
     }
     return name;
 }
+const elapsedTime = (time) => {
+    
+}
 
 module.exports = {
     modeName

@@ -14,14 +14,12 @@
             <div class="pp-record-user">
                 <div class="boxes">
                     <% let user; %>
+                    <div class="focused-user-score-data"></div>
                     <div class="flex-box vanilla selected">
                         <% for (let i = 2, n = 0; i <= 6; i++, n++) { %>
                             <% user = ppRecords[`mode${i % 4}`]; %>
                             <div class="user<%= n === 2 ? " focused" : n === 0 || n === 4 ? " edge" : "" %> anim-end">
                                 <div class="wrap" style="background-image: url('https://a.mamesosu.net/<%= user.id %>?<%= currentTime %>')">
-                                    <div class="score-data">
-
-                                    </div>
                                     <p class="mode-title"><i class="mode-icon mode-<%= functions.modeName(i % 4) %>"></i>vn!<%= functions.modeName(i % 4) %></p>
                                 </div>
                                 <h3>
@@ -30,9 +28,74 @@
                                         <i class="flag-icon flag-icon-<%= user.country %>"></i>
                                         <p class="tooltip"><%= user.country.toUpperCase() %></p>
                                     </span>
-                                    <span class="username"><%= user.name %></span>
+                                    <a href="/" class="username"><%= user.name %></a>
                                 </h3>
                                 <p class="pp"><%= Math.round(user.pp).toLocaleString() %>pp</p>
+                                <div class="score-data" style="background-image: url('https://assets.ppy.sh/beatmaps/<%= user.set_id %>/covers/cover.jpg?');">
+                                    <span class="map-name"><%= user.artist %> - <%= user.title %></span>
+                                    <span class="map-diff">[<%= user.version %>]</span>
+                                    <div class="map-score-details">
+                                        <img src="/images/grades/<%= user.grade %>.webp?<%= currentTime %>" alt="" />
+                                        <div class="tables">
+                                            <table class="t1">
+                                                <tr>
+                                                    <th>Total Score</th>
+                                                    <th>Accuracy</th>
+                                                    <th>Max Combo</th>
+                                                </tr>
+                                                <tr>
+                                                    <td><%= user.score.toLocaleString() %></td>
+                                                    <td><%= user.acc.toFixed(2) %>%</td>
+                                                    <td><%= user.max_combo.toLocaleString() %></td>
+                                                </tr>
+                                            </table>
+                                            <table class="t2">
+                                                <tr>
+                                                    <% if (i % 4 === 0) { %> <!-- std -->
+                                                        <th>300</th>
+                                                        <th>100</th>
+                                                        <th>50</th>
+                                                    <% } else if (i % 4 === 1) { %> <!-- taiko -->
+                                                        <th>Great</th>
+                                                        <th>Good</th>
+                                                    <% } else if (i % 4 === 2) { %> <!-- ctb -->
+                                                        <th>Fruits</th>
+                                                        <th>Tricks</th>
+                                                        <th>Drop</th>
+                                                    <% } else if (i % 4 === 3) { %> <!-- mania -->
+                                                        <th>Merv</th>
+                                                        <th>Perf</th>
+                                                        <th>Great</th>
+                                                        <th>Good</th>
+                                                        <th>Bad</th>
+                                                    <% } %>
+                                                    <th>Miss</th>
+                                                    <th>Time</th>
+                                                    <th>Mods</th>
+                                                </tr>
+                                                <tr>
+                                                    <% if (i % 4 === 0 || i % 4 === 2) { %> <!-- std | ctb -->
+                                                        <td><%= user.n300.toLocaleString() %></td>
+                                                        <td><%= user.n100.toLocaleString() %></td>
+                                                        <td><%= user.n50.toLocaleString() %></td>
+                                                    <% } else if (i % 4 === 1) { %> <!-- taiko -->
+                                                        <td><%= (user.ngeki + user.n300).toLocaleString() %></td>
+                                                        <td><%= (user.nkatu + user.n100).toLocaleString() %></td>
+                                                    <% } else if (i % 4 === 3) { %> <!-- mania -->
+                                                        <td><%= user.ngeki.toLocaleString() %></td>
+                                                        <td><%= user.n300.toLocaleString() %></td>
+                                                        <td><%= user.nkatu.toLocaleString() %></td>
+                                                        <td><%= user.n100.toLocaleString() %></td>
+                                                        <td><%= user.n50.toLocaleString() %></td>
+                                                    <% } %>
+                                                    <td><%= user.nmiss.toLocaleString() %></td>
+                                                    <td><%= user.play_time %></td>
+                                                    <td><%= user.mods %></td>
+                                                </tr>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         <% } %>
                     </div>
@@ -50,7 +113,7 @@
                                             <i class="flag-icon flag-icon-<%= user.country %>"></i>
                                             <p class="tooltip"><%= user.country.toUpperCase() %></p>
                                         </span>
-                                        <span class="username"><%= user.name %></span>
+                                        <a href="/" class="username"><%= user.name %></a>
                                     </h3>
                                     <p class="pp"><%= Math.round(user.pp).toLocaleString() %>pp</p>
                                 </div>
@@ -69,7 +132,7 @@
                                     <i class="flag-icon flag-icon-<%= user.country %>"></i>
                                     <p class="tooltip"><%= user.country.toUpperCase() %></p>
                                 </span>
-                                <span class="username"><%= user.name %></span>
+                                <a href="/" class="username"><%= user.name %></a>
                             </h3>
                             <p class="pp"><%= Math.round(user.pp).toLocaleString() %>pp</p>
                         </div>

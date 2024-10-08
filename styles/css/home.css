@@ -4,21 +4,6 @@ main {
     height: auto;
 }
 
-main::after {
-    content: "";
-    display: block;
-    position: fixed;
-    top: 0;
-    left: 0;
-    height: 100%;
-    width: 100%;
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-    opacity: 0.5;
-    z-index: 1;
-}
-
 main h1 {
     background-image: url("../images/logo.webp");
     background-repeat: no-repeat;
@@ -34,9 +19,24 @@ main .pp-record-user {
     margin-top: 0px;
 }
 
+main .pp-record-user .focused-user-score-data .score-data {
+    position: fixed;
+    top: 55%;
+    left: 30%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    height: 200px;
+    width: 65%;
+    border-radius: 20px;
+    transform: translateY(-50%);
+    z-index: 6;
+}
+
 main .pp-record-user .boxes {
     display: flex;
     height: 600px;
+    margin-top: 30px;
     align-items: center;
 }
 
@@ -59,7 +59,25 @@ main .pp-record-user .flex-box.selected {
 }
 
 main .pp-record-user .flex-box.details {
-    perspective-origin: left center;
+    perspective: none;
+}
+
+main .pp-record-user .flex-box.selected::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: #000;
+    height: 100%;
+    width: 100%;
+    z-index: 0;
+    opacity: 0;
+    transition: opacity 500ms;
+}
+
+main .pp-record-user .flex-box.selected.details::before {
+    z-index: 2;
+    opacity: 0.5;
 }
 
 main .pp-record-user .flex-box .user {
@@ -111,7 +129,19 @@ main .pp-record-user .flex-box.selected .focused:not(.details, .space) {
     z-index: 1;
     opacity: 1;
     transition: height 500ms, width 500ms, transform 500ms;
-    animation: spin 500ms ease forwards;
+    animation: spin-box 500ms ease forwards;
+}
+
+@keyframes spin-box {
+    0% {
+        margin-top: 50px;
+        margin-left: 10%;
+        transform: translateX(0) rotateX(3deg) rotateY(368deg) rotateZ(-3deg) scale(1.1);   
+    }
+    100% {
+        margin-left: 50%;
+        transform: translateX(-50%) rotateY(0deg);
+    }
 }
 
 main .pp-record-user .flex-box.selected .focused.anim-end {
@@ -124,18 +154,6 @@ main .pp-record-user .flex-box.selected .focused.anim-end:not(.details):hover {
     transform: scale(1.05);
 }
 
-@keyframes spin {
-    0% {
-        margin-top: 50px;
-        margin-left: 10%;
-        transform: translateX(0) rotateX(3deg) rotateY(370deg) rotateZ(-3deg) scale(1.1);   
-    }
-    100% {
-        margin-left: 50%;
-        transform: translateX(-50%) rotateY(0deg);
-    }
-}
-
 main .pp-record-user .flex-box.selected .space {
     visibility: hidden;
     height: 500px;
@@ -146,10 +164,12 @@ main .pp-record-user .flex-box.selected .space {
 
 main .pp-record-user .flex-box.selected .details {
     position: fixed;
-    top: 0;
+    top: 55%;
     left: 0;
     height: 500px;
     width: 400px;
+    perspective: 1000px;
+    transform: translateY(-50%);
     z-index: 10;
     opacity: 1;
     animation: move 500ms ease forwards;
@@ -158,26 +178,24 @@ main .pp-record-user .flex-box.selected .details {
 @keyframes move {
     0% {
         margin-left: 50%;
-        transform: translateX(-50%) rotateY(0deg);
+        transform: translate(-50%, -50%) rotateY(0deg);
     }
     100% {
-        margin-top: 50px;
-        margin-left: 10%;
-        transform: translateX(0) rotateX(3deg) rotateY(370deg) rotateZ(-3deg) scale(1.1);
+        margin-left: 5%;
+        transform: translate(0, -50%) rotateX(3deg) rotateY(360deg) scale(1.1);
     }
 }
 
 main .pp-record-user .flex-box.selected .details.anim-end {
     position: fixed;
-    top: 0;
+    top: 55%;
     left: 0;
-    margin-top: 50px;
-    margin-left: 10%;
-    transform: translateX(0) rotateX(3deg) rotateY(370deg) rotateZ(-3deg) scale(1.1);
+    margin-left: 5%;
+    transform: translate(0, -50%) rotateY(360deg) scale(1.1);
     animation: none;
 }
 main .pp-record-user .flex-box.selected .details.anim-end:hover {
-    transform: rotateX(0deg) rotateY(360deg) rotateZ(0deg) scale(1.1);
+    transform: translate(0, -50%) rotateY(360deg) scale(1.1);
 }
 
 main .pp-record-user .flex-box .focused .wrap {
@@ -191,10 +209,13 @@ main .pp-record-user .flex-box .focused:hover .wrap {
 
 main .pp-record-user .flex-box .details .wrap {
     filter: grayscale(0%) drop-shadow(0px 0px 100px rgba(255, 255, 255, 0.5));
+    transform: rotateX(5deg) rotateY(8deg) rotateZ(-3deg);
+    transform-style: preserve-3d;
     -webkit-box-reflect: unset;
 }
 main .pp-record-user .flex-box .details:hover .wrap {
     filter: grayscale(0%) drop-shadow(0px 0px 50px #fff);
+    transform: none;
 }
 
 main .pp-record-user .flex-box .edge {
@@ -233,7 +254,16 @@ main .pp-record-user .flex-box .user h3 {
     text-overflow: ellipsis;
     transform: translateY(-100%);
     opacity: 0;
-    transition: transform 800ms, opacity 800ms;
+    transition: transform 500ms, opacity 500ms;
+}
+
+main .pp-record-user .flex-box .details h3 {
+    transform: translateX(7%) rotateX(5deg) rotateY(8deg) rotateZ(-3deg);
+    transform-style: preserve-3d;
+    opacity: 1;
+}
+main .pp-record-user .flex-box .details:hover h3 {
+    transform: none;
 }
 
 main .pp-record-user .flex-box .user h3 .mode-icon {
@@ -249,7 +279,7 @@ main .pp-record-user .flex-box .user h3 .username {
     font-size: 2em;
 }
 
-main .pp-record-user .flex-box .focused h3 {
+main .pp-record-user .flex-box .focused:not(.details) h3 {
     transform: translateY(0%);
     opacity: 1;
 }
@@ -259,12 +289,24 @@ main .pp-record-user .flex-box .user .pp {
     text-shadow: 2px 2px 2px #000;
     transform: translateY(-200%);
     opacity: 0;
-    transition: transform 800ms, opacity 800ms;
+    transition: transform 500ms, opacity 500ms;
 }
 
 main .pp-record-user .flex-box .focused .pp {
     transform: translateY(0%);
     opacity: 1;
+}
+
+main .pp-record-user .flex-box .details .pp {
+    transform: translateX(10%) rotateX(5deg) rotateY(8deg) rotateZ(-3deg);
+    transform-style: preserve-3d;
+}
+main .pp-record-user .flex-box .details:hover .pp {
+    transform: none;
+}
+
+main .pp-record-user .flex-box .user .score-data {
+    display: none;
 }
 
 main .pp-record-user .special-switch {
@@ -274,10 +316,14 @@ main .pp-record-user .special-switch {
     width: 360px;
     border: 2px solid #fdfdfd;
     border-radius: 35px;
-    margin: 0 auto;
+    margin: 30px auto;
     backdrop-filter: blur(5px);
     box-shadow: 0 5px 5px #000;
     z-index: 5;
+}
+
+main .pp-record-user .special-switch.details {
+    visibility: hidden;
 }
 
 main .pp-record-user .special-switch li {

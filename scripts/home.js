@@ -28,7 +28,9 @@ const home = () => {
                                             const ppRecord = await mysql.query(
                                                 connection, 
                                                 `
-                                                SELECT u.id AS id, country, name, pp
+                                                SELECT u.id AS id, country, name, pp, 
+                                                    set_id, m.id AS mapid, artist, title, version, grade, score, acc, s.max_combo AS max_combo, 
+                                                    ngeki, n300, nkatu, n100, n50,nmiss, pp, play_time, mods
                                                 FROM scores s FORCE INDEX(idx_scores_mode_status_pp)
                                                 JOIN users u
                                                 ON u.id = userid

@@ -1,4 +1,5 @@
 $(function() {
+    $("main .pp-record-user .focused-user-score-data").html($("main .pp-record-user .flex-box.selected .focused .score-data").clone());
     $("main").on("click", ".pp-record-user .flex-box.vanilla .user", function() {
         if (!$("main .pp-record-user .flex-box.vanilla .user:nth-child(3)").hasClass("space")) {
             $("main .pp-record-user .flex-box.vanilla .user").each(function() {
@@ -15,6 +16,7 @@ $(function() {
             $("main .pp-record-user .flex-box.vanilla .user:nth-child(3)").addClass("focused");
             $("main .pp-record-user .flex-box.vanilla .user:first-child").addClass("edge");
             $("main .pp-record-user .flex-box.vanilla .user:last-child").addClass("edge");
+            $("main .pp-record-user .focused-user-score-data").html($("main .pp-record-user .flex-box.selected .focused .score-data").clone());
         }
     });
     $("main").on("click", ".pp-record-user .flex-box.relax .user", function() {
@@ -33,6 +35,7 @@ $(function() {
             $("main .pp-record-user .flex-box.relax .user:nth-child(3)").addClass("focused");
             $("main .pp-record-user .flex-box.relax .user:first-child").addClass("edge");
             $("main .pp-record-user .flex-box.relax .user:last-child").addClass("edge");
+            $("main .pp-record-user .focused-user-score-data").html($("main .pp-record-user .flex-box.selected .focused .score-data").clone());
         }
     });
 
@@ -40,7 +43,7 @@ $(function() {
         if (!$(this).hasClass("details")) {
             $(this).removeClass("anim-end").addClass("details");
             $(this).parent().addClass("details");
-            $("main").addClass("details");
+            $(".pp-record-user .special-switch").addClass("details");
         }
         if (!$("main .pp-record-user .flex-box.selected .user:nth-child(3)").hasClass("space")) {
             $("main .pp-record-user .flex-box.selected .user:nth-child(2)").after($(this).clone());
@@ -57,7 +60,7 @@ $(function() {
             $("main .pp-record-user .flex-box.selected .details").removeClass("anim-end");
             $("main .pp-record-user .flex-box.selected .focused").removeClass("details");
             $("main .pp-record-user .flex-box.selected").removeClass("details");
-            $("main").removeClass("details");
+            $("main .pp-record-user .special-switch").removeClass("details");
         }
     });
 
@@ -92,6 +95,7 @@ $(function() {
                 $("main .pp-record-user .focused-user").html($("main .pp-record-user .flex-box.auto-pilot .focused").clone());
                 break;
         }
+        $("main .pp-record-user .focused-user-score-data").html($("main .pp-record-user .flex-box.selected .focused .score-data").clone());
     });
 
     const updatePlayers = (type) => {
