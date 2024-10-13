@@ -31,11 +31,12 @@
                                     <a href="/" class="username"><%= user.name %></a>
                                 </h3>
                                 <p class="pp"><%= Math.round(user.pp).toLocaleString() %>pp</p>
-                                <div class="score-data" style="background-image: url('https://assets.ppy.sh/beatmaps/<%= user.set_id %>/covers/cover.jpg?');">
+                                <div class="score-data">
+                                    <img class="map-bg" src="https://assets.ppy.sh/beatmaps/<%= user.set_id %>/covers/cover.jpg?" alt="" />
                                     <span class="map-name"><%= user.artist %> - <%= user.title %></span>
                                     <span class="map-diff">[<%= user.version %>]</span>
                                     <div class="map-score-details">
-                                        <img src="/images/grades/<%= user.grade %>.webp?<%= currentTime %>" alt="" />
+                                        <img class="grade" src="/images/grades/<%= user.grade %>.webp?<%= currentTime %>" alt="" />
                                         <div class="tables">
                                             <table class="t1">
                                                 <tr>
@@ -89,8 +90,25 @@
                                                         <td><%= user.n50.toLocaleString() %></td>
                                                     <% } %>
                                                     <td><%= user.nmiss.toLocaleString() %></td>
-                                                    <td><%= user.play_time %></td>
-                                                    <td><%= user.mods %></td>
+                                                    <td>
+                                                        <span class="tooltip-element up">
+                                                            <%= functions.elapsedTime({
+                                                                year: user.year,
+                                                                month: user.month,
+                                                                week: user.week,
+                                                                day: user.day,
+                                                                hour: user.hour,
+                                                                minute: user.minute,
+                                                                second: user.second
+                                                            }) %>
+                                                            <p class="tooltip bubble"><%= functions.locationTime(user.play_time, isLoggedIn ? timeZone : "UTC") %></p>
+                                                        </span>
+                                                    </td>
+                                                    <td class="mods">
+                                                        <% functions.mods(user.mods).forEach((mod) => { %>
+                                                            <img src="/images/mods/<%= mod %>.webp?<%= currentTime %>" alt="" />
+                                                        <% }); %>
+                                                    </td>
                                                 </tr>
                                             </table>
                                         </div>
@@ -157,6 +175,40 @@
                     </div>
                 </div>
             </div>
+            <!-- NF -->
+            <i class="fa-duotone fa-solid fa-life-ring"></i>
+            <!-- EZ -->
+            <i class="fa-duotone fa-solid fa-candy"></i>
+            <!-- HT -->
+            <i class="fa-duotone fa-solid fa-hourglass-half"></i>
+            <!-- HR -->
+            <i class="fa-solid fa-hand-love"></i>
+            <!-- SD -->
+            <i class="fa-solid fa-skull"></i>
+            <!-- PF -->
+            <i class="fa-duotone fa-solid fa-thumbs-up"></i>
+            <!-- DT -->
+            f04e, e105
+            <!-- NC -->
+            <i class="fa-duotone fa-solid fa-headphones-simple"></i>
+            <!-- FI -->
+            <i class="fa-duotone fa-solid fa-keyboard-brightness"></i>
+            <!-- HD -->
+            <i class="fa-duotone fa-solid fa-eye-slash"></i>
+            <!-- FL -->
+            <i class="fa-solid fa-flashlight"></i>
+            <!-- RX -->
+            <i class="fa-duotone fa-solid fa-martini-glass-citrus"></i>
+            <!-- AP -->
+            <i class="fa-duotone fa-solid fa-plane"></i>
+            <!-- SO -->
+            <i class="fa-solid fa-fan"></i>
+            <!-- key -->
+            f8d5, (e0f1, e0f1\e0f1), (e0f2, e0f2\e0f2), (e0f3, e0f3\e0f3), (e0f4, e0f4\e0f4), (e0f5, e0f5\e0f5), (e0f6, e0f6\e0f6)
+            <!-- MR -->
+            <i class="fa-duotone fa-solid fa-rotate-reverse"></i>
+            <!-- V2 -->
+            <i class="fa-kit fa-regular-square-2-gear"></i>
         </main>
         <%- include("references/footer", { 
             currentTime,

@@ -14,6 +14,7 @@
 }
 
 .tooltip-element .tooltip {
+    cursor: default;
     line-height: 10px;
     width: auto;
     position: absolute;
@@ -29,6 +30,18 @@
     opacity: 0;
     z-index: 1;
     transition: bottom 300ms, opacity 300ms;
+}
+
+.tooltip-element .tooltip.bubble::before {
+    content: "";
+    width: 0;
+    height: 0;
+    border: 10px solid transparent;
+    border-top: 12px solid #17171c;
+    position: absolute;
+    top: 80%;
+    left: 50%;
+    transform: translateX(-50%);
 }
 
 .tooltip-element.up .tooltip {

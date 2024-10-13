@@ -43,8 +43,10 @@ const signin = () => {
                                 user = await mysql.query(
                                     connection,
                                     `
-                                    SELECT u.id, country, language, set_badge, pw_bcrypt
+                                    SELECT u.id, country, timezone, language, set_badge, pw_bcrypt
                                     FROM users u
+                                    JOIN timezone tz
+                                    ON country = code
                                     JOIN gacha_stats g_s
                                     ON g_s.id = u.id
                                     WHERE name = ?;
@@ -74,44 +76,37 @@ const signin = () => {
             next();
         },
         (req, res) => {
-            modules.axios.get(`https://api.ipgeolocation.io/ipgeo?apiKey=${geoApiKey}&ip=${modules.utils.getIP(req)}`)
-                .then((response) => {
-                    const data = response.data;
-                    if (errLi !== null) {
-                        req.session.userid = user[0].id;
-                        req.session.username = name;
-                        req.session.country = user[0].country;
-                        req.session.timeZone = data.time_zone.name;
-                        req.session.badge = user[0].set_badge;
-                        req.session.language = user[0].language;
-                        modules.writeLog(req, res, "POST (Succeeded)", subDomain);
-                        res.send(`
-                            <script>
-                                alert("Successfully signed in!");
-                                window.location.href = "/";
-                            </script>
-                        `);
+            if (errLi !== null) {
+                req.session.userid = user[0].id;
+                req.session.username = name;
+                req.session.country = user[0].country;
+                req.session.timeZone = user[0].timezone;
+                req.session.badge = user[0].set_badge;
+                req.session.language = user[0].language;
+                modules.writeLog(req, res, "POST (Succeeded)", subDomain);
+                res.send(`
+                    <script>
+                        alert("Successfully signed in!");
+                        window.location.href = "/";
+                    </script>
+                `);
+            }
+            else {
+                res.render(`${res.locals.language}/signin.ejs`, {
+                    errLi,
+                    name,
+                    password
+                },
+                (error, ejs) => {
+                    if (error) {
+                        modules.utils.writeError(req, res, modules.utils.getErrorContent(pageName, error, `Name: ${name}`), subDomain);
                     }
                     else {
-                        res.render(`${res.locals.language}/signin.ejs`, {
-                            errLi,
-                            name,
-                            password
-                        },
-                        (error, ejs) => {
-                            if (error) {
-                                modules.utils.writeError(req, res, modules.utils.getErrorContent(pageName, error, `Name: ${name}`), subDomain);
-                            }
-                            else {
-                                modules.utils.writeLog(req, res, "POST (Failed)", subDomain)
-                                res.send(ejs);
-                            }
-                        });
+                        modules.utils.writeLog(req, res, "POST (Failed)", subDomain)
+                        res.send(ejs);
                     }
-                })
-                .catch((error) => {
-                    modules.utils.writeError(req, res, modules.utils.getErrorContent(pageName, error, `Name: ${name}`), subDomain);
                 });
+            }
         }
     );
 }
