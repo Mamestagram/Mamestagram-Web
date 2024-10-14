@@ -1,0 +1,24 @@
+.osu-mod-icon {
+    display: inline-block;
+    position: relative;
+    font-family: "Font Awesome 6 Pro";
+}
+
+.osu-mod-icon i {
+    font-size: 24px;
+    font-style: normal;
+}
+
+.mod-icon-dt::before {
+    content: "\e105";
+}
+
+.mod-icon-dt::after {
+    content: "\f04e";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    font-size: 0.55em;
+    font-weight: 700;
+    transform: translate(-50%, -50%);
+}
