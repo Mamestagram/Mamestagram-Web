@@ -106,7 +106,10 @@
                                                     </td>
                                                     <td class="mods">
                                                         <% functions.mods(user.mods).forEach((mod) => { %>
-                                                            <img src="/images/mods/<%= mod %>.webp?<%= currentTime %>" alt="" />
+                                                            <span class="tooltip-element up mod-icon <%= mod %>">
+                                                                <i class="mod-icon-<%= mod %> <%= functions.modClassName(mod) %>"></i>
+                                                                <p class="tooltip bubble"><%= functions.modName(mod) %></p>
+                                                            </span>
                                                         <% }); %>
                                                     </td>
                                                 </tr>
@@ -175,73 +178,81 @@
                     </div>
                 </div>
             </div>
-            <span class="osu-mod-icon">
-                <!-- NF -->
-                <i class="fa-duotone fa-solid fa-life-ring"></i>
+            <!-- NM -->
+            <span class="mod-icon nm">
+                <i class="mod-icon-nm fa-solid fa-ban"></i>
             </span>
-            <span class="osu-mod-icon">
-                <!-- EZ -->
-                <i class="fa-duotone fa-solid fa-candy"></i>
+            <!-- NF -->
+            <span class="tooltip-element up mod-icon nf">
+                <i class="mod-icon-nf fa-duotone fa-solid fa-life-ring"></i>
+                <p class="tooltip bubble"><%= functions.modName("nf") %></p>
             </span>
-            <span class="osu-mod-icon">
-                <!-- HT -->
-                <i class="fa-kit fa-solid-hourglass-half-clock"></i>
+            <!-- EZ -->
+            <span class="mod-icon ez">
+                <i class="mod-icon-ez fa-duotone fa-solid fa-candy"></i>
             </span>
-            <span class="osu-mod-icon">
-                <!-- HR -->
-                <i class="fa-solid fa-hand-love"></i>
+            <!-- HT -->
+            <span class="mod-icon ht">
+                <i class="mod-icon-ht fa-duotone fa-solid fa-hourglass-clock"></i>
             </span>
-            <span class="osu-mod-icon">
-                <!-- SD -->
-                <i class="fa-solid fa-skull"></i>
+            <!-- HR -->
+            <span class="mod-icon hr">
+                <i class="mod-icon-hr fa-duotone fa-solid fa-hand-love"></i>
             </span>
-            <span class="osu-mod-icon">
-                <!-- PF -->
-                <i class="fa-solid fa-thumbs-up"></i>
+            <!-- SD -->
+            <span class="mod-icon sd">
+                <i class="mod-icon-sd fa-duotone fa-solid fa-skull"></i>
             </span>
-            <span class="osu-mod-icon dt">
-                <!-- DT -->
+            <!-- PF -->
+            <span class="mod-icon pf">
+                <i class="mod-icon-pf fa-duotone fa-solid fa-thumbs-up"></i>
+            </span>
+            <!-- DT -->
+            <span class="mod-icon dt">
                  <i class="mod-icon-dt"></i>
             </span>
-            <span class="osu-mod-icon">
-                <!-- NC -->
-                <i class="fa-duotone fa-solid fa-headphones-simple"></i>
+            <!-- NC -->
+            <span class="mod-icon nc">
+                <i class="mod-icon-nc fa-duotone fa-solid fa-headphones-simple"></i>
             </span>
-            <span class="osu-mod-icon">
-                <!-- FI -->
-                <i class="fa-duotone fa-solid fa-keyboard-brightness"></i>
+            <!-- FI -->
+            <span class="mod-icon fi">
+                <i class="mod-icon-fi fa-duotone fa-solid fa-keyboard-brightness"></i>
             </span>
-            <span class="osu-mod-icon">
-                <!-- HD -->
-                <i class="fa-duotone fa-solid fa-eye-slash"></i>
+            <!-- HD -->
+            <span class="mod-icon hd">
+                <i class="mod-icon-hd fa-duotone fa-solid fa-eye-slash"></i>
             </span>
-            <span class="osu-mod-icon">
-                <!-- FL -->
-                <i class="fa-solid fa-flashlight"></i>
+            <!-- FL -->
+            <span class="mod-icon fl">
+                <i class="mod-icon-fl fa-duotone fa-solid fa-flashlight"></i>
             </span>
-            <span class="osu-mod-icon">
-                <!-- RX -->
-                <i class="fa-duotone fa-solid fa-martini-glass-citrus"></i>
+            <!-- RX -->
+            <span class="mod-icon rx">
+                <i class="mod-icon-rx fa-duotone fa-solid fa-martini-glass-citrus"></i>
             </span>
-            <span class="osu-mod-icon">
-                <!-- AP -->
-                <i class="fa-duotone fa-solid fa-plane"></i>
+            <!-- AP -->
+            <span class="mod-icon ap">
+                <i class="mod-icon-ap fa-duotone fa-solid fa-plane"></i>
             </span>
-            <span class="osu-mod-icon">
-                <!-- SO -->
-                <i class="fa-solid fa-fan"></i>
+            <!-- SO -->
+            <span class="mod-icon so">
+                <i class="mod-icon-so fa-duotone fa-solid fa-fan"></i>
             </span>
-            <span class="osu-mod-icon">
+            <% for (let i = 4; i <= 9; i++) { %>
                 <!-- key -->
-                f8d5, (e0f1, e0f1\e0f1), (e0f2, e0f2\e0f2), (e0f3, e0f3\e0f3), (e0f4, e0f4\e0f4), (e0f5, e0f5\e0f5), (e0f6, e0f6\e0f6)
+                <span class="mod-icon key k<%= i %>">
+                    <i class="mod-icon-key fa-light fa-piano-keyboard"></i>
+                    <i class="key-num key-<%= i %>"></i>
+                </span>
+            <% } %>
+            <!-- MR -->
+            <span class="mod-icon mr">
+                <i class="mod-icon-mr fa-duotone fa-solid fa-rotate-reverse"></i>
             </span>
-            <span class="osu-mod-icon">
-                <!-- MR -->
-                <i class="fa-duotone fa-solid fa-rotate-reverse"></i>
-            </span>
-            <span class="osu-mod-icon">
-                <!-- V2 -->
-                <i class="fa-kit fa-solid-square-2-gear"></i>
+            <!-- V2 -->
+            <span class="mod-icon v2">
+                <i class="fa-duotone fa-solid fa-square-2"></i>
             </span>
         </main>
         <%- include("references/footer", { 

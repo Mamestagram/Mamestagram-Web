@@ -114,10 +114,63 @@ const mods = (modNum) => {
     mod = sortMods(mod);
     return mod;
 }
+const modName = (mod) => {
+    switch (mod) {
+        case "nf": return "No Fail";
+        case "ez": return "Easy";
+        case "ht": return "Half Time";
+        case "hr": return "Hard Rock";
+        case "sd": return "Sudden Death";
+        case "pf": return "Perfect";
+        case "dt": return "Double Time";
+        case "nc": return "Nightcore";
+        case "fi": return "Fade In";
+        case "hd": return "Hidden";
+        case "fl": return "Flashlight";
+        case "rx": return "Relax";
+        case "ap": return "Auto Pilot";
+        case "so": return "Spun Out";
+        case "k4": return "4 Keys";
+        case "k5": return "5 Keys";
+        case "k6": return "6 Keys";
+        case "k7": return "7 Keys";
+        case "k8": return "8 Keys";
+        case "k9": return "9 Keys";
+        case "mr": return "Mirror";
+        case "v2": return "Score V2";
+    }
+}
+const modClassName = (mod) => {
+    switch (mod) {
+        case "nf": return "fa-duotone fa-solid fa-life-ring";
+        case "ez": return "fa-duotone fa-solid fa-candy";
+        case "ht": return "fa-duotone fa-solid fa-hourglass-clock";
+        case "hr": return "fa-duotone fa-solid fa-hand-love";
+        case "sd": return "fa-duotone fa-solid fa-skull";
+        case "pf": return "fa-duotone fa-solid fa-thumbs-up";
+        case "nc": return "fa-duotone fa-solid fa-headphones-simple";
+        case "fi": return "fa-solid fa-keyboard-brightness";
+        case "hd": return "fa-duotone fa-solid fa-eye-slash";
+        case "fl": return "fa-duotone fa-solid fa-flashlight";
+        case "rx": return "fa-duotone fa-solid fa-martini-glass-citrus";
+        case "ap": return "fa-duotone fa-solid fa-plane";
+        case "so": return "fa-duotone fa-solid fa-fan";
+        case "k4":
+        case "k5": 
+        case "k6": 
+        case "k7": 
+        case "k8": 
+        case "k9": return "fa-light fa-piano-keyboard"; 
+        case "mr": return "fa-duotone fa-solid fa-rotate-reverse";
+        case "v2": return "fa-duotone fa-solid fa-square-2";
+    }
+}
 
 module.exports = {
     modeName,
     elapsedTime,
     locationTime,
-    mods
+    mods,
+    modName,
+    modClassName
 }

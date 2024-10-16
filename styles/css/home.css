@@ -72,6 +72,10 @@ main .pp-record-user .focused-user-score-data .score-data .map-score-details .gr
     width: 50px;
 }
 
+main .pp-record-user .focused-user-score-data .score-data .map-score-details .tables tr .tooltip {
+    font-size: 0.5em;
+}
+
 main .pp-record-user .focused-user-score-data .score-data .map-score-details .tables th {
     font-size: 18px;
 }
@@ -83,10 +87,6 @@ main .pp-record-user .focused-user-score-data .score-data .map-score-details .ta
 .tooltip-element.up:hover .tooltip {
     bottom: 70%;
     opacity: 1;
-}
-
-.tooltip-element .tooltip {
-    font-size: 0.5em;
 }
 
 main .pp-record-user .focused-user-score-data .score-data .map-score-details .tables .mods img {
