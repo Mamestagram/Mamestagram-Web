@@ -15,6 +15,53 @@ main h1 {
     text-align: center;
 }
 
+main .list {
+    border-top: solid 1px;
+    border-image: linear-gradient(to right, rgba(248, 189, 19, 0.1), rgb(248, 189, 19), rgba(248, 189, 19, 0.1)) 1;
+    height: 300px;
+    margin-top: 30px;
+}
+
+main .list h2 {
+    font-size: 2.6em;
+    display: flex;
+    justify-content: center;
+    margin: 30px 0;
+}
+
+main .list .server-st {
+    display: flex;
+    font-family: "New Amsterdam";
+    justify-content: center;
+}
+
+main .list .player-wrap {
+    display: flex;
+    border-radius: 20px;
+    font-size: 4em;
+    padding: 20px 30px;
+    margin: 10px 30px;
+}
+
+main .list .current {
+    background-color: rgb(117, 172, 248);
+    border: solid 1px rgb(42, 128, 250);
+    box-shadow: 0 0 25px white;
+}
+
+main .list .total {
+    background-color: rgb(54, 54, 54);
+    border: solid 1px rgb(118, 118, 118);
+}
+
+main .list .player-wrap i {
+    margin-right: 10px;
+}
+
+main .list .player-wrap .odometer {
+    margin-left: 10px;
+}
+
 main .pp-record-user {
     margin-top: 0px;
 }
@@ -143,7 +190,6 @@ main .pp-record-user .focused-user-score-data .score-data .map-score-details .ta
 main .pp-record-user .boxes {
     display: flex;
     height: 600px;
-    margin-top: 30px;
     align-items: center;
 }
 
@@ -424,7 +470,7 @@ main .pp-record-user .special-switch {
     width: 360px;
     border: 2px solid #fdfdfd;
     border-radius: 35px;
-    margin: 30px auto;
+    margin: 30px auto 100px auto;
     backdrop-filter: blur(5px);
     box-shadow: 0 5px 5px #000;
     z-index: 5;
@@ -492,51 +538,3 @@ main .pp-record-user .special-switch li.selected:last-child::before {
 main .pp-record-user .special-switch li span {
     mix-blend-mode: difference;
 }
-
-main .list {
-    border-top: solid 1px;
-    border-image: linear-gradient(to right, rgba(248, 189, 19, 0.1), rgb(248, 189, 19), rgba(248, 189, 19, 0.1)) 1;
-    height: 300px;
-    margin-top: 30px;
-}
-
-main .list h2 {
-    font-size: 2.6em;
-    display: flex;
-    justify-content: center;
-    margin: 30px 0;
-}
-
-main .list .server-st {
-    display: flex;
-    font-family: "New Amsterdam";
-    justify-content: center;
-}
-
-main .list .player-wrap {
-    display: flex;
-    border-radius: 20px;
-    font-size: 4em;
-    padding: 20px 30px;
-    margin: 10px 30px;
-}
-
-main .list .current {
-    background-color: rgb(117, 172, 248);
-    border: solid 1px rgb(42, 128, 250);
-    box-shadow: 0 0 25px white;
-}
-
-main .list .total {
-    background-color: rgb(54, 54, 54);
-    border: solid 1px rgb(118, 118, 118);
-}
-
-main .list .player-wrap i {
-    margin-right: 10px;
-}
-
-main .list .player-wrap .odometer {
-    margin-left: 10px;
-}
-
