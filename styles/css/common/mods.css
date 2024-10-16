@@ -2,6 +2,7 @@
     cursor: default;
     display: inline-block;
     position: relative;
+    background-color: rgba(0, 0, 0, 0.5);
     font-family: "Font Awesome 6 Pro";
     font-size: 24px;
     height: 40px;

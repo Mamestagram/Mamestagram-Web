@@ -20,18 +20,50 @@ main .pp-record-user {
 }
 
 main .pp-record-user .focused-user-score-data .score-data {
+    visibility: hidden;
     display: flex;
     position: fixed;
     top: 55%;
-    left: 30%;
+    left: 0;
     background-color: #000;
     height: 200px;
-    width: 65%;
     border-radius: 20px;
+    margin-left: 20%;
     flex-direction: column;
     text-align: center;
     transform: translateY(-50%);
+    filter: drop-shadow(0 0 10px #fff);
     z-index: 6;
+    opacity: 0;
+    transition: visibility 300ms, margin 500ms, opacity 300ms;
+}
+
+main .pp-record-user .focused-user-score-data.details .score-data {
+    visibility: visible;
+    opacity: 1;
+}
+
+main .pp-record-user .focused-user-score-data .score-data.mode-0,
+main .pp-record-user .focused-user-score-data .score-data.mode-1 {
+    width: 50%;
+}
+
+main .pp-record-user .focused-user-score-data.details .score-data.mode-0,
+main .pp-record-user .focused-user-score-data.details .score-data.mode-1,
+main .pp-record-user .focused-user-score-data.details .score-data.mode-2 {
+    margin-left: 35%;
+}
+
+main .pp-record-user .focused-user-score-data .score-data.mode-2 {
+    width: 55%;
+}
+
+main .pp-record-user .focused-user-score-data .score-data.mode-3 {
+    width: 65%;
+}
+
+main .pp-record-user .focused-user-score-data.details .score-data.mode-3 {
+    margin-left: 30%;
 }
 
 main .pp-record-user .focused-user-score-data .score-data:only-child {
@@ -57,7 +89,7 @@ main .pp-record-user .focused-user-score-data .score-data .map-bg {
     border-radius: inherit;
     object-fit: cover;
     z-index: -1;
-    opacity: 0.3;
+    opacity: 0.25;
 }
 
 main .pp-record-user .focused-user-score-data .score-data .map-score-details {
@@ -68,8 +100,25 @@ main .pp-record-user .focused-user-score-data .score-data .map-score-details {
 }
 
 main .pp-record-user .focused-user-score-data .score-data .map-score-details .grade {
-    height: 50px;
-    width: 50px;
+    height: 70px;
+    width: 70px;
+    margin-right: 20px;
+}
+
+main .pp-record-user .focused-user-score-data .score-data .map-score-details .tables {
+    width: 85%;
+}
+
+main .pp-record-user .focused-user-score-data .score-data .map-score-details .tables .t1 {
+    width: 70%;
+    margin: 5px;
+    table-layout: fixed;
+}
+
+main .pp-record-user .focused-user-score-data .score-data .map-score-details .tables .t2 {
+    width: 100%;
+    margin: 5px;
+    table-layout: fixed;
 }
 
 main .pp-record-user .focused-user-score-data .score-data .map-score-details .tables tr .tooltip {
@@ -82,16 +131,13 @@ main .pp-record-user .focused-user-score-data .score-data .map-score-details .ta
 
 main .pp-record-user .focused-user-score-data .score-data .map-score-details .tables td {
     font-size: 28px;
+    text-align: left;
+    vertical-align: middle;
 }
 
 .tooltip-element.up:hover .tooltip {
     bottom: 70%;
     opacity: 1;
-}
-
-main .pp-record-user .focused-user-score-data .score-data .map-score-details .tables .mods img {
-    height: 40px;
-    width: 40px;
 }
 
 main .pp-record-user .boxes {

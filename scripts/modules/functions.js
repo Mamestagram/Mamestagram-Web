@@ -116,6 +116,7 @@ const mods = (modNum) => {
 }
 const modName = (mod) => {
     switch (mod) {
+        case "nm": return "No Mod";
         case "nf": return "No Fail";
         case "ez": return "Easy";
         case "ht": return "Half Time";
@@ -142,6 +143,7 @@ const modName = (mod) => {
 }
 const modClassName = (mod) => {
     switch (mod) {
+        case "nm": return "fa-solid fa-ban";
         case "nf": return "fa-duotone fa-solid fa-life-ring";
         case "ez": return "fa-duotone fa-solid fa-candy";
         case "ht": return "fa-duotone fa-solid fa-hourglass-clock";
