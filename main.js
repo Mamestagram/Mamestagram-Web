@@ -1,5 +1,5 @@
 require("dotenv").config();
-const apiDomain = process.env.API_DOMAIN;
+const apiDomain = process.env.API_DOMAIN, baseDomain = process.env.BASE_DOMAIN;
 const modules = require("./scripts/modules");
 const mysql = require("./scripts/modules/mysql");
 
@@ -37,6 +37,7 @@ modules.app.use((req, res, next) => {
         second: "2-digit"
     }).replaceAll("/", "").replaceAll(" ", "").replaceAll(":", "");
     res.locals.apiDomain = apiDomain;
+    res.locals.baseDomain = baseDomain;
     const connectMysql = () => {
         mysql.pool.getConnection((err, connection) => {
             if (err) {
