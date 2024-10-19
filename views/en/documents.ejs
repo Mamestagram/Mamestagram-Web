@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <Title>Documents | Mamestagram</Title>
+        <%- include("references/head", { currentTime }) %>
+        <link rel="stylesheet" href="/css/documents.css">
+    </head>
+    <body>
+        <%- include("references/header", { currentTime }) %>
+        <main>
+            <div class="document-title">
+                <h1>Documents</h1>
+            </div>
+        </main>
+        <%- include("references/footer", { 
+            currentTime,
+            developer,
+            contributer,
+            moderator,
+            nominator
+        }) %>
+        <%- include("references/script", { currentTime }) %>
+        <script src="/js/documents.js?<%= currentTime %>" defer></script>
+    </body>
+</html>
