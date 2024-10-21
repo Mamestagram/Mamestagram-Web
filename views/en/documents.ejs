@@ -8,6 +8,7 @@
             ・デザイン
                 スクロールすると下からボックスがアニメーションで表示
                 前回のデザインのように、目次を左右などに固定し、現在の表示位置を示すようにする。
+                aboutの部分のみboxから外して、Titleより小さい文字で表示
         -->
     </head>
     <body>
@@ -20,15 +21,42 @@
                 <div class="language">
                     <!-- プルダウンにしようかな？ -->
                     <button class="en">EN</button>
-                    <button class="ja">ja</button>
+                    <button class="ja">JA</button>
                 </div>
             </div>
-            <div class="box about">
+
+            <!-- English -->
+
+            <div class="about">
                 <h2>About</h2>
-                <p>Mamestagram is a osu! private server where you can share your favorite beatmaps and scores with other users.</p>
-                <p>This private eserver shows scores by mode, witch are not ranked in the official servers such as Relax and AutoPilot</p>
-                <p>And also, this server has a unique feature that "Dan" system, which is a system that allows you to get a title by achieving a certain score.</p>
+                <div class="about">
+                    <p>Mamestagram is a osu! private server where you can share your favorite beatmaps and scores with other users.</p>
+                    <p>This private eserver shows scores by mode, witch are not ranked in the official servers such as Relax and AutoPilot</p>
+                    <p>And also, this server has a unique feature that "Dan" system, which is a system that allows you to get a title by achieving a certain score.</p>
+                    <a href="/discord"><i class="fa-brands fa-discord"></i></a>
+                </div>
             </div>
+
+            <div class="box rules">
+                <h2>Rules</h2>
+            </div>
+
+            <div class="box connect">
+                <h2>How to Connect</h2>
+            </div>
+
+            <div class="box dan">
+                <h2>Dan</h2>
+            </div>
+
+            <div class="box faq">
+                <h2>FAQ</h2>
+            </div>
+
+            <!-- Japanese -->
+
+            <div></div>
+
         </main>
         <%- include("references/footer", { 
             currentTime,
