@@ -1,11 +1,20 @@
 const modules = require("./modules");
-const pageName = "Documents";
+const functions = require("./modules/functions");
 
 const documents = () => {
     modules.app.get("/documents", (req, res) => {
-        res.render(`${res.locals.language}/documents.ejs`, {
-            pageTitle: pageName
-        });
+	const pageName = "Documents", subDomain = "documents";
+        res.render(`${res.locals.language}/documents.ejs`, { functions },
+            (error, ejs) => {
+                if (error) {
+                    modules.utils.writeError(req, res, modules.utils.getErrorContent(pageName, error), subDomain);
+                }
+                else {
+                    modules.utils.writeLog(req, res, "GET", subDomain);
+                    res.send(ejs);
+                }
+            }
+        );
     });
 }
 module.exports = documents;

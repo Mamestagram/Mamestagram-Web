@@ -3,7 +3,12 @@
     <head>
         <Title>Documents | Mamestagram</Title>
         <%- include("references/head", { currentTime }) %>
-        <link rel="stylesheet" href="/css/documents.css">
+        <link rel="stylesheet" href="/css/documents.css?<%= currentTime %>">
+        <!-- 
+            ・デザイン
+                スクロールすると下からボックスがアニメーションで表示
+                前回のデザインのように、目次を左右などに固定し、現在の表示位置を示すようにする。
+        -->
     </head>
     <body>
         <%- include("references/header", { currentTime }) %>
@@ -11,11 +16,24 @@
             <div class="document-title">
                 <h1>Documents</h1>
             </div>
+            <div class="eng">
+                <div class="language">
+                    <!-- プルダウンにしようかな？ -->
+                    <button class="en">EN</button>
+                    <button class="ja">ja</button>
+                </div>
+            </div>
+            <div class="box about">
+                <h2>About</h2>
+                <p>Mamestagram is a osu! private server where you can share your favorite beatmaps and scores with other users.</p>
+                <p>This private eserver shows scores by mode, witch are not ranked in the official servers such as Relax and AutoPilot</p>
+                <p>And also, this server has a unique feature that "Dan" system, which is a system that allows you to get a title by achieving a certain score.</p>
+            </div>
         </main>
         <%- include("references/footer", { 
             currentTime,
             developer,
-            contributer,
+            contributor,
             moderator,
             nominator
         }) %>

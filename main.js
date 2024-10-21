@@ -91,14 +91,16 @@ modules.app.use((req, res, next) => {
                     catch (error) {
                         modules.utils.writeError(req, res, modules.utils.getErrorContent("Main program", error));
                     }
+                    finally {
+                        connection.release();
+                        next();
+                    }
                 }
                 process();
-                connection.release();
             }
         });
     }
     connectMysql();
-    next();
 });
 
 // ログイン情報設定
@@ -131,8 +133,9 @@ modules.app.get("/", (req, res) => {
 // ホームページ
 home();
 players();
-documents();
 
+// ドキュメント
+documents();
 
 // アカウント関連
 register(); // 登録
