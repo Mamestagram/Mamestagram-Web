@@ -5,6 +5,7 @@ const mysql = require("./scripts/modules/mysql");
 
 const home = require("./scripts/home");
 const players = require("./scripts/players");
+const documents = require("./scripts/documents");
 
 const register = require("./scripts/account/register");
 const signin = require("./scripts/account/signin");
@@ -81,7 +82,7 @@ modules.app.use((req, res, next) => {
                             WHERE NOT priv & 1 << 14
                             AND priv & 1 << 11;
                             `
-                        )
+                        );
                         res.locals.developer = developer;
                         res.locals.contributor = contributor;
                         res.locals.moderator = moderator;
@@ -90,14 +91,16 @@ modules.app.use((req, res, next) => {
                     catch (error) {
                         modules.utils.writeError(req, res, modules.utils.getErrorContent("Main program", error));
                     }
+                    finally {
+                        connection.release();
+                        next();
+                    }
                 }
                 process();
-                connection.release();
             }
         });
     }
     connectMysql();
-    next();
 });
 
 // ログイン情報設定
@@ -130,6 +133,9 @@ modules.app.get("/", (req, res) => {
 // ホームページ
 home();
 players();
+
+// ドキュメント
+documents();
 
 // アカウント関連
 register(); // 登録

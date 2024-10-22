@@ -15,18 +15,22 @@ main h1 {
     text-align: center;
 }
 
+main h2 {
+    background-image: url("../images/logo.webp");
+    background-repeat: no-repeat;
+    background-position: center 20%;
+    background-clip : text;
+    font-family: "Potta One";
+    font-size: 2.6em;
+    color: transparent;
+    margin: 30px 0;
+    text-align: center;
+}
+
 main .list {
     border-top: solid 1px;
     border-image: linear-gradient(to right, rgba(248, 189, 19, 0.1), rgb(248, 189, 19), rgba(248, 189, 19, 0.1)) 1;
-    height: 300px;
-    margin-top: 30px;
-}
-
-main .list h2 {
-    font-size: 2.6em;
-    display: flex;
-    justify-content: center;
-    margin: 30px 0;
+    margin: 50px 0;
 }
 
 main .list .server-st {
@@ -98,7 +102,7 @@ main .pp-record-user .focused-user-score-data .score-data.mode-1 {
 main .pp-record-user .focused-user-score-data.details .score-data.mode-0,
 main .pp-record-user .focused-user-score-data.details .score-data.mode-1,
 main .pp-record-user .focused-user-score-data.details .score-data.mode-2 {
-    margin-left: 35%;
+    margin-left: 40%;
 }
 
 main .pp-record-user .focused-user-score-data .score-data.mode-2 {
@@ -110,7 +114,7 @@ main .pp-record-user .focused-user-score-data .score-data.mode-3 {
 }
 
 main .pp-record-user .focused-user-score-data.details .score-data.mode-3 {
-    margin-left: 30%;
+    margin-left: 32%;
 }
 
 main .pp-record-user .focused-user-score-data .score-data:only-child {
@@ -325,16 +329,36 @@ main .pp-record-user .flex-box.selected .details {
     transform: translateY(-50%);
     z-index: 10;
     opacity: 1;
-    animation: move 500ms ease forwards;
 }
 
-@keyframes move {
+main .pp-record-user .flex-box.selected .details.mode-0,
+main .pp-record-user .flex-box.selected .details.mode-1,
+main .pp-record-user .flex-box.selected .details.mode-2 {
+    animation: move-mode-012 500ms ease forwards;
+}
+
+main .pp-record-user .flex-box.selected .details.mode-3 {
+    animation: move-mode-3 500ms ease forwards;
+}
+
+@keyframes move-mode-012 {
     0% {
         margin-left: 50%;
         transform: translate(-50%, -50%) rotateY(0deg);
     }
     100% {
-        margin-left: 5%;
+        margin-left: 10%;
+        transform: translate(0, -50%) rotateX(3deg) rotateY(360deg) scale(1.1);
+    }
+}
+
+@keyframes move-mode-3 {
+    0% {
+        margin-left: 50%;
+        transform: translate(-50%, -50%) rotateY(0deg);
+    }
+    100% {
+        margin-left: 7%;
         transform: translate(0, -50%) rotateX(3deg) rotateY(360deg) scale(1.1);
     }
 }
@@ -343,12 +367,21 @@ main .pp-record-user .flex-box.selected .details.anim-end {
     position: fixed;
     top: 55%;
     left: 0;
-    margin-left: 5%;
     transform: translate(0, -50%) rotateY(360deg) scale(1.1);
     animation: none;
 }
 main .pp-record-user .flex-box.selected .details.anim-end:hover {
     transform: translate(0, -50%) rotateY(360deg) scale(1.1);
+}
+
+main .pp-record-user .flex-box.selected .details.mode-0.anim-end,
+main .pp-record-user .flex-box.selected .details.mode-1.anim-end,
+main .pp-record-user .flex-box.selected .details.mode-2.anim-end {
+    margin-left: 10%;
+}
+
+main .pp-record-user .flex-box.selected .details.mode-3.anim-end {
+    margin-left: 7%;
 }
 
 main .pp-record-user .flex-box .focused .wrap {
@@ -430,7 +463,28 @@ main .pp-record-user .flex-box .user h3 .country-flag {
 }
 
 main .pp-record-user .flex-box .user h3 .username {
+    position: relative;
     font-size: 2em;
+    transition: color 300ms;
+}
+main .pp-record-user .flex-box .user h3 .username:hover {
+    color: #00a8fc;
+}
+
+main .pp-record-user .flex-box .user h3 .username::before {
+    content: "";
+    position: absolute;
+    bottom: -10%;
+    left: 0;
+    height: 3px;
+    width: 100%;
+    border-radius: 3px;
+    transform: scaleX(0);
+    transition: background-color 300ms, transform 300ms;
+}
+main .pp-record-user .flex-box .user h3 .username:hover::before {
+    background-color: #00a8fc;
+    transform: scaleX(1);
 }
 
 main .pp-record-user .flex-box .focused:not(.details) h3 {
@@ -470,7 +524,7 @@ main .pp-record-user .special-switch {
     width: 360px;
     border: 2px solid #fdfdfd;
     border-radius: 35px;
-    margin: 30px auto 100px auto;
+    margin: 0 auto 100px auto;
     backdrop-filter: blur(5px);
     box-shadow: 0 5px 5px #000;
     z-index: 5;

@@ -68,11 +68,13 @@ const home = () => {
                                     );
                                 }
                                 process();
-                                connection.release();
                             }
                         }
                         catch (error) {
                             modules.utils.writeError(req, res, modules.utils.getErrorContent(pageName, error), subDomain)
+                        }
+                        finally {
+                            connection.release();
                         }
                     });
                 }
@@ -95,6 +97,6 @@ const home = () => {
         .catch((error) => {
             modules.utils.writeError(req, res, modules.utils.getErrorContent(pageName, error), subDomain);
         });
-    })
+    });
 }
 module.exports = home;

@@ -24,14 +24,15 @@
                     </div>
                 </div>
             </div>
-            <div class="pp-record-user">
+            <div class="list pp-record-user">
+                <h2>PP Record</h2>
                 <div class="boxes">
                     <% let user; %>
                     <div class="focused-user-score-data"></div>
                     <div class="flex-box vanilla selected">
                         <% for (let i = 2, n = 0; i <= 6; i++, n++) { %>
                             <% user = ppRecords[`mode${i % 4}`]; %>
-                            <div class="user<%= n === 2 ? " focused" : n === 0 || n === 4 ? " edge" : "" %> anim-end">
+                            <div class="user mode-<%= i % 4 %><%= n === 2 ? " focused" : n === 0 || n === 4 ? " edge" : "" %> anim-end">
                                 <div class="wrap" style="background-image: url('https://a.<%= baseDomain %>/<%= user.id %>?<%= currentTime %>')">
                                     <p class="mode-title"><i class="mode-icon mode-<%= functions.modeName(i % 4) %>"></i>vn!<%= functions.modeName(i % 4) %></p>
                                 </div>
@@ -144,7 +145,7 @@
                         <% for (let i = 5, n = 0; i <= 10; i++, n++) { %>
                             <% if (i % 4 + 4 !== 7) { %>
                                 <% user = ppRecords[`mode${i % 4 + 4}`]; %>
-                                <div class="user<%= n === 2 ? " focused" : n === 0 || n === 4 ? " edge" : "" %> anim-end">
+                                <div class="user mode-<%= i % 4 %><%= n === 2 ? " focused" : n === 0 || n === 4 ? " edge" : "" %> anim-end">
                                     <div class="wrap" style="background-image: url('https://a.<%= baseDomain %>/<%= user.id %>?<%= currentTime %>')">
                                         <p class="mode-title"><i class="mode-icon mode-<%= functions.modeName(i % 4) %>"></i>rx!<%= functions.modeName(i % 4) %></p>
                                     </div>
@@ -258,7 +259,7 @@
                     </div>
                     <div class="flex-box auto-pilot">
                         <% user = ppRecords.mode8; %>
-                        <div class="user focused anim-end">
+                        <div class="user mode-0 focused anim-end">
                             <div class="wrap" style="background-image: url('https://a.<%= baseDomain %>/<%= user.id %>?<%= currentTime %>')">
                             </div>
                             <h3>
