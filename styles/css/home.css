@@ -167,6 +167,7 @@ main .users .server-st .player-wrap .odometer {
 
 main .pp-record-user {
     padding-top: 50px;
+    padding-bottom: 150px;
     border-top: solid 1px;
     border-image: linear-gradient(to right, rgba(248, 189, 19, 0.1), rgb(248, 189, 19), rgba(248, 189, 19, 0.1)) 1;
 }
@@ -625,7 +626,7 @@ main .pp-record-user .special-switch {
     width: 360px;
     border: 2px solid #fdfdfd;
     border-radius: 35px;
-    margin: 0 auto 150px auto;
+    margin: 0 auto;
     backdrop-filter: blur(5px);
     box-shadow: 0 5px 5px #000;
     z-index: 5;
