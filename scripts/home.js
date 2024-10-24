@@ -51,7 +51,6 @@ const home = () => {
                                     }
 
                                     res.render(`${res.locals.language}/home.ejs`, {
-                                            functions,
                                             online,
                                             total,
                                             ppRecords
@@ -84,19 +83,24 @@ const home = () => {
                 modules.utils.writeError(req, res, modules.utils.getErrorContent(pageName, error), subDomain);
             });
     });
-    modules.app.get('/getstatus', (req, res) => {
-        modules.axios.get(`https://${apiDomain}/get_player_count`)
-        .then((response) => {
-            const data = response.data;
-            online = data.counts.online;
-            total = data.counts.total;
+    modules.app.get("/players", (req, res) => {
+        const pageName = "Players", subDomain = "home";
 
-            const newStatus = { online, total };
-            res.json(newStatus);
-        })
-        .catch((error) => {
-            modules.utils.writeError(req, res, modules.utils.getErrorContent(pageName, error), subDomain);
-        });
+        modules.axios.get(`https://${apiDomain}/get_player_count`)
+            .then((response) => {
+                const data = response.data;
+                online = data.counts.online;
+                total = data.counts.total;
+                if (req.query.type === "online") {
+                    res.send(`${online}`);
+                }
+                else {
+                    res.send(`${total}`);
+                }
+            })
+            .catch((error) => {
+                modules.utils.writeError(req, res, modules.utils.getErrorContent(pageName, error), subDomain);
+            });
     });
 }
 module.exports = home;

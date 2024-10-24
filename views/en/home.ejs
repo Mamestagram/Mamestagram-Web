@@ -9,10 +9,72 @@
     <body>
         <%- include("references/loading") %>
         <%- include("references/header", { currentTime }) %>
+        <div class="banner">
+            <div class="server-bg"></div>
+            <h1>Home Page</h1>
+        </div>
         <main>
-            <h1>Mamestagram</h1>
-            <div class="list">
-                <h2>Server Status</h2>
+            <h1><img src="/images/mamesosu.webp?<%= currentTime %>" /></h1>
+            <p class="description">
+                Welcome to <span>Mamestagram</span>! This is an private osu! server that display scores<br>
+                that are not ranked on official servers such as <strong>Relax</strong> and <strong>AutoPilot</strong>.<br>
+                We have <strong>Dan Certifications</strong> in all game modes that allows you to measure your skill level.<br>
+                Also we have a <a class="an-tab" href="/discord" target="_blank" rel="noopener noreferrer">Discord</a> server so please join us as we provide you with a variety of information!
+            </p>
+            <div class="list first-guides">
+                <div class="border">
+                    <% if (!isLoggedIn) { %>
+                        <h1>We're pleasure to see you! How can I help you?</h1>
+                        <ul class="guides">
+                            <li class="register">
+                                <a href="/">
+                                    <i class="fa-duotone fa-solid fa-square-plus"></i>
+                                    Register
+                                </a>
+                            </li>
+                            <li class="signin">
+                                <a href="/">
+                                    <i class="fa-duotone fa-solid fa-right-to-bracket"></i>
+                                    Sign in
+                                </a>
+                            </li>
+                            <li class="connection">
+                                <a href="/">
+                                    <i class="fa-duotone fa-solid fa-book"></i>
+                                    Connection guide
+                                </a>
+                            </li>
+                        </ul>
+                    <% } else { %>
+                        <h1>Welcome back, <%= username %>. Have fun!</h1>
+                        <ul class="guides">
+                            <li class="connection">
+                                <a href="/">
+                                    <i class="fa-duotone fa-solid fa-book"></i>
+                                    Connection guide
+                                </a>
+                            </li>
+                            <li class="leaderboard">
+                                <a href="/">
+                                    <i class="fa-duotone fa-solid fa-bars"></i>
+                                    Leaderboard
+                                </a>
+                            </li>
+                            <li class="profile">
+                                <a href="/">
+                                    <i class="fa-duotone fa-solid fa-address-card"></i>
+                                    Profile
+                                </a>
+                            </li>
+                        </ul>
+                    <% } %>
+                </div>
+            </div>
+            <div class="list users">
+                <h2>
+                    <i class="fa-duotone fa-solid fa-chart-mixed"></i>
+                    <p>Server Status</p>
+                </h2>
                 <div class="server-st">
                     <div class="player-wrap current">
                         <i class="fa-solid fa-user" style="color: #4580f7;"></i>: 
@@ -25,7 +87,10 @@
                 </div>
             </div>
             <div class="list pp-record-user">
-                <h2>PP Record</h2>
+                <h2>
+                    <i class="fa-duotone fa-solid fa-ranking-star"></i>
+                    <p>PP Records</p>
+                </h2>
                 <div class="boxes">
                     <% let user; %>
                     <div class="focused-user-score-data"></div>

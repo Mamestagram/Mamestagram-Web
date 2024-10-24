@@ -1,11 +1,14 @@
+let loading;
 $(window).on("beforeunload", function() {
+    loading = false;
     $(".loading-bar").removeClass("extend");
     $(".loading-bar").removeClass("moving");
     $(".loading-bar").addClass("end");
 });
 
 $(function() {
-    $("a, .anchor").on("click", function(e) {
+    loading = true;
+    $("a:not(.an-tab), .anchor").on("click", function(e) {
         e.preventDefault();
         $(".loading-bar").addClass("extend");
         setTimeout(() => {
@@ -13,7 +16,9 @@ $(function() {
             window.location.href = $(this).attr("href");
         }, 500);
         setTimeout(() => {
-            $(".loading").addClass("spin");
+            if (loading) {
+                $(".loading").addClass("spin");
+            }
         }, 3000);
     });
 });
