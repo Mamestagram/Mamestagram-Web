@@ -2,13 +2,13 @@
 <html lang="ja">
     <head>
         <title>Dashboard | Mamestagram</title>
-        <%- include("references/head", { currentTime }) %>
+        <%- include("references/head") %>
         <link rel="stylesheet" href="/css/home.css?<%= currentTime %>" />
         <link rel="stylesheet" href="/css/common/odometer-theme-minimal.css?<%= currentTime %>" />
     </head>
     <body>
         <%- include("references/loading") %>
-        <%- include("references/header", { currentTime }) %>
+        <%- include("references/header") %>
         <div class="banner">
             <div class="server-bg"></div>
             <h1>Home Page</h1>
@@ -413,14 +413,8 @@
                 </ul>
             </div>
         </main>
-        <%- include("references/footer", { 
-            currentTime,
-            developer,
-            contributor,
-            moderator,
-            nominator
-        }) %>
-        <%- include("references/script", { currentTime }) %>
+        <%- include("references/footer") %>
+        <%- include("references/script") %>
         <script src="/js/home.js?<%= currentTime %>" defer></script>
         <script src="/js/common/odometer.min.js?<%= currentTime %>" defer></script>
     </body>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <Title>Documents | Mamestagram</Title>
+        <%- include("references/head") %>
+        <link rel="stylesheet" href="/css/documents.css?<%= currentTime %>">
+        <!-- 
+            ・デザイン
+                スクロールすると下からボックスがアニメーションで表示
+                前回のデザインのように、目次を左右などに固定し、現在の表示位置を示すようにする。
+                aboutの部分のみboxから外して、Titleより小さい文字で表示
+        -->
+    </head>
+    <body>
+        <%- include("references/header") %>
+        <main>
+            <div class="document-title">
+                <h1>Documents</h1>
+            </div>
+            <div class="eng">
+                <div class="language">
+                    <!-- プルダウンにしようかな？ -->
+                    <button class="en">EN</button>
+                    <button class="ja">ja</button>
+                </div>
+            </div>
+
+            <div class="box about">
+                <h2>About</h2>
+                <div class="about">
+                    <p>Mamestagram is a osu! private server where you can share your favorite beatmaps and scores with other users.</p>
+                    <p>This private eserver shows scores by mode, witch are not ranked in the official servers such as Relax and AutoPilot</p>
+                    <p>And also, this server has a unique feature that "Dan" system, which is a system that allows you to get a title by achieving a certain score.</p>
+                    <a href="/discord"><i class="fa-brands fa-discord"></i></a>
+                </div>
+            </div>
+
+            <div class="box rules"></div>
+
+            <div class="box connect"></div>
+
+            <div class="box dan"></div>
+
+            <div class="box faq"></div>
+        </main>
+        <%- include("references/footer") %>
+        <%- include("references/script") %>
+        <script src="/js/documents.js?<%= currentTime %>" defer></script>
+    </body>
+</html>

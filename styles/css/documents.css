@@ -1,0 +1,12 @@
+main {
+    height: 100vh;
+    background-color: #1c1c1c;
+}
+main h1 {
+    font-family: "Potta One";
+    font-size: 55px;
+    color: White;
+    margin: 40px 50px 20px 50px;
+    padding: 5px 0;
+    border-bottom: solid 1px;
+}

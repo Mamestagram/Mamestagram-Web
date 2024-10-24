@@ -63,9 +63,9 @@
                 <div class="flex-box wrap">
                     <% developer.forEach((user) => { %>
                         <div class="user">
-                            <img class="banner" src="https://banner.mamesosu.net/<%= user.id %>?<%= currentTime %>" alt="" />
+                            <img class="banner" src="https://banner.<%= baseDomain %>/<%= user.id %>?<%= currentTime %>" alt="" />
                             <a href="/">
-                                <img class="avatar" src="https://a.mamesosu.net/<%= user.id %>?<%= currentTime %>" alt="" />
+                                <img class="avatar" src="https://a.<%= baseDomain %>/<%= user.id %>?<%= currentTime %>" alt="" />
                                 <span class="country-flag">
                                     <i class="flag-icon flag-icon-<%= user.country %>"></i>
                                     <p class="tooltip"><%= user.country.toUpperCase() %></p>
@@ -82,9 +82,9 @@
                 <div class="flex-box wrap">
                     <% contributor.forEach((user) => { %>
                         <div class="user">
-                            <img class="banner" src="https://banner.mamesosu.net/<%= user.id %>?<%= currentTime %>" alt="" />
+                            <img class="banner" src="https://banner.<%= baseDomain %>/<%= user.id %>?<%= currentTime %>" alt="" />
                             <a href="/">
-                                <img class="avatar" src="https://a.mamesosu.net/<%= user.id %>?<%= currentTime %>" alt="" />
+                                <img class="avatar" src="https://a.<%= baseDomain %>/<%= user.id %>?<%= currentTime %>" alt="" />
                                 <span class="country-flag">
                                     <i class="flag-icon flag-icon-<%= user.country %>"></i>
                                     <p class="tooltip"><%= user.country.toUpperCase() %></p>
@@ -101,9 +101,9 @@
                 <div class="flex-box wrap">
                     <% moderator.forEach((user) => { %>
                         <div class="user">
-                            <img class="banner" src="https://banner.mamesosu.net/<%= user.id %>?<%= currentTime %>" alt="" />
+                            <img class="banner" src="https://banner.<%= baseDomain %>/<%= user.id %>?<%= currentTime %>" alt="" />
                             <a href="/">
-                                <img class="avatar" src="https://a.mamesosu.net/<%= user.id %>?<%= currentTime %>" alt="" />
+                                <img class="avatar" src="https://a.<%= baseDomain %>/<%= user.id %>?<%= currentTime %>" alt="" />
                                 <span class="country-flag">
                                     <i class="flag-icon flag-icon-<%= user.country %>"></i>
                                     <p class="tooltip"><%= user.country.toUpperCase() %></p>
@@ -120,9 +120,9 @@
                 <div class="flex-box wrap">
                     <% nominator.forEach((user) => { %>
                         <div class="user">
-                            <img class="banner" src="https://banner.mamesosu.net/<%= user.id %>?<%= currentTime %>" alt="" />
+                            <img class="banner" src="https://banner.<%= baseDomain %>/<%= user.id %>?<%= currentTime %>" alt="" />
                             <a href="/">
-                                <img class="avatar" src="https://a.mamesosu.net/<%= user.id %>?<%= currentTime %>" alt="" />
+                                <img class="avatar" src="https://a.<%= baseDomain %>/<%= user.id %>?<%= currentTime %>" alt="" />
                                 <span class="country-flag">
                                     <i class="flag-icon flag-icon-<%= user.country %>"></i>
                                     <p class="tooltip"><%= user.country.toUpperCase() %></p>
