@@ -271,7 +271,10 @@ main .pp-record-user .focused-user-score-data .score-data .map-score-details .ta
 main .pp-record-user .focused-user-score-data .score-data .map-score-details .tables .t2 {
     width: 100%;
     margin: 5px;
-    table-layout: fixed;
+}
+
+main .pp-record-user .focused-user-score-data .score-data .map-score-details .tables .t2 tr {
+    display: flex;
 }
 
 main .pp-record-user .focused-user-score-data .score-data .map-score-details .tables tr .tooltip {
@@ -280,15 +283,28 @@ main .pp-record-user .focused-user-score-data .score-data .map-score-details .ta
 
 main .pp-record-user .focused-user-score-data .score-data .map-score-details .tables th {
     font-size: 18px;
+    vertical-align: middle;
+    text-align: left;
 }
 
 main .pp-record-user .focused-user-score-data .score-data .map-score-details .tables td {
     font-size: 28px;
-    text-align: left;
     vertical-align: middle;
+    text-align: left;
 }
 
-.tooltip-element.up:hover .tooltip {
+main .pp-record-user .focused-user-score-data .score-data .map-score-details .tables .t2 th,
+main .pp-record-user .focused-user-score-data .score-data .map-score-details .tables .t2 td {
+    display: flex;
+    align-items: center;
+    flex-basis: 100%;
+}
+
+main .pp-record-user .focused-user-score-data .score-data .map-score-details .tables .mods span {
+    margin-right: 5px;
+}
+
+.tooltip-element.up:not(.mod-icon):hover .tooltip {
     bottom: 70%;
     opacity: 1;
 }

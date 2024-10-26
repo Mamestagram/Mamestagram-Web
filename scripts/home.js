@@ -83,6 +83,8 @@ const home = () => {
                 modules.utils.writeError(req, res, modules.utils.getErrorContent(pageName, error), subDomain);
             });
     });
+
+    // オンラインプレーヤー数または総プレーヤー数を取得
     modules.app.get("/players", (req, res) => {
         const pageName = "Players", subDomain = "home";
 

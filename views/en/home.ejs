@@ -151,7 +151,9 @@
                                                     <% } %>
                                                     <th>Miss</th>
                                                     <th>Time</th>
-                                                    <th>Mods</th>
+                                                    <th>
+                                                        <span style="width: <%= 45 * functions.mods(user.mods).length %>px;">Mods</span>
+                                                    </th>
                                                 </tr>
                                                 <tr>
                                                     <% if (i % 4 === 0 || i % 4 === 2) { %> <!-- std | ctb -->
@@ -264,7 +266,9 @@
                                                         <% } %>
                                                         <th>Miss</th>
                                                         <th>Time</th>
-                                                        <th>Mods</th>
+                                                        <th>
+                                                            <span style="width: <%= 45 * functions.mods(user.mods).length %>px;">Mods</span>
+                                                        </th>
                                                     </tr>
                                                     <tr>
                                                         <% if (i % 4 === 0 || i % 4 === 2) { %> <!-- std | ctb -->
@@ -362,7 +366,9 @@
                                                 <th>50</th>
                                                 <th>Miss</th>
                                                 <th>Time</th>
-                                                <th>Mods</th>
+                                                <th>
+                                                    <span style="width: <%= 45 * functions.mods(user.mods).length %>px;">Mods</span>
+                                                </th>
                                             </tr>
                                             <tr>
                                                 <td><%= user.n300.toLocaleString() %></td>

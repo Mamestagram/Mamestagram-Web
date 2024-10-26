@@ -1,3 +1,10 @@
+/*
+モード名取得
+1 → "std"
+2 → "taiko"
+3 → "ctb"
+4 → "mania"
+*/
 const modeName = (modeNum) => {
     let name = "";
     if (modeNum / 4 > 1) {
@@ -15,6 +22,8 @@ const modeName = (modeNum) => {
     }
     return name;
 }
+
+// 経過時間取得（timeは{year, month, week, day, hour, minute, second}の5つのプロパティがあるもの）
 const elapsedTime = (time) => {
     if (time.year > 0) {
         return `${time.year}y`;
@@ -38,6 +47,8 @@ const elapsedTime = (time) => {
         return `${time.second}s`;
     }
 }
+
+// タイムゾーン別の時間取得（引数timeはDate型）
 const locationTime = (time, timezone, lang) => {
     const locationTime = time.toLocaleString("en-US", {
         year: "numeric",
@@ -52,17 +63,46 @@ const locationTime = (time, timezone, lang) => {
     });
     return locationTime;
 }
-const sortMods = (mods) => {
-    const order = ["rx", "ap", "k4", "k5", "k6", "k7", "nf", "ez", "ht", "hd", "hr", "dt", "nc", "sd", "pf", "fl", "fi", "rd", "mr", "so", "v2"];
-    let rst = new Array(0);
-    order.forEach((item) => {
-        if (mods.includes(item)) {
-            rst.push(item);
-        }
-    });
-    return rst;
-}
+
+// モッド（配列）取得
 const mods = (modNum) => {
+    /*
+    モッド並び替え
+    1. rx
+    2. ap
+    3. k4
+    4. k5
+    5. k6
+    6. k7
+    7. k8
+    8. k9
+    9. nf
+    10. ez
+    11. ht
+    12. sd
+    13. pf
+    14. fi
+    15. hd
+    16. hr
+    17. dt
+    18. nc
+    19. fl
+    20. rd
+    21. mr
+    22. so
+    23. v2
+    */
+    const sortMods = (mods) => {
+        const order = ["rx", "ap", "k4", "k5", "k6", "k7", "k8", "k9", "nf", "ez", "ht", "sd", "pf", "fi", "hd", "hr", "dt", "nc", "fl", "rd", "mr", "so", "v2"];
+        let sort = new Array(0);
+        order.forEach((item) => {
+            if (mods.includes(item) && ((item !== "sd" && item !== "dt") || (item === "sd" && !mods.includes("pf")) || (item === "dt" && !mods.includes("nc")))) {
+                sort.push(item);
+            }
+        });
+        return sort;
+    }
+
     let mod = new Array(0);
     const mods = [
         "nf", // 0 : NoFail
@@ -97,23 +137,16 @@ const mods = (modNum) => {
         "v2", // 29 : ScoreV2
         "mr"  // 30 : Mirror
     ];
-    for (let i = 30; i >= 0; i--) {
-        if (i !== 2 && i !== 11 && i !== 19 && i !== 22 && !(i >= 24 && i <= 28) && modNum >= 1 << i) {
-            switch (i) {
-                case 14:
-                    modNum -= 1 << 5;
-                    break;
-                case 9:
-                    modNum -= 1 << 6;
-                    break;
-            }
+    for (let i = 0; i <= 30; i++) {
+        if (modNum & 1 << i) {
             mod.push(mods[i]);
-            modNum -= 1 << i;
         }
     }
     mod = sortMods(mod);
     return mod;
 }
+
+// モッド名取得（modは2文字のモッド名）
 const modName = (mod) => {
     switch (mod) {
         case "nm": return "No Mod";
@@ -141,6 +174,8 @@ const modName = (mod) => {
         case "v2": return "Score V2";
     }
 }
+
+// htmlで使用するモッド名取得（modは2文字のモッド名）
 const modClassName = (mod) => {
     switch (mod) {
         case "nm": return "fa-solid fa-ban";
