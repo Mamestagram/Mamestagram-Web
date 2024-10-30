@@ -1,4 +1,3 @@
-const geoApiKey = process.env.GEO_API_KEY;
 const modules = require("../modules");
 const mysql = require("../modules/mysql");
 
@@ -6,28 +5,11 @@ const signin = () => {
     const pageName = "Sign in", subDomain = "signin"
     let name = null, password = null, pass_hash = null, errLi = null, user;
 
-    modules.app.get("/signin", (req, res) => {
-        res,render(`${res.locals.language}/signin.ejs`, {
-            errLi,
-            name,
-            password
-        }, 
-        (error, ejs) => {
-            if (error) {
-                modules.utils.writeError(req, res, modules.utils.getErrorContent(pageName, error), subDomain);
-            }
-            else {
-                modules.utils.writeLog(req, res, "GET", subDomain);
-                res.send(ejs);
-            }
-        });
-    });
-
     modules.app.post("/signin",
         (req, res, next) => {
             name = req.body.name;
             password = req.body.password;
-            pass_hash = modules.crypto.createHash("md5").update(req.body.password).digest("hex")
+            pass_hash = modules.crypto.createHash("md5").update(req.body.password).digest("hex");
             next();
         },
         (req, res, next) => {
@@ -92,9 +74,11 @@ const signin = () => {
                 `);
             }
             else {
-                res.render(`${res.locals.language}/signin.ejs`, {
+                res.render(`${res.locals.language}/account.ejs`, {
+                    type: "signin",
                     errLi,
                     name,
+                    email: null,
                     password
                 },
                 (error, ejs) => {

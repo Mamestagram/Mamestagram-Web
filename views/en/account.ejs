@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>
+            <% if (type === "register") { %>
+                Register 
+            <% } else if (type === "signin") { %>
+                Sign in 
+            <% } else if (type === "settings") { %>
+                Settings 
+            <% } %>
+            | Mamestagram
+        </title>
+        <%- include("references/head") %>
+        <link rel="stylesheet" href="/css/account.css?<%= currentTime %>" />
+    </head>
+    <body>
+        <%- include("references/loading") %>
+        <%- include("references/header") %>
+        <main>
+            <% if (type === "register" || type === "signin") { %>
+                <div class="box account-form">
+                    <form id="register" action="/register" method="post">
+                        <input type="text" name="username" placeholder="Username" value="<%= type === "register" ? name : "" %>" required />
+                        <input type="email" name="email" placeholder="Email" value="<%= type === "register" ? email : "" %>" required />
+                        <input type="password" name="password" placeholder="Password" value="<%= type === "register" ? password : "" %>" required />
+                        <input type="password" name="confirm" placeholder="Confirm password" required />
+                        <input id="post" type="hidden" name="recaptcha" value="default">
+                        <button class="g-recaptcha" data-sitekey="<%= recaptchaSecretKey %>" data-callback="onSubmit" data-action="submit">Register</button>
+                    </form>
+                    <form id="signin" action="/signin" method="post">
+                        <input type="text" name="username" placeholder="Username" value="<%= type === "signin" ? name : "" %>" required />
+                        <input type="password" name="password" placeholder="Password" value="<%= type === "signin" ? password : "" %>" required />
+                        <input type="submit" value="Sign in" />
+                    </form>
+                </div>
+            <% } else { %>
+                <div class="box settings">
+
+                </div>
+            <% } %>
+        </main>
+        <%- include("references/footer") %>
+        <%- include("references/script") %>
+        <script src="/js/account.js?<%= currentTime %>" defer></script>
+    </body>
+</html>
