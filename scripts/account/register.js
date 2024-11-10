@@ -4,14 +4,13 @@ const mysql = require("../modules/mysql");
 
 const register = () => {
     const pageName = "Register", subDomain = "register";
-    let name = null, email = null, password = null, pass_confirm = null,  errLi = [], isClicked = false, time;
+    let name, email, password,  errLi = { username: [], email: [], password: [], hf: false, bot: false }, isClicked = false, time;
 
     modules.app.post(
         (req, res, next) => {
-            name = req.body.name;
+            name = req.body.username;
             email = req.body.email;
             password = req.body.password;
-            pass_confirm = req.body.confirm;
             next();
         },
         (req, res, next) => {
@@ -28,7 +27,7 @@ const register = () => {
             }
             else {
                 time = 0;
-                errLi.push("wait");
+                errLi.hf = true;
                 res.render(`${res.locals.language}/account.ejs`, {
                         type: "register",
                         errLi,
@@ -67,20 +66,22 @@ const register = () => {
                                 );
                                 const banWords = getBanWords.map((row) => row.word);
                                 if (name.includes(banWords)) {
-                                    errLi.push("banword");
+                                    errLi.username.push("Contains banned words");
                                 }
                             }
                             catch (error) {
                                 modules.utils.writeError(req, res, modules.utils.getErrorContent(pageName, error, `Name: ${name}\nEmail: ${email}`), subDomain);
                             }
+                            finally {
+                                connection.release();
+                                next();
+                            }
                         }
                         process();
-                        connection.release();
                     }
                 });
             }
             connnectMysql();
-            next();
         },
         (req, res, next) => {
             const connectMysql = () => {
@@ -111,37 +112,28 @@ const register = () => {
                                     [email]
                                 );
                                 if (getNames.length > 0) {
-                                    errLi.push("dupname");
+                                    errLi.username.push("Already exists");
                                 }
                                 if (getEmails.length > 0) {
-                                    errLi.push("dupemail");
+                                    errLi.email.push("Already in use");
                                 }
                             }
                             catch (error) {
                                 modules.utils.writeError(req, res, modules.utils.getErrorContent(pageName, error, `Name: ${name}\nEmail: ${email}`), subDomain);
                             }
+                            finally {
+                                connection.release();
+                                next();
+                            }
                         }
                         process();
-                        connection.release();
                     }
                 });
             }
             connectMysql();
-            next();
         },
         (req, res, next) => {
-            if (password === pass_confirm) {
-                next();
-            }
-            else {
-                errLi.push("wrongconf");
-            }
-        },
-        (req, res, next) => {
-            if (errLi.length <= 0) {
-                next();
-            }
-            else {
+            if (errLi.username.length > 0 || errLi.email.length > 0) {
                 res.render(`${res.locals.language}/account.ejs`, {
                         type: "register",
                         errLi,
@@ -160,6 +152,9 @@ const register = () => {
                     }
                 );
             }
+            else {
+                next();
+            }
         },
         (req, res, next) => {
             modules.axios.get(`https://www.google.com/recaptcha/api/siteverify?secret=${recaptchaSecretKey}&response=${req.body.recaptcha}`)
@@ -170,7 +165,7 @@ const register = () => {
                         next();
                     }
                     else {
-                        errLi.push("recaptcha");
+                        errLi.bot = true;
                         res.render(`${res.locals.language}/account.ejs`, {
                                 type: "register",
                                 errLi,
@@ -307,9 +302,11 @@ const register = () => {
                                     catch (error) {
                                         modules.utils.writeError(req, res, modules.utils.getErrorContent(pageName, error, `Name: ${name}\nEmail: ${email}`), subDomain);
                                     }
+                                    finally {
+                                        connection.release();
+                                    }
                                 }
                                 process();
-                                connection.release();
                             }
                         });
                     }

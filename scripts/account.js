@@ -23,7 +23,7 @@ const account = () => {
 
         res.render(`${res.locals.language}/account.ejs`, {
                 type: req.query.class,
-                errLi: [],
+                errLi: { username: [], email: [], password: [], hf: false, bot: false },
                 name: null,
                 email: null,
                 password: null

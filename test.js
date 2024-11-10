@@ -1,2 +1,3 @@
-const n = 1 << 9;
-console.log(n & 1 << 9);
+const reg = /(?=.*[a-zA-Z])(?=.*[0-9])/;
+const str = "sample00";
+console.log(reg.test(str));

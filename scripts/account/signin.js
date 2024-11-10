@@ -3,11 +3,11 @@ const mysql = require("../modules/mysql");
 
 const signin = () => {
     const pageName = "Sign in", subDomain = "signin"
-    let name = null, password = null, pass_hash = null, errLi = null, user;
+    let name, password, pass_hash, errLi = { username: [], email: [], password: [], hf: false, bot: false }, user;
 
     modules.app.post("/signin",
         (req, res, next) => {
-            name = req.body.name;
+            name = req.body.username;
             password = req.body.password;
             pass_hash = modules.crypto.createHash("md5").update(req.body.password).digest("hex");
             next();
@@ -15,13 +15,13 @@ const signin = () => {
         (req, res, next) => {
             const connectMysql = () => {
                 mysql.pool.getConnection((err, connection) => {
-                    try {
-                        if (err) {
-                            console.error(err);
-                            setTimeout(connectMysql, 100);
-                        }
-                        else {
-                            const process = async () => {
+                    if (err) {
+                        console.error(err);
+                        setTimeout(connectMysql, 100);
+                    }
+                    else {
+                        const process = async () => {
+                            try {
                                 user = await mysql.query(
                                     connection,
                                     `
@@ -35,37 +35,39 @@ const signin = () => {
                                     `,
                                     [name]
                                 );
-                                if (getUser.length > 0) {
-                                    const isMatch = modules.bcrypt.compareSync(pass_hash, getUser[0].pw_bcrypt);
+                                if (user.length > 0) {
+                                    const isMatch = modules.bcrypt.compareSync(pass_hash, user[0].pw_bcrypt);
                                     if (!isMatch) {
-                                        errLi = "wrong";   
+                                        errLi.password.push("Username or password is incorrect");   
                                     }
                                 }
                                 else {
-                                    errLi = "wrong";
+                                    errLi.username.push("Username or password is incorrect");
                                 }
                             }
-                            process();
-                            connection.release();
+                            catch (error) {
+                                modules.utils.writeError(req, res, modules.utils.getErrorContent(pageName, error, `Name: ${name}`), subDomain);
+                            }
+                            finally {
+                                connection.release();
+                                next();
+                            }
                         }
-                    }
-                    catch (error) {
-                        modules.utils.writeError(req, res, modules.utils.getErrorContent(pageName, error, `Name: ${name}`), subDomain);
+                        process();
                     }
                 });
             }
             connectMysql();
-            next();
         },
         (req, res) => {
-            if (errLi !== null) {
+            if (errLi.username.length <= 0 && errLi.password.length <= 0) {
                 req.session.userid = user[0].id;
                 req.session.username = name;
                 req.session.country = user[0].country;
                 req.session.timeZone = user[0].timezone;
                 req.session.badge = user[0].set_badge;
                 req.session.language = user[0].language;
-                modules.writeLog(req, res, "POST (Succeeded)", subDomain);
+                modules.utils.writeLog(req, res, "POST (Succeeded)", subDomain);
                 res.send(`
                     <script>
                         alert("Successfully signed in!");
