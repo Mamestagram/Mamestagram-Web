@@ -3,7 +3,7 @@ const mysql = require("../modules/mysql");
 
 const signin = () => {
     const pageName = "Sign in", subDomain = "signin"
-    let name, password, pass_hash, errLi = { username: [], email: [], password: [], hf: false, bot: false }, user;
+    let name, password, pass_hash, errLi, user;
 
     modules.app.post("/signin",
         (req, res, next) => {
@@ -13,6 +13,7 @@ const signin = () => {
             next();
         },
         (req, res, next) => {
+            errLi = { username: [], email: [], password: [], hf: false, bot: false }
             const connectMysql = () => {
                 mysql.pool.getConnection((err, connection) => {
                     if (err) {

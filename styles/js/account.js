@@ -81,9 +81,15 @@ function checkRegister() {
     
     if (isError) {
         $("main #register button").attr("class", "unavailable").prop("disabled", true);
-        $("main #register .username .error").html(errLi.username);
-        $("main #register .email .error").html(errLi.email);
-        $("main #register .password .error").html(errLi.password);
+        if (errLi.username !== null) {
+            $("main #register .username .error").html(errLi.username);
+        }
+        if (errLi.email !== null) {
+            $("main #register .email .error").html(errLi.email);
+        }
+        if (errLi.password !== null) {
+            $("main #register .password .error").html(errLi.password);
+        }
         $("main #register .confirm .error").html(errLi.confirm);
     }
     else {
@@ -111,8 +117,12 @@ function checkSignIn() {
 
     if (isError) {
         $("main #signin button").attr("class", "unavailable").prop("disabled", true);
-        $("main #signin .username .error").html(errLi.username);
-        $("main #signin .password .error").html(errLi.password);
+        if (errLi.username !== null) {
+            $("main #signin .error").html(errLi.username);
+        }
+        else if (errLi.password !== null) {
+            $("main #signin .error").html(errLi.password);
+        }
     }
     else {
         $("main #signin button").removeAttr("class").prop("disabled", false);
@@ -121,6 +131,7 @@ function checkSignIn() {
 }
 
 $(function() {
+    $("main .box form.face").addClass("move");
     checkRegister();
     checkSignIn();
 
@@ -143,5 +154,9 @@ $(function() {
             $(this).removeClass("show-pass");
             $("#register .confirm input").attr("type", "password");
         }
+    });
+
+    $("header, main").on("click", ".link-menu .register, .link-menu .signin, .box form .reference a", function() {
+        $("main .box form.face").removeClass("error").removeClass("move");
     });
 });

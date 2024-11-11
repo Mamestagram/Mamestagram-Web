@@ -77,6 +77,7 @@ const getSafeName = (username) => {
 }
 
 module.exports = {
+    getIP,
     writeLog,
     getErrorContent,
     writeError,

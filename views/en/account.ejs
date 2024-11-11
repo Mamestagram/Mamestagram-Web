@@ -21,7 +21,10 @@
             <% if (type === "register" || type === "signin") { %>
                 <div class="box account-form">
                     <!-- Register -->
-                    <form id="register" action="/register" method="post">
+                    <form id="register"
+                    <% if (type === "register") { %>
+                        class="face<%= errLi.username.length > 0 || errLi.email.length > 0 || errLi.password.length > 0 || errLi.hf || errLi.bot ? " error" : "" %>"
+                    <% } %> action="/register" method="post">
                         <h1>Register</h1>
                         <div class="username">
                             <input type="text" name="username" placeholder="Username" value="<%= type === "register" ? name : "" %>" oninput="checkRegister()" required />
@@ -60,11 +63,22 @@
                             </span>
                             <p class="error"></p>
                         </div>
+                        <p class="reference">Already have an account? <a href="/account?class=signin">Sign in</a></p>
+                        <p class="error">
+                            <% if (errLi.bot) { %>
+                                A problem has occurred
+                            <% } else if (errLi.hf) { %>
+                                Give it a little time
+                            <% } %>
+                        </p>
                         <input id="post" type="hidden" name="recaptcha" value="default">
                         <button class="g-recaptcha" data-sitekey="<%= recaptchaSecretKey %>" data-callback="onSubmit" data-action="submit" disabled>Register</button>
                     </form>
                     <!-- Sign in -->
-                    <form id="signin" action="/signin" method="post">
+                    <form id="signin"
+                    <% if (type === "signin") { %>
+                        class="face<%= errLi.username.length > 0 || errLi.password.length > 0 ? " error" : "" %>"
+                    <% } %> action="/signin" method="post">
                         <h1>Sign in</h1>
                         <div class="username">
                             <input type="text" name="username" placeholder="Username" value="<%= type === "signin" ? name : "" %>" oninput="checkSignIn()" required />
@@ -83,6 +97,7 @@
                                 <%= err %>
                             <% }); %>
                         </p>
+                        <p class="reference">Don't you have an account? <a href="/account?class=register">Register</a></p>
                         <button type="submit" disabled>Sign in</button>
                     </form>
                 </div>

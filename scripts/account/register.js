@@ -4,9 +4,9 @@ const mysql = require("../modules/mysql");
 
 const register = () => {
     const pageName = "Register", subDomain = "register";
-    let name, email, password,  errLi = { username: [], email: [], password: [], hf: false, bot: false }, isClicked = false, time;
+    let name, email, password, errLi, isClicked = false, time;
 
-    modules.app.post(
+    modules.app.post(("/register"),
         (req, res, next) => {
             name = req.body.username;
             email = req.body.email;
@@ -14,6 +14,7 @@ const register = () => {
             next();
         },
         (req, res, next) => {
+            errLi = { username: [], email: [], password: [], hf: false, bot: false }
             time = 0;
             if (!isClicked) {
                 clicked = true;
@@ -58,7 +59,7 @@ const register = () => {
                         const process = async () => {
                             try {
                                 const getBanWords = await mysql.query(
-                                    connecrion, 
+                                    connection, 
                                     `
                                     SELECT word
                                     FROM banword;
@@ -97,7 +98,7 @@ const register = () => {
                                     connection,
                                     `
                                     SELECT id
-                                    FROM user
+                                    FROM users
                                     WHERE name = ?;
                                     `,
                                     [name]
@@ -106,7 +107,7 @@ const register = () => {
                                     connection,
                                     `
                                     SELECT id
-                                    FROM user
+                                    FROM users
                                     WHERE email = ?;
                                     `,
                                     [email]
@@ -179,6 +180,7 @@ const register = () => {
                                 }
                                 else {
                                     modules.utils.writeLog(req, res, "POST (Failed)", subDomain);
+                                    console.log(`[username: ${name}, e-mail: ${email}, success: ${success}, score: ${score}]`);
                                     res.send(ejs);
                                 }
                             }
@@ -193,7 +195,7 @@ const register = () => {
             modules.axios.get(`https://api.ipgeolocation.io/ipgeo?apiKey=${geoApiKey}&ip=${modules.utils.getIP(req)}`)
                 .then((response) => {
                     const data = response.data;
-                    const pass_hash = modules.crypto.createHash("md5").update(password).degest("hex").modules.bcrypt, safeName = modules.utils.getSafeName(name), country = data.country_code2.toLowerCase();
+                    let pass_hash = modules.crypto.createHash("md5").update(password).digest("hex"), safeName = modules.utils.getSafeName(name), country = data.country_code2.toLowerCase();
                     pass_hash = modules.bcrypt.hashSync(pass_hash, 12);
                     const connectMysql = () => {
                         mysql.pool.getConnection((err, connection) => {
@@ -216,7 +218,7 @@ const register = () => {
                                         const userid = getId[0].id + 1;
                                         // usersに追加
                                         await mysql.query(
-                                            conneciton,
+                                            connection,
                                             `
                                             INSERT INTO users (id, name, safe_name, email, priv, pw_bcrypt, country, creation_time)
                                             VALUES (?, ?, ?, ?, 3, ?, ?, UNIX_TIMESTAMP(NOW()));
@@ -289,6 +291,7 @@ const register = () => {
                                                 [userid]
                                             );
                                             modules.utils.writeLog(req, res, "POST (Succeeded)", subDomain);
+                                            console.log(`[username: ${name}, e-mail: ${email}]`)
                                             res.send(
                                                 `
                                                 <script>
