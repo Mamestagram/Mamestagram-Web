@@ -28,12 +28,12 @@ main .box form {
 }
 
 main .box form:not(.error) {
-    transform: translate(-50%, -50%) scaleY(0) rotateX(90deg);
+    transform: translate(-50%, -50%) rotateX(90deg) scaleY(0);
 }
 
 main .box form.move,
 main .box form.error {
-    transform: translate(-50%, -50%) scaleY(1) rotateX(0deg);
+    transform: translate(-50%, -50%) rotateX(0deg) scaleY(1);
 }
 
 main .box form h1 {
@@ -47,7 +47,7 @@ main .box form div {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    margin-top: 40px;
+    margin-top: 30px;
 }
 
 main .box form div input {
@@ -103,7 +103,7 @@ main .box form p {
     text-shadow: 2px 2px 2px #000;
 }
 
-main .box form div .caution {
+main .box form .caution {
     font-size: 14px;
     margin-top: 5px;
 }

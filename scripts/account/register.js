@@ -195,8 +195,7 @@ const register = () => {
             modules.axios.get(`https://api.ipgeolocation.io/ipgeo?apiKey=${geoApiKey}&ip=${modules.utils.getIP(req)}`)
                 .then((response) => {
                     const data = response.data;
-                    let pass_hash = modules.crypto.createHash("md5").update(password).digest("hex"), safeName = modules.utils.getSafeName(name), country = data.country_code2.toLowerCase();
-                    pass_hash = modules.bcrypt.hashSync(pass_hash, 12);
+                    const pass_hash = modules.bcrypt.hashSync(modules.crypto.createHash("md5").update(password).digest("hex"), 12), safeName = modules.utils.getSafeName(name), country = data.country_code2.toLowerCase();
                     const connectMysql = () => {
                         mysql.pool.getConnection((err, connection) => {
                             if (err) {

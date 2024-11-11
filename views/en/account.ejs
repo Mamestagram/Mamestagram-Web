@@ -64,6 +64,7 @@
                             <p class="error"></p>
                         </div>
                         <p class="reference">Already have an account? <a href="/account?class=signin">Sign in</a></p>
+                        <center><p class="caution">*Do not create multiple account</p></center>
                         <p class="error">
                             <% if (errLi.bot) { %>
                                 A problem has occurred
@@ -82,12 +83,14 @@
                         <h1>Sign in</h1>
                         <div class="username">
                             <input type="text" name="username" placeholder="Username" value="<%= type === "signin" ? name : "" %>" oninput="checkSignIn()" required />
+                            <p class="error"></p>
                         </div>
                         <div class="password">
                             <span>
                                 <input type="password" name="password" placeholder="Password" value="<%= type === "signin" ? password : "" %>" oninput="checkSignIn()" required />
                                 <i class="fa-solid fa-eye"></i>
                             </span>
+                            <p class="error"></p>
                         </div>
                         <p class="error">
                             <% errLi.username.forEach((err) => { %>

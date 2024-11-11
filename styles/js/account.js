@@ -118,10 +118,10 @@ function checkSignIn() {
     if (isError) {
         $("main #signin button").attr("class", "unavailable").prop("disabled", true);
         if (errLi.username !== null) {
-            $("main #signin .error").html(errLi.username);
+            $("main #signin .username .error").html(errLi.username);
         }
         else if (errLi.password !== null) {
-            $("main #signin .error").html(errLi.password);
+            $("main #signin .password .error").html(errLi.password);
         }
     }
     else {
