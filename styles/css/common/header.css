@@ -1,11 +1,17 @@
 header {
-    position: sticky;
+    position: fixed;
     top: 0;
     background-image: url("/images/server-bg/1.jpg");
     background-repeat: no-repeat;
     background-size: cover;
-    box-shadow: 0 5px 5px #000;
+    width: 100%;
+    box-shadow: 0 2px 5px #000;
     z-index: 1000;
+    transition: box-shadow 300ms;
+}
+
+header.scroll {
+    box-shadow: 0 5px 5px #000;
 }
 
 header .element {
@@ -13,13 +19,13 @@ header .element {
     background-color: rgb(0, 0, 0, 0.1);
     padding: 0 5%;
     width: 100%;
-    backdrop-filter: blur(10px);
+    backdrop-filter: blur(5px);
     transition: background 300ms, backdrop-filter 300ms;
 }
 
 header.scroll .element {
     background-color: rgb(0, 0, 0, 0.3);
-    backdrop-filter: blur(5px);
+    backdrop-filter: blur(10px);
 }
 
 header .home {

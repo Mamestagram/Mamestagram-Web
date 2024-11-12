@@ -22,6 +22,7 @@ const getIP = (req) => {
         return "0.0.0.0";
     }
 }
+
 // 日付取得
 const getTime = () => {
     const now = new Date();
@@ -37,6 +38,7 @@ const getTime = () => {
         language: "en"
     });
 }
+
 // ログ出力
 const writeLog = (req, res, type, subDomain) => {
     const DOMAIN = process.env.DOMAIN;
@@ -68,11 +70,14 @@ const writeError = (req, res, content, subDomain) => {
     fs.writeFileSync(`${ERR_PATH}/error_${files.length + 1}.txt`, content, "utf-8");
     console.log(`Error has been saved (${files.length + 1})`);
 }
+
 // safe_name取得
 const getSafeName = (username) => {
     return username.toLowerCase().replaceAll(" ", "_");
 }
+
 module.exports = {
+    getIP,
     writeLog,
     getErrorContent,
     writeError,

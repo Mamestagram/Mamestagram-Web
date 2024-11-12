@@ -1,38 +1,20 @@
-const recapthaSecretKey = process.env.RECAPTCHA_SECRET_KEY, geoApiKey = process.env.GEO_API_KEY;
+const recaptchaSecretKey = process.env.RECAPTCHA_SECRET_KEY, geoApiKey = process.env.GEO_API_KEY;
 const modules = require("../modules");
 const mysql = require("../modules/mysql");
 
 const register = () => {
     const pageName = "Register", subDomain = "register";
-    let name = null, email = null, password = null, pass_confirm = null,  errLi = [], isClicked = false, time;
+    let name, email, password, errLi, isClicked = false, time;
 
-    modules.app.get((req, res) => {
-        res.render("register.ejs", {
-            errLi,
-            name,
-            emain,
-            password
-        },
-        (error, ejs) => {
-            if (error) {
-                    modules.utils.writeError(req, res, modules.utils.getErrorContent(pageName, error), subDomain);
-            }
-            else {
-                modules.utils.writeLog(req, res, "GET", subDomain);
-                res.send(ejs);
-            }
-        });
-    });
-
-    modules.app.post(
+    modules.app.post(("/register"),
         (req, res, next) => {
-            name = req.body.name;
+            name = req.body.username;
             email = req.body.email;
             password = req.body.password;
-            pass_confirm = req.body.confirm;
             next();
         },
         (req, res, next) => {
+            errLi = { username: [], email: [], password: [], hf: false, bot: false }
             time = 0;
             if (!isClicked) {
                 clicked = true;
@@ -46,22 +28,24 @@ const register = () => {
             }
             else {
                 time = 0;
-                errLi.push("wait");
-                res.render("register.ejs", {
-                    errLi,
-                    name,
-                    email,
-                    password
-                },
-                (error, ejs) => {
-                    if (error) {
-                        modules.utils.writeError(req, res, modules.utils.getErrorContent(pageName, error, `Name: ${name}\nEmail: ${email}`));
+                errLi.hf = true;
+                res.render(`${res.locals.language}/account.ejs`, {
+                        type: "register",
+                        errLi,
+                        name,
+                        email,
+                        password
+                    },
+                    (error, ejs) => {
+                        if (error) {
+                            modules.utils.writeError(req, res, modules.utils.getErrorContent(pageName, error, `Name: ${name}\nEmail: ${email}`));
+                        }
+                        else {
+                            modules.utils.writeLog(req, res, "POST (Failed)", subDomain);
+                            res.send(ejs);
+                        }
                     }
-                    else {
-                        modules.utils.writeLog(req, res, "POST (Failed)", subDomain);
-                        res.send(ejs);
-                    }
-                });
+                );
             }
         },
         (req, res, next) => {
@@ -75,7 +59,7 @@ const register = () => {
                         const process = async () => {
                             try {
                                 const getBanWords = await mysql.query(
-                                    connecrion, 
+                                    connection, 
                                     `
                                     SELECT word
                                     FROM banword;
@@ -83,20 +67,22 @@ const register = () => {
                                 );
                                 const banWords = getBanWords.map((row) => row.word);
                                 if (name.includes(banWords)) {
-                                    errLi.push("banword");
+                                    errLi.username.push("Contains banned words");
                                 }
                             }
                             catch (error) {
                                 modules.utils.writeError(req, res, modules.utils.getErrorContent(pageName, error, `Name: ${name}\nEmail: ${email}`), subDomain);
                             }
+                            finally {
+                                connection.release();
+                                next();
+                            }
                         }
                         process();
-                        connection.release();
                     }
                 });
             }
             connnectMysql();
-            next();
         },
         (req, res, next) => {
             const connectMysql = () => {
@@ -112,7 +98,7 @@ const register = () => {
                                     connection,
                                     `
                                     SELECT id
-                                    FROM user
+                                    FROM users
                                     WHERE name = ?;
                                     `,
                                     [name]
@@ -121,63 +107,58 @@ const register = () => {
                                     connection,
                                     `
                                     SELECT id
-                                    FROM user
+                                    FROM users
                                     WHERE email = ?;
                                     `,
                                     [email]
                                 );
                                 if (getNames.length > 0) {
-                                    errLi.push("dupname");
+                                    errLi.username.push("Already exists");
                                 }
                                 if (getEmails.length > 0) {
-                                    errLi.push("dupemail");
+                                    errLi.email.push("Already in use");
                                 }
                             }
                             catch (error) {
                                 modules.utils.writeError(req, res, modules.utils.getErrorContent(pageName, error, `Name: ${name}\nEmail: ${email}`), subDomain);
                             }
+                            finally {
+                                connection.release();
+                                next();
+                            }
                         }
                         process();
-                        connection.release();
                     }
                 });
             }
             connectMysql();
-            next();
         },
         (req, res, next) => {
-            if (password === pass_confirm) {
-                next();
+            if (errLi.username.length > 0 || errLi.email.length > 0) {
+                res.render(`${res.locals.language}/account.ejs`, {
+                        type: "register",
+                        errLi,
+                        name,
+                        email,
+                        password
+                    },
+                    (error, ejs) => {
+                        if (error) {
+                            modules.utils.writeError(req, res, modules.utils.getErrorContent(pageName, error, `Name: ${name}\nEmail: ${email}`));
+                        }
+                        else {
+                            modules.utils.writeLog(req, res, "POST (Failed)", subDomain);
+                            res.send(ejs);
+                        }
+                    }
+                );
             }
             else {
-                errLi.push("wrongconf");
-            }
-        },
-        (req, res, next) => {
-            if (errLi.length <= 0) {
-                errLi = [];
                 next();
             }
-            else {
-                res.render("register.ejs", {
-                    errLi,
-                    name,
-                    email,
-                    password
-                },
-                (error, ejs) => {
-                    if (error) {
-                        modules.utils.writeError(req, res, modules.utils.getErrorContent(pageName, error, `Name: ${name}\nEmail: ${email}`), subDomain);
-                    }
-                    else {
-                        modules.utils.writeLog(req, res, "POST (Failed)", subDomain);
-                        res.send(ejs);
-                    }
-                });
-            }
         },
         (req, res, next) => {
-            modules.axios.get(`https://www.google.com/recaptcha/api/siteverify?secret=${recapthaSecretKey}&response=${req.body.recaptcha}`)
+            modules.axios.get(`https://www.google.com/recaptcha/api/siteverify?secret=${recaptchaSecretKey}&response=${req.body.recaptcha}`)
                 .then((response) => {
                     const data = response.data;
                     const success = data.success, score = data.score;
@@ -185,22 +166,25 @@ const register = () => {
                         next();
                     }
                     else {
-                        errLi.push("recaptcha");
-                        res.render("register.ejs", {
-                            errLi,
-                            name,
-                            email,
-                            password
-                        },
-                        (error, ejs) => {
-                            if (error) {
-                                modules.utils.writeError(req, res, modules.utils.getErrorContent(pageName, error, `Name: ${name}\nEmail: ${email}\nSuccess: ${success}\nScore: ${score}`), subDomain);
+                        errLi.bot = true;
+                        res.render(`${res.locals.language}/account.ejs`, {
+                                type: "register",
+                                errLi,
+                                name,
+                                email,
+                                password
+                            },
+                            (error, ejs) => {
+                                if (error) {
+                                    modules.utils.writeError(req, res, modules.utils.getErrorContent(pageName, error, `Name: ${name}\nEmail: ${email}`));
+                                }
+                                else {
+                                    modules.utils.writeLog(req, res, "POST (Failed)", subDomain);
+                                    console.log(`[username: ${name}, e-mail: ${email}, success: ${success}, score: ${score}]`);
+                                    res.send(ejs);
+                                }
                             }
-                            else {
-                                modules.utils.writeLog(req, res, "POST (Failed)", subDomain);
-                                res.send(ejs);
-                            }
-                        });
+                        );
                     }
                 })
                 .catch((error) => {
@@ -211,8 +195,7 @@ const register = () => {
             modules.axios.get(`https://api.ipgeolocation.io/ipgeo?apiKey=${geoApiKey}&ip=${modules.utils.getIP(req)}`)
                 .then((response) => {
                     const data = response.data;
-                    const pass_hash = modules.crypto.createHash("md5").update(password).degest("hex").modules.bcrypt, safeName = modules.utils.getSafeName(name), country = data.country_code2.toLowerCase();
-                    pass_hash = modules.bcrypt.hashSync(pass_hash, 12);
+                    const pass_hash = modules.bcrypt.hashSync(modules.crypto.createHash("md5").update(password).digest("hex"), 12), safeName = modules.utils.getSafeName(name), country = data.country_code2.toLowerCase();
                     const connectMysql = () => {
                         mysql.pool.getConnection((err, connection) => {
                             if (err) {
@@ -223,7 +206,8 @@ const register = () => {
                                 const process = async () => {
                                     try {
                                         const getId = await mysql.query(
-                                            connection, sql`
+                                            connection,
+                                            `
                                             SELECT id
                                             FROM users
                                             ORDER BY id DESC
@@ -233,7 +217,8 @@ const register = () => {
                                         const userid = getId[0].id + 1;
                                         // usersに追加
                                         await mysql.query(
-                                            conneciton, sql`
+                                            connection,
+                                            `
                                             INSERT INTO users (id, name, safe_name, email, priv, pw_bcrypt, country, creation_time)
                                             VALUES (?, ?, ?, ?, 3, ?, ?, UNIX_TIMESTAMP(NOW()));
                                             `,
@@ -243,7 +228,8 @@ const register = () => {
                                         for (let i = 0; i <= 8; i++) {
                                             if (i !== 7) {
                                                 await mysql.query(
-                                                    connection, sql`
+                                                    connection,
+                                                    `
                                                     INSERT INTO stats (id, mode)
                                                     VALUES (?, ?);
                                                     `,
@@ -258,7 +244,8 @@ const register = () => {
                                                 case 1:
                                                     for (let j = 0; j <= 1; j++) {
                                                         await mysql.query(
-                                                            connection, sql`
+                                                            connection,
+                                                            `
                                                             INSERT INTO dan_stats (id, type, mode, cs)
                                                             VALUES (?, ?, ?, 0);
                                                             `,
@@ -274,7 +261,8 @@ const register = () => {
                                                         else if (j <= 12) { cs = 7; }
                                                         else { cs = 10; }
                                                         await mysql.query(
-                                                            connection, sql`
+                                                            connection,
+                                                            `
                                                             INSERT INTO dan_stats (id, type, mode, cs)
                                                             VALUES (?, ?, ?, ?);
                                                             `,
@@ -284,7 +272,8 @@ const register = () => {
                                                     break;
                                                 default:
                                                     await mysql.query(
-                                                        connection, sql`
+                                                        connection,
+                                                        `
                                                         INSERT INTO dan_stats (id, type, mode, cs)
                                                         VALUES (?, 0, ?, 0);
                                                         `,
@@ -293,18 +282,20 @@ const register = () => {
                                             }
                                             // gacha_statsに追加
                                             await mysql.query(
-                                                connection, sql`
+                                                connection,
+                                                `
                                                 INSERT INTO gacha_stats (id, had_badge)
                                                 VALUES (?, 0);
                                                 `,
                                                 [userid]
                                             );
                                             modules.utils.writeLog(req, res, "POST (Succeeded)", subDomain);
+                                            console.log(`[username: ${name}, e-mail: ${email}]`)
                                             res.send(
                                                 `
                                                 <script>
                                                     alert("Successfully registered your account!");
-                                                    location.href = "/login";
+                                                    location.href = "/account?class=signin";
                                                 </script>
                                                 `
                                             );
@@ -313,9 +304,11 @@ const register = () => {
                                     catch (error) {
                                         modules.utils.writeError(req, res, modules.utils.getErrorContent(pageName, error, `Name: ${name}\nEmail: ${email}`), subDomain);
                                     }
+                                    finally {
+                                        connection.release();
+                                    }
                                 }
                                 process();
-                                connection.release();
                             }
                         });
                     }

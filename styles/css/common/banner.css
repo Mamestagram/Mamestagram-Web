@@ -1,0 +1,28 @@
+.banner {
+    position: relative;
+    width: 100%;
+    height: 250px;
+    z-index: -1;
+}
+
+.banner .server-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-image: url("/images/server-bg/1.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: inherit;
+    width: inherit;
+    filter: blur(5px);
+}
+
+.banner h1 {
+    position: absolute;
+    bottom: 3%;
+    left: 15%;
+    font-family: "Potta One";
+    font-size: 3.5em;
+    padding: 5px;
+    text-shadow: 5px 5px 5px #000;
+}

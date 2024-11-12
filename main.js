@@ -1,12 +1,14 @@
 require("dotenv").config();
-const apiDomain = process.env.API_DOMAIN, baseDomain = process.env.BASE_DOMAIN;
+const apiDomain = process.env.API_DOMAIN, baseDomain = process.env.BASE_DOMAIN, recaptchaSecretKey = process.env.RECAPTCHA_SECRET_KEY;
 const modules = require("./scripts/modules");
 const mysql = require("./scripts/modules/mysql");
+const functions = require("./scripts/modules/functions");
 
 const home = require("./scripts/home");
-const players = require("./scripts/players");
 const documents = require("./scripts/documents");
+const discord = require("./scripts/discord");
 
+const account = require("./scripts/account");
 const register = require("./scripts/account/register");
 const signin = require("./scripts/account/signin");
 const signout = require("./scripts/account/signout");
@@ -39,6 +41,8 @@ modules.app.use((req, res, next) => {
     }).replaceAll("/", "").replaceAll(" ", "").replaceAll(":", "");
     res.locals.apiDomain = apiDomain;
     res.locals.baseDomain = baseDomain;
+    res.locals.recaptchaSecretKey = recaptchaSecretKey;
+    res.locals.functions = functions;
     const connectMysql = () => {
         mysql.pool.getConnection((err, connection) => {
             if (err) {
@@ -132,12 +136,18 @@ modules.app.get("/", (req, res) => {
 
 // ホームページ
 home();
-players();
+
+// ドキュメント
+documents();
+
+// Discord
+discord();
 
 // ドキュメント
 documents();
 
 // アカウント関連
+account(); // アカウント
 register(); // 登録
 signin(); // ログイン
 signout(); // ログアウト

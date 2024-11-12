@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html lang="ja">
+<html lang="en">
     <head>
-        <Title>Documents | Mamestagram</Title>
-        <%- include("references/head", { currentTime }) %>
+        <title>Documents | Mamestagram</title>
+        <%- include("references/head") %>
         <link rel="stylesheet" href="/css/documents.css?<%= currentTime %>">
         <!-- 
             ・デザイン
@@ -12,7 +12,7 @@
         -->
     </head>
     <body>
-        <%- include("references/header", { currentTime }) %>
+        <%- include("references/header") %>
         <main>
             <div class="document-title">
                 <h1>Documents</h1>
@@ -21,13 +21,11 @@
                 <div class="language">
                     <!-- プルダウンにしようかな？ -->
                     <button class="en">EN</button>
-                    <button class="ja">JA</button>
+                    <button class="ja">ja</button>
                 </div>
             </div>
 
-            <!-- English -->
-
-            <div class="about">
+            <div class="box about">
                 <h2>About</h2>
                 <div class="about">
                     <p>Mamestagram is a osu! private server where you can share your favorite beatmaps and scores with other users.</p>
@@ -37,35 +35,16 @@
                 </div>
             </div>
 
-            <div class="box rules">
-                <h2>Rules</h2>
-            </div>
+            <div class="box rules"></div>
 
-            <div class="box connect">
-                <h2>How to Connect</h2>
-            </div>
+            <div class="box connect"></div>
 
-            <div class="box dan">
-                <h2>Dan</h2>
-            </div>
+            <div class="box dan"></div>
 
-            <div class="box faq">
-                <h2>FAQ</h2>
-            </div>
-
-            <!-- Japanese -->
-
-            <div></div>
-
+            <div class="box faq"></div>
         </main>
-        <%- include("references/footer", { 
-            currentTime,
-            developer,
-            contributor,
-            moderator,
-            nominator
-        }) %>
-        <%- include("references/script", { currentTime }) %>
+        <%- include("references/footer") %>
+        <%- include("references/script") %>
         <script src="/js/documents.js?<%= currentTime %>" defer></script>
     </body>
 </html>

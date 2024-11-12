@@ -9,8 +9,14 @@ const signout = () => {
                 if (err) {
                     modules.utils.writeError(req, res, modules.utils.getErrorContent(pageName, err, `ID: ${req.session.userid}`), subDomain);
                 }
+                res.locals.isLoggedIn = false;
                 modules.utils.writeLog(req, res, "GET", subDomain);
-                res.redirect("/");
+                res.send(`
+                    <script>
+                        alert("Successfully signed out.");
+                        window.location.href = "/";
+                    </script>
+                `);
             });
         }
         else {

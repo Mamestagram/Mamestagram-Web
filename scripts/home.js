@@ -51,7 +51,6 @@ const home = () => {
                                     }
 
                                     res.render(`${res.locals.language}/home.ejs`, {
-                                            functions,
                                             online,
                                             total,
                                             ppRecords
@@ -68,11 +67,13 @@ const home = () => {
                                     );
                                 }
                                 process();
-                                connection.release();
                             }
                         }
                         catch (error) {
                             modules.utils.writeError(req, res, modules.utils.getErrorContent(pageName, error), subDomain)
+                        }
+                        finally {
+                            connection.release();
                         }
                     });
                 }
@@ -82,19 +83,26 @@ const home = () => {
                 modules.utils.writeError(req, res, modules.utils.getErrorContent(pageName, error), subDomain);
             });
     });
-    modules.app.get('/getstatus', (req, res) => {
-        modules.axios.get(`https://${apiDomain}/get_player_count`)
-        .then((response) => {
-            const data = response.data;
-            online = data.counts.online;
-            total = data.counts.total;
 
-            const newStatus = { online, total };
-            res.json(newStatus);
-        })
-        .catch((error) => {
-            modules.utils.writeError(req, res, modules.utils.getErrorContent(pageName, error), subDomain);
-        });
-    })
+    // オンラインプレーヤー数または総プレーヤー数を取得
+    modules.app.get("/players", (req, res) => {
+        const pageName = "Players", subDomain = "home";
+
+        modules.axios.get(`https://${apiDomain}/get_player_count`)
+            .then((response) => {
+                const data = response.data;
+                online = data.counts.online;
+                total = data.counts.total;
+                if (req.query.type === "online") {
+                    res.send(`${online}`);
+                }
+                else {
+                    res.send(`${total}`);
+                }
+            })
+            .catch((error) => {
+                modules.utils.writeError(req, res, modules.utils.getErrorContent(pageName, error), subDomain);
+            });
+    });
 }
 module.exports = home;

@@ -1,18 +1,80 @@
 <!DOCTYPE html>
-<html lang="ja">
+<html lang="en">
     <head>
         <title>Dashboard | Mamestagram</title>
-        <%- include("references/head", { currentTime }) %>
+        <%- include("references/head") %>
         <link rel="stylesheet" href="/css/home.css?<%= currentTime %>" />
         <link rel="stylesheet" href="/css/common/odometer-theme-minimal.css?<%= currentTime %>" />
     </head>
     <body>
         <%- include("references/loading") %>
-        <%- include("references/header", { currentTime }) %>
+        <%- include("references/header") %>
+        <div class="banner">
+            <div class="server-bg"></div>
+            <h1>Home Page</h1>
+        </div>
         <main>
-            <h1>Mamestagram</h1>
-            <div class="list">
-                <h2>Server Status</h2>
+            <h1><img src="/images/mamesosu.webp?<%= currentTime %>" /></h1>
+            <p class="description">
+                Welcome to <span>Mamestagram</span>! This is an private osu! server that display scores<br>
+                that are not ranked on official servers such as <strong>Relax</strong> and <strong>AutoPilot</strong>.<br>
+                We have <strong>Dan Certifications</strong> in all game modes that allows you to measure your skill level.<br>
+                Also we have a <a class="an-tab" href="/discord" target="_blank" rel="noopener noreferrer">Discord</a> server so please join us as we provide you with a variety of information!
+            </p>
+            <div class="list first-guides">
+                <div class="border">
+                    <% if (!isLoggedIn) { %>
+                        <h1>We're pleasure to see you! How can I help you?</h1>
+                        <ul class="guides">
+                            <li class="register">
+                                <a href="/">
+                                    <i class="fa-duotone fa-solid fa-square-plus"></i>
+                                    Register
+                                </a>
+                            </li>
+                            <li class="signin">
+                                <a href="/">
+                                    <i class="fa-duotone fa-solid fa-right-to-bracket"></i>
+                                    Sign in
+                                </a>
+                            </li>
+                            <li class="connection">
+                                <a href="/">
+                                    <i class="fa-duotone fa-solid fa-book"></i>
+                                    Connection guide
+                                </a>
+                            </li>
+                        </ul>
+                    <% } else { %>
+                        <h1>Welcome back, <%= username %>. Have fun!</h1>
+                        <ul class="guides">
+                            <li class="connection">
+                                <a href="/">
+                                    <i class="fa-duotone fa-solid fa-book"></i>
+                                    Connection guide
+                                </a>
+                            </li>
+                            <li class="leaderboard">
+                                <a href="/">
+                                    <i class="fa-duotone fa-solid fa-bars"></i>
+                                    Leaderboard
+                                </a>
+                            </li>
+                            <li class="profile">
+                                <a href="/">
+                                    <i class="fa-duotone fa-solid fa-address-card"></i>
+                                    Profile
+                                </a>
+                            </li>
+                        </ul>
+                    <% } %>
+                </div>
+            </div>
+            <div class="list users">
+                <h2>
+                    <i class="fa-duotone fa-solid fa-chart-mixed"></i>
+                    <p>Server Status</p>
+                </h2>
                 <div class="server-st">
                     <div class="player-wrap current">
                         <i class="fa-solid fa-user" style="color: #4580f7;"></i>: 
@@ -24,14 +86,18 @@
                     </div>
                 </div>
             </div>
-            <div class="pp-record-user">
+            <div class="list pp-record-user">
+                <h2>
+                    <i class="fa-duotone fa-solid fa-ranking-star"></i>
+                    <p>PP Records</p>
+                </h2>
                 <div class="boxes">
                     <% let user; %>
                     <div class="focused-user-score-data"></div>
                     <div class="flex-box vanilla selected">
                         <% for (let i = 2, n = 0; i <= 6; i++, n++) { %>
                             <% user = ppRecords[`mode${i % 4}`]; %>
-                            <div class="user<%= n === 2 ? " focused" : n === 0 || n === 4 ? " edge" : "" %> anim-end">
+                            <div class="user mode-<%= i % 4 %><%= n === 2 ? " focused" : n === 0 || n === 4 ? " edge" : "" %> anim-end">
                                 <div class="wrap" style="background-image: url('https://a.<%= baseDomain %>/<%= user.id %>?<%= currentTime %>')">
                                     <p class="mode-title"><i class="mode-icon mode-<%= functions.modeName(i % 4) %>"></i>vn!<%= functions.modeName(i % 4) %></p>
                                 </div>
@@ -85,7 +151,9 @@
                                                     <% } %>
                                                     <th>Miss</th>
                                                     <th>Time</th>
-                                                    <th>Mods</th>
+                                                    <th>
+                                                        <span style="width: <%= 45 * functions.mods(user.mods).length %>px;">Mods</span>
+                                                    </th>
                                                 </tr>
                                                 <tr>
                                                     <% if (i % 4 === 0 || i % 4 === 2) { %> <!-- std | ctb -->
@@ -144,7 +212,7 @@
                         <% for (let i = 5, n = 0; i <= 10; i++, n++) { %>
                             <% if (i % 4 + 4 !== 7) { %>
                                 <% user = ppRecords[`mode${i % 4 + 4}`]; %>
-                                <div class="user<%= n === 2 ? " focused" : n === 0 || n === 4 ? " edge" : "" %> anim-end">
+                                <div class="user mode-<%= i % 4 %><%= n === 2 ? " focused" : n === 0 || n === 4 ? " edge" : "" %> anim-end">
                                     <div class="wrap" style="background-image: url('https://a.<%= baseDomain %>/<%= user.id %>?<%= currentTime %>')">
                                         <p class="mode-title"><i class="mode-icon mode-<%= functions.modeName(i % 4) %>"></i>rx!<%= functions.modeName(i % 4) %></p>
                                     </div>
@@ -198,7 +266,9 @@
                                                         <% } %>
                                                         <th>Miss</th>
                                                         <th>Time</th>
-                                                        <th>Mods</th>
+                                                        <th>
+                                                            <span style="width: <%= 45 * functions.mods(user.mods).length %>px;">Mods</span>
+                                                        </th>
                                                     </tr>
                                                     <tr>
                                                         <% if (i % 4 === 0 || i % 4 === 2) { %> <!-- std | ctb -->
@@ -258,7 +328,7 @@
                     </div>
                     <div class="flex-box auto-pilot">
                         <% user = ppRecords.mode8; %>
-                        <div class="user focused anim-end">
+                        <div class="user mode-0 focused anim-end">
                             <div class="wrap" style="background-image: url('https://a.<%= baseDomain %>/<%= user.id %>?<%= currentTime %>')">
                             </div>
                             <h3>
@@ -296,7 +366,9 @@
                                                 <th>50</th>
                                                 <th>Miss</th>
                                                 <th>Time</th>
-                                                <th>Mods</th>
+                                                <th>
+                                                    <span style="width: <%= 45 * functions.mods(user.mods).length %>px;">Mods</span>
+                                                </th>
                                             </tr>
                                             <tr>
                                                 <td><%= user.n300.toLocaleString() %></td>
@@ -347,14 +419,8 @@
                 </ul>
             </div>
         </main>
-        <%- include("references/footer", { 
-            currentTime,
-            developer,
-            contributor,
-            moderator,
-            nominator
-        }) %>
-        <%- include("references/script", { currentTime }) %>
+        <%- include("references/footer") %>
+        <%- include("references/script") %>
         <script src="/js/home.js?<%= currentTime %>" defer></script>
         <script src="/js/common/odometer.min.js?<%= currentTime %>" defer></script>
     </body>

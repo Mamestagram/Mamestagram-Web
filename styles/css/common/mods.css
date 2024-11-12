@@ -168,3 +168,7 @@
     font-family: "Noto_Sans";
     font-size: 0.5em;
 }
+
+.tooltip-element.up:hover .tooltip {
+    bottom: 85%;
+}
