@@ -1,6 +1,7 @@
 main {
     height: 100vh;
     background-color: #1c1c1c;
+    font-size: 16px;
 }
 main h1 {
     font-family: "Potta One";
@@ -9,4 +10,37 @@ main h1 {
     margin: 40px 50px 20px 50px;
     padding: 5px 0;
     border-bottom: solid 1px;
+}
+
+main .box h2 {
+    font-size: 30px;
+    border-bottom: solid 1px;
+    border-image: linear-gradient(to right, rgba(248, 189, 19, 0.1), rgb(248, 189, 19), rgba(248, 189, 19, 0.1));
+}
+
+main .box h3 {
+    font-size: 23px;
+}
+
+/* Rules */
+main .box .ruleLists {
+    margin: 20px auto;
+    border: 2px solid #3f4147;
+    border-radius: 10px;
+}
+
+main .box .ruleLists h3 {
+    margin-left: 20px;
+    border-bottom: solid 1px;
+    border-image: liner-gradient(to right, rgba(178, 0, 11, 0.2),rgba(178, 0, 11, 0.7), rgba(178, 0, 11, 0.2));
+}
+
+main .box .ruleLists ul {
+    margin: 10px 40px;
+    display: inline-block;
+}
+
+main .box .ruleLists ul li{
+    text-align: left;
+    list-style: circle;
 }
