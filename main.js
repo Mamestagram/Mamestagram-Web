@@ -115,6 +115,7 @@ modules.app.use((req, res, next) => {
         res.locals.username = req.session.username;
         res.locals.country = req.session.country;
         res.locals.timeZone = req.session.timeZone;
+        res.locals.favMode = req.session.favMode;
         res.locals.badge = req.session.badge;
         res.locals.language = req.session.language;
     }
@@ -124,6 +125,7 @@ modules.app.use((req, res, next) => {
         res.locals.username = null;
         res.locals.country = null;
         res.locals.timeZone = null;
+        res.locals.favMode = 0;
         res.locals.badge = 0;
         res.locals.language = "en";
     }

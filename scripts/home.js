@@ -1,7 +1,6 @@
 const apiDomain = process.env.API_DOMAIN;
 const modules = require("./modules");
 const mysql = require("./modules/mysql");
-const functions = require("./modules/functions");
 
 const home = () => {
     modules.app.get("/home", (req, res) => {
@@ -26,7 +25,7 @@ const home = () => {
                                     for (let i = 0; i <= 8; i++) {
                                         if (i !== 7) {
                                             const ppRecord = await mysql.query(
-                                                connection, 
+                                                connection,
                                                 `
                                                 SELECT u.id AS id, country, name, pp, 
                                                     set_id, m.id AS mapid, artist, title, version, grade, score, acc, s.max_combo AS max_combo, 

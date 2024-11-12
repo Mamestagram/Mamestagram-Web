@@ -82,10 +82,52 @@ const getSafeName = (username) => {
     return username.toLowerCase().replaceAll(" ", "_");
 }
 
+/* modeNum取得
+"std" → 0
+"taiko" → 1
+"ctb" → 2
+"mania" → 3
+"rxstd" → 4
+"rxtaiko" → 5
+"rxctb" → 6
+"apstd" → 8
+*/
+const getModeNum = (modeName) => {
+    switch (modeName) {
+        case "std": return 0;
+        case "taiko": return 1;
+        case "ctb": return 2;
+        case "mania": return 3;
+        case "rxstd": return 4;
+        case "rxtaiko": return 5;
+        case "rxctb": return 6;
+        case "apstd": return 8;
+    }
+}
+
+/* sqlでORDER BYに使用する名前取得
+"accuracy" → "acc"
+"playcount" → "plays"
+"performance" → "pp"
+"score" → "rscore"
+"dans" → "dans"
+*/
+const getSortName = (sort) => {
+    switch (sort) {
+        case "accuracy": return "acc";
+        case "playcount": return "plays";
+        case "performance": return "pp";
+        case "score": return "rscore";
+        case "dans": return "dans";
+    }
+}
+
 module.exports = {
     getIP,
     writeLog,
     getErrorContent,
     writeError,
-    getSafeName
+    getSafeName,
+    getModeNum,
+    getSortName
 };
