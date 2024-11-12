@@ -27,13 +27,18 @@ main .box form {
     transition: transform 500ms;
 }
 
-main .box form:not(.error) {
-    transform: translate(-50%, -50%) rotateX(90deg) scaleY(0);
+main .box form#register:not(.error) {
+    transform: translate(-50%, -50%) rotateX(90deg);
 }
 
-main .box form.move,
+main .box form#signin:not(.error) {
+    transform: translate(-50%, -50%) rotateX(-90deg);
+}
+
+main .box form#register.move,
+main .box form#signin.move,
 main .box form.error {
-    transform: translate(-50%, -50%) rotateX(0deg) scaleY(1);
+    transform: translate(-50%, -50%) rotateX(0deg);
 }
 
 main .box form h1 {

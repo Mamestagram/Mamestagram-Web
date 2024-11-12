@@ -23,11 +23,11 @@
                     <!-- Register -->
                     <form id="register"
                     <% if (type === "register") { %>
-                        class="face<%= errLi.username.length > 0 || errLi.email.length > 0 || errLi.password.length > 0 || errLi.hf || errLi.bot ? " error" : "" %>"
+                        class="face<%= errLi.username.length > 0 || errLi.email.length > 0 || errLi.hf || errLi.bot ? " error" : "" %>"
                     <% } %> action="/register" method="post">
                         <h1>Register</h1>
                         <div class="username">
-                            <input type="text" name="username" placeholder="Username" value="<%= type === "register" ? name : "" %>" oninput="checkRegister()" required />
+                            <input type="text" name="username" placeholder="Username" value="<%= type === "register" ? name : "" %>" oninput="checkRegister(false)" required />
                             <p class="caution">*16 characters or less</p>
                             <p class="error">
                                 <% errLi.username.forEach((err) => { %>
@@ -36,7 +36,7 @@
                             </p>
                         </div>
                         <div class="email">
-                            <input type="email" name="email" placeholder="E-mail" value="<%= type === "register" ? email : "" %>" oninput="checkRegister()" required />
+                            <input type="email" name="email" placeholder="E-mail" value="<%= type === "register" ? email : "" %>" oninput="checkRegister(false)" required />
                             <p class="error">
                                 <% errLi.email.forEach((err) => { %>
                                     <%= err %>
@@ -45,20 +45,16 @@
                         </div>
                         <div class="password">
                             <span>
-                                <input type="password" name="password" placeholder="Password" value="<%= type === "register" ? password : "" %>" oninput="checkRegister()" required />
+                                <input type="password" name="password" placeholder="Password" value="<%= type === "register" ? password : "" %>" oninput="checkRegister(false)" required />
                                 <i class="fa-solid fa-eye"></i>
                             </span>
                             <p class="caution">*At least 8 characters</p>
                             <p class="caution">*Contains alphabets and numbers</p>
-                            <p class="error">
-                                <% errLi.password.forEach((err) => { %>
-                                    <%= err %>
-                                <% }); %>
-                            </p>
+                            <p class="error"></p>
                         </div>
                         <div class="confirm">
                             <span>
-                                <input type="password" name="confirm" placeholder="Confirm password" oninput="checkRegister()" required />
+                                <input type="password" name="confirm" placeholder="Confirm password" oninput="checkRegister(false)" required />
                                 <i class="fa-solid fa-eye"></i>
                             </span>
                             <p class="error"></p>
@@ -73,30 +69,27 @@
                             <% } %>
                         </p>
                         <input id="post" type="hidden" name="recaptcha" value="default">
-                        <button class="g-recaptcha" data-sitekey="<%= recaptchaSecretKey %>" data-callback="onSubmit" data-action="submit" disabled>Register</button>
+                        <button class="g-recaptcha" data-sitekey="<%= recaptchaSiteKey %>" data-callback="onSubmit" data-action="submit" disabled>Register</button>
                     </form>
                     <!-- Sign in -->
                     <form id="signin"
                     <% if (type === "signin") { %>
-                        class="face<%= errLi.username.length > 0 || errLi.password.length > 0 ? " error" : "" %>"
+                        class="face<%= errLi.username.length > 0 ? " error" : "" %>"
                     <% } %> action="/signin" method="post">
                         <h1>Sign in</h1>
                         <div class="username">
-                            <input type="text" name="username" placeholder="Username" value="<%= type === "signin" ? name : "" %>" oninput="checkSignIn()" required />
+                            <input type="text" name="username" placeholder="E-mail or Username" value="<%= type === "signin" ? name : "" %>" oninput="checkSignIn(false)" required />
                             <p class="error"></p>
                         </div>
                         <div class="password">
                             <span>
-                                <input type="password" name="password" placeholder="Password" value="<%= type === "signin" ? password : "" %>" oninput="checkSignIn()" required />
+                                <input type="password" name="password" placeholder="Password" value="<%= type === "signin" ? password : "" %>" oninput="checkSignIn(false)" required />
                                 <i class="fa-solid fa-eye"></i>
                             </span>
                             <p class="error"></p>
                         </div>
                         <p class="error">
                             <% errLi.username.forEach((err) => { %>
-                                <%= err %>
-                            <% }); %>
-                            <% errLi.password.forEach((err) => { %>
                                 <%= err %>
                             <% }); %>
                         </p>
@@ -112,6 +105,10 @@
         </main>
         <%- include("references/footer") %>
         <%- include("references/script") %>
+        <% if (type === "register") { %>
+            <script src="https://www.google.com/recaptcha/api.js?render=<%= recaptchaSiteKey %>" defer></script>
+            <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+        <% } %>
         <script src="/js/account.js?<%= currentTime %>" defer></script>
     </body>
 </html>

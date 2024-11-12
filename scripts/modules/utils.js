@@ -1,3 +1,5 @@
+const fs = require("fs");
+
 // IPアドレス取得
 const getIP = (req) => {
     try {
@@ -40,10 +42,15 @@ const getTime = () => {
 }
 
 // ログ出力
-const writeLog = (req, res, type, subDomain) => {
-    const DOMAIN = process.env.DOMAIN;
-    const log = `[${getTime()}] [${type}] ${DOMAIN}/${subDomain} (${getIP(req)}${res.locals.isLoggedIn ? `, userid: ${req.session.userid})` : ")"}`;
+const writeLog = (req, res, type, subDomain, more) => {
+    const DOMAIN = process.env.DOMAIN, LOG_PATH = process.env.LOG_PATH;
+    const log = `[${getTime()}] [${type}] ${DOMAIN}/${subDomain} (${getIP(req)}${res.locals.isLoggedIn ? `, userid: ${req.session.userid})` : ")"}${more ? `\n${more}` : ""}`;
+    const date = new Date(), path = `${LOG_PATH}/${date.getFullYear()}-${date.getMonth() + 1}`, fileName = `${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate()}`;
     console.log(log);
+    if (!fs.existsSync(path)) {
+        fs.mkdirSync(path, { recursive: true });
+    }
+    fs.appendFileSync(`${path}/${fileName}.log`, `${log}\n`, "utf-8");
 }
 
 // エラー内容取得
@@ -53,10 +60,9 @@ const getErrorContent = (pageName, error, more) => {
 // エラーログ書き込み
 const writeError = (req, res, content, subDomain) => {
     const ERR_PATH = process.env.ERR_PATH;
-    const fs = require("fs");
     res.send(
         `
-        An error of unknown cause has occurred. Will be redirected to the home page soon. This error log will be sent to the server.
+        An error of unknown cause has occurred. Will be redirected to the home page soon. This error log will be sent to the administrator.
         <script>
             setTimeout(() => {
                 window.location.href = "/";

@@ -32,14 +32,15 @@ const signin = () => {
                                     ON country = code
                                     JOIN gacha_stats g_s
                                     ON g_s.id = u.id
-                                    WHERE name = ?;
+                                    WHERE name = ?
+                                    OR email = ?;
                                     `,
-                                    [name]
+                                    [name, name]
                                 );
                                 if (user.length > 0) {
                                     const isMatch = modules.bcrypt.compareSync(pass_hash, user[0].pw_bcrypt);
                                     if (!isMatch) {
-                                        errLi.password.push("Username or password is incorrect");   
+                                        errLi.username.push("Username or password is incorrect");   
                                     }
                                 }
                                 else {

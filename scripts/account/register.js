@@ -14,7 +14,7 @@ const register = () => {
             next();
         },
         (req, res, next) => {
-            errLi = { username: [], email: [], password: [], hf: false, bot: false }
+            errLi = { username: [], email: [], hf: false, bot: false }
             time = 0;
             if (!isClicked) {
                 clicked = true;
@@ -66,8 +66,11 @@ const register = () => {
                                     `
                                 );
                                 const banWords = getBanWords.map((row) => row.word);
-                                if (name.includes(banWords)) {
-                                    errLi.username.push("Contains banned words");
+                                for (let word of banWords) {
+                                    if (name.includes(word)) {
+                                        errLi.username.push("Contains banned words");
+                                        break;
+                                    }
                                 }
                             }
                             catch (error) {
@@ -179,8 +182,7 @@ const register = () => {
                                     modules.utils.writeError(req, res, modules.utils.getErrorContent(pageName, error, `Name: ${name}\nEmail: ${email}`));
                                 }
                                 else {
-                                    modules.utils.writeLog(req, res, "POST (Failed)", subDomain);
-                                    console.log(`[username: ${name}, e-mail: ${email}, success: ${success}, score: ${score}]`);
+                                    modules.utils.writeLog(req, res, "POST (Failed)", subDomain, `[username: ${name}, e-mail: ${email}, success: ${success}, score: ${score}]`);
                                     res.send(ejs);
                                 }
                             }
@@ -280,26 +282,25 @@ const register = () => {
                                                         [userid, i]
                                                     );
                                             }
-                                            // gacha_statsに追加
-                                            await mysql.query(
-                                                connection,
-                                                `
-                                                INSERT INTO gacha_stats (id, had_badge)
-                                                VALUES (?, 0);
-                                                `,
-                                                [userid]
-                                            );
-                                            modules.utils.writeLog(req, res, "POST (Succeeded)", subDomain);
-                                            console.log(`[username: ${name}, e-mail: ${email}]`)
-                                            res.send(
-                                                `
-                                                <script>
-                                                    alert("Successfully registered your account!");
-                                                    location.href = "/account?class=signin";
-                                                </script>
-                                                `
-                                            );
                                         }
+                                        // gacha_statsに追加
+                                        await mysql.query(
+                                            connection,
+                                            `
+                                            INSERT INTO gacha_stats (id, had_badge)
+                                            VALUES (?, 0);
+                                            `,
+                                            [userid]
+                                        );
+                                        modules.utils.writeLog(req, res, "POST (Succeeded)", subDomain, `[username: ${name}, e-mail: ${email}]`);
+                                        res.send(
+                                            `
+                                            <script>
+                                                alert("Successfully registered your account!");
+                                                location.href = "/account?class=signin";
+                                            </script>
+                                            `
+                                        );
                                     }
                                     catch (error) {
                                         modules.utils.writeError(req, res, modules.utils.getErrorContent(pageName, error, `Name: ${name}\nEmail: ${email}`), subDomain);

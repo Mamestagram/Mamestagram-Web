@@ -1,5 +1,5 @@
 require("dotenv").config();
-const apiDomain = process.env.API_DOMAIN, baseDomain = process.env.BASE_DOMAIN, recaptchaSecretKey = process.env.RECAPTCHA_SECRET_KEY;
+const apiDomain = process.env.API_DOMAIN, baseDomain = process.env.BASE_DOMAIN, recaptchaSiteKey = process.env.RECAPTCHA_SITE_KEY;
 const modules = require("./scripts/modules");
 const mysql = require("./scripts/modules/mysql");
 const functions = require("./scripts/modules/functions");
@@ -41,7 +41,7 @@ modules.app.use((req, res, next) => {
     }).replaceAll("/", "").replaceAll(" ", "").replaceAll(":", "");
     res.locals.apiDomain = apiDomain;
     res.locals.baseDomain = baseDomain;
-    res.locals.recaptchaSecretKey = recaptchaSecretKey;
+    res.locals.recaptchaSiteKey = recaptchaSiteKey;
     res.locals.functions = functions;
     const connectMysql = () => {
         mysql.pool.getConnection((err, connection) => {
