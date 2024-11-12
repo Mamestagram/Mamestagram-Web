@@ -143,6 +143,9 @@ documents();
 // Discord
 discord();
 
+// ドキュメント
+documents();
+
 // アカウント関連
 account(); // アカウント
 register(); // 登録
