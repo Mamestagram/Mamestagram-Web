@@ -1,9 +1,8 @@
-body {
+main {
     background-image: url("/images/server-bg/1.jpg");
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
-    height: 100vh;
 }
 
 main .account-form {

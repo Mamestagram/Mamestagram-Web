@@ -5,6 +5,7 @@ const mysql = require("./scripts/modules/mysql");
 const functions = require("./scripts/modules/functions");
 
 const home = require("./scripts/home");
+const leaderboard = require("./scripts/leaderboard");
 const documents = require("./scripts/documents");
 const discord = require("./scripts/discord");
 
@@ -138,6 +139,9 @@ modules.app.get("/", (req, res) => {
 
 // ホームページ
 home();
+
+// リーダーボード
+leaderboard();
 
 // ドキュメント
 documents();
