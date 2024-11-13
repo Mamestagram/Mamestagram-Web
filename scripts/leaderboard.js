@@ -110,7 +110,7 @@ const leaderboard = () => {
                                         GROUP BY d_s.id, d_s.mode
                                         ORDER BY pp DESC, acc DESC
                                         LIMIT 50
-                                        OFFSET ?
+                                        OFFSET ?;
                                         `;
                                         args.push(modeNum);
                                         args.push(50 * (page - 1));
