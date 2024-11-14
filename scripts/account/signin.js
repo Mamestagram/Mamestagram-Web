@@ -26,14 +26,14 @@ const signin = () => {
                                 user = await mysql.query(
                                     connection,
                                     `
-                                    SELECT u.id, country, timezone, language, preferred_mode, set_badge, pw_bcrypt
-                                    FROM users u
-                                    JOIN timezone tz
-                                    ON country = code
-                                    JOIN gacha_stats g_s
-                                    ON g_s.id = u.id
-                                    WHERE name = ?
-                                    OR email = ?;
+                                        SELECT u.id, country, timezone, language, preferred_mode, set_badge, pw_bcrypt
+                                        FROM users u
+                                        JOIN timezone tz
+                                        ON country = code
+                                        JOIN gacha_stats g_s
+                                        ON g_s.id = u.id
+                                        WHERE name = ?
+                                        OR email = ?;
                                     `,
                                     [name, name]
                                 );

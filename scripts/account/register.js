@@ -61,8 +61,8 @@ const register = () => {
                                 const getBanWords = await mysql.query(
                                     connection, 
                                     `
-                                    SELECT word
-                                    FROM banword;
+                                        SELECT word
+                                        FROM banword;
                                     `
                                 );
                                 const banWords = getBanWords.map((row) => row.word);
@@ -100,18 +100,18 @@ const register = () => {
                                 const getNames = await mysql.query(
                                     connection,
                                     `
-                                    SELECT id
-                                    FROM users
-                                    WHERE name = ?;
+                                        SELECT id
+                                        FROM users
+                                        WHERE name = ?;
                                     `,
                                     [name]
                                 );
                                 const getEmails = await mysql.query(
                                     connection,
                                     `
-                                    SELECT id
-                                    FROM users
-                                    WHERE email = ?;
+                                        SELECT id
+                                        FROM users
+                                        WHERE email = ?;
                                     `,
                                     [email]
                                 );
@@ -210,10 +210,10 @@ const register = () => {
                                         const getId = await mysql.query(
                                             connection,
                                             `
-                                            SELECT id
-                                            FROM users
-                                            ORDER BY id DESC
-                                            LIMIT 1;
+                                                SELECT id
+                                                FROM users
+                                                ORDER BY id DESC
+                                                LIMIT 1;
                                             `
                                         );
                                         const userid = getId[0].id + 1;
@@ -221,8 +221,8 @@ const register = () => {
                                         await mysql.query(
                                             connection,
                                             `
-                                            INSERT INTO users (id, name, safe_name, email, priv, pw_bcrypt, country, creation_time)
-                                            VALUES (?, ?, ?, ?, 3, ?, ?, UNIX_TIMESTAMP(NOW()));
+                                                INSERT INTO users (id, name, safe_name, email, priv, pw_bcrypt, country, creation_time)
+                                                VALUES (?, ?, ?, ?, 3, ?, ?, UNIX_TIMESTAMP(NOW()));
                                             `,
                                             [userid, name, safeName, email, pass_hash, country]
                                         );
@@ -232,8 +232,8 @@ const register = () => {
                                                 await mysql.query(
                                                     connection,
                                                     `
-                                                    INSERT INTO stats (id, mode)
-                                                    VALUES (?, ?);
+                                                        INSERT INTO stats (id, mode)
+                                                        VALUES (?, ?);
                                                     `,
                                                     [userid, i]
                                                 );
@@ -248,8 +248,8 @@ const register = () => {
                                                         await mysql.query(
                                                             connection,
                                                             `
-                                                            INSERT INTO dan_stats (id, type, mode, cs)
-                                                            VALUES (?, ?, ?, 0);
+                                                                INSERT INTO dan_stats (id, type, mode, cs)
+                                                                VALUES (?, ?, ?, 0);
                                                             `,
                                                             [userid, j, i]
                                                         );
@@ -265,8 +265,8 @@ const register = () => {
                                                         await mysql.query(
                                                             connection,
                                                             `
-                                                            INSERT INTO dan_stats (id, type, mode, cs)
-                                                            VALUES (?, ?, ?, ?);
+                                                                INSERT INTO dan_stats (id, type, mode, cs)
+                                                                VALUES (?, ?, ?, ?);
                                                             `,
                                                             [userid, j, i, cs]
                                                         );
@@ -276,8 +276,8 @@ const register = () => {
                                                     await mysql.query(
                                                         connection,
                                                         `
-                                                        INSERT INTO dan_stats (id, type, mode, cs)
-                                                        VALUES (?, 0, ?, 0);
+                                                            INSERT INTO dan_stats (id, type, mode, cs)
+                                                            VALUES (?, 0, ?, 0);
                                                         `,
                                                         [userid, i]
                                                     );
@@ -287,8 +287,8 @@ const register = () => {
                                         await mysql.query(
                                             connection,
                                             `
-                                            INSERT INTO gacha_stats (id, had_badge)
-                                            VALUES (?, 0);
+                                                INSERT INTO gacha_stats (id, had_badge)
+                                                VALUES (?, 0);
                                             `,
                                             [userid]
                                         );
