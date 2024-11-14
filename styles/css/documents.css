@@ -1,5 +1,5 @@
 main {
-    height: 100vh;
+    height: auto;
     background-color: #1c1c1c;
     font-size: 16px;
 }
@@ -12,27 +12,39 @@ main h1 {
     border-bottom: solid 1px;
 }
 
+main .box {
+    width: 1070px;
+    margin: 0 auto;
+}
+
 main .box h2 {
     font-size: 30px;
+    margin: 20px auto;
     border-bottom: solid 1px;
-    border-image: linear-gradient(to right, rgba(248, 189, 19, 0.1), rgb(248, 189, 19), rgba(248, 189, 19, 0.1));
+    border-image: linear-gradient(to right, rgb(248, 189, 19), rgba(248, 189, 19, 0.1)) 1;
 }
 
 main .box h3 {
     font-size: 23px;
 }
 
+main .box p {
+    margin: 10px 20px;
+    text-align: justify;
+}
+
 /* Rules */
 main .box .ruleLists {
+    width: 800px;
     margin: 20px auto;
     border: 2px solid #3f4147;
     border-radius: 10px;
 }
 
 main .box .ruleLists h3 {
-    margin-left: 20px;
+    margin: 10px 10px 20px 10px;
     border-bottom: solid 1px;
-    border-image: liner-gradient(to right, rgba(178, 0, 11, 0.2),rgba(178, 0, 11, 0.7), rgba(178, 0, 11, 0.2));
+    border-image: linear-gradient(to right, rgba(178, 0, 11, 0.7), rgba(178, 0, 11, 0.2)) 1;
 }
 
 main .box .ruleLists ul {
@@ -41,6 +53,7 @@ main .box .ruleLists ul {
 }
 
 main .box .ruleLists ul li{
+    margin: 10px 0;
     text-align: left;
     list-style: circle;
 }
