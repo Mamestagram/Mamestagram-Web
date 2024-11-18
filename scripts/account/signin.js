@@ -9,11 +9,11 @@ const signin = () => {
         (req, res, next) => {
             name = req.body.username;
             password = req.body.password;
-            pass_hash = modules.crypto.createHash("md5").update(req.body.password).digest("hex");
+            pass_hash = modules.crypto.createHash("md5").update(password).digest("hex");
             next();
         },
         (req, res, next) => {
-            errLi = { username: [], email: [], password: [], hf: false, bot: false }
+            errLi = { username: [], email: [], password: [], hf: false, bot: false };
             const connectMysql = () => {
                 mysql.pool.getConnection((err, connection) => {
                     if (err) {

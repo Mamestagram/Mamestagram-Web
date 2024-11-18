@@ -60,7 +60,7 @@
                             <p class="error"></p>
                         </div>
                         <p class="reference">Already have an account? <a href="/account?class=signin">Sign in</a></p>
-                        <center><p class="caution">*Do not create multiple account</p></center>
+                        <p class="caution" style="text-align: center;">*Do not create multiple account</p>
                         <p class="error">
                             <% if (errLi.bot) { %>
                                 A problem has occurred
@@ -87,6 +87,7 @@
                                 <i class="fa-solid fa-eye"></i>
                             </span>
                             <p class="error"></p>
+                            <p class="reference"><a href="<!-- TODO -->">Forgot password?</a></p>
                         </div>
                         <p class="error">
                             <% errLi.username.forEach((err) => { %>
@@ -99,7 +100,7 @@
                 </div>
             <% } else { %>
                 <div class="box settings">
-
+                    <!-- TODO -->
                 </div>
             <% } %>
         </main>

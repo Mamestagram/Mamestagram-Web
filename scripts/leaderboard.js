@@ -74,7 +74,7 @@ const leaderboard = () => {
                                                 FROM scores s
                                                 JOIN danmaps dm
                                                 ON map_md5 = md5
-                                                WHERE NOT grade = "F"
+                                                WHERE NOT grade = 'F'
                                                 AND s.acc >= dm.acc
                                                 AND s.score >= dm.score
                                                 AND status = 2
@@ -113,7 +113,27 @@ const leaderboard = () => {
                                 else {
                                     // default
                                     if (req.query.sort !== "dans") {
-
+                                        query = `
+                                            SELECT RANK() OVER(ORDER BY AVG(pp) DESC) AS ranking,
+                                                   c.id, ANY_VALUE(tag) AS tag,
+                                                   AVG(acc) AS acc, SUM(plays) AS plays, AVG(pp) AS pp, AVG(rscore) AS score, (SUM(xh_count) + SUM(x_count)) AS x_count, (SUM(sh_count) + SUM(s_count)) AS s_count, SUM(a_count) AS a_count
+                                            FROM stats s
+                                            JOIN users u
+                                            ON s.id = u.id
+                                            JOIN clans c
+                                            ON c.id = clan_id
+                                            WHERE mode = ?
+                                            AND NOT u.id = 1
+                                            AND NOT acc = 0
+                                            AND NOT priv % 2 = 0
+                                            AND NOT public = 0
+                                            GROUP BY clan_id, mode
+                                            ORDER BY pp DESC
+                                            LIMIT 50
+                                            OFFSET ?;
+                                        `;
+                                        args.push(modeNum);
+                                        args.push(50 * (page - 1));
                                     }
                                     // dans
                                     else {

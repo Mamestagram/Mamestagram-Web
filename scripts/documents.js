@@ -2,8 +2,9 @@ const modules = require("./modules");
 const functions = require("./modules/functions");
 
 const documents = () => {
+    const pageName = "Documents", subDomain = "documents";
+
     modules.app.get("/documents", (req, res) => {
-	const pageName = "Documents", subDomain = "documents";
         res.render(`${res.locals.language}/documents.ejs`,
             {},
             (error, ejs) => {

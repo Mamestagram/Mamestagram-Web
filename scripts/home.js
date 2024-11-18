@@ -3,9 +3,10 @@ const modules = require("./modules");
 const mysql = require("./modules/mysql");
 
 const home = () => {
+    const pageName = "Home", subDomain = "home";
+    let online, total, ppRecords = {};
+
     modules.app.get("/home", (req, res) => {
-        const pageName = "Home", subDomain = "home";
-        let online, total, ppRecords = {};
 
         modules.axios.get(`https://${apiDomain}/get_player_count`)
             .then((response) => {
