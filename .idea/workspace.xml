@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="c2a4f348-52f6-4e25-8dd1-bb64c3a4ad95" name="変更" comment="メール認証">
+      <change afterPath="$PROJECT_DIR$/scripts/account.js" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JavaScript File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="basshhii" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;basshhii0610&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/Mamestagram/Mamestagram-Web.git&quot;,
+    &quot;accountId&quot;: &quot;8d61ce6d-acf3-49a8-9dfc-2a350f8bf95a&quot;
+  }
+}</component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 1
+}</component>
+  <component name="ProjectId" id="2okXOFASl0oh1Hk3SX3VvdZ6XlF" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <OptionsSetting value="false" id="Update" />
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "Node.js.main.js.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "database.data.extractors.current.export.id": "HTML-Groovy.html.groovy",
+    "deletionFromPopupRequiresConfirmation": "false",
+    "javascript.nodejs.core.library.configured.version": "20.16.0",
+    "javascript.nodejs.core.library.typings.version": "20.16.15",
+    "last_opened_file_path": "C:/Users/basshhii0610/AppData/Roaming/JetBrains/WebStorm2024.3/consoles/db/6ed401b6-8b26-4342-a2b8-2339310c3f49",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "service.view.auto.scroll.to.source": "true",
+    "settings.editor.selected.configurable": "preferences.editor",
+    "settings.editor.splitter.proportion": "0.30564103",
+    "ts.external.directory.path": "C:\\Program Files\\JetBrains\\WebStorm 2024.2.4\\plugins\\javascript-plugin\\jsLanguageServicesImpl\\external",
+    "vue.rearranger.settings.migration": "true"
+  },
+  "keyToStringList": {
+    "ChangesTree.GroupingKeys": [
+      "directory"
+    ],
+    "DatabaseDriversLRU": [
+      "mysql_aurora",
+      "mysql"
+    ],
+    "com.intellij.ide.scratch.LRUPopupBuilder$1/SQL ダイアレクト": [
+      "MySQL",
+      "AZURE",
+      "GenericSQL",
+      "PostgreSQL"
+    ]
+  }
+}]]></component>
+  <component name="Push.Settings">
+    <force-push-targets>
+      <force-push-target remote-path="origin" branch="basshhii" />
+    </force-push-targets>
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\basshhii0610\AppData\Roaming\JetBrains\WebStorm2024.3\consoles\db\6ed401b6-8b26-4342-a2b8-2339310c3f49" />
+      <recent name="E:\Mamestagram Web Reborn\Mamestagram-Web" />
+      <recent name="E:\Mamestagram Web Reborn\Mamestagram-Web\schedule for use" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\basshhii0610\AppData\Roaming\JetBrains\WebStorm2024.3\consoles\db\6ed401b6-8b26-4342-a2b8-2339310c3f49" />
+    </key>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-js-predefined-d6986cc7102b-e768b9ed790e-JavaScript-WS-243.21565.180" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="アプリケーションレベル" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="デフォルトタスク">
+      <changelist id="c2a4f348-52f6-4e25-8dd1-bb64c3a4ad95" name="変更" comment="" />
+      <created>1731414513881</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1731414513881</updated>
+      <workItem from="1731414514903" duration="56000" />
+      <workItem from="1731414575863" duration="164000" />
+      <workItem from="1731414753411" duration="145000" />
+      <workItem from="1731414904804" duration="449000" />
+      <workItem from="1731415364960" duration="3989000" />
+      <workItem from="1731420875194" duration="20370000" />
+      <workItem from="1731573454569" duration="2033000" />
+      <workItem from="1731596211930" duration="11013000" />
+      <workItem from="1731693438014" duration="11943000" />
+      <workItem from="1731746919446" duration="1091000" />
+      <workItem from="1731762866557" duration="3758000" />
+      <workItem from="1731852866482" duration="18458000" />
+      <workItem from="1731940311606" duration="12434000" />
+    </task>
+    <task id="LOCAL-00001" summary="バージョン管理外ファイル">
+      <option name="closed" value="true" />
+      <created>1731414659847</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1731414659847</updated>
+    </task>
+    <task id="LOCAL-00002" summary="修正">
+      <option name="closed" value="true" />
+      <created>1731414784404</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1731414784404</updated>
+    </task>
+    <task id="LOCAL-00003" summary="leaderboard">
+      <option name="closed" value="true" />
+      <created>1731449852065</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1731449852065</updated>
+    </task>
+    <task id="LOCAL-00004" summary="段位クエリ">
+      <option name="closed" value="true" />
+      <created>1731518746973</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1731518746973</updated>
+    </task>
+    <task id="LOCAL-00005" summary="段位クエリ">
+      <option name="closed" value="true" />
+      <created>1731518785915</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1731518785915</updated>
+    </task>
+    <task id="LOCAL-00006" summary="段位クエリ">
+      <option name="closed" value="true" />
+      <created>1731598807084</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1731598807084</updated>
+    </task>
+    <task id="LOCAL-00007" summary="メール認証">
+      <option name="closed" value="true" />
+      <created>1731948955791</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1731948955791</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="バージョン管理外ファイル" />
+    <MESSAGE value="修正" />
+    <MESSAGE value="leaderboard" />
+    <MESSAGE value="段位クエリ" />
+    <MESSAGE value="メール認証" />
+    <option name="LAST_COMMIT_MESSAGE" value="メール認証" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/scripts/modules/utils.js</url>
+          <line>19</line>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+</project>
