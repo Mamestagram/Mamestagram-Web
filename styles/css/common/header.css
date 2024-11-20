@@ -1,11 +1,17 @@
 header {
-    position: sticky;
+    position: fixed;
     top: 0;
     background-image: url("/images/server-bg/1.jpg");
     background-repeat: no-repeat;
     background-size: cover;
-    box-shadow: 0 5px 5px #000;
+    width: 100%;
+    box-shadow: 0 2px 5px #000;
     z-index: 1000;
+    transition: box-shadow 300ms;
+}
+
+header.scroll {
+    box-shadow: 0 5px 5px #000;
 }
 
 header .element {
@@ -13,13 +19,13 @@ header .element {
     background-color: rgb(0, 0, 0, 0.1);
     padding: 0 5%;
     width: 100%;
-    backdrop-filter: blur(10px);
+    backdrop-filter: blur(5px);
     transition: background 300ms, backdrop-filter 300ms;
 }
 
 header.scroll .element {
     background-color: rgb(0, 0, 0, 0.3);
-    backdrop-filter: blur(3px);
+    backdrop-filter: blur(10px);
 }
 
 header .home {
@@ -57,60 +63,80 @@ header .link-menu {
 header .link-menu li {
     display: block;
     position: relative;
+    padding: 3px 0;
     margin: 0 20px;
     text-shadow: 2px 2px 2px #000;
-    transition: margin 300ms, filter 300ms;
+    transition: padding 300ms, margin 300ms, filter 300ms;
 }
 header .link-menu li:not(.donation):hover {
     filter: drop-shadow(0 0 10px #fff);
 }
 
 header.scroll .link-menu li {
+    padding: 0;
     margin: 0 30px;
 }
 
-header .link-menu li:not(.donation, .search)::before {
+header .link-menu li::before {
     content: "";
     display: block;
     position: absolute;
     bottom: 0;
-    left: 50%;
+    left: 0;
     background-color: #fdfdfd;
-    height: 2px;
+    height: 100%;
     width: 100%;
-    border-radius: 2px;
-    transform: translateX(-50%) scaleX(0);
-    transition: transform 300ms;
+    transform: scaleY(0);
+    transition: border-radius 600ms, transform 300ms;
 }
 
-header .link-menu li:not(.donation, .search):hover::before {
-    transform: translateX(-50%) scaleX(1);
+header .link-menu li:hover::before {
+    border-radius: 50px;
+    transform: scaleY(1);
 }
 
-header .link-menu .donation {
-    font-size: 18px;
-}
-
-header .link-menu .donation a {
-    transition: color 300ms, transform 300ms;
-}
-header .link-menu .donation a:hover {
-    color: #ea609e;
-    transform: scale(1.25);
-    filter: drop-shadow(0 0 10px #fff);
-}
-
-header .link-menu .search {
-    font-size: 18px;
-    margin-left: auto;
-}
-
-header.scroll .link-menu .search {
-    margin-left: auto;
-    margin-right: 30px;
+header .link-menu li:not(.donation) > * {
+    mix-blend-mode: difference;
 }
 
 header .link-menu li a {
     display: block;
     padding: 10px;
+}
+
+header .link-menu .donation {
+    font-size: 18px;
+    padding: 0;
+}
+
+header .link-menu .donation a {
+    height: 40px;
+    aspect-ratio: 1 / 1;
+    transition: color 300ms, transform 300ms;
+}
+header .link-menu .donation:hover a {
+    color: #ea609e;
+    transform: scale(1.25);
+    filter: drop-shadow(0 0 10px #fff);
+}
+
+header .link-menu .donation .tooltip-element:hover .tooltip {
+    bottom: -70%;
+    opacity: 1;
+}
+
+header .link-menu .search {
+    cursor: pointer;
+    display: flex;
+    font-size: 18px;
+    height: 40px;
+    aspect-ratio: 1 / 1;
+    padding: 0;
+    margin-left: auto;
+    justify-content: center;
+    align-items: center;
+}
+
+header.scroll .link-menu .search {
+    margin-left: auto;
 }

@@ -1,22 +1,325 @@
+html {
+    animation: fadeIn 1000ms cubic-bezier(0.33, 1, 0.68, 1) forwards;
+    animation-timing-function: ease-out;
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
 main {
-    background-color: #1c1c1c;
     user-select: none;
     height: auto;
 }
 
 main h1 {
+    text-align: center;
+}
+
+main h1 img {
+    height: 250px;
+    width: 700px;
+    margin-top: 20px;
+    filter: drop-shadow(0 0 3px #99d4ed);
+    object-fit: cover;
+}
+
+main h2 {
+    display: flex;
+    font-size: 2.6em;
+    margin-bottom: 30px;
+    justify-content: center;
+    align-items: center;
+}
+
+main h2 p {
     background-image: url("../images/logo.webp");
     background-repeat: no-repeat;
     background-position: center 20%;
     background-clip : text;
     font-family: "Potta One";
-    font-size: 70px;
     color: transparent;
+    margin-left: 10px;
+}
+
+main .description {
+    font-size: 1.3em;
     text-align: center;
 }
 
+main .description span {
+    background-image: url("../images/logo.webp");
+    background-repeat: no-repeat;
+    background-position: center 20%;
+    background-clip : text;
+    font-family: "Mochiy Pop One";
+    color: transparent;
+}
+
+main .description a {
+    background-color: #4e5058;
+    padding: 0 5px;
+    border-radius: 5px;
+    transition: background-color 300ms;
+}
+main .description a:hover {
+    background-color: #6d6f78;
+}
+
+main .first-guides {
+    display: flex;
+    margin-top: 50px;
+    justify-content: center;
+}
+
+main .first-guides .border {
+    display: inline-block;
+    padding: 50px;
+    border: 2px solid #3f4147;
+    border-radius: 10px;
+}
+
+main .first-guides h1 {
+    font-family: "Mochiy Pop One";
+    font-size: 2.2em;
+}
+
+main .first-guides .guides {
+    display: flex;
+    margin-top: 50px;
+    justify-content: center;
+}
+
+main .first-guides .guides li {
+    position: relative;
+    font-size: 1.4em;
+    margin: 0 20px;
+    z-index: 1;
+}
+
+main .first-guides .guides li::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    border-radius: 10px;
+    transition: background-color 300ms;
+    z-index: -1;
+}
+
+main .first-guides .guides li a {
+    display: block;
+    padding: 10px;
+    text-shadow: 2px 2px 2px #000;
+}
+
+main .first-guides .guides li:nth-child(1)::before {
+    border: 2px dashed #ee66a6;
+}
+main .first-guides .guides li:nth-child(1):hover::before {
+    background-color: #ee66a6;
+}
+
+main .first-guides .guides li:nth-child(2)::before {
+    border: 2px dashed #7cf5ff;
+}
+main .first-guides .guides li:nth-child(2):hover::before {
+    background-color: #7cf5ff;
+}
+
+main .first-guides .guides li:nth-child(3)::before {
+    border: 2px dashed #6ec207;
+}
+main .first-guides .guides li:nth-child(3):hover::before {
+    background-color: #6ec207;
+}
+
+main .users {
+    margin: 50px 0;
+}
+
+main .users .server-st {
+    display: flex;
+    font-family: "New Amsterdam";
+    justify-content: center;
+}
+
+main .users .server-st .player-wrap {
+    display: flex;
+    border-radius: 20px;
+    font-size: 4em;
+    padding: 20px 30px;
+    margin: 10px 30px;
+}
+
+main .users .server-st .current {
+    background-color: rgb(117, 172, 248);
+    border: solid 1px rgb(42, 128, 250);
+    box-shadow: 0 0 25px white;
+}
+
+main .users .server-st .total {
+    background-color: rgb(54, 54, 54);
+    border: solid 1px rgb(118, 118, 118);
+}
+
+main .users .server-st .player-wrap i {
+    margin-right: 10px;
+}
+
+main .users .server-st .player-wrap .odometer {
+    margin-left: 10px;
+}
+
 main .pp-record-user {
-    margin-top: 0px;
+    padding-top: 50px;
+    padding-bottom: 150px;
+    border-top: solid 1px;
+    border-image: linear-gradient(to right, rgba(248, 189, 19, 0.1), rgb(248, 189, 19), rgba(248, 189, 19, 0.1)) 1;
+}
+
+main .pp-record-user .focused-user-score-data .score-data {
+    visibility: hidden;
+    display: flex;
+    position: fixed;
+    top: 55%;
+    left: 0;
+    background-color: #000;
+    height: 200px;
+    border-radius: 20px;
+    margin-left: 20%;
+    flex-direction: column;
+    text-align: center;
+    transform: translateY(-50%);
+    filter: drop-shadow(0 0 10px #fff);
+    z-index: 6;
+    opacity: 0;
+    transition: visibility 300ms, margin 500ms, opacity 300ms;
+}
+
+main .pp-record-user .focused-user-score-data.details .score-data {
+    visibility: visible;
+    opacity: 1;
+}
+
+main .pp-record-user .focused-user-score-data .score-data.mode-0,
+main .pp-record-user .focused-user-score-data .score-data.mode-1 {
+    width: 50%;
+}
+
+main .pp-record-user .focused-user-score-data.details .score-data.mode-0,
+main .pp-record-user .focused-user-score-data.details .score-data.mode-1,
+main .pp-record-user .focused-user-score-data.details .score-data.mode-2 {
+    margin-left: 40%;
+}
+
+main .pp-record-user .focused-user-score-data .score-data.mode-2 {
+    width: 55%;
+}
+
+main .pp-record-user .focused-user-score-data .score-data.mode-3 {
+    width: 65%;
+}
+
+main .pp-record-user .focused-user-score-data.details .score-data.mode-3 {
+    margin-left: 32%;
+}
+
+main .pp-record-user .focused-user-score-data .score-data:only-child {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+main .pp-record-user .focused-user-score-data .score-data .map-name {
+    font-size: 30px;
+    margin: 5px 5px 0 5px;
+}
+
+main .pp-record-user .focused-user-score-data .score-data .map-diff {
+    font-size: 20px;
+    margin: 0 5px;
+}
+
+main .pp-record-user .focused-user-score-data .score-data .map-bg {
+    position: absolute;
+    height: inherit;
+    width: 100%;
+    border-radius: inherit;
+    object-fit: cover;
+    z-index: -1;
+    opacity: 0.25;
+}
+
+main .pp-record-user .focused-user-score-data .score-data .map-score-details {
+    display: flex;
+    margin: 5px;
+    justify-content: center;
+    align-items: center;
+}
+
+main .pp-record-user .focused-user-score-data .score-data .map-score-details .grade {
+    height: 70px;
+    width: 70px;
+    margin-right: 20px;
+}
+
+main .pp-record-user .focused-user-score-data .score-data .map-score-details .tables {
+    width: 85%;
+}
+
+main .pp-record-user .focused-user-score-data .score-data .map-score-details .tables .t1 {
+    width: 70%;
+    margin: 5px;
+    table-layout: fixed;
+}
+
+main .pp-record-user .focused-user-score-data .score-data .map-score-details .tables .t2 {
+    width: 100%;
+    margin: 5px;
+}
+
+main .pp-record-user .focused-user-score-data .score-data .map-score-details .tables .t2 tr {
+    display: flex;
+}
+
+main .pp-record-user .focused-user-score-data .score-data .map-score-details .tables tr .tooltip {
+    font-size: 0.5em;
+}
+
+main .pp-record-user .focused-user-score-data .score-data .map-score-details .tables th {
+    font-size: 18px;
+    vertical-align: middle;
+    text-align: left;
+}
+
+main .pp-record-user .focused-user-score-data .score-data .map-score-details .tables td {
+    font-size: 28px;
+    vertical-align: middle;
+    text-align: left;
+}
+
+main .pp-record-user .focused-user-score-data .score-data .map-score-details .tables .t2 th,
+main .pp-record-user .focused-user-score-data .score-data .map-score-details .tables .t2 td {
+    display: flex;
+    align-items: center;
+    flex-basis: 100%;
+}
+
+main .pp-record-user .focused-user-score-data .score-data .map-score-details .tables .mods span {
+    margin-right: 5px;
+}
+
+.tooltip-element.up:not(.mod-icon):hover .tooltip {
+    bottom: 70%;
+    opacity: 1;
 }
 
 main .pp-record-user .boxes {
@@ -28,19 +331,41 @@ main .pp-record-user .boxes {
 main .pp-record-user .flex-box {
     display: flex;
     position: absolute;
-    left: 50%;
     font-family: "Mochiy Pop One";
     height: 500px;
+    width: 100%;
     margin: 0 auto;
+    justify-content: center;
     align-items: flex-end;
     perspective: 1000px;
     perspective-origin: bottom center;
-    transform: translateX(-50%);
     z-index: 0;
 }
 
 main .pp-record-user .flex-box.selected {
-    z-index: 1;
+    z-index: 2;
+}
+
+main .pp-record-user .flex-box.details {
+    perspective: none;
+}
+
+main .pp-record-user .flex-box.selected::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: #000;
+    height: 100%;
+    width: 100%;
+    z-index: 0;
+    opacity: 0;
+    transition: opacity 500ms;
+}
+
+main .pp-record-user .flex-box.selected.details::before {
+    z-index: 2;
+    opacity: 0.5;
 }
 
 main .pp-record-user .flex-box .user {
@@ -83,23 +408,131 @@ main .pp-record-user .flex-box .user .wrap {
     transition: height 500ms, width 500ms, box-shadow 500ms, filter 500ms, opacity 500ms;
 }
 
-main .pp-record-user .flex-box.selected .focused {
+main .pp-record-user .flex-box.selected .focused:not(.details, .space) {
+    position: fixed;
+    top: 0;
+    left: 0;
     height: 500px;
     width: 400px;
     z-index: 1;
     opacity: 1;
     transition: height 500ms, width 500ms, transform 500ms;
+    animation: spin-box 500ms ease forwards;
 }
-main .pp-record-user .flex-box .focused:hover {
-    transform: scale(1.1);
+
+@keyframes spin-box {
+    0% {
+        margin-top: 50px;
+        margin-left: 10%;
+        transform: translateX(0) rotateX(3deg) rotateY(368deg) rotateZ(-3deg) scale(1.1);   
+    }
+    100% {
+        margin-left: 50%;
+        transform: translateX(-50%) rotateY(0deg);
+    }
+}
+
+main .pp-record-user .flex-box.selected .focused.anim-end {
+    position: unset;
+    transform: rotateY(0deg);
+    transition: height 500ms, width 500ms, transform 500ms;
+    animation: none;
+}
+main .pp-record-user .flex-box.selected .focused.anim-end:not(.details):hover {
+    transform: scale(1.05);
+}
+
+main .pp-record-user .flex-box.selected .space {
+    visibility: hidden;
+    height: 500px;
+    width: 400px;
+    z-index: 1;
+    opacity: 1;
+}
+
+main .pp-record-user .flex-box.selected .details {
+    position: fixed;
+    top: 55%;
+    left: 0;
+    height: 500px;
+    width: 400px;
+    perspective: 1000px;
+    transform: translateY(-50%);
+    z-index: 10;
+    opacity: 1;
+}
+
+main .pp-record-user .flex-box.selected .details.mode-0,
+main .pp-record-user .flex-box.selected .details.mode-1,
+main .pp-record-user .flex-box.selected .details.mode-2 {
+    animation: move-mode-012 500ms ease forwards;
+}
+
+main .pp-record-user .flex-box.selected .details.mode-3 {
+    animation: move-mode-3 500ms ease forwards;
+}
+
+@keyframes move-mode-012 {
+    0% {
+        margin-left: 50%;
+        transform: translate(-50%, -50%) rotateY(0deg);
+    }
+    100% {
+        margin-left: 10%;
+        transform: translate(0, -50%) rotateX(3deg) rotateY(360deg) scale(1.1);
+    }
+}
+
+@keyframes move-mode-3 {
+    0% {
+        margin-left: 50%;
+        transform: translate(-50%, -50%) rotateY(0deg);
+    }
+    100% {
+        margin-left: 7%;
+        transform: translate(0, -50%) rotateX(3deg) rotateY(360deg) scale(1.1);
+    }
+}
+
+main .pp-record-user .flex-box.selected .details.anim-end {
+    position: fixed;
+    top: 55%;
+    left: 0;
+    transform: translate(0, -50%) rotateY(360deg) scale(1.1);
+    animation: none;
+}
+main .pp-record-user .flex-box.selected .details.anim-end:hover {
+    transform: translate(0, -50%) rotateY(360deg) scale(1.1);
+}
+
+main .pp-record-user .flex-box.selected .details.mode-0.anim-end,
+main .pp-record-user .flex-box.selected .details.mode-1.anim-end,
+main .pp-record-user .flex-box.selected .details.mode-2.anim-end {
+    margin-left: 10%;
+}
+
+main .pp-record-user .flex-box.selected .details.mode-3.anim-end {
+    margin-left: 7%;
 }
 
 main .pp-record-user .flex-box .focused .wrap {
     filter: grayscale(70%) drop-shadow(0px 0px 100px rgba(255, 255, 255, 0.5));
     opacity: 1;
+    transition: transform 500ms, filter 500ms, opacity 500ms;
 }
 main .pp-record-user .flex-box .focused:hover .wrap {
+    filter: grayscale(30%) drop-shadow(0px 0px 50px #fff);
+}
+
+main .pp-record-user .flex-box .details .wrap {
+    filter: grayscale(0%) drop-shadow(0px 0px 100px rgba(255, 255, 255, 0.5));
+    transform: rotateX(5deg) rotateY(8deg) rotateZ(-3deg);
+    transform-style: preserve-3d;
+    -webkit-box-reflect: unset;
+}
+main .pp-record-user .flex-box .details:hover .wrap {
     filter: grayscale(0%) drop-shadow(0px 0px 50px #fff);
+    transform: none;
 }
 
 main .pp-record-user .flex-box .edge {
@@ -120,7 +553,8 @@ main .pp-record-user .flex-box .user:hover .mode-title {
     transform: translate(-50%, -50%);
 }
 
-main .pp-record-user .flex-box .focused .mode-title, main .pp-record-user .flex-box .edge .mode-title {
+main .pp-record-user .flex-box .focused .mode-title,
+main .pp-record-user .flex-box .edge .mode-title {
     opacity: 0;
 }
 
@@ -138,7 +572,16 @@ main .pp-record-user .flex-box .user h3 {
     text-overflow: ellipsis;
     transform: translateY(-100%);
     opacity: 0;
-    transition: transform 800ms, opacity 800ms;
+    transition: transform 500ms, opacity 500ms;
+}
+
+main .pp-record-user .flex-box .details h3 {
+    transform: translateX(7%) rotateX(5deg) rotateY(8deg) rotateZ(-3deg);
+    transform-style: preserve-3d;
+    opacity: 1;
+}
+main .pp-record-user .flex-box .details:hover h3 {
+    transform: none;
 }
 
 main .pp-record-user .flex-box .user h3 .mode-icon {
@@ -151,10 +594,31 @@ main .pp-record-user .flex-box .user h3 .country-flag {
 }
 
 main .pp-record-user .flex-box .user h3 .username {
+    position: relative;
     font-size: 2em;
+    transition: color 300ms;
+}
+main .pp-record-user .flex-box .user h3 .username:hover {
+    color: #00a8fc;
 }
 
-main .pp-record-user .flex-box .focused h3 {
+main .pp-record-user .flex-box .user h3 .username::before {
+    content: "";
+    position: absolute;
+    bottom: -10%;
+    left: 0;
+    height: 3px;
+    width: 100%;
+    border-radius: 3px;
+    transform: scaleX(0);
+    transition: background-color 300ms, transform 300ms;
+}
+main .pp-record-user .flex-box .user h3 .username:hover::before {
+    background-color: #00a8fc;
+    transform: scaleX(1);
+}
+
+main .pp-record-user .flex-box .focused:not(.details) h3 {
     transform: translateY(0%);
     opacity: 1;
 }
@@ -164,12 +628,24 @@ main .pp-record-user .flex-box .user .pp {
     text-shadow: 2px 2px 2px #000;
     transform: translateY(-200%);
     opacity: 0;
-    transition: transform 800ms, opacity 800ms;
+    transition: transform 500ms, opacity 500ms;
 }
 
 main .pp-record-user .flex-box .focused .pp {
     transform: translateY(0%);
     opacity: 1;
+}
+
+main .pp-record-user .flex-box .details .pp {
+    transform: translateX(10%) rotateX(5deg) rotateY(8deg) rotateZ(-3deg);
+    transform-style: preserve-3d;
+}
+main .pp-record-user .flex-box .details:hover .pp {
+    transform: none;
+}
+
+main .pp-record-user .flex-box .user .score-data {
+    display: none;
 }
 
 main .pp-record-user .special-switch {
@@ -182,7 +658,11 @@ main .pp-record-user .special-switch {
     margin: 0 auto;
     backdrop-filter: blur(5px);
     box-shadow: 0 5px 5px #000;
-    z-index: 2;
+    z-index: 5;
+}
+
+main .pp-record-user .special-switch.details {
+    visibility: hidden;
 }
 
 main .pp-record-user .special-switch li {
@@ -242,61 +722,4 @@ main .pp-record-user .special-switch li.selected:last-child::before {
 
 main .pp-record-user .special-switch li span {
     mix-blend-mode: difference;
-}
-
-/* ------------------------------------------------------------------------ */
-
-main .list {
-    border-top: solid 1px;
-    border-image: linear-gradient(to right, rgba(248, 189, 19, 0.1), rgb(248, 189, 19), rgba(248, 189, 19, 0.1)) 1;
-    height: 300px;
-    margin-top: 30px;
-
-}
-
-main .list h2 {
-    font-size: 2.6em;
-    display: flex;
-    justify-content: center;
-    margin-top: 30px;
-}
-
-main .list .server-st {
-    margin-top: 20px;
-    font-family: "New Amsterdam", sans-serif;
-    font-weight: 400;
-    font-style: normal;
-    font-size: 2em;
-}
-
-main .list div {
-    display: flex;
-    justify-content: center;
-    font-size: 2em;
-}
-
-main .list .cr-player {
-    border: solid 1px rgb(42, 128, 250);
-    border-radius: 20px;
-    background-color: rgb(117, 172, 248);
-    box-shadow: 0 0 25px white;
-    padding: 20px 30px;
-    margin: 10px 30px;
-}
-
-main .list .tot-player {
-    border: solid 1px rgb(118, 118, 118);
-    border-radius: 20px;
-    background-color: rgb(54, 54, 54);
-    padding: 20px 30px;
-    margin: 10px 30px;
-}
-
-main .list a {
-    padding: 10px 20px;
-    margin: auto;
-    border: solid 1px rgb(133, 103, 244);
-    border-radius: 10px;
-    text-align: center;
-    position: relative;
 }

@@ -11,13 +11,13 @@
                 <a href="/">Beatmaps</a>
             </li>
             <li class="leaderboard">
-                <a href="/">Leaderboard</a>
+                <a href="/leaderboard">Leaderboard</a>
             </li>
             <li class="documents">
-                <a href="/">Documents</a>
+                <a href="/documents">Documents</a>
             </li>
             <li class="discord">
-                <a href="/">Discord</a>
+                <a class="an-tab" href="/discord" target="_blank" rel="noopener noreferrer">Discord</a>
             </li>
             <li class="donation">
                 <span class="tooltip-element down">
@@ -30,14 +30,14 @@
             </li>
             <% if (isLoggedIn) { %>
                 <li class="user-avatar">
-                    <img src="https://a.mamesosu.net/<%= user.id %>?<%= currentTime %>" loading="lazy" alt="" />
+                    <img src="https://a.mamesosu.net/<%= userid %>?<%= currentTime %>" loading="lazy" alt="" />
                 </li>
             <% } else { %>
                 <li class="register">
-                    <a href="/">Register</a>
+                    <a href="/account?class=register">Register</a>
                 </li>
-                <li class="login">
-                    <a href="/">Login</a>
+                <li class="signin">
+                    <a href="/account?class=signin">Sign in</a>
                 </li>
             <% } %>
         </ul>

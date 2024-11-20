@@ -1,5 +1,7 @@
 footer {
+    position: relative;
     background-color: #000;
+    z-index: 1000;
 }
 
 footer .flex-box.main {
@@ -167,12 +169,12 @@ footer .team-member .team section .user {
     border-radius: 10px;
     margin-bottom: 20px;
     margin-right: 2%;
-    box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
     transition: height 500ms, box-shadow 500ms;
 }
 footer .team-member .team section .user:hover {
     height: 80px;
-    box-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+    box-shadow: 0 0 5px rgba(255, 255, 255, 1);
 }
 
 footer .team-member .team section .user .banner {

@@ -1,0 +1,2881 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataSource name="Mamestagram Database">
+  <database-model serializer="dbm" dbms="MYSQL" family-id="MYSQL" format-version="4.53">
+    <root id="1">
+      <DefaultCasing>exact</DefaultCasing>
+      <DefaultEngine>InnoDB</DefaultEngine>
+      <DefaultTmpEngine>InnoDB</DefaultTmpEngine>
+      <ServerVersion>8.0.40</ServerVersion>
+    </root>
+    <schema id="2" parent="1" name="MamestaServer">
+      <Current>1</Current>
+      <LastIntrospectionLocalTimestamp>2024-11-14.15:36:47</LastIntrospectionLocalTimestamp>
+      <CollationName>utf8mb4_0900_ai_ci</CollationName>
+    </schema>
+    <schema id="3" parent="1" name="information_schema">
+      <LastIntrospectionLocalTimestamp>2024-11-14.15:36:48</LastIntrospectionLocalTimestamp>
+      <CollationName>utf8mb3_general_ci</CollationName>
+    </schema>
+    <schema id="4" parent="1" name="performance_schema">
+      <LastIntrospectionLocalTimestamp>2024-11-14.15:36:48</LastIntrospectionLocalTimestamp>
+      <CollationName>utf8mb4_0900_ai_ci</CollationName>
+    </schema>
+    <table id="5" parent="2" name="Command_Lang">
+      <Engine>InnoDB</Engine>
+      <CollationName>utf8mb4_0900_ai_ci</CollationName>
+    </table>
+    <table id="6" parent="2" name="Lang">
+      <Engine>InnoDB</Engine>
+      <CollationName>utf8mb4_0900_ai_ci</CollationName>
+    </table>
+    <table id="7" parent="2" name="YourTableName">
+      <Engine>InnoDB</Engine>
+      <CollationName>utf8mb4_0900_ai_ci</CollationName>
+    </table>
+    <table id="8" parent="2" name="achievements">
+      <Engine>InnoDB</Engine>
+      <CollationName>utf8mb4_0900_ai_ci</CollationName>
+    </table>
+    <table id="9" parent="2" name="banword">
+      <Engine>InnoDB</Engine>
+      <CollationName>utf8mb4_0900_ai_ci</CollationName>
+    </table>
+    <table id="10" parent="2" name="channels">
+      <Engine>InnoDB</Engine>
+      <CollationName>utf8mb4_0900_ai_ci</CollationName>
+    </table>
+    <table id="11" parent="2" name="clan_accept">
+      <Engine>InnoDB</Engine>
+      <CollationName>utf8mb4_0900_ai_ci</CollationName>
+    </table>
+    <table id="12" parent="2" name="clans">
+      <Engine>InnoDB</Engine>
+      <CollationName>utf8mb4_0900_ai_ci</CollationName>
+    </table>
+    <table id="13" parent="2" name="client_hashes">
+      <Engine>InnoDB</Engine>
+      <CollationName>utf8mb4_0900_ai_ci</CollationName>
+    </table>
+    <table id="14" parent="2" name="comments">
+      <Engine>InnoDB</Engine>
+      <CollationName>utf8mb4_0900_ai_ci</CollationName>
+    </table>
+    <table id="15" parent="2" name="customstats_map">
+      <Engine>InnoDB</Engine>
+      <CollationName>utf8mb4_0900_ai_ci</CollationName>
+    </table>
+    <table id="16" parent="2" name="dan_stats">
+      <Engine>InnoDB</Engine>
+      <CollationName>utf8mb4_0900_ai_ci</CollationName>
+    </table>
+    <table id="17" parent="2" name="danmaps">
+      <Engine>InnoDB</Engine>
+      <CollationName>utf8mb4_0900_ai_ci</CollationName>
+    </table>
+    <table id="18" parent="2" name="danstimeout">
+      <Engine>InnoDB</Engine>
+      <CollationName>utf8mb4_0900_ai_ci</CollationName>
+    </table>
+    <table id="19" parent="2" name="dantimeout">
+      <Engine>InnoDB</Engine>
+      <CollationName>utf8mb4_0900_ai_ci</CollationName>
+    </table>
+    <table id="20" parent="2" name="favourites">
+      <Engine>InnoDB</Engine>
+      <CollationName>utf8mb4_0900_ai_ci</CollationName>
+    </table>
+    <table id="21" parent="2" name="gacha">
+      <Engine>InnoDB</Engine>
+      <CollationName>utf8mb4_0900_ai_ci</CollationName>
+    </table>
+    <table id="22" parent="2" name="gacha_stats">
+      <Engine>InnoDB</Engine>
+      <CollationName>utf8mb4_0900_ai_ci</CollationName>
+    </table>
+    <table id="23" parent="2" name="goal">
+      <Engine>InnoDB</Engine>
+      <CollationName>utf8mb4_0900_ai_ci</CollationName>
+    </table>
+    <table id="24" parent="2" name="ingame_logins">
+      <Engine>InnoDB</Engine>
+      <CollationName>utf8mb4_0900_ai_ci</CollationName>
+    </table>
+    <table id="25" parent="2" name="logs">
+      <Engine>InnoDB</Engine>
+      <CollationName>utf8mb4_0900_ai_ci</CollationName>
+    </table>
+    <table id="26" parent="2" name="mail">
+      <Engine>InnoDB</Engine>
+      <CollationName>utf8mb4_0900_ai_ci</CollationName>
+    </table>
+    <table id="27" parent="2" name="map_requests">
+      <Engine>InnoDB</Engine>
+      <CollationName>utf8mb4_0900_ai_ci</CollationName>
+    </table>
+    <table id="28" parent="2" name="maps">
+      <Engine>InnoDB</Engine>
+      <CollationName>utf8mb4_0900_ai_ci</CollationName>
+    </table>
+    <table id="29" parent="2" name="mapsets">
+      <Engine>InnoDB</Engine>
+      <CollationName>utf8mb4_0900_ai_ci</CollationName>
+    </table>
+    <table id="30" parent="2" name="new_users">
+      <Engine>InnoDB</Engine>
+      <CollationName>utf8mb4_0900_ai_ci</CollationName>
+    </table>
+    <table id="31" parent="2" name="performance_reports">
+      <Engine>InnoDB</Engine>
+      <CollationName>utf8mb4_0900_ai_ci</CollationName>
+    </table>
+    <table id="32" parent="2" name="ratings">
+      <Engine>InnoDB</Engine>
+      <CollationName>utf8mb4_0900_ai_ci</CollationName>
+    </table>
+    <table id="33" parent="2" name="relationships">
+      <Engine>InnoDB</Engine>
+      <CollationName>utf8mb4_0900_ai_ci</CollationName>
+    </table>
+    <table id="34" parent="2" name="rival">
+      <Engine>InnoDB</Engine>
+      <CollationName>utf8mb4_0900_ai_ci</CollationName>
+    </table>
+    <table id="35" parent="2" name="room_data">
+      <Engine>InnoDB</Engine>
+      <CollationName>utf8mb4_0900_ai_ci</CollationName>
+    </table>
+    <table id="36" parent="2" name="score_pins">
+      <Engine>InnoDB</Engine>
+      <CollationName>utf8mb4_0900_ai_ci</CollationName>
+    </table>
+    <table id="37" parent="2" name="scores">
+      <Engine>InnoDB</Engine>
+      <CollationName>utf8mb4_0900_ai_ci</CollationName>
+    </table>
+    <table id="38" parent="2" name="scores_pause">
+      <Engine>InnoDB</Engine>
+      <CollationName>utf8mb4_0900_ai_ci</CollationName>
+    </table>
+    <table id="39" parent="2" name="sessions">
+      <Engine>InnoDB</Engine>
+      <CollationName>utf8mb4_0900_ai_ci</CollationName>
+    </table>
+    <table id="40" parent="2" name="startups">
+      <Engine>InnoDB</Engine>
+      <CollationName>utf8mb4_0900_ai_ci</CollationName>
+    </table>
+    <table id="41" parent="2" name="stats">
+      <Engine>InnoDB</Engine>
+      <CollationName>utf8mb4_0900_ai_ci</CollationName>
+    </table>
+    <table id="42" parent="2" name="temp_db">
+      <Engine>InnoDB</Engine>
+      <CollationName>utf8mb4_0900_ai_ci</CollationName>
+    </table>
+    <table id="43" parent="2" name="tourney_pool_maps">
+      <Engine>InnoDB</Engine>
+      <CollationName>utf8mb4_0900_ai_ci</CollationName>
+    </table>
+    <table id="44" parent="2" name="tourney_pools">
+      <Engine>InnoDB</Engine>
+      <CollationName>utf8mb4_0900_ai_ci</CollationName>
+    </table>
+    <table id="45" parent="2" name="user_achievements">
+      <Engine>InnoDB</Engine>
+      <CollationName>utf8mb4_0900_ai_ci</CollationName>
+    </table>
+    <table id="46" parent="2" name="user_client">
+      <Engine>InnoDB</Engine>
+      <CollationName>utf8mb4_0900_ai_ci</CollationName>
+    </table>
+    <table id="47" parent="2" name="users">
+      <Engine>InnoDB</Engine>
+      <CollationName>utf8mb4_0900_ai_ci</CollationName>
+    </table>
+    <table id="48" parent="2" name="weekly">
+      <Engine>InnoDB</Engine>
+      <CollationName>utf8mb4_0900_ai_ci</CollationName>
+    </table>
+    <column id="49" parent="5" name="id">
+      <AutoIncrement>76</AutoIncrement>
+      <NotNull>1</NotNull>
+      <Position>1</Position>
+      <StoredType>int|0s</StoredType>
+    </column>
+    <column id="50" parent="5" name="type">
+      <NotNull>1</NotNull>
+      <Position>2</Position>
+      <StoredType>char(255)|0s</StoredType>
+    </column>
+    <column id="51" parent="5" name="Command">
+      <NotNull>1</NotNull>
+      <Position>3</Position>
+      <StoredType>char(255)|0s</StoredType>
+    </column>
+    <column id="52" parent="5" name="lang">
+      <NotNull>1</NotNull>
+      <Position>4</Position>
+      <StoredType>char(255)|0s</StoredType>
+    </column>
+    <column id="53" parent="5" name="content">
+      <NotNull>1</NotNull>
+      <Position>5</Position>
+      <StoredType>text|0s</StoredType>
+    </column>
+    <index id="54" parent="5" name="PRIMARY">
+      <ColNames>id</ColNames>
+      <Type>btree</Type>
+      <Unique>1</Unique>
+    </index>
+    <key id="55" parent="5" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <Primary>1</Primary>
+      <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
+    </key>
+    <column id="56" parent="6" name="id">
+      <AutoIncrement>582</AutoIncrement>
+      <NotNull>1</NotNull>
+      <Position>1</Position>
+      <StoredType>int|0s</StoredType>
+    </column>
+    <column id="57" parent="6" name="type">
+      <NotNull>1</NotNull>
+      <Position>2</Position>
+      <StoredType>char(255)|0s</StoredType>
+    </column>
+    <column id="58" parent="6" name="lang">
+      <NotNull>1</NotNull>
+      <Position>3</Position>
+      <StoredType>char(255)|0s</StoredType>
+    </column>
+    <column id="59" parent="6" name="content">
+      <NotNull>1</NotNull>
+      <Position>4</Position>
+      <StoredType>text|0s</StoredType>
+    </column>
+    <index id="60" parent="6" name="PRIMARY">
+      <ColNames>id</ColNames>
+      <Type>btree</Type>
+      <Unique>1</Unique>
+    </index>
+    <key id="61" parent="6" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <Primary>1</Primary>
+      <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
+    </key>
+    <column id="62" parent="7" name="id">
+      <NotNull>1</NotNull>
+      <Position>1</Position>
+      <StoredType>int|0s</StoredType>
+    </column>
+    <column id="63" parent="7" name="md5">
+      <NotNull>1</NotNull>
+      <Position>2</Position>
+      <StoredType>varchar(32)|0s</StoredType>
+    </column>
+    <column id="64" parent="7" name="mode">
+      <NotNull>1</NotNull>
+      <Position>3</Position>
+      <StoredType>int|0s</StoredType>
+    </column>
+    <column id="65" parent="7" name="acc">
+      <NotNull>1</NotNull>
+      <Position>4</Position>
+      <StoredType>decimal(5,3 digit)|0s</StoredType>
+    </column>
+    <column id="66" parent="7" name="score">
+      <NotNull>1</NotNull>
+      <Position>5</Position>
+      <StoredType>int|0s</StoredType>
+    </column>
+    <column id="67" parent="7" name="mods">
+      <NotNull>1</NotNull>
+      <Position>6</Position>
+      <StoredType>int|0s</StoredType>
+    </column>
+    <column id="68" parent="7" name="reward">
+      <NotNull>1</NotNull>
+      <Position>7</Position>
+      <StoredType>int|0s</StoredType>
+    </column>
+    <column id="69" parent="7" name="cs">
+      <NotNull>1</NotNull>
+      <Position>8</Position>
+      <StoredType>int|0s</StoredType>
+    </column>
+    <column id="70" parent="7" name="dan_break">
+      <NotNull>1</NotNull>
+      <Position>9</Position>
+      <StoredType>int|0s</StoredType>
+    </column>
+    <column id="71" parent="8" name="id">
+      <AutoIncrement>84</AutoIncrement>
+      <NotNull>1</NotNull>
+      <Position>1</Position>
+      <StoredType>int|0s</StoredType>
+    </column>
+    <column id="72" parent="8" name="file">
+      <NotNull>1</NotNull>
+      <Position>2</Position>
+      <StoredType>varchar(128)|0s</StoredType>
+    </column>
+    <column id="73" parent="8" name="name">
+      <NotNull>1</NotNull>
+      <Position>3</Position>
+      <StoredType>varchar(128)|0s</StoredType>
+      <CollationName>utf8mb3_general_ci</CollationName>
+    </column>
+    <column id="74" parent="8" name="desc">
+      <NotNull>1</NotNull>
+      <Position>4</Position>
+      <StoredType>varchar(256)|0s</StoredType>
+      <CollationName>utf8mb3_general_ci</CollationName>
+    </column>
+    <column id="75" parent="8" name="cond">
+      <NotNull>1</NotNull>
+      <Position>5</Position>
+      <StoredType>varchar(64)|0s</StoredType>
+    </column>
+    <index id="76" parent="8" name="PRIMARY">
+      <ColNames>id</ColNames>
+      <Type>btree</Type>
+      <Unique>1</Unique>
+    </index>
+    <index id="77" parent="8" name="achievements_file_uindex">
+      <ColNames>file</ColNames>
+      <Type>btree</Type>
+      <Unique>1</Unique>
+    </index>
+    <index id="78" parent="8" name="achievements_name_uindex">
+      <ColNames>name</ColNames>
+      <Type>btree</Type>
+      <Unique>1</Unique>
+    </index>
+    <index id="79" parent="8" name="achievements_desc_uindex">
+      <ColNames>desc</ColNames>
+      <Type>btree</Type>
+      <Unique>1</Unique>
+    </index>
+    <index id="80" parent="8" name="fetch_achieve">
+      <ColNames>id
+name</ColNames>
+      <Type>btree</Type>
+    </index>
+    <index id="81" parent="8" name="fetch_all_achieve">
+      <ColNames>id</ColNames>
+      <Type>btree</Type>
+    </index>
+    <key id="82" parent="8" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <Primary>1</Primary>
+      <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
+    </key>
+    <key id="83" parent="8" name="achievements_file_uindex">
+      <UnderlyingIndexName>achievements_file_uindex</UnderlyingIndexName>
+    </key>
+    <key id="84" parent="8" name="achievements_name_uindex">
+      <UnderlyingIndexName>achievements_name_uindex</UnderlyingIndexName>
+    </key>
+    <key id="85" parent="8" name="achievements_desc_uindex">
+      <UnderlyingIndexName>achievements_desc_uindex</UnderlyingIndexName>
+    </key>
+    <column id="86" parent="9" name="id">
+      <AutoIncrement>70</AutoIncrement>
+      <NotNull>1</NotNull>
+      <Position>1</Position>
+      <StoredType>int|0s</StoredType>
+    </column>
+    <column id="87" parent="9" name="word">
+      <Position>2</Position>
+      <StoredType>char(255)|0s</StoredType>
+    </column>
+    <index id="88" parent="9" name="PRIMARY">
+      <ColNames>id</ColNames>
+      <Type>btree</Type>
+      <Unique>1</Unique>
+    </index>
+    <key id="89" parent="9" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <Primary>1</Primary>
+      <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
+    </key>
+    <column id="90" parent="10" name="id">
+      <AutoIncrement>8</AutoIncrement>
+      <NotNull>1</NotNull>
+      <Position>1</Position>
+      <StoredType>int|0s</StoredType>
+    </column>
+    <column id="91" parent="10" name="name">
+      <NotNull>1</NotNull>
+      <Position>2</Position>
+      <StoredType>varchar(32)|0s</StoredType>
+    </column>
+    <column id="92" parent="10" name="topic">
+      <NotNull>1</NotNull>
+      <Position>3</Position>
+      <StoredType>varchar(256)|0s</StoredType>
+    </column>
+    <column id="93" parent="10" name="read_priv">
+      <DefaultExpression>1</DefaultExpression>
+      <NotNull>1</NotNull>
+      <Position>4</Position>
+      <StoredType>int|0s</StoredType>
+    </column>
+    <column id="94" parent="10" name="write_priv">
+      <DefaultExpression>2</DefaultExpression>
+      <NotNull>1</NotNull>
+      <Position>5</Position>
+      <StoredType>int|0s</StoredType>
+    </column>
+    <column id="95" parent="10" name="auto_join">
+      <DefaultExpression>0</DefaultExpression>
+      <NotNull>1</NotNull>
+      <Position>6</Position>
+      <StoredType>tinyint(1)|0s</StoredType>
+    </column>
+    <index id="96" parent="10" name="PRIMARY">
+      <ColNames>id</ColNames>
+      <Type>btree</Type>
+      <Unique>1</Unique>
+    </index>
+    <index id="97" parent="10" name="channels_name_uindex">
+      <ColNames>name</ColNames>
+      <Type>btree</Type>
+      <Unique>1</Unique>
+    </index>
+    <key id="98" parent="10" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <Primary>1</Primary>
+      <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
+    </key>
+    <key id="99" parent="10" name="channels_name_uindex">
+      <UnderlyingIndexName>channels_name_uindex</UnderlyingIndexName>
+    </key>
+    <column id="100" parent="11" name="id">
+      <AutoIncrement>161</AutoIncrement>
+      <NotNull>1</NotNull>
+      <Position>1</Position>
+      <StoredType>int|0s</StoredType>
+    </column>
+    <column id="101" parent="11" name="clan_id">
+      <Position>2</Position>
+      <StoredType>int|0s</StoredType>
+    </column>
+    <column id="102" parent="11" name="from_id">
+      <Position>3</Position>
+      <StoredType>int|0s</StoredType>
+    </column>
+    <column id="103" parent="11" name="to_id">
+      <Position>4</Position>
+      <StoredType>int|0s</StoredType>
+    </column>
+    <column id="104" parent="11" name="accept">
+      <Position>5</Position>
+      <StoredType>int|0s</StoredType>
+    </column>
+    <index id="105" parent="11" name="PRIMARY">
+      <ColNames>id</ColNames>
+      <Type>btree</Type>
+      <Unique>1</Unique>
+    </index>
+    <key id="106" parent="11" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <Primary>1</Primary>
+      <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
+    </key>
+    <column id="107" parent="12" name="id">
+      <AutoIncrement>460</AutoIncrement>
+      <NotNull>1</NotNull>
+      <Position>1</Position>
+      <StoredType>int|0s</StoredType>
+    </column>
+    <column id="108" parent="12" name="name">
+      <NotNull>1</NotNull>
+      <Position>2</Position>
+      <StoredType>varchar(16)|0s</StoredType>
+      <CollationName>utf8mb3_general_ci</CollationName>
+    </column>
+    <column id="109" parent="12" name="tag">
+      <NotNull>1</NotNull>
+      <Position>3</Position>
+      <StoredType>varchar(6)|0s</StoredType>
+      <CollationName>utf8mb3_general_ci</CollationName>
+    </column>
+    <column id="110" parent="12" name="past_tag">
+      <Position>4</Position>
+      <StoredType>char(255)|0s</StoredType>
+    </column>
+    <column id="111" parent="12" name="owner">
+      <NotNull>1</NotNull>
+      <Position>5</Position>
+      <StoredType>int|0s</StoredType>
+    </column>
+    <column id="112" parent="12" name="created_at">
+      <NotNull>1</NotNull>
+      <Position>6</Position>
+      <StoredType>datetime|0s</StoredType>
+    </column>
+    <column id="113" parent="12" name="public">
+      <DefaultExpression>1</DefaultExpression>
+      <Position>7</Position>
+      <StoredType>int|0s</StoredType>
+    </column>
+    <column id="114" parent="12" name="userpage_content">
+      <Position>8</Position>
+      <StoredType>text|0s</StoredType>
+    </column>
+    <column id="115" parent="12" name="preferred_mode">
+      <DefaultExpression>0</DefaultExpression>
+      <Position>9</Position>
+      <StoredType>int|0s</StoredType>
+    </column>
+    <column id="116" parent="12" name="show_pTag">
+      <DefaultExpression>1</DefaultExpression>
+      <Position>10</Position>
+      <StoredType>tinyint|0s</StoredType>
+    </column>
+    <index id="117" parent="12" name="PRIMARY">
+      <ColNames>id</ColNames>
+      <Type>btree</Type>
+      <Unique>1</Unique>
+    </index>
+    <index id="118" parent="12" name="clans_name_uindex">
+      <ColNames>name</ColNames>
+      <Type>btree</Type>
+      <Unique>1</Unique>
+    </index>
+    <index id="119" parent="12" name="clans_tag_uindex">
+      <ColNames>tag</ColNames>
+      <Type>btree</Type>
+      <Unique>1</Unique>
+    </index>
+    <index id="120" parent="12" name="clans_owner_uindex">
+      <ColNames>owner</ColNames>
+      <Type>btree</Type>
+      <Unique>1</Unique>
+    </index>
+    <index id="121" parent="12" name="idx_clans_id">
+      <ColNames>id</ColNames>
+      <Type>btree</Type>
+    </index>
+    <key id="122" parent="12" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <Primary>1</Primary>
+      <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
+    </key>
+    <key id="123" parent="12" name="clans_name_uindex">
+      <UnderlyingIndexName>clans_name_uindex</UnderlyingIndexName>
+    </key>
+    <key id="124" parent="12" name="clans_tag_uindex">
+      <UnderlyingIndexName>clans_tag_uindex</UnderlyingIndexName>
+    </key>
+    <key id="125" parent="12" name="clans_owner_uindex">
+      <UnderlyingIndexName>clans_owner_uindex</UnderlyingIndexName>
+    </key>
+    <column id="126" parent="13" name="userid">
+      <NotNull>1</NotNull>
+      <Position>1</Position>
+      <StoredType>int|0s</StoredType>
+    </column>
+    <column id="127" parent="13" name="osupath">
+      <NotNull>1</NotNull>
+      <Position>2</Position>
+      <StoredType>char(32)|0s</StoredType>
+    </column>
+    <column id="128" parent="13" name="adapters">
+      <NotNull>1</NotNull>
+      <Position>3</Position>
+      <StoredType>char(32)|0s</StoredType>
+    </column>
+    <column id="129" parent="13" name="uninstall_id">
+      <NotNull>1</NotNull>
+      <Position>4</Position>
+      <StoredType>char(32)|0s</StoredType>
+    </column>
+    <column id="130" parent="13" name="disk_serial">
+      <NotNull>1</NotNull>
+      <Position>5</Position>
+      <StoredType>char(32)|0s</StoredType>
+    </column>
+    <column id="131" parent="13" name="latest_time">
+      <NotNull>1</NotNull>
+      <Position>6</Position>
+      <StoredType>datetime|0s</StoredType>
+    </column>
+    <column id="132" parent="13" name="occurrences">
+      <DefaultExpression>0</DefaultExpression>
+      <NotNull>1</NotNull>
+      <Position>7</Position>
+      <StoredType>int|0s</StoredType>
+    </column>
+    <index id="133" parent="13" name="PRIMARY">
+      <ColNames>userid
+osupath
+adapters
+uninstall_id
+disk_serial</ColNames>
+      <Type>btree</Type>
+      <Unique>1</Unique>
+    </index>
+    <index id="134" parent="13" name="idx_client_hashes_userid">
+      <ColNames>userid</ColNames>
+      <Type>btree</Type>
+    </index>
+    <index id="135" parent="13" name="idx_client_hashes_adapters">
+      <ColNames>adapters</ColNames>
+      <Type>btree</Type>
+    </index>
+    <key id="136" parent="13" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <Primary>1</Primary>
+      <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
+    </key>
+    <column id="137" parent="14" name="id">
+      <AutoIncrement>14</AutoIncrement>
+      <NotNull>1</NotNull>
+      <Position>1</Position>
+      <StoredType>int|0s</StoredType>
+    </column>
+    <column id="138" parent="14" name="target_id">
+      <Comment>replay, map, or set id</Comment>
+      <NotNull>1</NotNull>
+      <Position>2</Position>
+      <StoredType>int|0s</StoredType>
+    </column>
+    <column id="139" parent="14" name="target_type">
+      <NotNull>1</NotNull>
+      <Position>3</Position>
+      <StoredType>enum(&apos;replay&apos;, &apos;map&apos;, &apos;song&apos;)|0e</StoredType>
+    </column>
+    <column id="140" parent="14" name="userid">
+      <NotNull>1</NotNull>
+      <Position>4</Position>
+      <StoredType>int|0s</StoredType>
+    </column>
+    <column id="141" parent="14" name="time">
+      <NotNull>1</NotNull>
+      <Position>5</Position>
+      <StoredType>int|0s</StoredType>
+    </column>
+    <column id="142" parent="14" name="comment">
+      <NotNull>1</NotNull>
+      <Position>6</Position>
+      <StoredType>varchar(80)|0s</StoredType>
+      <CollationName>utf8mb3_general_ci</CollationName>
+    </column>
+    <column id="143" parent="14" name="colour">
+      <Comment>rgb hex string</Comment>
+      <Position>7</Position>
+      <StoredType>char(6)|0s</StoredType>
+    </column>
+    <index id="144" parent="14" name="PRIMARY">
+      <ColNames>id</ColNames>
+      <Type>btree</Type>
+      <Unique>1</Unique>
+    </index>
+    <index id="145" parent="14" name="fetch_comment">
+      <ColNames>target_type
+target_id</ColNames>
+      <Type>btree</Type>
+    </index>
+    <key id="146" parent="14" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <Primary>1</Primary>
+      <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
+    </key>
+    <column id="147" parent="15" name="set_id">
+      <AutoIncrement>2189912</AutoIncrement>
+      <NotNull>1</NotNull>
+      <Position>1</Position>
+      <StoredType>int|0s</StoredType>
+    </column>
+    <column id="148" parent="15" name="status">
+      <Position>2</Position>
+      <StoredType>int|0s</StoredType>
+    </column>
+    <index id="149" parent="15" name="PRIMARY">
+      <ColNames>set_id</ColNames>
+      <Type>btree</Type>
+      <Unique>1</Unique>
+    </index>
+    <key id="150" parent="15" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <Primary>1</Primary>
+      <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
+    </key>
+    <column id="151" parent="16" name="id">
+      <Position>1</Position>
+      <StoredType>int|0s</StoredType>
+    </column>
+    <column id="152" parent="16" name="mode">
+      <Position>2</Position>
+      <StoredType>int|0s</StoredType>
+    </column>
+    <column id="153" parent="16" name="type">
+      <Position>3</Position>
+      <StoredType>int|0s</StoredType>
+    </column>
+    <column id="154" parent="16" name="cs">
+      <DefaultExpression>0</DefaultExpression>
+      <Position>4</Position>
+      <StoredType>int|0s</StoredType>
+    </column>
+    <column id="155" parent="16" name="reward">
+      <DefaultExpression>&apos;-&apos;</DefaultExpression>
+      <Position>5</Position>
+      <StoredType>char(32)|0s</StoredType>
+    </column>
+    <column id="156" parent="16" name="reward_pp">
+      <DefaultExpression>0</DefaultExpression>
+      <Position>6</Position>
+      <StoredType>int|0s</StoredType>
+    </column>
+    <index id="157" parent="16" name="idx_dans_id_mode">
+      <ColNames>id
+mode</ColNames>
+      <Type>btree</Type>
+    </index>
+    <index id="158" parent="16" name="idx_dan_stats_id">
+      <ColNames>id</ColNames>
+      <Type>btree</Type>
+    </index>
+    <index id="159" parent="16" name="idx_score_dan">
+      <ColNames>mode
+type
+id</ColNames>
+      <Type>btree</Type>
+    </index>
+    <index id="160" parent="16" name="idx_dan_stats_mode">
+      <ColNames>mode</ColNames>
+      <Type>btree</Type>
+    </index>
+    <index id="161" parent="16" name="idx_dans_pp">
+      <ColNames>reward_pp</ColNames>
+      <ReverseColNames>reward_pp</ReverseColNames>
+      <Type>btree</Type>
+    </index>
+    <column id="162" parent="17" name="id">
+      <Position>1</Position>
+      <StoredType>int|0s</StoredType>
+    </column>
+    <column id="163" parent="17" name="md5">
+      <NotNull>1</NotNull>
+      <Position>2</Position>
+      <StoredType>char(255)|0s</StoredType>
+    </column>
+    <column id="164" parent="17" name="mode">
+      <Position>3</Position>
+      <StoredType>int|0s</StoredType>
+    </column>
+    <column id="165" parent="17" name="acc">
+      <Position>4</Position>
+      <StoredType>float|0s</StoredType>
+    </column>
+    <column id="166" parent="17" name="score">
+      <Position>5</Position>
+      <StoredType>int|0s</StoredType>
+    </column>
+    <column id="167" parent="17" name="mods">
+      <Position>6</Position>
+      <StoredType>int|0s</StoredType>
+    </column>
+    <column id="168" parent="17" name="reward">
+      <Position>7</Position>
+      <StoredType>int|0s</StoredType>
+    </column>
+    <column id="169" parent="17" name="cs">
+      <Position>8</Position>
+      <StoredType>int|0s</StoredType>
+    </column>
+    <column id="170" parent="17" name="dan_break">
+      <Position>9</Position>
+      <StoredType>char(255)|0s</StoredType>
+    </column>
+    <column id="171" parent="17" name="pass_combo">
+      <Position>10</Position>
+      <StoredType>int|0s</StoredType>
+    </column>
+    <column id="172" parent="17" name="pass_miss">
+      <Position>11</Position>
+      <StoredType>int|0s</StoredType>
+    </column>
+    <index id="173" parent="17" name="PRIMARY">
+      <ColNames>md5</ColNames>
+      <Type>btree</Type>
+      <Unique>1</Unique>
+    </index>
+    <index id="174" parent="17" name="check_dan">
+      <ColNames>md5</ColNames>
+      <Type>btree</Type>
+    </index>
+    <index id="175" parent="17" name="idx_dans_acc_score">
+      <ColNames>acc
+score</ColNames>
+      <Type>btree</Type>
+    </index>
+    <key id="176" parent="17" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <Primary>1</Primary>
+      <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
+    </key>
+    <column id="177" parent="18" name="userid">
+      <NotNull>1</NotNull>
+      <Position>1</Position>
+      <StoredType>int|0s</StoredType>
+    </column>
+    <column id="178" parent="18" name="map_md5">
+      <NotNull>1</NotNull>
+      <Position>2</Position>
+      <StoredType>varchar(32)|0s</StoredType>
+    </column>
+    <column id="179" parent="18" name="mods">
+      <NotNull>1</NotNull>
+      <Position>3</Position>
+      <StoredType>int|0s</StoredType>
+    </column>
+    <column id="180" parent="18" name="time_elapsed">
+      <NotNull>1</NotNull>
+      <Position>4</Position>
+      <StoredType>int|0s</StoredType>
+    </column>
+    <index id="181" parent="18" name="PRIMARY">
+      <ColNames>userid</ColNames>
+      <Type>btree</Type>
+      <Unique>1</Unique>
+    </index>
+    <key id="182" parent="18" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <Primary>1</Primary>
+      <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
+    </key>
+    <column id="183" parent="19" name="userid">
+      <Position>1</Position>
+      <StoredType>int|0s</StoredType>
+    </column>
+    <column id="184" parent="19" name="map_md5">
+      <Position>2</Position>
+      <StoredType>varchar(255)|0s</StoredType>
+    </column>
+    <column id="185" parent="19" name="mods">
+      <Position>3</Position>
+      <StoredType>int|0s</StoredType>
+    </column>
+    <column id="186" parent="19" name="time_elapsed">
+      <Position>4</Position>
+      <StoredType>varchar(255)|0s</StoredType>
+    </column>
+    <column id="187" parent="20" name="userid">
+      <NotNull>1</NotNull>
+      <Position>1</Position>
+      <StoredType>int|0s</StoredType>
+    </column>
+    <column id="188" parent="20" name="setid">
+      <NotNull>1</NotNull>
+      <Position>2</Position>
+      <StoredType>int|0s</StoredType>
+    </column>
+    <column id="189" parent="20" name="created_at">
+      <DefaultExpression>0</DefaultExpression>
+      <NotNull>1</NotNull>
+      <Position>3</Position>
+      <StoredType>int|0s</StoredType>
+    </column>
+    <index id="190" parent="20" name="PRIMARY">
+      <ColNames>userid
+setid</ColNames>
+      <Type>btree</Type>
+      <Unique>1</Unique>
+    </index>
+    <key id="191" parent="20" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <Primary>1</Primary>
+      <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
+    </key>
+    <column id="192" parent="21" name="badge_id">
+      <AutoIncrement>50</AutoIncrement>
+      <NotNull>1</NotNull>
+      <Position>1</Position>
+      <StoredType>int|0s</StoredType>
+    </column>
+    <column id="193" parent="21" name="badge_name">
+      <Position>2</Position>
+      <StoredType>char(255)|0s</StoredType>
+    </column>
+    <column id="194" parent="21" name="prob">
+      <Position>3</Position>
+      <StoredType>int|0s</StoredType>
+    </column>
+    <index id="195" parent="21" name="PRIMARY">
+      <ColNames>badge_id</ColNames>
+      <Type>btree</Type>
+      <Unique>1</Unique>
+    </index>
+    <key id="196" parent="21" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <Primary>1</Primary>
+      <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
+    </key>
+    <column id="197" parent="22" name="id">
+      <NotNull>1</NotNull>
+      <Position>1</Position>
+      <StoredType>int|0s</StoredType>
+    </column>
+    <column id="198" parent="22" name="set_badge">
+      <DefaultExpression>0</DefaultExpression>
+      <Position>2</Position>
+      <StoredType>int|0s</StoredType>
+    </column>
+    <column id="199" parent="22" name="had_badge">
+      <Position>3</Position>
+      <StoredType>text|0s</StoredType>
+    </column>
+    <column id="200" parent="22" name="points">
+      <DefaultExpression>0</DefaultExpression>
+      <Position>4</Position>
+      <StoredType>int|0s</StoredType>
+    </column>
+    <index id="201" parent="22" name="PRIMARY">
+      <ColNames>id</ColNames>
+      <Type>btree</Type>
+      <Unique>1</Unique>
+    </index>
+    <key id="202" parent="22" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <Primary>1</Primary>
+      <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
+    </key>
+    <column id="203" parent="23" name="id">
+      <AutoIncrement>44</AutoIncrement>
+      <NotNull>1</NotNull>
+      <Position>1</Position>
+      <StoredType>int|0s</StoredType>
+    </column>
+    <column id="204" parent="23" name="name">
+      <Position>2</Position>
+      <StoredType>char(255)|0s</StoredType>
+    </column>
+    <column id="205" parent="23" name="userid">
+      <Position>3</Position>
+      <StoredType>int|0s</StoredType>
+    </column>
+    <column id="206" parent="23" name="md5">
+      <DefaultExpression>&apos;None&apos;</DefaultExpression>
+      <Position>4</Position>
+      <StoredType>char(255)|0s</StoredType>
+    </column>
+    <column id="207" parent="23" name="category">
+      <Position>5</Position>
+      <StoredType>char(255)|0s</StoredType>
+    </column>
+    <column id="208" parent="23" name="val">
+      <Position>6</Position>
+      <StoredType>float|0s</StoredType>
+    </column>
+    <index id="209" parent="23" name="PRIMARY">
+      <ColNames>id</ColNames>
+      <Type>btree</Type>
+      <Unique>1</Unique>
+    </index>
+    <index id="210" parent="23" name="idx_goal">
+      <ColNames>name
+userid</ColNames>
+      <Type>btree</Type>
+    </index>
+    <key id="211" parent="23" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <Primary>1</Primary>
+      <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
+    </key>
+    <column id="212" parent="24" name="id">
+      <AutoIncrement>283663</AutoIncrement>
+      <NotNull>1</NotNull>
+      <Position>1</Position>
+      <StoredType>int|0s</StoredType>
+    </column>
+    <column id="213" parent="24" name="userid">
+      <NotNull>1</NotNull>
+      <Position>2</Position>
+      <StoredType>int|0s</StoredType>
+    </column>
+    <column id="214" parent="24" name="ip">
+      <Comment>maxlen for ipv6</Comment>
+      <NotNull>1</NotNull>
+      <Position>3</Position>
+      <StoredType>varchar(45)|0s</StoredType>
+    </column>
+    <column id="215" parent="24" name="osu_ver">
+      <NotNull>1</NotNull>
+      <Position>4</Position>
+      <StoredType>date|0s</StoredType>
+    </column>
+    <column id="216" parent="24" name="osu_stream">
+      <NotNull>1</NotNull>
+      <Position>5</Position>
+      <StoredType>varchar(11)|0s</StoredType>
+    </column>
+    <column id="217" parent="24" name="datetime">
+      <NotNull>1</NotNull>
+      <Position>6</Position>
+      <StoredType>datetime|0s</StoredType>
+    </column>
+    <index id="218" parent="24" name="PRIMARY">
+      <ColNames>id</ColNames>
+      <Type>btree</Type>
+      <Unique>1</Unique>
+    </index>
+    <key id="219" parent="24" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <Primary>1</Primary>
+      <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
+    </key>
+    <column id="220" parent="25" name="id">
+      <AutoIncrement>2013</AutoIncrement>
+      <NotNull>1</NotNull>
+      <Position>1</Position>
+      <StoredType>int|0s</StoredType>
+    </column>
+    <column id="221" parent="25" name="from">
+      <Comment>both from and to are playerids</Comment>
+      <NotNull>1</NotNull>
+      <Position>2</Position>
+      <StoredType>int|0s</StoredType>
+    </column>
+    <column id="222" parent="25" name="to">
+      <NotNull>1</NotNull>
+      <Position>3</Position>
+      <StoredType>int|0s</StoredType>
+    </column>
+    <column id="223" parent="25" name="action">
+      <NotNull>1</NotNull>
+      <Position>4</Position>
+      <StoredType>varchar(32)|0s</StoredType>
+    </column>
+    <column id="224" parent="25" name="msg">
+      <Position>5</Position>
+      <StoredType>varchar(2048)|0s</StoredType>
+      <CollationName>utf8mb3_general_ci</CollationName>
+    </column>
+    <column id="225" parent="25" name="time">
+      <NotNull>1</NotNull>
+      <OnUpdate>CURRENT_TIMESTAMP</OnUpdate>
+      <Position>6</Position>
+      <StoredType>datetime|0s</StoredType>
+    </column>
+    <index id="226" parent="25" name="PRIMARY">
+      <ColNames>id</ColNames>
+      <Type>btree</Type>
+      <Unique>1</Unique>
+    </index>
+    <index id="227" parent="25" name="idx_logs_to_time">
+      <ColNames>to
+time</ColNames>
+      <Type>btree</Type>
+    </index>
+    <index id="228" parent="25" name="search_acc">
+      <ColNames>to</ColNames>
+      <Type>btree</Type>
+    </index>
+    <key id="229" parent="25" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <Primary>1</Primary>
+      <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
+    </key>
+    <column id="230" parent="26" name="id">
+      <AutoIncrement>303187</AutoIncrement>
+      <NotNull>1</NotNull>
+      <Position>1</Position>
+      <StoredType>int|0s</StoredType>
+    </column>
+    <column id="231" parent="26" name="from_id">
+      <NotNull>1</NotNull>
+      <Position>2</Position>
+      <StoredType>int|0s</StoredType>
+    </column>
+    <column id="232" parent="26" name="to_id">
+      <NotNull>1</NotNull>
+      <Position>3</Position>
+      <StoredType>int|0s</StoredType>
+    </column>
+    <column id="233" parent="26" name="msg">
+      <NotNull>1</NotNull>
+      <Position>4</Position>
+      <StoredType>varchar(2048)|0s</StoredType>
+      <CollationName>utf8mb3_general_ci</CollationName>
+    </column>
+    <column id="234" parent="26" name="time">
+      <Position>5</Position>
+      <StoredType>int|0s</StoredType>
+    </column>
+    <column id="235" parent="26" name="read">
+      <DefaultExpression>0</DefaultExpression>
+      <NotNull>1</NotNull>
+      <Position>6</Position>
+      <StoredType>tinyint(1)|0s</StoredType>
+    </column>
+    <index id="236" parent="26" name="PRIMARY">
+      <ColNames>id</ColNames>
+      <Type>btree</Type>
+      <Unique>1</Unique>
+    </index>
+    <index id="237" parent="26" name="check_mail_2">
+      <ColNames>from_id</ColNames>
+      <Type>btree</Type>
+    </index>
+    <index id="238" parent="26" name="check_mail">
+      <ColNames>to_id
+from_id
+read</ColNames>
+      <Type>btree</Type>
+    </index>
+    <index id="239" parent="26" name="check_mail_1">
+      <ColNames>to_id
+read</ColNames>
+      <Type>btree</Type>
+    </index>
+    <key id="240" parent="26" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <Primary>1</Primary>
+      <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
+    </key>
+    <column id="241" parent="27" name="id">
+      <AutoIncrement>1</AutoIncrement>
+      <NotNull>1</NotNull>
+      <Position>1</Position>
+      <StoredType>int|0s</StoredType>
+    </column>
+    <column id="242" parent="27" name="map_id">
+      <NotNull>1</NotNull>
+      <Position>2</Position>
+      <StoredType>int|0s</StoredType>
+    </column>
+    <column id="243" parent="27" name="player_id">
+      <NotNull>1</NotNull>
+      <Position>3</Position>
+      <StoredType>int|0s</StoredType>
+    </column>
+    <column id="244" parent="27" name="datetime">
+      <NotNull>1</NotNull>
+      <Position>4</Position>
+      <StoredType>datetime|0s</StoredType>
+    </column>
+    <column id="245" parent="27" name="active">
+      <NotNull>1</NotNull>
+      <Position>5</Position>
+      <StoredType>tinyint(1)|0s</StoredType>
+    </column>
+    <index id="246" parent="27" name="PRIMARY">
+      <ColNames>id</ColNames>
+      <Type>btree</Type>
+      <Unique>1</Unique>
+    </index>
+    <key id="247" parent="27" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <Primary>1</Primary>
+      <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
+    </key>
+    <column id="248" parent="28" name="server">
+      <DefaultExpression>&apos;osu!&apos;</DefaultExpression>
+      <NotNull>1</NotNull>
+      <Position>1</Position>
+      <StoredType>enum(&apos;osu!&apos;, &apos;private&apos;)|0e</StoredType>
+    </column>
+    <column id="249" parent="28" name="id">
+      <NotNull>1</NotNull>
+      <Position>2</Position>
+      <StoredType>int|0s</StoredType>
+    </column>
+    <column id="250" parent="28" name="set_id">
+      <NotNull>1</NotNull>
+      <Position>3</Position>
+      <StoredType>int|0s</StoredType>
+    </column>
+    <column id="251" parent="28" name="status">
+      <NotNull>1</NotNull>
+      <Position>4</Position>
+      <StoredType>int|0s</StoredType>
+    </column>
+    <column id="252" parent="28" name="md5">
+      <NotNull>1</NotNull>
+      <Position>5</Position>
+      <StoredType>char(32)|0s</StoredType>
+    </column>
+    <column id="253" parent="28" name="artist">
+      <NotNull>1</NotNull>
+      <Position>6</Position>
+      <StoredType>varchar(128)|0s</StoredType>
+      <CollationName>utf8mb3_general_ci</CollationName>
+    </column>
+    <column id="254" parent="28" name="title">
+      <NotNull>1</NotNull>
+      <Position>7</Position>
+      <StoredType>varchar(128)|0s</StoredType>
+      <CollationName>utf8mb3_general_ci</CollationName>
+    </column>
+    <column id="255" parent="28" name="version">
+      <NotNull>1</NotNull>
+      <Position>8</Position>
+      <StoredType>varchar(128)|0s</StoredType>
+      <CollationName>utf8mb3_general_ci</CollationName>
+    </column>
+    <column id="256" parent="28" name="creator">
+      <NotNull>1</NotNull>
+      <Position>9</Position>
+      <StoredType>varchar(19)|0s</StoredType>
+      <CollationName>utf8mb3_general_ci</CollationName>
+    </column>
+    <column id="257" parent="28" name="filename">
+      <NotNull>1</NotNull>
+      <Position>10</Position>
+      <StoredType>varchar(256)|0s</StoredType>
+      <CollationName>utf8mb3_general_ci</CollationName>
+    </column>
+    <column id="258" parent="28" name="last_update">
+      <NotNull>1</NotNull>
+      <Position>11</Position>
+      <StoredType>datetime|0s</StoredType>
+    </column>
+    <column id="259" parent="28" name="total_length">
+      <NotNull>1</NotNull>
+      <Position>12</Position>
+      <StoredType>int|0s</StoredType>
+    </column>
+    <column id="260" parent="28" name="max_combo">
+      <NotNull>1</NotNull>
+      <Position>13</Position>
+      <StoredType>int|0s</StoredType>
+    </column>
+    <column id="261" parent="28" name="frozen">
+      <DefaultExpression>0</DefaultExpression>
+      <NotNull>1</NotNull>
+      <Position>14</Position>
+      <StoredType>tinyint(1)|0s</StoredType>
+    </column>
+    <column id="262" parent="28" name="plays">
+      <DefaultExpression>0</DefaultExpression>
+      <NotNull>1</NotNull>
+      <Position>15</Position>
+      <StoredType>int|0s</StoredType>
+    </column>
+    <column id="263" parent="28" name="passes">
+      <DefaultExpression>0</DefaultExpression>
+      <NotNull>1</NotNull>
+      <Position>16</Position>
+      <StoredType>int|0s</StoredType>
+    </column>
+    <column id="264" parent="28" name="mode">
+      <DefaultExpression>0</DefaultExpression>
+      <NotNull>1</NotNull>
+      <Position>17</Position>
+      <StoredType>tinyint(1)|0s</StoredType>
+    </column>
+    <column id="265" parent="28" name="bpm">
+      <DefaultExpression>0.00</DefaultExpression>
+      <NotNull>1</NotNull>
+      <Position>18</Position>
+      <StoredType>float(12,2 digit)|0s</StoredType>
+    </column>
+    <column id="266" parent="28" name="cs">
+      <DefaultExpression>0.00</DefaultExpression>
+      <NotNull>1</NotNull>
+      <Position>19</Position>
+      <StoredType>float(4,2 digit)|0s</StoredType>
+    </column>
+    <column id="267" parent="28" name="ar">
+      <DefaultExpression>0.00</DefaultExpression>
+      <NotNull>1</NotNull>
+      <Position>20</Position>
+      <StoredType>float(4,2 digit)|0s</StoredType>
+    </column>
+    <column id="268" parent="28" name="od">
+      <DefaultExpression>0.00</DefaultExpression>
+      <NotNull>1</NotNull>
+      <Position>21</Position>
+      <StoredType>float(4,2 digit)|0s</StoredType>
+    </column>
+    <column id="269" parent="28" name="hp">
+      <DefaultExpression>0.00</DefaultExpression>
+      <NotNull>1</NotNull>
+      <Position>22</Position>
+      <StoredType>float(4,2 digit)|0s</StoredType>
+    </column>
+    <column id="270" parent="28" name="diff">
+      <DefaultExpression>0.000</DefaultExpression>
+      <NotNull>1</NotNull>
+      <Position>23</Position>
+      <StoredType>float(6,3 digit)|0s</StoredType>
+    </column>
+    <column id="271" parent="28" name="nominator">
+      <DefaultExpression>0</DefaultExpression>
+      <Position>24</Position>
+      <StoredType>int|0s</StoredType>
+    </column>
+    <index id="272" parent="28" name="PRIMARY">
+      <ColNames>server
+id</ColNames>
+      <Type>btree</Type>
+      <Unique>1</Unique>
+    </index>
+    <index id="273" parent="28" name="maps_id_uindex">
+      <ColNames>id</ColNames>
+      <Type>btree</Type>
+      <Unique>1</Unique>
+    </index>
+    <index id="274" parent="28" name="maps_md5_uindex">
+      <ColNames>md5</ColNames>
+      <Type>btree</Type>
+      <Unique>1</Unique>
+    </index>
+    <index id="275" parent="28" name="fetch_maps_set">
+      <ColNames>server
+set_id
+status
+artist
+creator
+filename
+mode
+frozen</ColNames>
+      <Type>btree</Type>
+    </index>
+    <index id="276" parent="28" name="idx_maps_primary_search">
+      <ColNames>server
+set_id
+status</ColNames>
+      <Type>btree</Type>
+    </index>
+    <index id="277" parent="28" name="map_index">
+      <ColNames>id
+set_id
+md5</ColNames>
+      <Type>btree</Type>
+    </index>
+    <index id="278" parent="28" name="fetch_maps">
+      <ColNames>id
+md5
+filename</ColNames>
+      <Type>btree</Type>
+    </index>
+    <index id="279" parent="28" name="idx_rework_1">
+      <ColNames>id</ColNames>
+      <Type>btree</Type>
+    </index>
+    <index id="280" parent="28" name="idx_maplistid">
+      <ColNames>set_id
+id</ColNames>
+      <Type>btree</Type>
+    </index>
+    <index id="281" parent="28" name="bsid_osuapi">
+      <ColNames>set_id
+frozen</ColNames>
+      <Type>btree</Type>
+    </index>
+    <index id="282" parent="28" name="search_maps_bmapset">
+      <ColNames>set_id</ColNames>
+      <Type>btree</Type>
+    </index>
+    <index id="283" parent="28" name="idx_status_mode">
+      <ColNames>status
+mode</ColNames>
+      <Type>btree</Type>
+    </index>
+    <index id="284" parent="28" name="idx_map_status">
+      <ColNames>status</ColNames>
+      <Type>btree</Type>
+    </index>
+    <index id="285" parent="28" name="idx_maps_md5_id">
+      <ColNames>md5
+id</ColNames>
+      <Type>btree</Type>
+    </index>
+    <index id="286" parent="28" name="idx_set">
+      <ColNames>md5
+id</ColNames>
+      <Type>btree</Type>
+    </index>
+    <index id="287" parent="28" name="map_record">
+      <ColNames>md5
+status</ColNames>
+      <Type>btree</Type>
+    </index>
+    <index id="288" parent="28" name="pp_record">
+      <ColNames>md5
+status</ColNames>
+      <Type>btree</Type>
+    </index>
+    <index id="289" parent="28" name="idx_maps_md5_mode_status">
+      <ColNames>md5
+mode
+status</ColNames>
+      <Type>btree</Type>
+    </index>
+    <index id="290" parent="28" name="idx_md5">
+      <ColNames>md5</ColNames>
+      <Type>btree</Type>
+    </index>
+    <index id="291" parent="28" name="update_map">
+      <ColNames>filename</ColNames>
+      <Type>btree</Type>
+    </index>
+    <index id="292" parent="28" name="idx_maplist">
+      <ColNames>frozen
+set_id</ColNames>
+      <ReverseColNames>frozen
+set_id</ReverseColNames>
+      <Type>btree</Type>
+    </index>
+    <index id="293" parent="28" name="idx_maps_plays">
+      <ColNames>plays</ColNames>
+      <Type>btree</Type>
+    </index>
+    <index id="294" parent="28" name="idx_maps_mode">
+      <ColNames>mode</ColNames>
+      <Type>btree</Type>
+    </index>
+    <index id="295" parent="28" name="idx_mapdifflist">
+      <ColNames>diff</ColNames>
+      <ReverseColNames>diff</ReverseColNames>
+      <Type>btree</Type>
+    </index>
+    <key id="296" parent="28" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <Primary>1</Primary>
+      <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
+    </key>
+    <key id="297" parent="28" name="maps_id_uindex">
+      <UnderlyingIndexName>maps_id_uindex</UnderlyingIndexName>
+    </key>
+    <key id="298" parent="28" name="maps_md5_uindex">
+      <UnderlyingIndexName>maps_md5_uindex</UnderlyingIndexName>
+    </key>
+    <column id="299" parent="29" name="server">
+      <DefaultExpression>&apos;osu!&apos;</DefaultExpression>
+      <NotNull>1</NotNull>
+      <Position>1</Position>
+      <StoredType>enum(&apos;osu!&apos;, &apos;private&apos;)|0e</StoredType>
+    </column>
+    <column id="300" parent="29" name="id">
+      <NotNull>1</NotNull>
+      <Position>2</Position>
+      <StoredType>int|0s</StoredType>
+    </column>
+    <column id="301" parent="29" name="last_osuapi_check">
+      <DefaultExpression>CURRENT_TIMESTAMP</DefaultExpression>
+      <NotNull>1</NotNull>
+      <Position>3</Position>
+      <StoredType>datetime|0s</StoredType>
+    </column>
+    <index id="302" parent="29" name="PRIMARY">
+      <ColNames>server
+id</ColNames>
+      <Type>btree</Type>
+      <Unique>1</Unique>
+    </index>
+    <index id="303" parent="29" name="nmapsets_id_uindex">
+      <ColNames>id</ColNames>
+      <Type>btree</Type>
+      <Unique>1</Unique>
+    </index>
+    <index id="304" parent="29" name="check_api">
+      <ColNames>id</ColNames>
+      <Type>btree</Type>
+    </index>
+    <key id="305" parent="29" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <Primary>1</Primary>
+      <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
+    </key>
+    <key id="306" parent="29" name="nmapsets_id_uindex">
+      <UnderlyingIndexName>nmapsets_id_uindex</UnderlyingIndexName>
+    </key>
+    <column id="307" parent="30" name="id">
+      <AutoIncrement>1</AutoIncrement>
+      <NotNull>1</NotNull>
+      <Position>1</Position>
+      <StoredType>int|0s</StoredType>
+    </column>
+    <column id="308" parent="30" name="name">
+      <NotNull>1</NotNull>
+      <Position>2</Position>
+      <StoredType>varchar(32)|0s</StoredType>
+      <CollationName>utf8mb3_general_ci</CollationName>
+    </column>
+    <column id="309" parent="30" name="safe_name">
+      <NotNull>1</NotNull>
+      <Position>3</Position>
+      <StoredType>varchar(32)|0s</StoredType>
+      <CollationName>utf8mb3_general_ci</CollationName>
+    </column>
+    <column id="310" parent="30" name="email">
+      <NotNull>1</NotNull>
+      <Position>4</Position>
+      <StoredType>varchar(254)|0s</StoredType>
+    </column>
+    <column id="311" parent="30" name="priv">
+      <DefaultExpression>1</DefaultExpression>
+      <NotNull>1</NotNull>
+      <Position>5</Position>
+      <StoredType>int|0s</StoredType>
+    </column>
+    <column id="312" parent="30" name="pw_bcrypt">
+      <NotNull>1</NotNull>
+      <Position>6</Position>
+      <StoredType>char(60)|0s</StoredType>
+    </column>
+    <column id="313" parent="30" name="country">
+      <DefaultExpression>&apos;xx&apos;</DefaultExpression>
+      <NotNull>1</NotNull>
+      <Position>7</Position>
+      <StoredType>char(2)|0s</StoredType>
+    </column>
+    <column id="314" parent="30" name="silence_end">
+      <DefaultExpression>0</DefaultExpression>
+      <NotNull>1</NotNull>
+      <Position>8</Position>
+      <StoredType>int|0s</StoredType>
+    </column>
+    <column id="315" parent="30" name="donor_end">
+      <DefaultExpression>0</DefaultExpression>
+      <NotNull>1</NotNull>
+      <Position>9</Position>
+      <StoredType>int|0s</StoredType>
+    </column>
+    <column id="316" parent="30" name="creation_time">
+      <DefaultExpression>0</DefaultExpression>
+      <NotNull>1</NotNull>
+      <Position>10</Position>
+      <StoredType>int|0s</StoredType>
+    </column>
+    <column id="317" parent="30" name="latest_activity">
+      <DefaultExpression>0</DefaultExpression>
+      <NotNull>1</NotNull>
+      <Position>11</Position>
+      <StoredType>int|0s</StoredType>
+    </column>
+    <column id="318" parent="30" name="clan_id">
+      <DefaultExpression>0</DefaultExpression>
+      <NotNull>1</NotNull>
+      <Position>12</Position>
+      <StoredType>int|0s</StoredType>
+    </column>
+    <column id="319" parent="30" name="clan_priv">
+      <DefaultExpression>0</DefaultExpression>
+      <NotNull>1</NotNull>
+      <Position>13</Position>
+      <StoredType>tinyint(1)|0s</StoredType>
+    </column>
+    <column id="320" parent="30" name="preferred_mode">
+      <DefaultExpression>0</DefaultExpression>
+      <NotNull>1</NotNull>
+      <Position>14</Position>
+      <StoredType>int|0s</StoredType>
+    </column>
+    <column id="321" parent="30" name="play_style">
+      <DefaultExpression>0</DefaultExpression>
+      <NotNull>1</NotNull>
+      <Position>15</Position>
+      <StoredType>int|0s</StoredType>
+    </column>
+    <column id="322" parent="30" name="custom_badge_name">
+      <Position>16</Position>
+      <StoredType>varchar(16)|0s</StoredType>
+      <CollationName>utf8mb3_general_ci</CollationName>
+    </column>
+    <column id="323" parent="30" name="custom_badge_icon">
+      <Position>17</Position>
+      <StoredType>varchar(64)|0s</StoredType>
+    </column>
+    <column id="324" parent="30" name="userpage_content">
+      <Position>18</Position>
+      <StoredType>varchar(2048)|0s</StoredType>
+      <CollationName>utf8mb3_general_ci</CollationName>
+    </column>
+    <column id="325" parent="30" name="api_key">
+      <Position>19</Position>
+      <StoredType>char(36)|0s</StoredType>
+    </column>
+    <index id="326" parent="30" name="PRIMARY">
+      <ColNames>id</ColNames>
+      <Type>btree</Type>
+      <Unique>1</Unique>
+    </index>
+    <index id="327" parent="30" name="users_name_uindex">
+      <ColNames>name</ColNames>
+      <Type>btree</Type>
+      <Unique>1</Unique>
+    </index>
+    <index id="328" parent="30" name="users_safe_name_uindex">
+      <ColNames>safe_name</ColNames>
+      <Type>btree</Type>
+      <Unique>1</Unique>
+    </index>
+    <index id="329" parent="30" name="users_email_uindex">
+      <ColNames>email</ColNames>
+      <Type>btree</Type>
+      <Unique>1</Unique>
+    </index>
+    <index id="330" parent="30" name="users_api_key_uindex">
+      <ColNames>api_key</ColNames>
+      <Type>btree</Type>
+      <Unique>1</Unique>
+    </index>
+    <key id="331" parent="30" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <Primary>1</Primary>
+      <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
+    </key>
+    <key id="332" parent="30" name="users_name_uindex">
+      <UnderlyingIndexName>users_name_uindex</UnderlyingIndexName>
+    </key>
+    <key id="333" parent="30" name="users_safe_name_uindex">
+      <UnderlyingIndexName>users_safe_name_uindex</UnderlyingIndexName>
+    </key>
+    <key id="334" parent="30" name="users_email_uindex">
+      <UnderlyingIndexName>users_email_uindex</UnderlyingIndexName>
+    </key>
+    <key id="335" parent="30" name="users_api_key_uindex">
+      <UnderlyingIndexName>users_api_key_uindex</UnderlyingIndexName>
+    </key>
+    <column id="336" parent="31" name="scoreid">
+      <NotNull>1</NotNull>
+      <Position>1</Position>
+      <StoredType>bigint unsigned|0s</StoredType>
+    </column>
+    <column id="337" parent="31" name="mod_mode">
+      <DefaultExpression>&apos;vanilla&apos;</DefaultExpression>
+      <NotNull>1</NotNull>
+      <Position>2</Position>
+      <StoredType>enum(&apos;vanilla&apos;, &apos;relax&apos;, &apos;autopilot&apos;)|0e</StoredType>
+    </column>
+    <column id="338" parent="31" name="os">
+      <NotNull>1</NotNull>
+      <Position>3</Position>
+      <StoredType>varchar(64)|0s</StoredType>
+    </column>
+    <column id="339" parent="31" name="fullscreen">
+      <NotNull>1</NotNull>
+      <Position>4</Position>
+      <StoredType>tinyint(1)|0s</StoredType>
+    </column>
+    <column id="340" parent="31" name="fps_cap">
+      <NotNull>1</NotNull>
+      <Position>5</Position>
+      <StoredType>varchar(16)|0s</StoredType>
+    </column>
+    <column id="341" parent="31" name="compatibility">
+      <NotNull>1</NotNull>
+      <Position>6</Position>
+      <StoredType>tinyint(1)|0s</StoredType>
+    </column>
+    <column id="342" parent="31" name="version">
+      <NotNull>1</NotNull>
+      <Position>7</Position>
+      <StoredType>varchar(16)|0s</StoredType>
+    </column>
+    <column id="343" parent="31" name="start_time">
+      <NotNull>1</NotNull>
+      <Position>8</Position>
+      <StoredType>int|0s</StoredType>
+    </column>
+    <column id="344" parent="31" name="end_time">
+      <NotNull>1</NotNull>
+      <Position>9</Position>
+      <StoredType>int|0s</StoredType>
+    </column>
+    <column id="345" parent="31" name="frame_count">
+      <NotNull>1</NotNull>
+      <Position>10</Position>
+      <StoredType>int|0s</StoredType>
+    </column>
+    <column id="346" parent="31" name="spike_frames">
+      <NotNull>1</NotNull>
+      <Position>11</Position>
+      <StoredType>int|0s</StoredType>
+    </column>
+    <column id="347" parent="31" name="aim_rate">
+      <NotNull>1</NotNull>
+      <Position>12</Position>
+      <StoredType>int|0s</StoredType>
+    </column>
+    <column id="348" parent="31" name="completion">
+      <NotNull>1</NotNull>
+      <Position>13</Position>
+      <StoredType>tinyint(1)|0s</StoredType>
+    </column>
+    <column id="349" parent="31" name="identifier">
+      <Comment>really don&apos;t know much about this yet</Comment>
+      <Position>14</Position>
+      <StoredType>varchar(128)|0s</StoredType>
+    </column>
+    <column id="350" parent="31" name="average_frametime">
+      <NotNull>1</NotNull>
+      <Position>15</Position>
+      <StoredType>int|0s</StoredType>
+    </column>
+    <index id="351" parent="31" name="PRIMARY">
+      <ColNames>scoreid
+mod_mode</ColNames>
+      <Type>btree</Type>
+      <Unique>1</Unique>
+    </index>
+    <key id="352" parent="31" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <Primary>1</Primary>
+      <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
+    </key>
+    <column id="353" parent="32" name="userid">
+      <NotNull>1</NotNull>
+      <Position>1</Position>
+      <StoredType>int|0s</StoredType>
+    </column>
+    <column id="354" parent="32" name="map_md5">
+      <NotNull>1</NotNull>
+      <Position>2</Position>
+      <StoredType>char(32)|0s</StoredType>
+    </column>
+    <column id="355" parent="32" name="rating">
+      <NotNull>1</NotNull>
+      <Position>3</Position>
+      <StoredType>tinyint|0s</StoredType>
+    </column>
+    <index id="356" parent="32" name="PRIMARY">
+      <ColNames>userid
+map_md5</ColNames>
+      <Type>btree</Type>
+      <Unique>1</Unique>
+    </index>
+    <index id="357" parent="32" name="fetch_rate">
+      <ColNames>map_md5
+userid</ColNames>
+      <Type>btree</Type>
+    </index>
+    <index id="358" parent="32" name="check_rating_1">
+      <ColNames>map_md5</ColNames>
+      <Type>btree</Type>
+    </index>
+    <index id="359" parent="32" name="idx_ratings_rating">
+      <ColNames>rating</ColNames>
+      <ReverseColNames>rating</ReverseColNames>
+      <Type>btree</Type>
+    </index>
+    <key id="360" parent="32" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <Primary>1</Primary>
+      <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
+    </key>
+    <column id="361" parent="33" name="user1">
+      <NotNull>1</NotNull>
+      <Position>1</Position>
+      <StoredType>int|0s</StoredType>
+    </column>
+    <column id="362" parent="33" name="user2">
+      <NotNull>1</NotNull>
+      <Position>2</Position>
+      <StoredType>int|0s</StoredType>
+    </column>
+    <column id="363" parent="33" name="type">
+      <NotNull>1</NotNull>
+      <Position>3</Position>
+      <StoredType>enum(&apos;friend&apos;, &apos;block&apos;)|0e</StoredType>
+    </column>
+    <index id="364" parent="33" name="PRIMARY">
+      <ColNames>user1
+user2</ColNames>
+      <Type>btree</Type>
+      <Unique>1</Unique>
+    </index>
+    <index id="365" parent="33" name="fetch_relationships">
+      <ColNames>user1</ColNames>
+      <Type>btree</Type>
+    </index>
+    <key id="366" parent="33" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <Primary>1</Primary>
+      <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
+    </key>
+    <column id="367" parent="34" name="from_id">
+      <Position>1</Position>
+      <StoredType>int|0s</StoredType>
+    </column>
+    <column id="368" parent="34" name="to_id">
+      <Position>2</Position>
+      <StoredType>int|0s</StoredType>
+    </column>
+    <index id="369" parent="34" name="rival_search">
+      <ColNames>to_id</ColNames>
+      <Type>btree</Type>
+    </index>
+    <column id="370" parent="35" name="id">
+      <NotNull>1</NotNull>
+      <Position>1</Position>
+      <StoredType>int|0s</StoredType>
+    </column>
+    <column id="371" parent="35" name="channel_id">
+      <Position>2</Position>
+      <StoredType>bigint|0s</StoredType>
+    </column>
+    <column id="372" parent="35" name="active">
+      <Position>3</Position>
+      <StoredType>tinyint(1)|0s</StoredType>
+    </column>
+    <column id="373" parent="35" name="send">
+      <Position>4</Position>
+      <StoredType>tinyint(1)|0s</StoredType>
+    </column>
+    <index id="374" parent="35" name="PRIMARY">
+      <ColNames>id</ColNames>
+      <Type>btree</Type>
+      <Unique>1</Unique>
+    </index>
+    <key id="375" parent="35" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <Primary>1</Primary>
+      <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
+    </key>
+    <column id="376" parent="36" name="userid">
+      <NotNull>1</NotNull>
+      <Position>1</Position>
+      <StoredType>int|0s</StoredType>
+    </column>
+    <column id="377" parent="36" name="score_id">
+      <NotNull>1</NotNull>
+      <Position>2</Position>
+      <StoredType>bigint unsigned|0s</StoredType>
+    </column>
+    <column id="378" parent="36" name="add_time">
+      <DefaultExpression>CURRENT_TIMESTAMP</DefaultExpression>
+      <Position>3</Position>
+      <StoredType>datetime|0s</StoredType>
+    </column>
+    <index id="379" parent="36" name="pins_index">
+      <ColNames>userid
+add_time</ColNames>
+      <Type>btree</Type>
+    </index>
+    <index id="380" parent="36" name="pins_id_index">
+      <ColNames>score_id</ColNames>
+      <Type>btree</Type>
+    </index>
+    <column id="381" parent="37" name="id">
+      <Position>1</Position>
+      <StoredType>bigint unsigned|0s</StoredType>
+    </column>
+    <column id="382" parent="37" name="map_md5">
+      <NotNull>1</NotNull>
+      <Position>2</Position>
+      <StoredType>char(32)|0s</StoredType>
+    </column>
+    <column id="383" parent="37" name="score">
+      <NotNull>1</NotNull>
+      <Position>3</Position>
+      <StoredType>int|0s</StoredType>
+    </column>
+    <column id="384" parent="37" name="pp">
+      <NotNull>1</NotNull>
+      <Position>4</Position>
+      <StoredType>float(7,3 digit)|0s</StoredType>
+    </column>
+    <column id="385" parent="37" name="acc">
+      <NotNull>1</NotNull>
+      <Position>5</Position>
+      <StoredType>float(6,3 digit)|0s</StoredType>
+    </column>
+    <column id="386" parent="37" name="max_combo">
+      <NotNull>1</NotNull>
+      <Position>6</Position>
+      <StoredType>int|0s</StoredType>
+    </column>
+    <column id="387" parent="37" name="mods">
+      <NotNull>1</NotNull>
+      <Position>7</Position>
+      <StoredType>int|0s</StoredType>
+    </column>
+    <column id="388" parent="37" name="n300">
+      <NotNull>1</NotNull>
+      <Position>8</Position>
+      <StoredType>int|0s</StoredType>
+    </column>
+    <column id="389" parent="37" name="n100">
+      <NotNull>1</NotNull>
+      <Position>9</Position>
+      <StoredType>int|0s</StoredType>
+    </column>
+    <column id="390" parent="37" name="n50">
+      <NotNull>1</NotNull>
+      <Position>10</Position>
+      <StoredType>int|0s</StoredType>
+    </column>
+    <column id="391" parent="37" name="nmiss">
+      <NotNull>1</NotNull>
+      <Position>11</Position>
+      <StoredType>int|0s</StoredType>
+    </column>
+    <column id="392" parent="37" name="ngeki">
+      <NotNull>1</NotNull>
+      <Position>12</Position>
+      <StoredType>int|0s</StoredType>
+    </column>
+    <column id="393" parent="37" name="nkatu">
+      <NotNull>1</NotNull>
+      <Position>13</Position>
+      <StoredType>int|0s</StoredType>
+    </column>
+    <column id="394" parent="37" name="grade">
+      <DefaultExpression>&apos;N&apos;</DefaultExpression>
+      <NotNull>1</NotNull>
+      <Position>14</Position>
+      <StoredType>varchar(2)|0s</StoredType>
+    </column>
+    <column id="395" parent="37" name="status">
+      <NotNull>1</NotNull>
+      <Position>15</Position>
+      <StoredType>tinyint|0s</StoredType>
+    </column>
+    <column id="396" parent="37" name="mode">
+      <NotNull>1</NotNull>
+      <Position>16</Position>
+      <StoredType>tinyint|0s</StoredType>
+    </column>
+    <column id="397" parent="37" name="play_time">
+      <NotNull>1</NotNull>
+      <Position>17</Position>
+      <StoredType>datetime|0s</StoredType>
+    </column>
+    <column id="398" parent="37" name="time_elapsed">
+      <NotNull>1</NotNull>
+      <Position>18</Position>
+      <StoredType>int|0s</StoredType>
+    </column>
+    <column id="399" parent="37" name="client_flags">
+      <NotNull>1</NotNull>
+      <Position>19</Position>
+      <StoredType>int|0s</StoredType>
+    </column>
+    <column id="400" parent="37" name="userid">
+      <NotNull>1</NotNull>
+      <Position>20</Position>
+      <StoredType>int|0s</StoredType>
+    </column>
+    <column id="401" parent="37" name="perfect">
+      <NotNull>1</NotNull>
+      <Position>21</Position>
+      <StoredType>tinyint(1)|0s</StoredType>
+    </column>
+    <column id="402" parent="37" name="online_checksum">
+      <NotNull>1</NotNull>
+      <Position>22</Position>
+      <StoredType>char(32)|0s</StoredType>
+    </column>
+    <index id="403" parent="37" name="PRIMARY">
+      <ColNames>online_checksum</ColNames>
+      <Type>btree</Type>
+      <Unique>1</Unique>
+    </index>
+    <index id="404" parent="37" name="idx_scores_update">
+      <ColNames>id
+pp</ColNames>
+      <Type>btree</Type>
+    </index>
+    <index id="405" parent="37" name="check_manual_submit">
+      <ColNames>id
+userid
+map_md5
+mode
+n300
+n100
+n50
+nmiss
+ngeki
+nkatu</ColNames>
+      <Type>btree</Type>
+    </index>
+    <index id="406" parent="37" name="fetch_id">
+      <ColNames>id</ColNames>
+      <ReverseColNames>id</ReverseColNames>
+      <Type>btree</Type>
+    </index>
+    <index id="407" parent="37" name="idx_scores_partition">
+      <ColNames>map_md5
+score</ColNames>
+      <ReverseColNames>score</ReverseColNames>
+      <Type>btree</Type>
+    </index>
+    <index id="408" parent="37" name="idx_pp_partition">
+      <ColNames>map_md5
+pp</ColNames>
+      <ReverseColNames>pp</ReverseColNames>
+      <Type>btree</Type>
+    </index>
+    <index id="409" parent="37" name="idx_acc_partition">
+      <ColNames>map_md5
+acc</ColNames>
+      <ReverseColNames>acc</ReverseColNames>
+      <Type>btree</Type>
+    </index>
+    <index id="410" parent="37" name="idx_scores_search">
+      <ColNames>map_md5
+mods
+status
+mode
+userid</ColNames>
+      <Type>btree</Type>
+    </index>
+    <index id="411" parent="37" name="idx_scores_map_md5_mode">
+      <ColNames>map_md5
+mode</ColNames>
+      <Type>btree</Type>
+    </index>
+    <index id="412" parent="37" name="idx_map_md5">
+      <ColNames>map_md5</ColNames>
+      <Type>btree</Type>
+    </index>
+    <index id="413" parent="37" name="idx_scores_map_md5">
+      <ColNames>map_md5</ColNames>
+      <Type>btree</Type>
+    </index>
+    <index id="414" parent="37" name="fetch_rival_score">
+      <ColNames>score
+map_md5
+status
+mode
+pp</ColNames>
+      <ReverseColNames>pp</ReverseColNames>
+      <Type>btree</Type>
+    </index>
+    <index id="415" parent="37" name="idx_scores_score_map_md5">
+      <ColNames>score
+map_md5</ColNames>
+      <Type>btree</Type>
+    </index>
+    <index id="416" parent="37" name="find_priv_score">
+      <ColNames>acc
+max_combo
+n300
+n100
+n50
+nmiss
+ngeki
+nkatu
+map_md5
+id</ColNames>
+      <Type>btree</Type>
+    </index>
+    <index id="417" parent="37" name="idx_scores_scores">
+      <ColNames>status
+map_md5
+userid
+mode
+score</ColNames>
+      <ReverseColNames>score</ReverseColNames>
+      <Type>btree</Type>
+    </index>
+    <index id="418" parent="37" name="idx_scores_pp">
+      <ColNames>status
+map_md5
+userid
+mode
+pp</ColNames>
+      <ReverseColNames>pp</ReverseColNames>
+      <Type>btree</Type>
+    </index>
+    <index id="419" parent="37" name="idx_scores_acc">
+      <ColNames>status
+map_md5
+userid
+mode
+acc</ColNames>
+      <ReverseColNames>acc</ReverseColNames>
+      <Type>btree</Type>
+    </index>
+    <index id="420" parent="37" name="idx_scores_status_map_md5">
+      <ColNames>status
+map_md5
+userid
+mode</ColNames>
+      <Type>btree</Type>
+    </index>
+    <index id="421" parent="37" name="idx_score_status">
+      <ColNames>status</ColNames>
+      <Type>btree</Type>
+    </index>
+    <index id="422" parent="37" name="idx_scores_mode_status_pp">
+      <ColNames>mode
+status
+pp</ColNames>
+      <Type>btree</Type>
+    </index>
+    <index id="423" parent="37" name="idx_rework_1">
+      <ColNames>mode
+status
+play_time
+id</ColNames>
+      <Type>btree</Type>
+    </index>
+    <index id="424" parent="37" name="idx_scores_mode_status">
+      <ColNames>mode
+status</ColNames>
+      <Type>btree</Type>
+    </index>
+    <index id="425" parent="37" name="idx_score_mode">
+      <ColNames>mode</ColNames>
+      <Type>btree</Type>
+    </index>
+    <index id="426" parent="37" name="idx_set">
+      <ColNames>play_time
+mods
+status
+map_md5
+id</ColNames>
+      <Type>btree</Type>
+    </index>
+    <index id="427" parent="37" name="score_record">
+      <ColNames>userid
+map_md5
+mode
+status
+pp</ColNames>
+      <ReverseColNames>pp</ReverseColNames>
+      <Type>btree</Type>
+    </index>
+    <index id="428" parent="37" name="set_grade">
+      <ColNames>userid
+mode
+grade
+status</ColNames>
+      <Type>btree</Type>
+    </index>
+    <index id="429" parent="37" name="idx_scores_userid_mode_status">
+      <ColNames>userid
+mode
+status</ColNames>
+      <Type>btree</Type>
+    </index>
+    <index id="430" parent="37" name="delete_score">
+      <ColNames>userid</ColNames>
+      <Type>btree</Type>
+    </index>
+    <index id="431" parent="37" name="idx_scores_userid">
+      <ColNames>userid</ColNames>
+      <Type>btree</Type>
+    </index>
+    <index id="432" parent="37" name="idx_userid">
+      <ColNames>userid</ColNames>
+      <Type>btree</Type>
+    </index>
+    <index id="433" parent="37" name="check_score">
+      <ColNames>online_checksum</ColNames>
+      <Type>btree</Type>
+    </index>
+    <key id="434" parent="37" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <Primary>1</Primary>
+      <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
+    </key>
+    <column id="435" parent="38" name="id">
+      <AutoIncrement>391</AutoIncrement>
+      <NotNull>1</NotNull>
+      <Position>1</Position>
+      <StoredType>bigint unsigned|0s</StoredType>
+    </column>
+    <column id="436" parent="38" name="map_md5">
+      <NotNull>1</NotNull>
+      <Position>2</Position>
+      <StoredType>char(32)|0s</StoredType>
+    </column>
+    <column id="437" parent="38" name="score">
+      <NotNull>1</NotNull>
+      <Position>3</Position>
+      <StoredType>int|0s</StoredType>
+    </column>
+    <column id="438" parent="38" name="pp">
+      <NotNull>1</NotNull>
+      <Position>4</Position>
+      <StoredType>float(7,3 digit)|0s</StoredType>
+    </column>
+    <column id="439" parent="38" name="acc">
+      <NotNull>1</NotNull>
+      <Position>5</Position>
+      <StoredType>float(6,3 digit)|0s</StoredType>
+    </column>
+    <column id="440" parent="38" name="max_combo">
+      <NotNull>1</NotNull>
+      <Position>6</Position>
+      <StoredType>int|0s</StoredType>
+    </column>
+    <column id="441" parent="38" name="mods">
+      <NotNull>1</NotNull>
+      <Position>7</Position>
+      <StoredType>int|0s</StoredType>
+    </column>
+    <column id="442" parent="38" name="n300">
+      <NotNull>1</NotNull>
+      <Position>8</Position>
+      <StoredType>int|0s</StoredType>
+    </column>
+    <column id="443" parent="38" name="n100">
+      <NotNull>1</NotNull>
+      <Position>9</Position>
+      <StoredType>int|0s</StoredType>
+    </column>
+    <column id="444" parent="38" name="n50">
+      <NotNull>1</NotNull>
+      <Position>10</Position>
+      <StoredType>int|0s</StoredType>
+    </column>
+    <column id="445" parent="38" name="nmiss">
+      <NotNull>1</NotNull>
+      <Position>11</Position>
+      <StoredType>int|0s</StoredType>
+    </column>
+    <column id="446" parent="38" name="ngeki">
+      <NotNull>1</NotNull>
+      <Position>12</Position>
+      <StoredType>int|0s</StoredType>
+    </column>
+    <column id="447" parent="38" name="nkatu">
+      <NotNull>1</NotNull>
+      <Position>13</Position>
+      <StoredType>int|0s</StoredType>
+    </column>
+    <column id="448" parent="38" name="grade">
+      <DefaultExpression>&apos;N&apos;</DefaultExpression>
+      <NotNull>1</NotNull>
+      <Position>14</Position>
+      <StoredType>varchar(2)|0s</StoredType>
+    </column>
+    <column id="449" parent="38" name="status">
+      <NotNull>1</NotNull>
+      <Position>15</Position>
+      <StoredType>tinyint|0s</StoredType>
+    </column>
+    <column id="450" parent="38" name="mode">
+      <NotNull>1</NotNull>
+      <Position>16</Position>
+      <StoredType>tinyint|0s</StoredType>
+    </column>
+    <column id="451" parent="38" name="play_time">
+      <NotNull>1</NotNull>
+      <Position>17</Position>
+      <StoredType>datetime|0s</StoredType>
+    </column>
+    <column id="452" parent="38" name="time_elapsed">
+      <NotNull>1</NotNull>
+      <Position>18</Position>
+      <StoredType>int|0s</StoredType>
+    </column>
+    <column id="453" parent="38" name="client_flags">
+      <NotNull>1</NotNull>
+      <Position>19</Position>
+      <StoredType>int|0s</StoredType>
+    </column>
+    <column id="454" parent="38" name="userid">
+      <NotNull>1</NotNull>
+      <Position>20</Position>
+      <StoredType>int|0s</StoredType>
+    </column>
+    <column id="455" parent="38" name="perfect">
+      <NotNull>1</NotNull>
+      <Position>21</Position>
+      <StoredType>tinyint(1)|0s</StoredType>
+    </column>
+    <column id="456" parent="38" name="online_checksum">
+      <NotNull>1</NotNull>
+      <Position>22</Position>
+      <StoredType>char(32)|0s</StoredType>
+    </column>
+    <index id="457" parent="38" name="PRIMARY">
+      <ColNames>id</ColNames>
+      <Type>btree</Type>
+      <Unique>1</Unique>
+    </index>
+    <key id="458" parent="38" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <Primary>1</Primary>
+      <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
+    </key>
+    <column id="459" parent="39" name="session_id">
+      <NotNull>1</NotNull>
+      <Position>1</Position>
+      <StoredType>varchar(128)|0s</StoredType>
+      <CollationName>utf8mb4_bin</CollationName>
+    </column>
+    <column id="460" parent="39" name="expires">
+      <NotNull>1</NotNull>
+      <Position>2</Position>
+      <StoredType>int unsigned|0s</StoredType>
+    </column>
+    <column id="461" parent="39" name="data">
+      <Position>3</Position>
+      <StoredType>mediumtext|0s</StoredType>
+      <CollationName>utf8mb4_bin</CollationName>
+    </column>
+    <index id="462" parent="39" name="PRIMARY">
+      <ColNames>session_id</ColNames>
+      <Type>btree</Type>
+      <Unique>1</Unique>
+    </index>
+    <key id="463" parent="39" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <Primary>1</Primary>
+      <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
+    </key>
+    <column id="464" parent="40" name="id">
+      <AutoIncrement>1</AutoIncrement>
+      <NotNull>1</NotNull>
+      <Position>1</Position>
+      <StoredType>int|0s</StoredType>
+    </column>
+    <column id="465" parent="40" name="ver_major">
+      <NotNull>1</NotNull>
+      <Position>2</Position>
+      <StoredType>tinyint|0s</StoredType>
+    </column>
+    <column id="466" parent="40" name="ver_minor">
+      <NotNull>1</NotNull>
+      <Position>3</Position>
+      <StoredType>tinyint|0s</StoredType>
+    </column>
+    <column id="467" parent="40" name="ver_micro">
+      <NotNull>1</NotNull>
+      <Position>4</Position>
+      <StoredType>tinyint|0s</StoredType>
+    </column>
+    <column id="468" parent="40" name="datetime">
+      <NotNull>1</NotNull>
+      <Position>5</Position>
+      <StoredType>datetime|0s</StoredType>
+    </column>
+    <index id="469" parent="40" name="PRIMARY">
+      <ColNames>id</ColNames>
+      <Type>btree</Type>
+      <Unique>1</Unique>
+    </index>
+    <key id="470" parent="40" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <Primary>1</Primary>
+      <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
+    </key>
+    <column id="471" parent="41" name="id">
+      <AutoIncrement>5865</AutoIncrement>
+      <NotNull>1</NotNull>
+      <Position>1</Position>
+      <StoredType>int|0s</StoredType>
+    </column>
+    <column id="472" parent="41" name="mode">
+      <NotNull>1</NotNull>
+      <Position>2</Position>
+      <StoredType>tinyint(1)|0s</StoredType>
+    </column>
+    <column id="473" parent="41" name="tscore">
+      <DefaultExpression>&apos;0&apos;</DefaultExpression>
+      <NotNull>1</NotNull>
+      <Position>3</Position>
+      <StoredType>bigint unsigned|0s</StoredType>
+    </column>
+    <column id="474" parent="41" name="rscore">
+      <DefaultExpression>&apos;0&apos;</DefaultExpression>
+      <NotNull>1</NotNull>
+      <Position>4</Position>
+      <StoredType>bigint unsigned|0s</StoredType>
+    </column>
+    <column id="475" parent="41" name="pp">
+      <DefaultExpression>&apos;0&apos;</DefaultExpression>
+      <NotNull>1</NotNull>
+      <Position>5</Position>
+      <StoredType>int unsigned|0s</StoredType>
+    </column>
+    <column id="476" parent="41" name="plays">
+      <DefaultExpression>&apos;0&apos;</DefaultExpression>
+      <NotNull>1</NotNull>
+      <Position>6</Position>
+      <StoredType>int unsigned|0s</StoredType>
+    </column>
+    <column id="477" parent="41" name="playtime">
+      <DefaultExpression>&apos;0&apos;</DefaultExpression>
+      <NotNull>1</NotNull>
+      <Position>7</Position>
+      <StoredType>int unsigned|0s</StoredType>
+    </column>
+    <column id="478" parent="41" name="acc">
+      <DefaultExpression>0.000</DefaultExpression>
+      <NotNull>1</NotNull>
+      <Position>8</Position>
+      <StoredType>float(6,3 digit)|0s</StoredType>
+    </column>
+    <column id="479" parent="41" name="max_combo">
+      <DefaultExpression>&apos;0&apos;</DefaultExpression>
+      <NotNull>1</NotNull>
+      <Position>9</Position>
+      <StoredType>int unsigned|0s</StoredType>
+    </column>
+    <column id="480" parent="41" name="total_hits">
+      <DefaultExpression>&apos;0&apos;</DefaultExpression>
+      <NotNull>1</NotNull>
+      <Position>10</Position>
+      <StoredType>int unsigned|0s</StoredType>
+    </column>
+    <column id="481" parent="41" name="replay_views">
+      <DefaultExpression>&apos;0&apos;</DefaultExpression>
+      <NotNull>1</NotNull>
+      <Position>11</Position>
+      <StoredType>int unsigned|0s</StoredType>
+    </column>
+    <column id="482" parent="41" name="xh_count">
+      <DefaultExpression>&apos;0&apos;</DefaultExpression>
+      <NotNull>1</NotNull>
+      <Position>12</Position>
+      <StoredType>int unsigned|0s</StoredType>
+    </column>
+    <column id="483" parent="41" name="x_count">
+      <DefaultExpression>&apos;0&apos;</DefaultExpression>
+      <NotNull>1</NotNull>
+      <Position>13</Position>
+      <StoredType>int unsigned|0s</StoredType>
+    </column>
+    <column id="484" parent="41" name="sh_count">
+      <DefaultExpression>&apos;0&apos;</DefaultExpression>
+      <NotNull>1</NotNull>
+      <Position>14</Position>
+      <StoredType>int unsigned|0s</StoredType>
+    </column>
+    <column id="485" parent="41" name="s_count">
+      <DefaultExpression>&apos;0&apos;</DefaultExpression>
+      <NotNull>1</NotNull>
+      <Position>15</Position>
+      <StoredType>int unsigned|0s</StoredType>
+    </column>
+    <column id="486" parent="41" name="a_count">
+      <DefaultExpression>&apos;0&apos;</DefaultExpression>
+      <NotNull>1</NotNull>
+      <Position>16</Position>
+      <StoredType>int unsigned|0s</StoredType>
+    </column>
+    <column id="487" parent="41" name="rework_done">
+      <DefaultExpression>0</DefaultExpression>
+      <Position>17</Position>
+      <StoredType>int|0s</StoredType>
+    </column>
+    <index id="488" parent="41" name="PRIMARY">
+      <ColNames>id
+mode</ColNames>
+      <Type>btree</Type>
+      <Unique>1</Unique>
+    </index>
+    <index id="489" parent="41" name="idx_stats">
+      <ColNames>id
+mode</ColNames>
+      <Type>btree</Type>
+    </index>
+    <index id="490" parent="41" name="update_stats">
+      <ColNames>id
+mode</ColNames>
+      <Type>btree</Type>
+    </index>
+    <index id="491" parent="41" name="idx_stats_id">
+      <ColNames>id</ColNames>
+      <Type>btree</Type>
+    </index>
+    <key id="492" parent="41" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <Primary>1</Primary>
+      <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
+    </key>
+    <column id="493" parent="42" name="online_checksum">
+      <Position>1</Position>
+      <StoredType>char(255)|0s</StoredType>
+    </column>
+    <column id="494" parent="43" name="map_id">
+      <NotNull>1</NotNull>
+      <Position>1</Position>
+      <StoredType>int|0s</StoredType>
+    </column>
+    <column id="495" parent="43" name="pool_id">
+      <NotNull>1</NotNull>
+      <Position>2</Position>
+      <StoredType>int|0s</StoredType>
+    </column>
+    <column id="496" parent="43" name="mods">
+      <NotNull>1</NotNull>
+      <Position>3</Position>
+      <StoredType>int|0s</StoredType>
+    </column>
+    <column id="497" parent="43" name="slot">
+      <NotNull>1</NotNull>
+      <Position>4</Position>
+      <StoredType>tinyint|0s</StoredType>
+    </column>
+    <index id="498" parent="43" name="PRIMARY">
+      <ColNames>map_id
+pool_id</ColNames>
+      <Type>btree</Type>
+      <Unique>1</Unique>
+    </index>
+    <index id="499" parent="43" name="tourney_pool_maps_tourney_pools_id_fk">
+      <ColNames>pool_id</ColNames>
+      <Type>btree</Type>
+    </index>
+    <key id="500" parent="43" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <Primary>1</Primary>
+      <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
+    </key>
+    <column id="501" parent="44" name="id">
+      <AutoIncrement>1</AutoIncrement>
+      <NotNull>1</NotNull>
+      <Position>1</Position>
+      <StoredType>int|0s</StoredType>
+    </column>
+    <column id="502" parent="44" name="name">
+      <NotNull>1</NotNull>
+      <Position>2</Position>
+      <StoredType>varchar(16)|0s</StoredType>
+    </column>
+    <column id="503" parent="44" name="created_at">
+      <NotNull>1</NotNull>
+      <Position>3</Position>
+      <StoredType>datetime|0s</StoredType>
+    </column>
+    <column id="504" parent="44" name="created_by">
+      <NotNull>1</NotNull>
+      <Position>4</Position>
+      <StoredType>int|0s</StoredType>
+    </column>
+    <index id="505" parent="44" name="PRIMARY">
+      <ColNames>id</ColNames>
+      <Type>btree</Type>
+      <Unique>1</Unique>
+    </index>
+    <index id="506" parent="44" name="tourney_pools_users_id_fk">
+      <ColNames>created_by</ColNames>
+      <Type>btree</Type>
+    </index>
+    <key id="507" parent="44" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <Primary>1</Primary>
+      <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
+    </key>
+    <column id="508" parent="45" name="userid">
+      <NotNull>1</NotNull>
+      <Position>1</Position>
+      <StoredType>int|0s</StoredType>
+    </column>
+    <column id="509" parent="45" name="achid">
+      <NotNull>1</NotNull>
+      <Position>2</Position>
+      <StoredType>int|0s</StoredType>
+    </column>
+    <index id="510" parent="45" name="PRIMARY">
+      <ColNames>userid
+achid</ColNames>
+      <Type>btree</Type>
+      <Unique>1</Unique>
+    </index>
+    <key id="511" parent="45" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <Primary>1</Primary>
+      <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
+    </key>
+    <column id="512" parent="46" name="id">
+      <NotNull>1</NotNull>
+      <Position>1</Position>
+      <StoredType>int|0s</StoredType>
+    </column>
+    <column id="513" parent="46" name="hash">
+      <Position>2</Position>
+      <StoredType>char(255)|0s</StoredType>
+    </column>
+    <index id="514" parent="46" name="PRIMARY">
+      <ColNames>id</ColNames>
+      <Type>btree</Type>
+      <Unique>1</Unique>
+    </index>
+    <key id="515" parent="46" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <Primary>1</Primary>
+      <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
+    </key>
+    <column id="516" parent="47" name="id">
+      <DefaultExpression>0</DefaultExpression>
+      <NotNull>1</NotNull>
+      <Position>1</Position>
+      <StoredType>int|0s</StoredType>
+    </column>
+    <column id="517" parent="47" name="name">
+      <NotNull>1</NotNull>
+      <Position>2</Position>
+      <StoredType>varchar(32)|0s</StoredType>
+      <CollationName>utf8mb3_general_ci</CollationName>
+    </column>
+    <column id="518" parent="47" name="past_name">
+      <Position>3</Position>
+      <StoredType>char(255)|0s</StoredType>
+    </column>
+    <column id="519" parent="47" name="safe_name">
+      <NotNull>1</NotNull>
+      <Position>4</Position>
+      <StoredType>varchar(32)|0s</StoredType>
+      <CollationName>utf8mb3_general_ci</CollationName>
+    </column>
+    <column id="520" parent="47" name="email">
+      <NotNull>1</NotNull>
+      <Position>5</Position>
+      <StoredType>varchar(254)|0s</StoredType>
+    </column>
+    <column id="521" parent="47" name="priv">
+      <DefaultExpression>1</DefaultExpression>
+      <NotNull>1</NotNull>
+      <Position>6</Position>
+      <StoredType>int|0s</StoredType>
+    </column>
+    <column id="522" parent="47" name="pw_bcrypt">
+      <NotNull>1</NotNull>
+      <Position>7</Position>
+      <StoredType>char(60)|0s</StoredType>
+    </column>
+    <column id="523" parent="47" name="country">
+      <DefaultExpression>&apos;xx&apos;</DefaultExpression>
+      <NotNull>1</NotNull>
+      <Position>8</Position>
+      <StoredType>char(2)|0s</StoredType>
+    </column>
+    <column id="524" parent="47" name="silence_end">
+      <DefaultExpression>0</DefaultExpression>
+      <NotNull>1</NotNull>
+      <Position>9</Position>
+      <StoredType>int|0s</StoredType>
+    </column>
+    <column id="525" parent="47" name="donor_end">
+      <DefaultExpression>0</DefaultExpression>
+      <NotNull>1</NotNull>
+      <Position>10</Position>
+      <StoredType>int|0s</StoredType>
+    </column>
+    <column id="526" parent="47" name="creation_time">
+      <DefaultExpression>0</DefaultExpression>
+      <NotNull>1</NotNull>
+      <Position>11</Position>
+      <StoredType>int|0s</StoredType>
+    </column>
+    <column id="527" parent="47" name="latest_activity">
+      <DefaultExpression>0</DefaultExpression>
+      <NotNull>1</NotNull>
+      <Position>12</Position>
+      <StoredType>int|0s</StoredType>
+    </column>
+    <column id="528" parent="47" name="clan_id">
+      <DefaultExpression>0</DefaultExpression>
+      <NotNull>1</NotNull>
+      <Position>13</Position>
+      <StoredType>int|0s</StoredType>
+    </column>
+    <column id="529" parent="47" name="clan_priv">
+      <DefaultExpression>0</DefaultExpression>
+      <NotNull>1</NotNull>
+      <Position>14</Position>
+      <StoredType>tinyint(1)|0s</StoredType>
+    </column>
+    <column id="530" parent="47" name="preferred_mode">
+      <DefaultExpression>0</DefaultExpression>
+      <NotNull>1</NotNull>
+      <Position>15</Position>
+      <StoredType>int|0s</StoredType>
+    </column>
+    <column id="531" parent="47" name="play_style">
+      <DefaultExpression>0</DefaultExpression>
+      <NotNull>1</NotNull>
+      <Position>16</Position>
+      <StoredType>int|0s</StoredType>
+    </column>
+    <column id="532" parent="47" name="custom_badge_name">
+      <Position>17</Position>
+      <StoredType>varchar(16)|0s</StoredType>
+      <CollationName>utf8mb3_general_ci</CollationName>
+    </column>
+    <column id="533" parent="47" name="custom_badge_icon">
+      <Position>18</Position>
+      <StoredType>varchar(64)|0s</StoredType>
+    </column>
+    <column id="534" parent="47" name="userpage_content">
+      <Position>19</Position>
+      <StoredType>text|0s</StoredType>
+    </column>
+    <column id="535" parent="47" name="api_key">
+      <Position>20</Position>
+      <StoredType>char(36)|0s</StoredType>
+    </column>
+    <column id="536" parent="47" name="snipemsg">
+      <DefaultExpression>1</DefaultExpression>
+      <Position>21</Position>
+      <StoredType>int|0s</StoredType>
+    </column>
+    <column id="537" parent="47" name="rival_msg">
+      <DefaultExpression>&apos;I sniped your score!&apos;</DefaultExpression>
+      <Position>22</Position>
+      <StoredType>char(255)|0s</StoredType>
+    </column>
+    <column id="538" parent="47" name="practice">
+      <DefaultExpression>0</DefaultExpression>
+      <Position>23</Position>
+      <StoredType>int|0s</StoredType>
+    </column>
+    <column id="539" parent="47" name="sort_lb">
+      <DefaultExpression>0</DefaultExpression>
+      <Position>24</Position>
+      <StoredType>int|0s</StoredType>
+    </column>
+    <column id="540" parent="47" name="dan_view">
+      <DefaultExpression>1</DefaultExpression>
+      <Position>25</Position>
+      <StoredType>int|0s</StoredType>
+    </column>
+    <column id="541" parent="47" name="check_bypass">
+      <DefaultExpression>0</DefaultExpression>
+      <Position>26</Position>
+      <StoredType>int|0s</StoredType>
+    </column>
+    <column id="542" parent="47" name="warn">
+      <DefaultExpression>0</DefaultExpression>
+      <Position>27</Position>
+      <StoredType>int|0s</StoredType>
+    </column>
+    <column id="543" parent="47" name="fk_mania_prefix">
+      <DefaultExpression>&apos;0,1&apos;</DefaultExpression>
+      <Position>28</Position>
+      <StoredType>char(255)|0s</StoredType>
+    </column>
+    <column id="544" parent="47" name="show_pName">
+      <DefaultExpression>1</DefaultExpression>
+      <Position>29</Position>
+      <StoredType>tinyint|0s</StoredType>
+    </column>
+    <column id="545" parent="47" name="verification_code">
+      <DefaultExpression>&apos;0&apos;</DefaultExpression>
+      <Position>30</Position>
+      <StoredType>char(255)|0s</StoredType>
+    </column>
+    <column id="546" parent="47" name="scorenotice">
+      <DefaultExpression>1</DefaultExpression>
+      <Position>31</Position>
+      <StoredType>int|0s</StoredType>
+    </column>
+    <column id="547" parent="47" name="pause_lb">
+      <DefaultExpression>0</DefaultExpression>
+      <Position>32</Position>
+      <StoredType>int|0s</StoredType>
+    </column>
+    <column id="548" parent="47" name="restrict_end">
+      <DefaultExpression>0</DefaultExpression>
+      <Position>33</Position>
+      <StoredType>int|0s</StoredType>
+    </column>
+    <column id="549" parent="47" name="restrict_point">
+      <DefaultExpression>0</DefaultExpression>
+      <Position>34</Position>
+      <StoredType>int|0s</StoredType>
+    </column>
+    <column id="550" parent="47" name="gacha_notice">
+      <DefaultExpression>1</DefaultExpression>
+      <Position>35</Position>
+      <StoredType>int|0s</StoredType>
+    </column>
+    <column id="551" parent="47" name="welcome_notice">
+      <DefaultExpression>1</DefaultExpression>
+      <Position>36</Position>
+      <StoredType>int|0s</StoredType>
+    </column>
+    <column id="552" parent="47" name="gamemode">
+      <DefaultExpression>0</DefaultExpression>
+      <Position>37</Position>
+      <StoredType>int|0s</StoredType>
+    </column>
+    <column id="553" parent="47" name="ghost_lb">
+      <DefaultExpression>0</DefaultExpression>
+      <Position>38</Position>
+      <StoredType>int|0s</StoredType>
+    </column>
+    <column id="554" parent="47" name="friend_lb">
+      <DefaultExpression>0</DefaultExpression>
+      <Position>39</Position>
+      <StoredType>int|0s</StoredType>
+    </column>
+    <index id="555" parent="47" name="ix_users">
+      <ColNames>id
+name
+priv
+country
+clan_id
+clan_priv</ColNames>
+      <Type>btree</Type>
+    </index>
+    <index id="556" parent="47" name="user_index">
+      <ColNames>id
+name
+priv
+country
+clan_id
+clan_priv</ColNames>
+      <Type>btree</Type>
+    </index>
+    <index id="557" parent="47" name="fetch_one">
+      <ColNames>id
+safe_name
+email</ColNames>
+      <Type>btree</Type>
+    </index>
+    <index id="558" parent="47" name="idx_priv">
+      <ColNames>id
+priv</ColNames>
+      <Type>btree</Type>
+    </index>
+    <index id="559" parent="47" name="idx_users_id">
+      <ColNames>id</ColNames>
+      <Type>btree</Type>
+    </index>
+    <index id="560" parent="47" name="me_idx">
+      <ColNames>id</ColNames>
+      <Type>btree</Type>
+    </index>
+    <index id="561" parent="47" name="user_record">
+      <ColNames>id</ColNames>
+      <Type>btree</Type>
+    </index>
+    <index id="562" parent="47" name="fetch_many">
+      <ColNames>priv
+country
+clan_id
+clan_priv
+preferred_mode
+play_style</ColNames>
+      <Type>btree</Type>
+    </index>
+    <index id="563" parent="47" name="idx_user_priv">
+      <ColNames>priv</ColNames>
+      <Type>btree</Type>
+    </index>
+    <index id="564" parent="47" name="idx_users_priv">
+      <ColNames>priv</ColNames>
+      <Type>btree</Type>
+    </index>
+    <index id="565" parent="47" name="idx_users_clan_id">
+      <ColNames>clan_id</ColNames>
+      <Type>btree</Type>
+    </index>
+    <column id="566" parent="48" name="md5">
+      <NotNull>1</NotNull>
+      <Position>1</Position>
+      <StoredType>char(255)|0s</StoredType>
+    </column>
+    <column id="567" parent="48" name="mode">
+      <Position>2</Position>
+      <StoredType>int|0s</StoredType>
+    </column>
+    <index id="568" parent="48" name="PRIMARY">
+      <ColNames>md5</ColNames>
+      <Type>btree</Type>
+      <Unique>1</Unique>
+    </index>
+    <key id="569" parent="48" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <Primary>1</Primary>
+      <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
+    </key>
+  </database-model>
+</dataSource>

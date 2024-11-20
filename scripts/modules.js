@@ -1,5 +1,6 @@
 const app = require("./modules/app");
 const utils = require("./modules/utils");
+const sakuraMail = require("./modules/sakuraMail");
 const crypto = require("crypto");
 const bcrypt = require("bcrypt");
 const fs = require("fs");
@@ -9,6 +10,7 @@ const path = require("path");
 module.exports = {
     app,
     utils,
+    sakuraMail,
     crypto,
     bcrypt,
     fs,

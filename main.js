@@ -1,9 +1,15 @@
 require("dotenv").config();
-const apiDomain = process.env.API_DOMAIN;
+const apiDomain = process.env.API_DOMAIN, baseDomain = process.env.BASE_DOMAIN, recaptchaSiteKey = process.env.RECAPTCHA_SITE_KEY;
 const modules = require("./scripts/modules");
 const mysql = require("./scripts/modules/mysql");
-const home = require("./scripts/home");
+const functions = require("./scripts/modules/functions");
 
+const home = require("./scripts/home");
+const leaderboard = require("./scripts/leaderboard");
+const documents = require("./scripts/documents");
+const discord = require("./scripts/discord");
+
+const account = require("./scripts/account");
 const register = require("./scripts/account/register");
 const signin = require("./scripts/account/signin");
 const signout = require("./scripts/account/signout");
@@ -35,6 +41,9 @@ modules.app.use((req, res, next) => {
         second: "2-digit"
     }).replaceAll("/", "").replaceAll(" ", "").replaceAll(":", "");
     res.locals.apiDomain = apiDomain;
+    res.locals.baseDomain = baseDomain;
+    res.locals.recaptchaSiteKey = recaptchaSiteKey;
+    res.locals.functions = functions;
     const connectMysql = () => {
         mysql.pool.getConnection((err, connection) => {
             if (err) {
@@ -78,7 +87,7 @@ modules.app.use((req, res, next) => {
                             WHERE NOT priv & 1 << 14
                             AND priv & 1 << 11;
                             `
-                        )
+                        );
                         res.locals.developer = developer;
                         res.locals.contributor = contributor;
                         res.locals.moderator = moderator;
@@ -87,14 +96,16 @@ modules.app.use((req, res, next) => {
                     catch (error) {
                         modules.utils.writeError(req, res, modules.utils.getErrorContent("Main program", error));
                     }
+                    finally {
+                        connection.release();
+                        next();
+                    }
                 }
                 process();
-                connection.release();
             }
         });
     }
     connectMysql();
-    next();
 });
 
 // ログイン情報設定
@@ -105,6 +116,7 @@ modules.app.use((req, res, next) => {
         res.locals.username = req.session.username;
         res.locals.country = req.session.country;
         res.locals.timeZone = req.session.timeZone;
+        res.locals.favMode = req.session.favMode;
         res.locals.badge = req.session.badge;
         res.locals.language = req.session.language;
     }
@@ -114,6 +126,7 @@ modules.app.use((req, res, next) => {
         res.locals.username = null;
         res.locals.country = null;
         res.locals.timeZone = null;
+        res.locals.favMode = 0;
         res.locals.badge = 0;
         res.locals.language = "en";
     }
@@ -127,8 +140,20 @@ modules.app.get("/", (req, res) => {
 // ホームページ
 home();
 
+// リーダーボード
+leaderboard();
+
+// ドキュメント
+documents();
+
+// Discord
+discord();
+
+// ドキュメント
+documents();
 
 // アカウント関連
+account(); // アカウント
 register(); // 登録
 signin(); // ログイン
 signout(); // ログアウト

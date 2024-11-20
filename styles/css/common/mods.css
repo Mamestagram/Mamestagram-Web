@@ -1,0 +1,174 @@
+.mod-icon {
+    cursor: default;
+    display: inline-block;
+    position: relative;
+    background-color: rgba(0, 0, 0, 0.5);
+    font-family: "Font Awesome 6 Pro";
+    font-size: 24px;
+    height: 40px;
+    line-height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    text-align: center;
+}
+
+.mod-icon::before {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    transition: border 300ms;
+}
+
+.mod-icon::after {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 40px;
+    width: 40px;
+    border: 3px solid transparent;
+    border-radius: 50%;
+    transition: border 300ms;
+}
+
+.nm::before {
+    border: 3px dashed #545454;
+}
+
+.nm:hover::after {
+    border: 3px solid #545454;
+}
+
+.nf::before,
+.ez::before,
+.ht::before {
+    border: 3px dashed #a5cc00;
+}
+
+.nf:hover::after,
+.ez:hover::after,
+.ht:hover::after {
+    border: 3px solid #a5cc00;
+}
+
+.hr::before,
+.sd::before,
+.pf::before,
+.dt::before,
+.nc::before, 
+.fi::before,
+.hd::before,
+.fl::before {
+    border: 3px dashed #f8529d;
+}
+
+.hr:hover::after,
+.sd:hover::after,
+.pf:hover::after,
+.dt:hover::after,
+.nc:hover::after, 
+.fi:hover::after,
+.hd:hover::after,
+.fl:hover::after {
+    border: 3px solid #f8529d;
+}
+
+.rx::before,
+.ap::before,
+.so::before,
+.key::before,
+.mr::before,
+.v2::before {
+    border: 3px dashed #66ccff;
+}
+
+.rx:hover::after,
+.ap:hover::after,
+.so:hover::after,
+.key:hover::after,
+.mr:hover::after,
+.v2:hover::after {
+    border: 3px solid #66ccff;
+}
+
+.mod-icon i {
+    font-style: normal;
+}
+
+.mod-icon-dt::before {
+    content: "\e105";
+}
+
+.mod-icon-dt::after {
+    content: "\f04e";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    font-size: 0.55em;
+    font-weight: 700;
+    transform: translate(-50%, -50%);
+}
+
+.key-num {
+    position: absolute;
+    bottom: 35%;
+    right: 35%;
+}
+
+.key-num::before {
+    content: "\f111";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    font-size: 0.7em;
+    font-weight: 700;
+    transform: translate(-50%, -50%);
+}
+.key-num::after {
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    font-size: 0.8em;
+    font-weight: 700;
+    filter: invert(50%);
+    transform: translate(-50%, -50%);
+    opacity: 0.8;
+}
+.key-num.key-4::after {
+    content: "\e0f1";
+}
+.key-num.key-5::after {
+    content: "\e0f2";
+}
+.key-num.key-6::after {
+    content: "\e0f3";
+}
+.key-num.key-7::after {
+    content: "\e0f4";
+}
+.key-num.key-8::after {
+    content: "\e0f5";
+}
+.key-num.key-9::after {
+    content: "\e0f6";
+}
+
+.mod-icon-mr {
+    transform: rotate(90deg);
+}
+
+.mod-icon .tooltip {
+    font-family: "Noto_Sans";
+    font-size: 0.5em;
+}
+
+.tooltip-element.up:hover .tooltip {
+    bottom: 85%;
+}

@@ -1,0 +1,147 @@
+main {
+    background-image: url("/images/server-bg/1.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+main .account-form {
+    position: relative;
+    height: inherit;
+    perspective: 1000px;
+}
+
+main .box form {
+    display: flex;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    padding: 40px 80px;
+    border-radius: 10px;
+    flex-direction: column;
+    justify-content: center;
+    box-shadow: 0 0 20px #000;
+    backdrop-filter: blur(10px);
+    transform-style: preserve-3d;
+    transition: transform 500ms;
+}
+
+main .box form#register:not(.error) {
+    transform: translate(-50%, -50%) rotateX(90deg);
+}
+
+main .box form#signin:not(.error) {
+    transform: translate(-50%, -50%) rotateX(-90deg);
+}
+
+main .box form#register.move,
+main .box form#signin.move,
+main .box form.error {
+    transform: translate(-50%, -50%) rotateX(0deg);
+}
+
+main .box form h1 {
+    text-align: center;
+    font-size: 30px;
+    font-weight: bold;
+    text-shadow: 2px 2px 2px #000;
+}
+
+main .box form div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+main .box form div input {
+    font-size: 16px;
+    padding: 12px 30px;
+    border-radius: 10px;
+    outline: none;
+}
+
+main .box form div:not(.password, .confirm) input {
+    background-color: #222222;
+    width: 320px;
+}
+
+main .box form div span {
+    display: flex;
+    background-color: #222222;
+    width: 320px;
+    border-radius: 10px;
+    align-items: center;
+}
+
+main .box form div span i {
+    cursor: pointer;
+    position: relative;
+    font-size: 20px;
+    padding: 10px;
+    opacity: 0.5;
+    transition: opacity 300ms;
+}
+main .box form div span i:hover {
+    opacity: 0.8;
+}
+
+main .box form div span i:after {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 10%;
+    background-color: #fdfdfd;
+    height: 3px;
+    width: 80%;
+    border-radius: 3px;
+    transform: translateY(-50%) rotate(-315deg) scaleX(0);
+    transition: transform 300ms;
+}
+main .box form div span i.show-pass:after {
+    transform: translateY(-50%) rotate(-45deg) scaleX(1);
+}
+
+main .box form p {
+    text-shadow: 2px 2px 2px #000;
+}
+
+main .box form .caution {
+    font-size: 14px;
+    margin-top: 5px;
+}
+
+main .box form .error {
+    color: red;
+    margin: 10px 0;
+    text-align: center;
+}
+
+main .box form .reference a {
+    color: #d88198;
+    transition: color 300ms;
+}
+main .box form .reference a:hover {
+    color: #f598ae;
+}
+
+main .box form button {
+    background-color: #fff;
+    color: #000;
+    font-weight: bold;
+    width: 100px;
+    padding: 10px;
+    border-radius: 30px;
+    margin: 40px auto 0 auto;
+    text-align: center;
+    box-shadow: 0 3px 5px #000;
+    transition: box-shadow 300ms;
+}
+main .box form button:hover {
+    box-shadow: none;
+}
+
+main .box form .unavailable {
+    cursor: not-allowed;
+}

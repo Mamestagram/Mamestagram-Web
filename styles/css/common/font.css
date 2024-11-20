@@ -4,13 +4,18 @@
 }
 
 @font-face {
-    font-family: "Reggae One";
-    src: url("../../fonts/ReggaeOne-Regular.ttf") format("truetype");
+    font-family: "Mochiy Pop One";
+    src: url("../../fonts/MochiyPopOne-Regular.ttf") format("truetype");
 }
 
 @font-face {
-    font-family: "Mochiy Pop One";
-    src: url("../../fonts/MochiyPopOne-Regular.ttf") format("truetype");
+    font-family: "New Amsterdam";
+    src: url("../../fonts/NewAmsterdam-Regular.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: "New Amsterdam";
+    src: url("../../fonts/NewAmsterdam-Regular.ttf") format("truetype");
 }
 
 @font-face {
