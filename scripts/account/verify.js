@@ -1,11 +1,11 @@
-const baseDomain = process.env.BASE_DOMAIN, sakuraMail = process.env.SAKURA_MAIL;
+const sakuraMail = process.env.SAKURA_MAIL;
 const modules = require("../modules");
 const mysql = require("../modules/mysql");
 
 const verify = () => {
     const pageName = "Verification", subDomain = "verify";
-    const from = `support@${sakuraMail}`, subject = "Mamestagram account verification";
-    let email, errLi, mailOptions, name, to, code, key, time, user;
+    const from = `support@${sakuraMail}`;
+    let email, errLi, mailOptions, name, to, code, key, contents, time, user;
 
     modules.app.post("/verify",
         (req, res, next) => {
@@ -114,31 +114,16 @@ const verify = () => {
             if (req.query.key === undefined) {
                 code = Math.random().toString(36).substring(2); // 認証コード
                 key = modules.crypto.createHash("md5").update(code).digest("hex"); // 認証キー
+                contents = sakuraMail.contents(name, code, key, res.locals.language);
                 mailOptions = {
                     from,
                     to,
-                    subject,
-                    text: `Hello
-                    Thank you for playing on Mamestagram!
-                    
-                    An action performed requires verification.
-                    
-                    Your Verification code is: ${code}
-                    Use this to authenticate your account.                    
-                    
-                    Alternatively, you can also visit this link below to finish verification:
-                    
-                    https://web.${baseDomain}/verify?key=${key}
-                    
-                    If you did not request this, please REPLY TO ADMINISTRATORS IMMEDIATELY as your account may be in danger.
-                    
-                    --------------------------------------
-                    Mamestagram : https://web.${baseDomain}
-                    --------------------------------------`
+                    subject: contents.title,
+                    text: contents.body
                 };
                 const process = async () => {
                     try {
-                        const sendResult = await sakuraMail.sendMail(mailOptions);
+                        const sendResult = await sakuraMail.transport.sendMail(mailOptions);
                         if (sendResult.flag) {
 
                         }
