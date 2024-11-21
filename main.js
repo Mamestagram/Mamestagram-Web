@@ -1,10 +1,11 @@
 require("dotenv").config();
-const apiDomain = process.env.API_DOMAIN, baseDomain = process.env.BASE_DOMAIN, recaptchaSecretKey = process.env.RECAPTCHA_SECRET_KEY;
+const apiDomain = process.env.API_DOMAIN, baseDomain = process.env.BASE_DOMAIN, recaptchaSiteKey = process.env.RECAPTCHA_SITE_KEY;
 const modules = require("./scripts/modules");
 const mysql = require("./scripts/modules/mysql");
 const functions = require("./scripts/modules/functions");
 
 const home = require("./scripts/home");
+const leaderboard = require("./scripts/leaderboard");
 const documents = require("./scripts/documents");
 const discord = require("./scripts/discord");
 
@@ -41,7 +42,7 @@ modules.app.use((req, res, next) => {
     }).replaceAll("/", "").replaceAll(" ", "").replaceAll(":", "");
     res.locals.apiDomain = apiDomain;
     res.locals.baseDomain = baseDomain;
-    res.locals.recaptchaSecretKey = recaptchaSecretKey;
+    res.locals.recaptchaSiteKey = recaptchaSiteKey;
     res.locals.functions = functions;
     const connectMysql = () => {
         mysql.pool.getConnection((err, connection) => {
@@ -115,6 +116,7 @@ modules.app.use((req, res, next) => {
         res.locals.username = req.session.username;
         res.locals.country = req.session.country;
         res.locals.timeZone = req.session.timeZone;
+        res.locals.favMode = req.session.favMode;
         res.locals.badge = req.session.badge;
         res.locals.language = req.session.language;
     }
@@ -124,6 +126,7 @@ modules.app.use((req, res, next) => {
         res.locals.username = null;
         res.locals.country = null;
         res.locals.timeZone = null;
+        res.locals.favMode = 0;
         res.locals.badge = 0;
         res.locals.language = "en";
     }
@@ -136,6 +139,9 @@ modules.app.get("/", (req, res) => {
 
 // ホームページ
 home();
+
+// リーダーボード
+leaderboard();
 
 // ドキュメント
 documents();

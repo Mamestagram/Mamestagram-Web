@@ -14,7 +14,7 @@ const register = () => {
             next();
         },
         (req, res, next) => {
-            errLi = { username: [], email: [], password: [], hf: false, bot: false }
+            errLi = { username: [], email: [], hf: false, bot: false }
             time = 0;
             if (!isClicked) {
                 clicked = true;
@@ -61,13 +61,16 @@ const register = () => {
                                 const getBanWords = await mysql.query(
                                     connection, 
                                     `
-                                    SELECT word
-                                    FROM banword;
+                                        SELECT word
+                                        FROM banword;
                                     `
                                 );
                                 const banWords = getBanWords.map((row) => row.word);
-                                if (name.includes(banWords)) {
-                                    errLi.username.push("Contains banned words");
+                                for (let word of banWords) {
+                                    if (name.includes(word)) {
+                                        errLi.username.push("Contains banned words");
+                                        break;
+                                    }
                                 }
                             }
                             catch (error) {
@@ -97,18 +100,18 @@ const register = () => {
                                 const getNames = await mysql.query(
                                     connection,
                                     `
-                                    SELECT id
-                                    FROM users
-                                    WHERE name = ?;
+                                        SELECT id
+                                        FROM users
+                                        WHERE name = ?;
                                     `,
                                     [name]
                                 );
                                 const getEmails = await mysql.query(
                                     connection,
                                     `
-                                    SELECT id
-                                    FROM users
-                                    WHERE email = ?;
+                                        SELECT id
+                                        FROM users
+                                        WHERE email = ?;
                                     `,
                                     [email]
                                 );
@@ -179,8 +182,7 @@ const register = () => {
                                     modules.utils.writeError(req, res, modules.utils.getErrorContent(pageName, error, `Name: ${name}\nEmail: ${email}`));
                                 }
                                 else {
-                                    modules.utils.writeLog(req, res, "POST (Failed)", subDomain);
-                                    console.log(`[username: ${name}, e-mail: ${email}, success: ${success}, score: ${score}]`);
+                                    modules.utils.writeLog(req, res, "POST (Failed)", subDomain, `[username: ${name}, e-mail: ${email}, success: ${success}, score: ${score}]`);
                                     res.send(ejs);
                                 }
                             }
@@ -208,10 +210,10 @@ const register = () => {
                                         const getId = await mysql.query(
                                             connection,
                                             `
-                                            SELECT id
-                                            FROM users
-                                            ORDER BY id DESC
-                                            LIMIT 1;
+                                                SELECT id
+                                                FROM users
+                                                ORDER BY id DESC
+                                                LIMIT 1;
                                             `
                                         );
                                         const userid = getId[0].id + 1;
@@ -219,8 +221,8 @@ const register = () => {
                                         await mysql.query(
                                             connection,
                                             `
-                                            INSERT INTO users (id, name, safe_name, email, priv, pw_bcrypt, country, creation_time)
-                                            VALUES (?, ?, ?, ?, 3, ?, ?, UNIX_TIMESTAMP(NOW()));
+                                                INSERT INTO users (id, name, safe_name, email, priv, pw_bcrypt, country, creation_time)
+                                                VALUES (?, ?, ?, ?, 3, ?, ?, UNIX_TIMESTAMP(NOW()));
                                             `,
                                             [userid, name, safeName, email, pass_hash, country]
                                         );
@@ -230,8 +232,8 @@ const register = () => {
                                                 await mysql.query(
                                                     connection,
                                                     `
-                                                    INSERT INTO stats (id, mode)
-                                                    VALUES (?, ?);
+                                                        INSERT INTO stats (id, mode)
+                                                        VALUES (?, ?);
                                                     `,
                                                     [userid, i]
                                                 );
@@ -246,8 +248,8 @@ const register = () => {
                                                         await mysql.query(
                                                             connection,
                                                             `
-                                                            INSERT INTO dan_stats (id, type, mode, cs)
-                                                            VALUES (?, ?, ?, 0);
+                                                                INSERT INTO dan_stats (id, type, mode, cs)
+                                                                VALUES (?, ?, ?, 0);
                                                             `,
                                                             [userid, j, i]
                                                         );
@@ -263,8 +265,8 @@ const register = () => {
                                                         await mysql.query(
                                                             connection,
                                                             `
-                                                            INSERT INTO dan_stats (id, type, mode, cs)
-                                                            VALUES (?, ?, ?, ?);
+                                                                INSERT INTO dan_stats (id, type, mode, cs)
+                                                                VALUES (?, ?, ?, ?);
                                                             `,
                                                             [userid, j, i, cs]
                                                         );
@@ -274,32 +276,31 @@ const register = () => {
                                                     await mysql.query(
                                                         connection,
                                                         `
-                                                        INSERT INTO dan_stats (id, type, mode, cs)
-                                                        VALUES (?, 0, ?, 0);
+                                                            INSERT INTO dan_stats (id, type, mode, cs)
+                                                            VALUES (?, 0, ?, 0);
                                                         `,
                                                         [userid, i]
                                                     );
                                             }
-                                            // gacha_statsに追加
-                                            await mysql.query(
-                                                connection,
-                                                `
+                                        }
+                                        // gacha_statsに追加
+                                        await mysql.query(
+                                            connection,
+                                            `
                                                 INSERT INTO gacha_stats (id, had_badge)
                                                 VALUES (?, 0);
-                                                `,
-                                                [userid]
-                                            );
-                                            modules.utils.writeLog(req, res, "POST (Succeeded)", subDomain);
-                                            console.log(`[username: ${name}, e-mail: ${email}]`)
-                                            res.send(
-                                                `
-                                                <script>
-                                                    alert("Successfully registered your account!");
-                                                    location.href = "/account?class=signin";
-                                                </script>
-                                                `
-                                            );
-                                        }
+                                            `,
+                                            [userid]
+                                        );
+                                        modules.utils.writeLog(req, res, "POST (Succeeded)", subDomain, `[username: ${name}, e-mail: ${email}]`);
+                                        res.send(
+                                            `
+                                            <script>
+                                                alert("Successfully registered your account!");
+                                                location.href = "/account?class=signin";
+                                            </script>
+                                            `
+                                        );
                                     }
                                     catch (error) {
                                         modules.utils.writeError(req, res, modules.utils.getErrorContent(pageName, error, `Name: ${name}\nEmail: ${email}`), subDomain);

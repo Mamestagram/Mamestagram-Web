@@ -1,5 +1,4 @@
-/*
-モード名取得
+/* モード名取得
 1 → "std"
 2 → "taiko"
 3 → "ctb"
@@ -66,8 +65,7 @@ const locationTime = (time, timezone, lang) => {
 
 // モッド（配列）取得
 const mods = (modNum) => {
-    /*
-    モッド並び替え
+    /* モッド並び替え
     1. rx
     2. ap
     3. k4

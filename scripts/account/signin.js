@@ -9,11 +9,11 @@ const signin = () => {
         (req, res, next) => {
             name = req.body.username;
             password = req.body.password;
-            pass_hash = modules.crypto.createHash("md5").update(req.body.password).digest("hex");
+            pass_hash = modules.crypto.createHash("md5").update(password).digest("hex");
             next();
         },
         (req, res, next) => {
-            errLi = { username: [], email: [], password: [], hf: false, bot: false }
+            errLi = { username: [], email: [], password: [], hf: false, bot: false };
             const connectMysql = () => {
                 mysql.pool.getConnection((err, connection) => {
                     if (err) {
@@ -26,20 +26,21 @@ const signin = () => {
                                 user = await mysql.query(
                                     connection,
                                     `
-                                    SELECT u.id, country, timezone, language, set_badge, pw_bcrypt
-                                    FROM users u
-                                    JOIN timezone tz
-                                    ON country = code
-                                    JOIN gacha_stats g_s
-                                    ON g_s.id = u.id
-                                    WHERE name = ?;
+                                        SELECT u.id, country, timezone, language, preferred_mode, set_badge, pw_bcrypt
+                                        FROM users u
+                                        JOIN timezone tz
+                                        ON country = code
+                                        JOIN gacha_stats g_s
+                                        ON g_s.id = u.id
+                                        WHERE name = ?
+                                        OR email = ?;
                                     `,
-                                    [name]
+                                    [name, name]
                                 );
                                 if (user.length > 0) {
                                     const isMatch = modules.bcrypt.compareSync(pass_hash, user[0].pw_bcrypt);
                                     if (!isMatch) {
-                                        errLi.password.push("Username or password is incorrect");   
+                                        errLi.username.push("Username or password is incorrect");   
                                     }
                                 }
                                 else {
@@ -66,6 +67,7 @@ const signin = () => {
                 req.session.username = name;
                 req.session.country = user[0].country;
                 req.session.timeZone = user[0].timezone;
+                req.session.favMode = user[0].preferred_mode;
                 req.session.badge = user[0].set_badge;
                 req.session.language = user[0].language;
                 modules.utils.writeLog(req, res, "POST (Succeeded)", subDomain);
