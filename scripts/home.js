@@ -1,12 +1,12 @@
 const apiDomain = process.env.API_DOMAIN;
 const modules = require("./modules");
 const mysql = require("./modules/mysql");
-const functions = require("./modules/functions");
 
 const home = () => {
+    const pageName = "Home", subDomain = "home";
+    let online, total, ppRecords = {};
+
     modules.app.get("/home", (req, res) => {
-        const pageName = "Home", subDomain = "home";
-        let online, total, ppRecords = {};
 
         modules.axios.get(`https://${apiDomain}/get_player_count`)
             .then((response) => {
@@ -26,23 +26,23 @@ const home = () => {
                                     for (let i = 0; i <= 8; i++) {
                                         if (i !== 7) {
                                             const ppRecord = await mysql.query(
-                                                connection, 
+                                                connection,
                                                 `
-                                                SELECT u.id AS id, country, name, pp, 
-                                                    set_id, m.id AS mapid, artist, title, version, grade, score, acc, s.max_combo AS max_combo, 
-                                                    ngeki, n300, nkatu, n100, n50,nmiss, pp, play_time, mods, 
-                                                    TIMESTAMPDIFF(YEAR, play_time, NOW()) AS year, TIMESTAMPDIFF(MONTH, play_time, NOW()) AS month, TIMESTAMPDIFF(WEEK, play_time, NOW()) AS week, TIMESTAMPDIFF(DAY, play_time, NOW()) AS day, TIMESTAMPDIFF(HOUR, play_time, NOW()) AS elapased_hour, TIMESTAMPDIFF(MINUTE, play_time, NOW()) AS minute, TIMESTAMPDIFF(SECOND, play_time, NOW()) AS second
-                                                FROM scores s FORCE INDEX(idx_scores_mode_status_pp)
-                                                JOIN users u
-                                                ON u.id = userid
-                                                JOIN maps m
-                                                ON md5 = map_md5
-                                                WHERE u.priv & 1
-                                                AND m.status in (2, 3)
-                                                AND s.status = 2
-                                                AND s.mode = ?
-                                                ORDER BY pp DESC
-                                                LIMIT 1;
+                                                    SELECT u.id AS id, country, name, pp, 
+                                                        set_id, m.id AS mapid, artist, title, version, grade, score, acc, s.max_combo AS max_combo, 
+                                                        ngeki, n300, nkatu, n100, n50,nmiss, pp, play_time, mods, 
+                                                        TIMESTAMPDIFF(YEAR, play_time, NOW()) AS year, TIMESTAMPDIFF(MONTH, play_time, NOW()) AS month, TIMESTAMPDIFF(WEEK, play_time, NOW()) AS week, TIMESTAMPDIFF(DAY, play_time, NOW()) AS day, TIMESTAMPDIFF(HOUR, play_time, NOW()) AS elapased_hour, TIMESTAMPDIFF(MINUTE, play_time, NOW()) AS minute, TIMESTAMPDIFF(SECOND, play_time, NOW()) AS second
+                                                    FROM scores s FORCE INDEX(idx_scores_mode_status_pp)
+                                                    JOIN users u
+                                                    ON u.id = userid
+                                                    JOIN maps m
+                                                    ON md5 = map_md5
+                                                    WHERE u.priv & 1
+                                                    AND m.status in (2, 3)
+                                                    AND s.status = 2
+                                                    AND s.mode = ?
+                                                    ORDER BY pp DESC
+                                                    LIMIT 1;
                                                 `,
                                                 [i]
                                             );

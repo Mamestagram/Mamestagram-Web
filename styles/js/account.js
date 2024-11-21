@@ -24,11 +24,11 @@ const validString = (str) => {
     Object.values(regex).map((item) => item).forEach((reg) => {
         invalidText = invalidText.replace(reg, "");
     });
-    return str.length <= 0 || (/^(?!\s)(.*\S)?$/.test(str) && invalidText.length <= 0);
+    return str.length <= 0 || (/^\S.*\S$|^\S$/.test(str) && invalidText.length <= 0);
 }
 
 const validEmail = (email) => {
-    const regex = /^[^\s@]+@[^\s@]+.[^\s@]+$/;
+    const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     return email.length <= 0 || regex.test(email);
 }
 
@@ -37,11 +37,11 @@ const validPassword = (password) => {
     return password.length <= 0 || regex.test(password);
 }
 
-function checkRegister() {
+function checkRegister(firstCheck) {
     const username = $("main #register .username input").val(), email = $("main #register .email input").val(), password = $("main #register .password input").val(), confirm = $("main #register .confirm input").val();
     let errLi = { username: null, email: null, password: null, confirm: null }, isError = false;
     // 空チェック
-    isError = emptyString(username) || emptyString(email) || emptyString(password) || emptyString(confirm) ? true : false;
+    isError = emptyString(username) || emptyString(email) || emptyString(password) || emptyString(confirm);
     // ユーザー名チェック
     if (username.length > 16) { // 文字数 : 16文字以下
         errLi.username = "Too long characters";
@@ -81,16 +81,23 @@ function checkRegister() {
     
     if (isError) {
         $("main #register button").attr("class", "unavailable").prop("disabled", true);
-        if (errLi.username !== null) {
+        if (firstCheck) {
+            if (errLi.username !== null) {
+                $("main #register .username .error").html(errLi.username);
+            }
+            if (errLi.email !== null) {
+                $("main #register .email .error").html(errLi.email);
+            }
+            if (errLi.password !== null) {
+                $("main #register .password .error").html(errLi.password);
+            }
+        }
+        else {
             $("main #register .username .error").html(errLi.username);
-        }
-        if (errLi.email !== null) {
             $("main #register .email .error").html(errLi.email);
-        }
-        if (errLi.password !== null) {
             $("main #register .password .error").html(errLi.password);
+            $("main #register .confirm .error").html(errLi.confirm);
         }
-        $("main #register .confirm .error").html(errLi.confirm);
     }
     else {
         $("main #register button").removeAttr("class").prop("disabled", false);
@@ -98,11 +105,11 @@ function checkRegister() {
     }
 }
 
-function checkSignIn() {
+function checkSignIn(firstCheck) {
     const username = $("main #signin .username input").val(), password = $("main #signin .password input").val();
     let errLi = { username: null, password: null }, isError = false;
     // 空チェック
-    isError = emptyString(username) || emptyString(password) ? true : false;
+    isError = emptyString(username) || emptyString(password);
     // 使用文字チェック
     // ユーザー名
     if (!validString(username)) { // 特殊な文字以外
@@ -117,10 +124,16 @@ function checkSignIn() {
 
     if (isError) {
         $("main #signin button").attr("class", "unavailable").prop("disabled", true);
-        if (errLi.username !== null) {
-            $("main #signin .username .error").html(errLi.username);
+        if (firstCheck) {
+            if (errLi.username !== null) {
+                $("main #signin .username .error").html(errLi.username);
+            }
+            else if (errLi.password !== null) {
+                $("main #signin .password .error").html(errLi.password);
+            }
         }
-        else if (errLi.password !== null) {
+        else {
+            $("main #signin .username .error").html(errLi.username);
             $("main #signin .password .error").html(errLi.password);
         }
     }
@@ -131,9 +144,10 @@ function checkSignIn() {
 }
 
 $(function() {
+    $(".grecaptcha-badge").hide();
     $("main .box form.face").addClass("move");
-    checkRegister();
-    checkSignIn();
+    checkRegister(true);
+    checkSignIn(true);
 
     $("main").on("click", "form .password span i", function() {
         if ($("form .password input").attr("type") === "password") {

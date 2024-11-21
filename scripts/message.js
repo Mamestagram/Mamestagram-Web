@@ -1,6 +1,6 @@
 const modules = require("./modules");
 
-const msg = () => {
+const message = () => {
     modules.app.get("/msg", (req, res) => {
 
     });
@@ -9,4 +9,4 @@ const msg = () => {
 
     });
 }
-mopdule.exports = msg;
+mopdule.exports = message;

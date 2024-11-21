@@ -1,3 +1,5 @@
+const fs = require("fs");
+
 // IPアドレス取得
 const getIP = (req) => {
     try {
@@ -40,10 +42,15 @@ const getTime = () => {
 }
 
 // ログ出力
-const writeLog = (req, res, type, subDomain) => {
-    const DOMAIN = process.env.DOMAIN;
-    const log = `[${getTime()}] [${type}] ${DOMAIN}/${subDomain} (${getIP(req)}${res.locals.isLoggedIn ? `, userid: ${req.session.userid})` : ")"}`;
+const writeLog = (req, res, type, subDomain, more) => {
+    const DOMAIN = process.env.DOMAIN, LOG_PATH = process.env.LOG_PATH;
+    const log = `[${getTime()}] [${type}] ${DOMAIN}/${subDomain} (${getIP(req)}${res.locals.isLoggedIn ? `, userid: ${req.session.userid})` : ")"}${more ? `\n${more}` : ""}`;
+    const date = new Date(), path = `${LOG_PATH}/${date.getFullYear()}-${date.getMonth() + 1}`, fileName = `${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate()}`;
     console.log(log);
+    if (!fs.existsSync(path)) {
+        fs.mkdirSync(path, { recursive: true });
+    }
+    fs.appendFileSync(`${path}/${fileName}.log`, `${log}\n`, "utf-8");
 }
 
 // エラー内容取得
@@ -53,10 +60,9 @@ const getErrorContent = (pageName, error, more) => {
 // エラーログ書き込み
 const writeError = (req, res, content, subDomain) => {
     const ERR_PATH = process.env.ERR_PATH;
-    const fs = require("fs");
     res.send(
         `
-        An error of unknown cause has occurred. Will be redirected to the home page soon. This error log will be sent to the server.
+        An error of unknown cause has occurred. Will be redirected to the home page soon. This error log will be sent to the administrator.
         <script>
             setTimeout(() => {
                 window.location.href = "/";
@@ -76,10 +82,52 @@ const getSafeName = (username) => {
     return username.toLowerCase().replaceAll(" ", "_");
 }
 
+/* modeNum取得
+"std" → 0
+"taiko" → 1
+"ctb" → 2
+"mania" → 3
+"rxstd" → 4
+"rxtaiko" → 5
+"rxctb" → 6
+"apstd" → 8
+*/
+const getModeNum = (modeName) => {
+    switch (modeName) {
+        case "std": return 0;
+        case "taiko": return 1;
+        case "ctb": return 2;
+        case "mania": return 3;
+        case "rxstd": return 4;
+        case "rxtaiko": return 5;
+        case "rxctb": return 6;
+        case "apstd": return 8;
+    }
+}
+
+/* sqlでORDER BYに使用する名前取得
+"accuracy" → "acc"
+"playcount" → "plays"
+"performance" → "pp"
+"score" → "rscore"
+"dans" → "dans"
+*/
+const getSortName = (sort) => {
+    switch (sort) {
+        case "accuracy": return "acc";
+        case "playcount": return "plays";
+        case "performance": return "pp";
+        case "score": return "rscore";
+        case "dans": return "dans";
+    }
+}
+
 module.exports = {
     getIP,
     writeLog,
     getErrorContent,
     writeError,
-    getSafeName
+    getSafeName,
+    getModeNum,
+    getSortName
 };
