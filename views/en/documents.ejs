@@ -26,7 +26,7 @@
             </div>
 
             <div class="box about">
-                <h2>About</h2>
+                <h2>Welcome to Mamestagram!</h2>
                 <div class="about">
                     <p>Mamestagram is a osu! private server where you can share your favorite beatmaps and scores with other users.</p>
                     <p>This private eserver shows scores by mode, witch are not ranked in the official servers such as Relax and AutoPilot</p>
@@ -76,8 +76,7 @@
                     <li>Create a osu! shortcut.</li>
                     <li>Right-click on the shortcut and select "Properties".</li>
                     <li>Enter the following in the "Target" field:</li>
-                    <li><code>（後ほど修正）"C:\Program Files (x86)\osu!\osu!.exe" --osu-compatibility 1 --host mamestagram.com --port 8001</code></li>
-                    <!-- https://www.marorika.com/entry/copy-to-clipboard -->
+                    <li><code>C:\Users\*Your account name*\AppData\Local\osu!\osu!.exe <input type="text" value="-devserver mamesosu.net" readonly><button onclick="clickCopy()"><i class="fa-solid fa-copy"></i><p class="mouse-over">Click to copy</p></button></code></li>
                     <li>Click "OK" to save the settings.</li>
                     <li>&lpar;If you didn't connect the server, please create a ticket on <a href="/discord"><i class="fa-brands fa-discord"></i></a>&rpar;</li>
                 </ul>
@@ -90,5 +89,12 @@
         <%- include("references/footer") %>
         <%- include("references/script") %>
         <script src="/js/documents.js?<%= currentTime %>" defer></script>
+        <script>
+            function clickCopy() {
+                const input = document.querySelector("input");
+                input.select();
+                document.execCommand("copy");
+            }
+        </script>
     </body>
 </html>
