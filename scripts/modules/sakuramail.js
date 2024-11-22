@@ -1,52 +1,65 @@
-const baseDomain = process.env.BASE_DOMAIN, sakuraMail = process.env.SAKURA_MAIL;
+const baseDomain = process.env.BASE_DOMAIN, sakuraMail = process.env.SAKURA_MAIL, sakuraMailUser = process.env.SAKURA_MAIL_USER, sakuraMailPass = process.env.SAKURA_MAIL_PASS;
 const nodemailer = require("nodemailer");
 const transporter = nodemailer.createTransport({
-    host: sakuraMail,
+    host: sakuraMailUser,
     port: 587,
-    secure: true,
-    requireTLS: false
+    secure: false,
+    requireTLS: true,
+    auth: {
+        user: sakuraMail,
+        pass: sakuraMailPass
+    },
+    logger: true,
+    debug: true
 });
 const contents = (name, code, key, lang) => {
+    const signature =
+        `
+        --<br>
+        Mamestagram : https://web.mamesosu.net
+        `;
     const text = {
         en: {
             title: "Mamestagram account verification",
-            body: `Hello${name !== null ? `, ${name}` : ""}!
-            Thank you for playing on Mamestagram!
-                        
-            An action performed requires verification.
-                        
-            Your Verification code is: ${code}
-            Use this to authenticate your account.                    
-                        
-            Alternatively, you can also visit this link below to finish verification:
-                        
-            https://web.${baseDomain}/verify?key=${key}
-                        
-            If you did not request this, please REPLY TO ADMINISTRATORS IMMEDIATELY as your account may be in danger.
-                        
-            --------------------------------------
-            Mamestagram : https://web.${baseDomain}
-            --------------------------------------`
+            body:
+                `
+                Hello${name !== null ? `, ${name}` : ""}!<br>
+                Thank you for playing on Mamestagram!<br>
+                <br>
+                An action performed requires verification.<br>
+                <br>
+                Your Verification code is: <strong>${code}</strong><br>
+                Use this to authenticate your account.<br>
+                <br>
+                Alternatively, you can also visit this link below to finish verification:<br>
+                <br>
+                https://web.${baseDomain}/verify?key=${key}<br>
+                <br>
+                If you did not request this, please reply to administrators <strong>IMMEDIATELY</strong> as your account may be in danger.<br>
+                <br>
+                ${signature}
+                `
         },
-        ja: {
+        jp: {
             title: "Mamestagramアカウント認証",
-            body: `${name !== null ? `, ${name}さん、` : ""}こんにちは!
-            Mamestagramで遊んでいただき本当にありがとうございます!
-            
-            あなたはアカウント認証が必要な操作をしました。
-            
-            認証コードは、 ${code}  です。
-            これを使用してアカウントの認証を行ってください。
-            
-            また、下記のリンクへアクセスして認証することもできます。
-            
-            https://web.${baseDomain}/verify?key=${key}
-            
-            もしもこのリクエストに身に覚えがない場合、アカウントが不正利用されている可能性があるので早急に運営へご返信ください。
-            
-            --------------------------------------
-            Mamestagram : https://web.${baseDomain}
-            --------------------------------------`
+            body:
+                `
+                ${name !== null ? `${name}さん、` : ""}こんにちは!<br>
+                Mamestagramで遊んでいただき本当にありがとうございます!<br>
+                <br>
+                あなたはアカウント認証が必要な操作をしました。<br>
+                <br>
+                認証コードは、 <strong>${code}</strong>  です。<br>
+                これを使用してアカウントの認証を行ってください。<br>
+                <br>
+                また、下記のリンクへアクセスして認証することもできます。<br>
+                <br>
+                https://web.${baseDomain}/verify?key=${key}<br>
+                <br>
+                もしもこのリクエストに身に覚えがない場合、アカウントが不正利用されている可能性があるので<strong>早急</strong>に運営へご返信ください。<br>
+                <br>
+                ${signature}
+                `
         }
     }
     return text[lang];

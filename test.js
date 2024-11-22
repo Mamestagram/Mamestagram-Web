@@ -1,6 +1,4 @@
-const regex = /(?=.*[a-zA-Z])(?=.*[0-9])/;
-let string = "ss7s";
-console.log(`string: '${string}'`)
-console.log(`regex: ${regex}`)
-console.log(regex.test(string), "match:", regex.exec(string) !== null ? `'${regex.exec(string)}'` : regex.exec(string));
-console.log(`replaced: '${string.replace(regex, "!")}'`)
+const crypto = require('crypto');
+code = crypto.randomBytes(8).toString("base64"); // 認証コード
+key = crypto.createHash("sha512").update(code).digest("base64"); // 認証キー
+console.log(code, "\n" + key);

@@ -1,6 +1,6 @@
 const app = require("./modules/app");
 const utils = require("./modules/utils");
-const sakuraMail = require("./modules/sakuraMail");
+const sakuraMail = require("./modules/sakuramail");
 const crypto = require("crypto");
 const bcrypt = require("bcrypt");
 const fs = require("fs");

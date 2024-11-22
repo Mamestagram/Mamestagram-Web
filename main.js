@@ -13,6 +13,7 @@ const account = require("./scripts/account");
 const register = require("./scripts/account/register");
 const signin = require("./scripts/account/signin");
 const signout = require("./scripts/account/signout");
+const verify = require("./scripts/account/verify");
 
 const connectMysql = () => {
     mysql.pool.getConnection((err, connection) => {
@@ -157,6 +158,7 @@ account(); // アカウント
 register(); // 登録
 signin(); // ログイン
 signout(); // ログアウト
+verify(); // アカウント認証
 
 modules.app.use((req, res) => {
     res.status(404).send("404 Not Found");

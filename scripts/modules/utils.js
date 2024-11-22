@@ -43,8 +43,8 @@ const getTime = () => {
 
 // ログ出力
 const writeLog = (req, res, type, subDomain, more) => {
-    const DOMAIN = process.env.DOMAIN, LOG_PATH = process.env.LOG_PATH;
-    const log = `[${getTime()}] [${type}] ${DOMAIN}/${subDomain} (${getIP(req)}${res.locals.isLoggedIn ? `, userid: ${req.session.userid})` : ")"}${more ? `\n${more}` : ""}`;
+    const BASE_DOMAIN = process.env.BASE_DOMAIN, LOG_PATH = process.env.LOG_PATH;
+    const log = `[${getTime()}] [${type}] web.${BASE_DOMAIN}/${subDomain} (${getIP(req)}${res.locals.isLoggedIn ? `, userid: ${req.session.userid})` : ")"}${more ? `\n${more}` : ""}`;
     const date = new Date(), path = `${LOG_PATH}/${date.getFullYear()}-${date.getMonth() + 1}`, fileName = `${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate()}`;
     console.log(log);
     if (!fs.existsSync(path)) {

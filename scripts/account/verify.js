@@ -4,7 +4,7 @@ const mysql = require("../modules/mysql");
 
 const verify = () => {
     const pageName = "Verification", subDomain = "verify";
-    const from = `support@${sakuraMail}`;
+    const from = `Mamestagram Support <${sakuraMail}>`;
     let email, errLi, mailOptions, name, to, code, key, contents, time, user;
 
     modules.app.post("/verify",
@@ -20,6 +20,10 @@ const verify = () => {
                                 setTimeout(connectMysql, 100);
                             }
                             else {
+                                name = "ばっしぃー";
+                                to = email;
+                                next();
+                                /*
                                 const process = async () => {
                                     try {
                                         user = await mysql.query(
@@ -60,10 +64,12 @@ const verify = () => {
                                     }
                                     finally {
                                         connection.release();
-                                        next();
+                                        res.redirect("/login");
+                                        //next();
                                     }
                                 }
                                 process();
+                                */
                             }
                         });
                     }
@@ -82,10 +88,10 @@ const verify = () => {
                                         user = await mysql.query(
                                             connection,
                                             `
-                                            SELECT email
-                                            FROM users
-                                            WHERE id = ?;
-                                        `,
+                                                SELECT email
+                                                FROM users
+                                                WHERE id = ?;
+                                            `,
                                             [res.locals.userid]
                                         );
                                         name = res.locals.username;
@@ -112,30 +118,24 @@ const verify = () => {
         },
         (req, res, next) => {
             if (req.query.key === undefined) {
-                code = Math.random().toString(36).substring(2); // 認証コード
-                key = modules.crypto.createHash("md5").update(code).digest("hex"); // 認証キー
-                contents = sakuraMail.contents(name, code, key, res.locals.language);
+                code = modules.crypto.randomBytes(8).toString("base64"); // 認証コード
+                key = modules.crypto.createHash("sha512").update(code).digest("base64"); // 認証キー
+                contents = modules.sakuraMail.contents(name, code, key, res.locals.language);
                 mailOptions = {
                     from,
                     to,
                     subject: contents.title,
-                    text: contents.body
+                    html: contents.body,
                 };
-                const process = async () => {
-                    try {
-                        const sendResult = await sakuraMail.transport.sendMail(mailOptions);
-                        if (sendResult.flag) {
-
-                        }
-                        else {
-
-                        }
+                modules.sakuraMail.transporter.sendMail(mailOptions, (err, info) => {
+                    if (err) {
+                        console.error(err);
                     }
-                    catch (error) {
-                        modules.utils.writeError(req, res, modules.utils.getErrorContent(pageName, error), subDomain);
+                    else {
+                        console.log(info);
                     }
-                }
-                process();
+                    res.redirect("/");
+                });
             }
             else {
                 next();
