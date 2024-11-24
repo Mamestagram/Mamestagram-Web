@@ -49,8 +49,7 @@ const home = () => {
                                             ppRecords[`mode${i}`] = ppRecord[0];
                                         }
                                     }
-
-                                    res.render(`${res.locals.language}/home.ejs`, {
+                                    res.render("home.ejs", {
                                             online,
                                             total,
                                             ppRecords

@@ -5,7 +5,7 @@ const documents = () => {
     const pageName = "Documents", subDomain = "documents";
 
     modules.app.get("/documents", (req, res) => {
-        res.render(`${res.locals.language}/documents.ejs`,
+        res.render("documents.ejs",
             {},
             (error, ejs) => {
                 if (error) {

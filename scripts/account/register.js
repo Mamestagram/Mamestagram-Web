@@ -29,7 +29,7 @@ const register = () => {
             else {
                 time = 0;
                 errLi.hf = true;
-                res.render(`${res.locals.language}/account.ejs`, {
+                res.render("account.ejs", {
                         type: "register",
                         errLi,
                         name,
@@ -138,7 +138,7 @@ const register = () => {
         },
         (req, res, next) => {
             if (errLi.username.length > 0 || errLi.email.length > 0) {
-                res.render(`${res.locals.language}/account.ejs`, {
+                res.render("account.ejs", {
                         type: "register",
                         errLi,
                         name,
@@ -170,7 +170,7 @@ const register = () => {
                     }
                     else {
                         errLi.bot = true;
-                        res.render(`${res.locals.language}/account.ejs`, {
+                        res.render("account.ejs", {
                                 type: "register",
                                 errLi,
                                 name,

@@ -79,7 +79,7 @@ const signin = () => {
                 `);
             }
             else {
-                res.render(`${res.locals.language}/account.ejs`, {
+                res.render("account.ejs", {
                     type: "signin",
                     errLi,
                     name,

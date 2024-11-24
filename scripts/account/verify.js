@@ -7,9 +7,18 @@ const verify = () => {
     const from = `Mamestagram Support <${sakuraMail}>`;
     let email, errLi, mailOptions, name, to, code, key, contents, time, user;
 
+    modules.app.get("/verify", (req, res) => {
+        if (req.query.key !== undefined) {
+
+        }
+        else {
+
+        }
+    });
+
     modules.app.post("/verify",
         (req, res, next) => {
-            if (req.query.key === undefined) {
+            if (req.body.code === undefined) {
                 if (!res.locals.isLoggedIn) {
                     email = req.body.email;
                     errLi = { username: [], email: [], password: [], hf: false, bot: false };
@@ -20,10 +29,6 @@ const verify = () => {
                                 setTimeout(connectMysql, 100);
                             }
                             else {
-                                name = "ばっしぃー";
-                                to = email;
-                                next();
-                                /*
                                 const process = async () => {
                                     try {
                                         user = await mysql.query(
@@ -69,7 +74,6 @@ const verify = () => {
                                     }
                                 }
                                 process();
-                                */
                             }
                         });
                     }
@@ -117,7 +121,7 @@ const verify = () => {
             }
         },
         (req, res, next) => {
-            if (req.query.key === undefined) {
+            if (req.body.code === undefined) {
                 code = modules.crypto.randomBytes(8).toString("base64"); // 認証コード
                 key = modules.crypto.createHash("sha512").update(code).digest("base64"); // 認証キー
                 contents = modules.sakuraMail.contents(name, code, key, res.locals.language);
@@ -127,22 +131,41 @@ const verify = () => {
                     subject: contents.title,
                     html: contents.body,
                 };
-                modules.sakuraMail.transporter.sendMail(mailOptions, (err, info) => {
-                    if (err) {
-                        console.error(err);
-                    }
-                    else {
+                modules.sakuraMail.transporter.sendMail(mailOptions)
+                    .then((info) => {
                         console.log(info);
-                    }
-                    res.redirect("/");
-                });
+                        req.session.code = code;
+                        req.session.key = key;
+                        time = 0;
+                        const timer = setInterval(() => {
+                            if (++time >= 5 * 60) {
+                                delete req.session.code;
+                                delete req.session.key;
+                                clearInterval(timer);
+                            }
+                        }, 1000)
+                        res.redirect("/signin");
+                    })
+                    .catch((err) => {
+                        modules.utils.writeError(req, res, modules.utils.getErrorContent(pageName, err), subDomain);
+                    });
             }
             else {
-                next();
+                 next();
             }
         },
         (req, res) => {
+            if (req.session.code !== undefined) {
+                if (req.body.code === req.session.key) {
 
+                }
+                else {
+
+                }
+            }
+            else {
+
+            }
         }
     );
 }

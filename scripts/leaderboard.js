@@ -145,7 +145,7 @@ const leaderboard = () => {
                                     query,
                                     args
                                 );
-                                res.render(`${res.locals.language}/leaderboard.ejs`, {
+                                res.render("leaderboard.ejs", {
                                         ranking,
                                     },
                                     (error, ejs) => {

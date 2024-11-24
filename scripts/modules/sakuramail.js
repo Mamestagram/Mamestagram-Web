@@ -9,8 +9,6 @@ const transporter = nodemailer.createTransport({
         user: sakuraMail,
         pass: sakuraMailPass
     },
-    logger: true,
-    debug: true
 });
 const contents = (name, code, key, lang) => {
     const signature =
