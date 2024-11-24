@@ -30,7 +30,10 @@
             </li>
             <% if (isLoggedIn) { %>
                 <li class="user-avatar">
-                    <img src="https://a.mamesosu.net/<%= userid %>?<%= currentTime %>" loading="lazy" alt="" />
+                    <a class="tooltip-element down" href="/">
+                        <img src="https://a.mamesosu.net/<%= userid %>?<%= currentTime %>" loading="lazy" alt="" />
+                        <p class="tooltip"><%= username %></p>
+                    </a>
                 </li>
             <% } else { %>
                 <li class="register">

@@ -19,46 +19,46 @@
             <div class="list first-guides">
                 <div class="border">
                     <% if (!isLoggedIn) { %>
-                        <h1>We're a pleasure to see you! How can I help you?</h1>
+                        <h1><%= contents.text[1].not_logged_in %></h1>
                         <ul class="guides">
                             <li class="register">
                                 <a href="/account?class=register">
                                     <i class="fa-duotone fa-solid fa-square-plus"></i>
-                                    Register
+                                    <%= contents.text[2].register %>
                                 </a>
                             </li>
                             <li class="signin">
                                 <a href="/account?class=signin">
                                     <i class="fa-duotone fa-solid fa-right-to-bracket"></i>
-                                    Sign in
+                                    <%= contents.text[2].signin %>
                                 </a>
                             </li>
                             <li class="connection">
                                 <a href="/">
                                     <i class="fa-duotone fa-solid fa-book"></i>
-                                    Connection guide
+                                    <%= contents.text[2].connection %>
                                 </a>
                             </li>
                         </ul>
                     <% } else { %>
-                        <h1>Welcome back, <%= username %>. Have fun!</h1>
+                        <h1><%- contents.text[1].logged_in %></h1>
                         <ul class="guides">
                             <li class="connection">
                                 <a href="/">
                                     <i class="fa-duotone fa-solid fa-book"></i>
-                                    Connection guide
+                                    <%= contents.text[2].connection %>
                                 </a>
                             </li>
                             <li class="leaderboard">
                                 <a href="/leaderboard">
                                     <i class="fa-duotone fa-solid fa-bars"></i>
-                                    Leaderboard
+                                    <%= contents.text[2].leaderboard %>
                                 </a>
                             </li>
                             <li class="profile">
                                 <a href="/">
                                     <i class="fa-duotone fa-solid fa-address-card"></i>
-                                    Profile
+                                    <%= contents.text[2].profile %>
                                 </a>
                             </li>
                         </ul>

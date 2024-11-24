@@ -26,7 +26,7 @@ const signin = () => {
                                 user = await mysql.query(
                                     connection,
                                     `
-                                        SELECT u.id, country, timezone, language, preferred_mode, set_badge, pw_bcrypt
+                                        SELECT u.id, name, country, timezone, language, preferred_mode, set_badge, pw_bcrypt
                                         FROM users u
                                         JOIN timezone tz
                                         ON country = code
@@ -64,7 +64,7 @@ const signin = () => {
         (req, res) => {
             if (errLi.username.length <= 0 && errLi.password.length <= 0) {
                 req.session.userid = user[0].id;
-                req.session.username = name;
+                req.session.username = user[0].name;
                 req.session.country = user[0].country;
                 req.session.timeZone = user[0].timezone;
                 req.session.favMode = user[0].preferred_mode;
