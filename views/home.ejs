@@ -1,7 +1,7 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="<%= language %>">
     <head>
-        <title>Dashboard | Mamestagram</title>
+        <title><%= contents.title %> | Mamestagram</title>
         <%- include("references/head") %>
         <link rel="stylesheet" href="/css/home.css?<%= currentTime %>" />
         <link rel="stylesheet" href="/css/common/odometer-theme-minimal.css?<%= currentTime %>" />
@@ -11,20 +11,15 @@
         <%- include("references/header") %>
         <div class="banner">
             <div class="server-bg"></div>
-            <h1>Home Page</h1>
+            <h1><%= contents.pageName %></h1>
         </div>
         <main>
             <h1><img src="/images/mamesosu.webp?<%= currentTime %>" /></h1>
-            <p class="description">
-                Welcome to <span>Mamestagram</span>! This is an private osu! server that display scores<br>
-                that are not ranked on official servers such as <strong>Relax</strong> and <strong>AutoPilot</strong>.<br>
-                We have <strong>Dan Certifications</strong> in all game modes that allows you to measure your skill level.<br>
-                Also, we have a <a class="an-tab" href="/discord" target="_blank" rel="noopener noreferrer">Discord</a> server so please join us as we provide you with a variety of information!
-            </p>
+            <p class="description"><%- contents.text[0] %></p>
             <div class="list first-guides">
                 <div class="border">
                     <% if (!isLoggedIn) { %>
-                        <h1>We're pleasure to see you! How can I help you?</h1>
+                        <h1>We're a pleasure to see you! How can I help you?</h1>
                         <ul class="guides">
                             <li class="register">
                                 <a href="/account?class=register">

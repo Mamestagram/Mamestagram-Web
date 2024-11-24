@@ -45,7 +45,6 @@ const account = () => {
                     subDomain += "&settings";
                     break;
             }
-
             res.render("account.ejs", {
                     type: req.query.class,
                     errLi: { username: [], email: [], hf: false, bot: false },

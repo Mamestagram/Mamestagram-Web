@@ -1,31 +1,33 @@
 const modules = require("./modules");
-const functions = require("./modules/functions");
 const mysql = require("./modules/mysql");
+const functions = require("./modules/functions");
 
 const leaderboard = () => {
-    modules.app.get("/leaderboard", (req, res) => {
-        res.redirect(`/leaderboard/${functions.modeName(res.locals.favMode)}/performance`);
+    const pageName = "Leaderboard", subDomain = "leaderboard";
+    let modeNum, sort, page, ranking, query, args = [];
+
+    modules.app.get(`/${subDomain}`, (req, res) => {
+        res.redirect(`/${subDomain}/${functions.modeName(res.locals.favMode)}/performance`);
     });
-    modules.app.get("/leaderboard/:mode/:sort",
+    modules.app.get(`/${subDomain}/:mode/:sort`,
         (req, res, next) => {
-            if (req.params.mode !== "std" && req.params.mode !== "taiko" && req.params.mode !== "ctb" && req.params.mode !== "mania" && req.params.mode !== "rxstd" && req.params.mode !== "rxtaiko" && req.params.mode !== "rxctb" && req.params.mode !== "apstd") {
-                res.redirect(`/leaderboard/${functions.modeName(res.locals.favMode)}/${req.params.sort}`);
+            modeNum = modules.utils.getModeNum(req.params.mode);
+            sort = modules.utils.getSortName(req.params.sort);
+            page = req.query.page !== undefined ? Number(req.query.page) : 1;
+            if (modeNum === null) {
+                res.redirect(`/${subDomain}/${functions.modeName(res.locals.favMode)}/${req.params.sort}`);
             }
-            else if (req.params.sort !== "accuracy" && req.params.sort !== "playcount" && req.params.sort !== "performance" && req.params.sort !== "score" && req.params.sort !== "dans") {
-                res.redirect(`/leaderboard/${req.params.mode}/pp`);
+            else if (sort === null) {
+                res.redirect(`/${subDomain}/${req.params.mode}/pp`);
             }
-            else if (req.query.page !== undefined && req.query.page <= 0) {
-                res.redirect(`/leaderboard/${req.params.mode}/${req.params.sort}`);
+            else if (page <= 0) {
+                res.redirect(`/${subDomain}/${req.params.mode}/${req.params.sort}`);
             }
             else {
                 next();
             }
         },
-        (req, res) => {
-            const pageName = "Leaderboard", subDomain = "leaderboard";
-            const modeNum = modules.utils.getModeNum(req.params.mode), sort = modules.utils.getSortName(req.params.sort), page = req.query.page ? Number(req.query.page) : 1;
-            let query, args = [];
-
+        (req, res, next) => {
             const connectMysql = () => {
                 mysql.pool.getConnection((err, connection) => {
                     if (err) {
@@ -140,23 +142,10 @@ const leaderboard = () => {
 
                                     }
                                 }
-                                const ranking = await mysql.query(
+                                ranking = await mysql.query(
                                     connection,
                                     query,
                                     args
-                                );
-                                res.render("leaderboard.ejs", {
-                                        ranking,
-                                    },
-                                    (error, ejs) => {
-                                        if (error) {
-                                            modules.utils.writeError(req, res, modules.utils.getErrorContent(pageName, error), subDomain);
-                                        }
-                                        else {
-                                            modules.utils.writeLog(req, res, "GET", subDomain);
-                                            res.send(ejs);
-                                        }
-                                    }
                                 );
                             }
                             catch (error) {
@@ -164,6 +153,7 @@ const leaderboard = () => {
                             }
                             finally {
                                 connection.release();
+                                next();
                             }
                         }
                         process();
@@ -171,6 +161,21 @@ const leaderboard = () => {
                 });
             }
             connectMysql();
+        },
+        (req, res) => {
+            res.render("leaderboard.ejs", {
+                    ranking,
+                },
+                (error, ejs) => {
+                    if (error) {
+                        modules.utils.writeError(req, res, modules.utils.getErrorContent(pageName, error), subDomain);
+                    }
+                    else {
+                        modules.utils.writeLog(req, res, "GET", subDomain);
+                        res.send(ejs);
+                    }
+                }
+            );
         }
     );
 }

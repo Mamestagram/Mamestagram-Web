@@ -102,6 +102,7 @@ const getModeNum = (modeName) => {
         case "rxtaiko": return 5;
         case "rxctb": return 6;
         case "apstd": return 8;
+        default: return null;
     }
 }
 
@@ -119,6 +120,7 @@ const getSortName = (sort) => {
         case "performance": return "pp";
         case "score": return "rscore";
         case "dans": return "dans";
+        default: return null;
     }
 }
 

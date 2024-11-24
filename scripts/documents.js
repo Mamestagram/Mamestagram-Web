@@ -4,7 +4,7 @@ const functions = require("./modules/functions");
 const documents = () => {
     const pageName = "Documents", subDomain = "documents";
 
-    modules.app.get("/documents", (req, res) => {
+    modules.app.get(`/${subDomain}`, (req, res) => {
         res.render("documents.ejs",
             {},
             (error, ejs) => {
