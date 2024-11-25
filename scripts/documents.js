@@ -1,12 +1,12 @@
 const modules = require("./modules");
-const functions = require("./modules/functions");
+const contents = require(`./lang/documents`);
 
 const documents = () => {
     const pageName = "Documents", subDomain = "documents";
 
     modules.app.get("/documents", (req, res) => {
-        res.render(`${res.locals.language}/documents.ejs`,
-            {},
+        res.render(`documents.ejs`,
+            { contents: contents[req.session.language] },
             (error, ejs) => {
                 if (error) {
                     modules.utils.writeError(req, res, modules.utils.getErrorContent(pageName, error), subDomain);

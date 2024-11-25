@@ -16,7 +16,7 @@
       </schema-mapping>
       <ssh-properties>
         <enabled>true</enabled>
-        <ssh-config-id>197f7a74-a404-4c1f-beb6-33bb3b4a1e41</ssh-config-id>
+        <ssh-config-id>a93a361e-5b73-44ff-b428-78c5983745da</ssh-config-id>
       </ssh-properties>
     </data-source>
   </component>

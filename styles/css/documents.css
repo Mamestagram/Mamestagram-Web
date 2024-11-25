@@ -44,6 +44,18 @@ main .box ul li{
     list-style: circle;
 }
 
+/* About */
+
+main .about .about-disc a {
+    color: rgb(149, 149, 149);
+    text-decoration: none;
+    transition: .5s;
+}
+
+main .about .about-disc a:hover {
+    color: #fdfdfd;
+}
+
 /* Rules */
 main .box .ruleLists {
     width: 800px;
