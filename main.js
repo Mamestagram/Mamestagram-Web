@@ -111,26 +111,22 @@ modules.app.use((req, res, next) => {
 
 // ログイン情報設定
 modules.app.use((req, res, next) => {
-    if (req.session.userid) {
+    if ((req.session.userid) !== undefined) {
         res.locals.isLoggedIn = true;
         res.locals.userid = req.session.userid;
         res.locals.username = req.session.username;
         res.locals.country = req.session.country;
         res.locals.timeZone = req.session.timeZone;
-        res.locals.favMode = req.session.favMode;
-        res.locals.badge = req.session.badge;
-        res.locals.language = req.session.language;
     }
     else {
         res.locals.isLoggedIn = false;
-        res.locals.userid = null;
-        res.locals.username = null;
-        res.locals.country = null;
-        res.locals.timeZone = null;
-        res.locals.favMode = 0;
-        res.locals.badge = 0;
-        res.locals.language = "en";
+        req.session.favMode = 0;
+        req.session.badge = 0;
+        req.session.language = "en";
     }
+    res.locals.favMode = req.session.favMode;
+    res.locals.badge = req.session.badge;
+    res.locals.language = req.session.language;
     next();
 });
 

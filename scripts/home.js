@@ -71,7 +71,7 @@ const home = () => {
         },
         (req, res) => {
             res.render("home.ejs", {
-                    contents: contents[res.locals.language],
+                    contents: contents[req.session.language],
                     online,
                     total,
                     ppRecords

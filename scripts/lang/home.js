@@ -11,7 +11,10 @@ const contents = {
             `,
             {
                 not_logged_in: "We're a pleasure to see you! How can I help you?",
-                logged_in: `Welcome back, <%= username %>. Have fun!`
+                logged_in: [
+                    "Welcome back, ",
+                    ". Have fun!"
+                ]
             },
             {
                 register: "Register",

@@ -41,7 +41,7 @@
                             </li>
                         </ul>
                     <% } else { %>
-                        <h1><%- contents.text[1].logged_in %></h1>
+                        <h1><%= contents.text[1].logged_in[0] %><%= username %><%= contents.text[1].logged_in[1] %></h1>
                         <ul class="guides">
                             <li class="connection">
                                 <a href="/">
@@ -177,7 +177,7 @@
                                                                 minute: user.minute,
                                                                 second: user.second
                                                             }) %>
-                                                            <p class="tooltip bubble"><%= functions.locationTime(user.play_time, isLoggedIn ? timeZone : "UTC") %></p>
+                                                            <p class="tooltip bubble"><%= functions.locationTime(user.play_time, isLoggedIn ? timeZone : "UTC", isLoggedIn ? language) %></p>
                                                         </span>
                                                     </td>
                                                     <td class="mods">

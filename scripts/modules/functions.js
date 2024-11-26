@@ -49,7 +49,7 @@ const elapsedTime = (time) => {
 
 // タイムゾーン別の時間取得（引数timeはDate型）
 const locationTime = (time, timezone, lang) => {
-    const locationTime = time.toLocaleString("en-US", {
+    return time.toLocaleString("en-US", {
         year: "numeric",
         month: "short",
         day: "numeric",
@@ -60,7 +60,6 @@ const locationTime = (time, timezone, lang) => {
         timeZoneName: "short",
         language: lang
     });
-    return locationTime;
 }
 
 // モッド（配列）取得
