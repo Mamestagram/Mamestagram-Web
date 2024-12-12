@@ -4,6 +4,8 @@ const modules = require("./scripts/modules");
 const mysql = require("./scripts/modules/mysql");
 const functions = require("./scripts/modules/functions");
 
+const headerContents = require("./scripts/lang/header");
+
 const home = require("./scripts/home");
 const leaderboard = require("./scripts/leaderboard");
 const documents = require("./scripts/documents");
@@ -111,7 +113,7 @@ modules.app.use((req, res, next) => {
 
 // ログイン情報設定
 modules.app.use((req, res, next) => {
-    if ((req.session.userid) !== undefined) {
+    if (req.session.userid !== undefined) {
         res.locals.isLoggedIn = true;
         res.locals.userid = req.session.userid;
         res.locals.username = req.session.username;
@@ -127,6 +129,7 @@ modules.app.use((req, res, next) => {
     res.locals.favMode = req.session.favMode;
     res.locals.badge = req.session.badge;
     res.locals.language = req.session.language;
+    res.locals.headerContents = headerContents[req.session.language];
     next();
 });
 

@@ -4,25 +4,25 @@
             <a href="/">
                 <img class="logo" src="/images/logo.webp?<%= currentTime %>" />
             </a>
-            <p class="tooltip">Home Page</p>
+            <p class="tooltip"><%= headerContents.home %></p>
         </span>
         <ul class="link-menu">
             <li class="beatmaps">
-                <a href="/">Beatmaps</a>
+                <a href="/"><%= headerContents.maplist %></a>
             </li>
             <li class="leaderboard">
-                <a href="/leaderboard">Leaderboard</a>
+                <a href="/leaderboard"><%= headerContents.leaderboard %></a>
             </li>
             <li class="documents">
-                <a href="/documents">Documents</a>
+                <a href="/documents"><%= headerContents.docs %></a>
             </li>
             <li class="discord">
-                <a class="an-tab" href="/discord" target="_blank" rel="noopener noreferrer">Discord</a>
+                <a class="an-tab" href="/discord" target="_blank" rel="noopener noreferrer"><%= headerContents.discord %></a>
             </li>
             <li class="donation">
                 <span class="tooltip-element down">
                     <a href="/"><i class="fa-solid fa-heart"></i></a>
-                    <p class="tooltip">Support us!</p>
+                    <p class="tooltip"><%= headerContents.donation %></p>
                 </span>
             </li>
             <li class="search">
@@ -37,10 +37,10 @@
                 </li>
             <% } else { %>
                 <li class="register">
-                    <a href="/account?class=register">Register</a>
+                    <a href="/account?class=register"><%= headerContents.register %></a>
                 </li>
                 <li class="signin">
-                    <a href="/account?class=signin">Sign in</a>
+                    <a href="/account?class=signin"><%= headerContents.signin %></a>
                 </li>
             <% } %>
         </ul>

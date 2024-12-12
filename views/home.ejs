@@ -15,50 +15,50 @@
         </div>
         <main>
             <h1><img src="/images/mamesosu.webp?<%= currentTime %>" /></h1>
-            <p class="description"><%- contents.text[0] %></p>
+            <p class="description"><%- contents.text.description %></p>
             <div class="list first-guides">
                 <div class="border">
                     <% if (!isLoggedIn) { %>
-                        <h1><%= contents.text[1].not_logged_in %></h1>
+                        <h1><%= contents.text.greetings.not_logged_in %></h1>
                         <ul class="guides">
                             <li class="register">
                                 <a href="/account?class=register">
                                     <i class="fa-duotone fa-solid fa-square-plus"></i>
-                                    <%= contents.text[2].register %>
+                                    <%= contents.text.menu.register %>
                                 </a>
                             </li>
                             <li class="signin">
                                 <a href="/account?class=signin">
                                     <i class="fa-duotone fa-solid fa-right-to-bracket"></i>
-                                    <%= contents.text[2].signin %>
+                                    <%= contents.text.menu.signin %>
                                 </a>
                             </li>
                             <li class="connection">
                                 <a href="/">
                                     <i class="fa-duotone fa-solid fa-book"></i>
-                                    <%= contents.text[2].connection %>
+                                    <%= contents.text.menu.connection %>
                                 </a>
                             </li>
                         </ul>
                     <% } else { %>
-                        <h1><%= contents.text[1].logged_in[0] %><%= username %><%= contents.text[1].logged_in[1] %></h1>
+                        <h1><%= contents.text.greetings.logged_in[0] %><%= username %><%= contents.text.greetings.logged_in[1] %></h1>
                         <ul class="guides">
                             <li class="connection">
                                 <a href="/">
                                     <i class="fa-duotone fa-solid fa-book"></i>
-                                    <%= contents.text[2].connection %>
+                                    <%= contents.text.menu.connection %>
                                 </a>
                             </li>
                             <li class="leaderboard">
                                 <a href="/leaderboard">
                                     <i class="fa-duotone fa-solid fa-bars"></i>
-                                    <%= contents.text[2].leaderboard %>
+                                    <%= contents.text.menu.leaderboard %>
                                 </a>
                             </li>
                             <li class="profile">
                                 <a href="/">
                                     <i class="fa-duotone fa-solid fa-address-card"></i>
-                                    <%= contents.text[2].profile %>
+                                    <%= contents.text.menu.profile %>
                                 </a>
                             </li>
                         </ul>
@@ -68,7 +68,7 @@
             <div class="list users">
                 <h2>
                     <i class="fa-duotone fa-solid fa-chart-mixed"></i>
-                    <p>Server Status</p>
+                    <span><%= contents.text.h2[0] %></span>
                 </h2>
                 <div class="server-st">
                     <div class="player-wrap current">
@@ -84,7 +84,7 @@
             <div class="list pp-record-user">
                 <h2>
                     <i class="fa-duotone fa-solid fa-ranking-star"></i>
-                    <p>PP Records</p>
+                    <span><%= contents.text.h2[1] %></span>
                 </h2>
                 <div class="boxes">
                     <% let user; %>
@@ -114,9 +114,9 @@
                                         <div class="tables">
                                             <table class="t1">
                                                 <tr>
-                                                    <th>Total Score</th>
-                                                    <th>Accuracy</th>
-                                                    <th>Max Combo</th>
+                                                    <th><%= contents.text.t1.tScore %></th>
+                                                    <th><%= contents.text.t1.acc %></th>
+                                                    <th><%= contents.text.t1.MaxCmb %></th>
                                                 </tr>
                                                 <tr>
                                                     <td><%= user.score.toLocaleString() %></td>
@@ -144,10 +144,10 @@
                                                         <th>Good</th>
                                                         <th>Bad</th>
                                                     <% } %>
-                                                    <th>Miss</th>
-                                                    <th>Time</th>
+                                                    <th><%= contents.text.t2.miss %></th>
+                                                    <th><%= contents.text.t2.time %></th>
                                                     <th>
-                                                        <span style="width: <%= 45 * functions.mods(user.mods).length %>px;">Mods</span>
+                                                        <span style="width: <%= 45 * functions.mods(user.mods).length %>px;"><%= contents.text.t2.mods %></span>
                                                     </th>
                                                 </tr>
                                                 <tr>
@@ -177,7 +177,7 @@
                                                                 minute: user.minute,
                                                                 second: user.second
                                                             }) %>
-                                                            <p class="tooltip bubble"><%= functions.locationTime(user.play_time, isLoggedIn ? timeZone : "UTC", isLoggedIn ? language) %></p>
+                                                            <p class="tooltip bubble"><%= functions.locationTime(user.play_time, isLoggedIn ? timeZone : "UTC", language) %></p>
                                                         </span>
                                                     </td>
                                                     <td class="mods">
@@ -229,9 +229,9 @@
                                             <div class="tables">
                                                 <table class="t1">
                                                     <tr>
-                                                        <th>Total Score</th>
-                                                        <th>Accuracy</th>
-                                                        <th>Max Combo</th>
+                                                        <th><%= contents.text.t1.tScore %></th>
+                                                        <th><%= contents.text.t1.acc %></th>
+                                                        <th><%= contents.text.t1.MaxCmb %></th>
                                                     </tr>
                                                     <tr>
                                                         <td><%= user.score.toLocaleString() %></td>
@@ -259,10 +259,10 @@
                                                             <th>Good</th>
                                                             <th>Bad</th>
                                                         <% } %>
-                                                        <th>Miss</th>
-                                                        <th>Time</th>
+                                                        <th><%= contents.text.t2.miss %></th>
+                                                        <th><%= contents.text.t2.time %></th>
                                                         <th>
-                                                            <span style="width: <%= 45 * functions.mods(user.mods).length %>px;">Mods</span>
+                                                            <span style="width: <%= 45 * functions.mods(user.mods).length %>px;"><%= contents.text.t2.mods %></span>
                                                         </th>
                                                     </tr>
                                                     <tr>
@@ -344,9 +344,9 @@
                                     <div class="tables">
                                         <table class="t1">
                                             <tr>
-                                                <th>Total Score</th>
-                                                <th>Accuracy</th>
-                                                <th>Max Combo</th>
+                                                <th><%= contents.text.t1.tScore %></th>
+                                                <th><%= contents.text.t1.acc %></th>
+                                                <th><%= contents.text.t1.MaxCmb %></th>
                                             </tr>
                                             <tr>
                                                 <td><%= user.score.toLocaleString() %></td>
@@ -359,10 +359,10 @@
                                                 <th>300</th>
                                                 <th>100</th>
                                                 <th>50</th>
-                                                <th>Miss</th>
-                                                <th>Time</th>
+                                                <th><%= contents.text.t2.miss %></th>
+                                                <th><%= contents.text.t2.time %></th>
                                                 <th>
-                                                    <span style="width: <%= 45 * functions.mods(user.mods).length %>px;">Mods</span>
+                                                    <span style="width: <%= 45 * functions.mods(user.mods).length %>px;"><%= contents.text.t2.mods %></span>
                                                 </th>
                                             </tr>
                                             <tr>

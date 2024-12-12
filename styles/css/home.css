@@ -37,7 +37,7 @@ main h2 {
     align-items: center;
 }
 
-main h2 p {
+main h2 span {
     background-image: url("../images/logo.webp");
     background-repeat: no-repeat;
     background-position: center 20%;

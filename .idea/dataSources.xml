@@ -8,5 +8,12 @@
       <jdbc-url>jdbc:mysql://localhost/MamestaServer</jdbc-url>
       <working-dir>$ProjectFileDir$</working-dir>
     </data-source>
+    <data-source source="LOCAL" name="Mamestagram Test Database" uuid="d622d1c8-5d54-4282-8b47-63fa1d0b8fa6">
+      <driver-ref>mysql.8</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>com.mysql.cj.jdbc.Driver</jdbc-driver>
+      <jdbc-url>jdbc:mysql://localhost/MamestaServer</jdbc-url>
+      <working-dir>$ProjectFileDir$</working-dir>
+    </data-source>
   </component>
 </project>

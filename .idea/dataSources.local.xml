@@ -19,5 +19,24 @@
         <ssh-config-id>197f7a74-a404-4c1f-beb6-33bb3b4a1e41</ssh-config-id>
       </ssh-properties>
     </data-source>
+    <data-source name="Mamestagram Test Database" uuid="d622d1c8-5d54-4282-8b47-63fa1d0b8fa6">
+      <database-info product="MySQL" version="8.0.40-0ubuntu0.22.04.1" jdbc-version="4.2" driver-name="MySQL Connector/J" driver-version="mysql-connector-j-8.2.0 (Revision: 06a1f724497fd81c6a659131fda822c9e5085b6c)" dbms="MYSQL" exact-version="8.0.40" exact-driver-version="8.2">
+        <extra-name-characters>#@</extra-name-characters>
+        <identifier-quote-string>`</identifier-quote-string>
+        <jdbc-catalog-is-schema>true</jdbc-catalog-is-schema>
+      </database-info>
+      <case-sensitivity plain-identifiers="exact" quoted-identifiers="exact" />
+      <secret-storage>master_key</secret-storage>
+      <user-name>mames1basshhii0610</user-name>
+      <schema-mapping>
+        <introspection-scope>
+          <node kind="schema" negative="1" />
+        </introspection-scope>
+      </schema-mapping>
+      <ssh-properties>
+        <enabled>true</enabled>
+        <ssh-config-id>01d4e844-fb16-44e2-9288-f48370c737ab</ssh-config-id>
+      </ssh-properties>
+    </data-source>
   </component>
 </project>
