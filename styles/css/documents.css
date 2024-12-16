@@ -2,6 +2,8 @@ main {
     height: auto;
     background-color: #1c1c1c;
     font-size: 16px;
+    position: relative;
+    top: 25px;
 }
 main h1 {
     font-family: "Potta One";
@@ -100,4 +102,139 @@ main .connect ul li button:hover .mouse-over {
 main .connect ul li input {
     width: 210px;
     text-decoration: underline;
+}
+
+/* dan */
+
+.dan p {
+    font-size: 14px;
+    padding: 5px;
+}
+
+.dan p a {
+    background-color: #3c4270;
+    color: #c0cde9;
+    padding: 0 3px;
+    margin-top: 5px;
+    border-radius: 5px;
+}
+
+.dan .overview {
+    padding: 20px 10px 50px 10px;
+}
+
+.dan .overview a {
+    background-color: #3c4270;
+    color: #c0cde9;
+    padding: 0 3px;
+    border-radius: 5px;
+}
+.dan .overview a:hover {
+    background-color: #5865f2;
+    color: #f4fffe;
+    text-decoration: underline;
+}
+
+.dan .download-dan {
+    padding: 0 10px 30px 10px;
+}
+
+.dan .download-dan a {
+    font-size: 16px;
+    opacity: 0.6;
+}
+.dan .download-dan a:hover {
+    opacity: 1;
+    text-decoration: underline;
+}
+
+.dan .nav {
+    display: flex;
+    padding: 20px;
+    justify-content: center;
+}
+
+.dan .nav li {
+    color: rgb(125, 181, 255);
+    padding: 0 20px;
+    list-style: none;
+}
+.dan .nav li:hover {
+    color: #e0d6b8;
+    text-decoration: underline;
+}
+
+.dan h2 {
+    font-size: 24px;
+    padding-bottom: 10px;
+}
+
+.dan .mode li {
+    width: 930px;
+    padding-bottom: 50px;
+    margin: 0 auto;
+    scroll-margin-top: 100px;
+    list-style: none;
+}
+
+.dan .mode li a {
+    font-size: 14px;
+    margin: 0 5px;
+    opacity: 0.6;
+    transition: .5s;
+}
+.dan .mode li a:hover {
+    opacity: 1;
+    text-decoration: underline;
+}
+
+.dan .mode li table {
+    background-color: rgba(125, 181, 255, 0.15);
+    width: 850px;
+    border: 3px solid black;
+    border-radius: 2px;
+    margin: 0 auto;
+}
+
+.dan .mode li table th {
+    font-weight: normal;
+    padding: 10px 0;
+    border-right: 1px solid black;
+    border-bottom: 2px double black;
+    text-align: center;
+    vertical-align: middle;
+    text-shadow: 2px 2px 2px black;
+}
+
+.dan .mode li table td {
+    padding: 5px 0;
+    border-right: 1px solid black;
+    border-bottom: 1px solid black;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.dan .mode li table .rainbow {
+    font-weight: bold;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: 2s rainbow linear infinite;
+}
+@keyframes rainbow {
+    0% { background-color: #e60000; }
+    14% { background-color: #f39800; }
+    28% { background-color: #fff100; }
+    42% { background-color: #009944; }
+    56% { background-color: #0068b7; }
+    70% { background-color: #1d2088; }
+    85% { background-color: #920783; }
+    100% { background-color: #e60000; }
+}
+
+.dan .mode li table td .minus {
+    color: #dc143c;
+}
+
+.dan .mode li table td .plus {
+    color: #4682b4;
 }
