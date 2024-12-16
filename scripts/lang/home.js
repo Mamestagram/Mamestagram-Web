@@ -35,8 +35,7 @@ const contents = {
             },
             t2: {
                 miss: "Miss",
-                time: "Time",
-                mods: "Mods"
+                time: "Time"
             }
         }
     },
@@ -54,8 +53,8 @@ const contents = {
             greetings: {
                 not_logged_in: "初めまして!何かお手伝いできることはありますか?",
                 logged_in: [
-                    "お帰りなさい、",
-                    "さん。どうぞ楽しんで!"
+                    "おかえりなさい、",
+                    "さん!"
                 ]
             },
             menu: {
@@ -70,14 +69,13 @@ const contents = {
                 "トッププレイヤー"
             ],
             t1: {
-                tScore: "合計スコア",
+                tScore: "スコア",
                 acc: "精度",
                 MaxCmb: "最大コンボ"
             },
             t2: {
                 miss: "ミス数",
-                time: "時間",
-                mods: "モッド"
+                time: "時間"
             }
         }
     }

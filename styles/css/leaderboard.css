@@ -1,0 +1,43 @@
+.selection {
+    display: inline-flex;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 50px;
+    padding: 5px;
+    justify-content: center;
+    flex-direction: column;
+    transition: background-color 300ms, width 300ms;
+}
+.selection:hover {
+    background-color: #345c84;
+    width: 130px;
+}
+
+.selection .dans-icon, .selection .mode-icon {
+    display: block;
+    font-size: 24px;
+    height: 40px;
+    line-height: 40px;
+    width: 40px;
+    text-align: center;
+}
+
+.selection a, .selection p {
+    display: inline-flex;
+    align-items: center;
+}
+
+.selection .name {
+    margin-left: 5px;
+    transform: scaleX(0);
+    transform-origin: left;
+    opacity: 0;
+    transition: transform 300ms, opacity 300ms;
+    white-space: nowrap;
+}
+.selection:hover .name {
+    transform: scaleX(1);
+    opacity: 1;
+}

@@ -1,20 +1,178 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <title>Leaderboard | Mamestagram</title>
+        <title><%= contents.title %> | Mamestagram</title>
         <%- include("references/head") %>
+        <link rel="stylesheet" href="/css/leaderboard.css?<%= currentTime %>" />
     </head>
     <body>
         <%- include("references/loading") %>
         <%- include("references/header") %>
         <div class="banner">
             <div class="server-bg"></div>
-            <h1>Leaderboard</h1>
+            <h1><%= contents.pageName %></h1>
         </div>
         <main>
-
+            <aside class="selection">
+                <div class="special">
+                    <%
+                    let modeName;
+                    switch (modeNum % 4) {
+                        case 0:
+                            modeName = "std"
+                            break;
+                        case 1:
+                            modeName = "taiko"
+                            break;
+                        case 2:
+                            modeName = "ctb";
+                            break;
+                        case 3:
+                            modeName = "mania";
+                            break;
+                    }
+                    %>
+                    <p class="list-title">
+                        <% if (sort === "dans") { %>
+                            <span class="dans-icon">
+                                <i class="fa-duotone fa-regular fa-file-certificate"></i>
+                            </span>
+                            <span class="name">Dans</span>
+                        <% } else if (modeNum >= 0 && modeNum < 4) { %>
+                            <span class="mod-icon nm">
+                                <i class="mod-icon-nm fa-solid fa-ban"></i>
+                            </span>
+                            <span class="name">Vanilla</span>
+                        <% } else if (modeNum < 8) { %>
+                            <span class="mod-icon rx">
+                                <i class="mod-icon-rx fa-duotone fa-solid fa-martini-glass-citrus"></i>
+                            </span>
+                            <span class="name">Relax</span>
+                        <% } else { %>
+                            <span class="mod-icon ap">
+                                <i class="mod-icon-ap fa-duotone fa-solid fa-plane"></i>
+                            </span>
+                            <span class="name">Auto Pilot</span>
+                        <% } %>
+                    </p>
+                    <ul class="dropdown">
+                        <li>
+                            <a href="/leaderboard/<%= modeName %>/<%= sort !== "dans" ? sort : "performance" %><%= selectedCountry !== "all" ? `?country=${selectedCountry}` : "" %><%= clan ? "?clan" : "" %>">
+                                <span class="mod-icon nm">
+                                    <i class="mod-icon-nm fa-solid fa-ban"></i>
+                                </span>
+                                <span class="name">Vanilla</span>
+                            </a>
+                        </li>
+                        <li>
+                            <% if (modeName !== "mania") { %>
+                                <a href="/leaderboard/rx<%= modeName %>/<%= sort !== "dans" ? sort : "performance" %><%= selectedCountry !== "all" ? `?country=${selectedCountry}` : "" %><%= clan ? "?clan" : "" %>">
+                                    <span class="mod-icon rx">
+                                        <i class="mod-icon-rx fa-duotone fa-solid fa-martini-glass-citrus"></i>
+                                    </span>
+                                    <span class="name">Relax</span>
+                                </a>
+                            <% } else { %>
+                                <p class="unavailable">
+                                    <span class="mod-icon rx">
+                                        <i class="mod-icon-rx fa-duotone fa-solid fa-martini-glass-citrus"></i>
+                                    </span>
+                                    <span class="name">Relax</span>
+                                </p>
+                            <% } %>
+                        </li>
+                        <li>
+                            <% if (modeName === "std") { %>
+                                <a href="/leaderboard/ap<%= modeName %>/<%= sort !== "dans" ? sort : "performance" %><%= selectedCountry !== "all" ? `?country=${selectedCountry}` : "" %><%= clan ? "?clan" : "" %>">
+                                    <span class="mod-icon ap">
+                                        <i class="mod-icon-ap fa-duotone fa-solid fa-plane"></i>
+                                    </span>
+                                    <span class="name">Auto Pilot</span>
+                                </a>
+                            <% } else { %>
+                                <p class="unavailable">
+                                    <span class="mod-icon ap">
+                                        <i class="mod-icon-ap fa-duotone fa-solid fa-plane"></i>
+                                    </span>
+                                    <span class="name">Auto Pilot</span>
+                                </p>
+                            <% } %>
+                        </li>
+                        <li>
+                            <a href="/leaderboard/<%= modeName %>/dans<%= selectedCountry !== "all" ? `?country=${selectedCountry}` : "" %><%= clan ? "?clan" : "" %>">
+                                <span class="dans-icon">
+                                    <i class="fa-duotone fa-regular fa-file-certificate"></i>
+                                </span>
+                                <span class="name">Dans</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <ul class="mode">
+                    <%
+                    let specialName;
+                    if (modeNum >= 0 && modeNum < 4) {
+                        specialName = "vn!";
+                    }
+                    else if (modeNum < 8) {
+                        modeName = `rx${modeName}`;
+                        specialName = "rx!";
+                    }
+                    else {
+                        modeName = `ap${modeName}`;
+                        specialName = "ap!";
+                    }
+                    %>
+                    <li>
+                        <a href="/leaderboard/<%= modeName %>/<%= sort %><%= selectedCountry !== "all" ? `?country=${selectedCountry}` : "" %><%= clan ? "?clan" : "" %>">
+                            <i class="mode-icon mode-std"></i>
+                            <span class="name"><%= specialName %>std</span>
+                        </a>
+                    </li>
+                    <li>
+                        <% if (specialName !== "ap!") { %>
+                            <a href="/leaderboard/<%= modeName %>/<%= sort %><%= selectedCountry !== "all" ? `?country=${selectedCountry}` : "" %><%= clan ? "?clan" : "" %>">
+                                <i class="mode-icon mode-taiko"></i>
+                                <span class="name"><%= specialName %>taiko</span>
+                            </a>
+                        <% } else { %>
+                            <p class="unavailable">
+                                <i class="mode-icon mode-taiko"></i>
+                                <span class="name">taiko</span>
+                            </p>
+                        <% } %>
+                    </li>
+                    <li>
+                        <% if (specialName !== "ap!") { %>
+                            <a href="/leaderboard/<%= modeName %>/<%= sort %><%= selectedCountry !== "all" ? `?country=${selectedCountry}` : "" %><%= clan ? "?clan" : "" %>">
+                                <i class="mode-icon mode-ctb"></i>
+                                <span class="name"><%= specialName %>ctb</span>
+                            </a>
+                        <% } else { %>
+                            <p class="unavailable">
+                                <i class="mode-icon mode-ctb"></i>
+                                <span class="name">ctb</span>
+                            </p>
+                        <% } %>
+                    </li>
+                    <li>
+                        <% if (specialName === "vn!") { %>
+                            <a href="/leaderboard/<%= modeName %>/<%= sort %><%= selectedCountry !== "all" ? `?country=${selectedCountry}` : "" %><%= clan ? "?clan" : "" %>">
+                                <i class="mode-icon mode-mania"></i>
+                                <span class="name"><%= specialName %>mania</span>
+                            </a>
+                        <% } else { %>
+                            <p class="unavailable">
+                                <i class="mode-icon mode-mania"></i>
+                                <span class="name">mania</span>
+                            </p>
+                        <% } %>
+                    </li>
+                </ul>
+            </aside>
         </main>
         <%- include("references/footer") %>
         <%- include("references/script") %>
+        <script src="/js/leaderboard.js?<%= currentTime %>" defer></script>
     </body>
 </html>

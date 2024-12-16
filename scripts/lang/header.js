@@ -16,10 +16,10 @@ const contents = {
         leaderboard: "ランキング",
         docs: "ドキュメント",
         discord: "Discord",
-        donation: "支援願います!",
+        donation: "寄付",
         search: "検索",
         register: "登録",
         signin: "ログイン"
     }
-}
+};
 module.exports = contents;
